@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
 namespace targil0
 {
     partial class Program
