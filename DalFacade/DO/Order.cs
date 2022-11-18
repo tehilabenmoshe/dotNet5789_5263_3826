@@ -5,10 +5,13 @@ namespace DO;
 public struct Order
 {
     public override string ToString() => $@"
-    Product ID={ID}: {Name}, 
-    category - {Category}
-    	Price: {Price}
-    	Amount in stock: {InStock}
+    Order ID:{ID} 
+    Customer Name:{CustomerName}
+    Customer Email:{CustomerEmail}
+    Customer Adress:{CustomerAdress}
+    Order Date: {OrderDate}
+    Ship Date: {ShipDate}
+    Delivery Date: {DeliveryDate}
     ";
 
     /// <summary>
@@ -16,10 +19,13 @@ public struct Order
     /// </summary>
 
     public int ID { get; set; }
-    public string Name { get; set; }
-    public Category Category { get; set; }
-    public int Price { get; set; }  
-    public int InStock { get; set; }
+    public string CustomerName { get; set; }
+    public string CustomerEmail { get; set; }
+    public string CustomerAdress { get; set; }
+    public DateTime OrderDate { get; set; }
+    public DateTime ShipDate { get; set; }
+    public DateTime DeliveryDate { get; set; }
+
 
 
 }
