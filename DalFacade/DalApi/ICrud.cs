@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DalApi {
+namespace DalApi;
 
     public interface ICrud<T> where T : struct
     {
@@ -13,9 +13,15 @@ namespace DalApi {
         void Delete(int id);
         void Update(T? item);
         IEnumerable<T?> GetAll(); //return object of yeshoot
+
     }
 
-}
+
+  
+
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 ﻿
 
+using DalApi;
 using DO;
 using System.Reflection.Metadata;
 
@@ -16,6 +17,11 @@ namespace Dal;
         internal static int NextOrderNbumber { get => ++SnextOrderNumber; } 
     }
 
+    internal static DataSource s_instance { get; } = new DataSource(); //ניגשים אליו בכל פעם שרוצים לגשת לנתונים כך: DataSource _ds = DataSource.s_instance;
+
+    //private DataSource() => s_Initialize();
+
+    private static readonly Random rand = new Random();
     private void s_Initialize() {
         CreateOrder();
         CreateProduct();
@@ -31,18 +37,28 @@ namespace Dal;
     string[] names = {"Tehila", "Maayan","Shira","Avi","Dani","Nurit","Miryam","Shirel","Tamar","Avraham","Yitzchak","Ivy","Shulamit","Moriya","Yael","Moshe","Yakov","Bibi","Yossi","Mendi", };
     string[] cities = { "Jerusalem", "BeerSheva", "Lod", "Rehovot", "Eilat", "TelAviv", "Hevron", "Tzfat", "Netivot", "Naharia", "Netanya", "Ashkelon", "Ashdod", "Ramla", "KfarSaba", "Efrat", "Elazar", "BetShemesh", "Hulon", "Gadera" };
 
-    private void CreateOrder()//עצרנו פהההההה
+    private void CreateOrder()//סיימתי את זה- צריך לבדוק את הזמנים של התאריכים  
     {
         for (int i = 0,z=1; i < 20; i++,z++)
         {
             Order o = new Order();
-            o.ID = Config.NextOrderNbumber;
+            o.ID = Config.NextOrderNbumber; //create an id
             o.CustomerName = names[i];
             o.CustomerEmail =o.CustomerName+"@gmail.com";//check if works!!!
             o.CustomerAdress = cities[i] + "i+z" + "/" + "z+3";//random adress+city
-            o.OrderDate= DateTime.Now-New TimeSpan(rand.NextInt64(10L * 1000L * 3600L * 24L * 10L));
-            o.ShipDate=
-            o.DeliveryDate=
+            o.OrderDate= DateTime.Now-new TimeSpan(rand.NextInt64(10L * 1000L * 3600L * 24L * 10L)); //date before creating the program
+
+            if (i <= 16) //80% from the ShipOrders after the creation of the OrderDate
+                o.ShipDate = o.OrderDate - new TimeSpan(rand.NextInt64(10L * 1000L * 3600L * 24L * 10L));
+            else
+                o.ShipDate = DateTime.MinValue; //initilize to min value
+
+            if(i<=12) //60% from the shipDate has a Delivery Date
+                o.DeliveryDate= o.ShipDate - new TimeSpan(rand.NextInt64(10L * 1000L * 3600L * 24L * 10));
+            else
+                o.DeliveryDate = DateTime.MinValue; //לבדוק אם צריך!!!!
+
+            ListOrder.Add(o); //adding the new order to the list
         }
 
 
@@ -137,13 +153,14 @@ namespace Dal;
 
     }
 
-    private void CreateOrderItem() {
+    private void CreateOrderItem() { //  לבדוק שוב-את הקוד הזה העתקנו מהמצגת של נורית
         for (int i = 0; i < 10; i++)
         {
             Product? product = ListProduct[rand.Next(ListProduct.Count)];
             ListOrderItem.Add(
               new OrderItem
               {
+                  ID= Config.NextOrderNbumber * 100,
                   OrderID = rand.Next(Config.startOrderNumber, Config.startOrderNumber + ListOrder.Count),
                   ProductID = product?.ID ?? 0,
                   Price = product?.Price ?? 0,
@@ -152,20 +169,10 @@ namespace Dal;
         }
 
     }
-    internal static DataSource s_instance { get; } = new DataSource(); //ניגשים אליו בכל פעם שרוצים לגשת לנתונים כך: DataSource _ds = DataSource.s_instance;
-
-  
-
-    private DataSource() => s_Initialize();
-
-
-    private static readonly Random rand = new Random();
-
-
+   
     internal  List<Product?> ListProduct { get; } = new List<Product?>() { };
 
     internal  List<Order?> ListOrder { get; } = new List<Order?>() { };
-
 
     internal  List<OrderItem?> ListOrderItem { get; } = new List<OrderItem?>() { };
 
