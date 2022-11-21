@@ -28,21 +28,23 @@ internal class DalOrder: IOrder
         if (!ds.ListOrder.Exists(i => i?.ID == o.ID)) //chek if exsist
             throw new Exception("cannot update the product witch not exists");
 
-        Order tempRemove = ds.ListOrder.Find(i => i.ID == o.ID); //מוזר שלא עובד
+        Order? tempRemove = ds.ListOrder.Find(i => i?.ID == o.ID); //מוזר שלא עובד
         ds.ListOrder.Remove(tempRemove); //remove
         ds.ListOrder.Add(o); //adds
 
     }
 
 
-    public Order GetById(int id)
-    {
-      if(ds.ListOrder.FirstOrDefault() != null)
-            throw new Exception("missing order id");
-      else
-            return ds.ListOrder.Find(i => i.ID == id); 
+    public Order GetById(int id) => ds.ListOrder.FirstOrDefault() ?? throw new Exception("missing order id");
+    //{
+    //    //Order temp = ds.ListOrder.Find(i => i.ID == id);
 
-    }
+    //    //if (ds.ListOrder.FirstOrDefault() != null)
+    //    //    throw new Exception("missing order id");
+    //    //else
+    //    //    return temp; 
+
+    //}
 
     public IEnumerable<Order?> GetAll(Func<Order?, bool>? filter) =>
         (filter == null ?

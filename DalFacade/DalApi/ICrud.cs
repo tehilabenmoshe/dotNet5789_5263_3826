@@ -8,11 +8,11 @@ namespace DalApi;
 
     public interface ICrud<T> where T : struct
     {
-        int Add(T? item);
-        T? GetById(int id);
+        int Add(T item);
+        T GetById(int id);
         void Delete(int id);
-        void Update(T? item);
-        IEnumerable<T?> GetAll(); //return object of yeshoot
+        void Update(T item);
+        //IEnumerable<T> GetAll(); //return object of yeshoot
 
     }
 

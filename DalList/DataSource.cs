@@ -7,6 +7,7 @@ using System.Reflection.Metadata;
 namespace Dal;
 
  internal class DataSource
+
 {
     
     internal static class Config
@@ -19,8 +20,10 @@ namespace Dal;
 
     internal static DataSource s_instance { get; } = new DataSource(); //ניגשים אליו בכל פעם שרוצים לגשת לנתונים כך: DataSource _ds = DataSource.s_instance;
 
-    //private DataSource() => s_Initialize();
-
+    private DataSource() //defult ctor
+    {
+        s_Initialize();
+    }
     private static readonly Random rand = new Random();
     private void s_Initialize() {
         CreateOrder();
@@ -29,10 +32,7 @@ namespace Dal;
    }
 
 
-    private DataSource() //defult ctor
-    {
-        s_Initialize();
-    }
+   
 
     string[] names = {"Tehila", "Maayan","Shira","Avi","Dani","Nurit","Miryam","Shirel","Tamar","Avraham","Yitzchak","Ivy","Shulamit","Moriya","Yael","Moshe","Yakov","Bibi","Yossi","Mendi", };
     string[] cities = { "Jerusalem", "BeerSheva", "Lod", "Rehovot", "Eilat", "TelAviv", "Hevron", "Tzfat", "Netivot", "Naharia", "Netanya", "Ashkelon", "Ashdod", "Ramla", "KfarSaba", "Efrat", "Elazar", "BetShemesh", "Hulon", "Gadera" };

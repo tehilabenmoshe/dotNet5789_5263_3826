@@ -14,7 +14,7 @@ public class DalProduct:IProduct
     {
         if (!ds.ListProduct.Exists(i => i?.ID == p.ID))
             throw new Exception("cannot update a product that not exsist");
-        Product tempProduct = ds.ListProduct.Find(i => i.ID == p.ID);
+        Product? tempProduct = ds.ListProduct.Find(i => i?.ID == p.ID);
         ds.ListProduct.Remove(tempProduct); //remove
         ds.ListProduct.Add(p); //adds
     }
