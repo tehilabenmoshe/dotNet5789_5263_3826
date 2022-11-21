@@ -46,12 +46,12 @@ internal class DalOrder: IOrder
 
     //}
 
-    public IEnumerable<Order?> GetAll(Func<Order?, bool>? filter) =>
-        (filter == null ?
-        ds?.ListOrder.Select(item => item) :
-        ds?.ListOrder.Where(filter))
+    //public IEnumerable<Order?> GetAll(Func<Order?, bool>? filter) =>
+    //    (filter == null ?
+    //    ds?.ListOrder.Select(item => item) :
+    //    ds?.ListOrder.Where(filter))
 
-        ?? throw new Exception("Missing order");
+    //    ?? throw new Exception("Missing order");
   
 
 
