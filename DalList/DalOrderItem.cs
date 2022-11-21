@@ -1,9 +1,8 @@
 ﻿
-
-namespace Dal;
 using DalApi;
 using DO;
 
+namespace Dal;
 public class DalOrderItem:IOrderItem
 {
 
@@ -46,12 +45,6 @@ public class DalOrderItem:IOrderItem
     //   ds?.ListOrderItem.Where(filter))
 
     //   ?? throw new Exception("Missing order");
-
-
-
-
-
-
 
 
 

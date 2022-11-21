@@ -35,4 +35,14 @@ public class DalProduct : IProduct
     }
 
     public Product GetById(int id) => ds.ListProduct.FirstOrDefault() ?? throw new Exception("missing product id");
+
+
+    //public IEnumerable<Product?> GetAll(Func<Product?, bool>? filter) =>
+    //(filter == null ?
+    //ds?.ListProduct.Select(item => item) :
+    //ds?.ListProduct.Where(filter))
+
+    //?? throw new Exception("Missing Product");
+
 }
+

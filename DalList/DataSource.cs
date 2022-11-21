@@ -24,7 +24,7 @@ namespace Dal;
     {
         s_Initialize();
     }
-    private static readonly Random rand = new Random();
+    public readonly Random rand = new Random();
     private void s_Initialize() {
         CreateOrder();
         CreateProduct();

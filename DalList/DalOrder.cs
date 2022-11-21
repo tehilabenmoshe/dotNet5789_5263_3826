@@ -3,14 +3,15 @@ using DO;
 
 namespace Dal;
 
-internal class DalOrder: IOrder
+public class DalOrder: IOrder
 {
     DataSource ds = DataSource.s_instance;
     
     public int Add(Order o)
     {
-        if(ds.ListOrder.FirstOrDefault() != null) //if the list empty- retruns value. else-return a value
-            throw new NotImplementedException();
+        Order? temp=ds.ListOrder.Find(i=>i?.ID==o.ID);
+        if(temp!=null) //if the list empty- retruns value. else-return a value
+            throw new Exception("allready exist");
         o.ID = DataSource.Config.NextOrderNbumber;
         ds.ListOrder.Add(o);    //pushing the order to the list
         return o.ID; //return the id of the order
@@ -35,16 +36,16 @@ internal class DalOrder: IOrder
     }
 
 
-    public Order GetById(int id) => ds.ListOrder.FirstOrDefault() ?? throw new Exception("missing order id");
-    //{
-    //    //Order temp = ds.ListOrder.Find(i => i.ID == id);
+    public Order GetById(int id) //=> ds.ListOrder.FirstOrDefault() ?? throw new Exception("missing order id");
+    {
+        Order? temp = ds.ListOrder.Find(i => i?.ID == id);
 
-    //    //if (ds.ListOrder.FirstOrDefault() != null)
-    //    //    throw new Exception("missing order id");
-    //    //else
-    //    //    return temp; 
+        if (temp!=null)
+            throw new Exception("missing order id");
+        else
+            return (Order)temp;
 
-    //}
+    }
 
     //public IEnumerable<Order?> GetAll(Func<Order?, bool>? filter) =>
     //    (filter == null ?
@@ -52,7 +53,7 @@ internal class DalOrder: IOrder
     //    ds?.ListOrder.Where(filter))
 
     //    ?? throw new Exception("Missing order");
-  
+
 
 
 
