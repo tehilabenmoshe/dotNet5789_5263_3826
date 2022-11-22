@@ -12,7 +12,7 @@ namespace DalApi;
         T GetById(int id);
         void Delete(int id);
         void Update(T item);
-        //IEnumerable<T> GetAll(); //return object of yeshoot
+        IEnumerable<T> GetAll(); //return object of yeshoot
 
     }
 

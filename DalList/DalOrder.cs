@@ -9,8 +9,8 @@ public class DalOrder: IOrder
     
     public int Add(Order o)
     {
-        Order? temp=ds.ListOrder.Find(i=>i?.ID==o.ID);
-        if(temp!=null) //if the list empty- retruns value. else-return a value
+        Order? temp = ds.ListOrder.Find(i => i?.ID == o.ID);
+        if (temp != null) //if the list empty- retruns value. else-return a value
             throw new Exception("allready exist");
         o.ID = DataSource.Config.NextOrderNbumber;
         ds.ListOrder.Add(o);    //pushing the order to the list
@@ -29,31 +29,31 @@ public class DalOrder: IOrder
         if (!ds.ListOrder.Exists(i => i?.ID == o.ID)) //chek if exsist
             throw new Exception("cannot update the product witch not exists");
 
-        Order? tempRemove = ds.ListOrder.Find(i => i?.ID == o.ID); //מוזר שלא עובד
+        Order? tempRemove = ds.ListOrder.Find(i => i?.ID == o.ID);
         ds.ListOrder.Remove(tempRemove); //remove
         ds.ListOrder.Add(o); //adds
 
     }
 
-
-    public Order GetById(int id) //=> ds.ListOrder.FirstOrDefault() ?? throw new Exception("missing order id");
+    public Order GetById(int id) 
     {
-        Order? temp = ds.ListOrder.Find(i => i?.ID == id);
 
-        if (temp!=null)
+        if(ds==null)
             throw new Exception("missing order id");
-        else
-            return (Order)temp;
+
+        foreach(Order temp in ds.ListOrder)
+        {
+            if (temp.ID == id)
+                return temp;
+        }
+        throw new Exception("missing order id");
 
     }
 
-    //public IEnumerable<Order?> GetAll(Func<Order?, bool>? filter) =>
-    //    (filter == null ?
-    //    ds?.ListOrder.Select(item => item) :
-    //    ds?.ListOrder.Where(filter))
-
-    //    ?? throw new Exception("Missing order");
-
+    public IEnumerable<Order> GetAll()
+    {
+        return (from Order o in ds.ListOrder select o).ToList<Order>();
+    }
 
 
 

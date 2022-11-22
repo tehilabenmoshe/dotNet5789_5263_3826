@@ -7,8 +7,9 @@ namespace DO;
 public struct Product
 {
     public override string ToString() => $@"
-    Product ID={ID}: {Name}, 
-    category - {Category}
+    Product ID:{ID} 
+    Name: {Name}
+    category: {Category}
     	Price: {Price}
     	Amount in stock: {InStock}
     ";

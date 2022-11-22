@@ -6,10 +6,7 @@ namespace Dal;
 
 public class DalProduct : IProduct
 {
-
-
     DataSource ds = DataSource.s_instance;
-
     public void Update(Product p)
     {
         if (!ds.ListProduct.Exists(i => i?.ID == p.ID))
@@ -21,8 +18,10 @@ public class DalProduct : IProduct
 
     public int Add(Product p)
     {
-        if (ds.ListProduct.FirstOrDefault() != null) //if the list empty- retruns value. else-return a value
-            throw new NotImplementedException();
+        Product? temp = ds.ListProduct.Find(i => i?.ID == p.ID);
+        if (temp != null) //if the list empty- retruns value. else-return a value
+            throw new Exception("allready exist");
+
         p.ID = DataSource.Config.NextOrderNbumber;
         ds.ListProduct.Add(p);    //pushing the order to the list
         return p.ID; //return the id of the order
@@ -37,7 +36,12 @@ public class DalProduct : IProduct
     public Product GetById(int id) => ds.ListProduct.FirstOrDefault() ?? throw new Exception("missing product id");
 
 
-    //public IEnumerable<Product?> GetAll(Func<Product?, bool>? filter) =>
+    public IEnumerable<Product> GetAll()
+    {
+        return(from Product p in ds.ListProduct select p).ToList<Product>();
+
+    }
+    //(Func<Product?, bool>? filter) =>
     //(filter == null ?
     //ds?.ListProduct.Select(item => item) :
     //ds?.ListProduct.Where(filter))

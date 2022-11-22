@@ -10,8 +10,10 @@ public class DalOrderItem:IOrderItem
 
     public int Add(OrderItem o)
     {
-        if (ds.ListOrderItem.FirstOrDefault() != null) //if the list empty- retruns value. else-return a value
-            throw new NotImplementedException();
+        OrderItem? temp = ds.ListOrderItem.Find(i => i?.ID == o.ID);
+        if (temp != null) //if the list empty- retruns value. else-return a value
+            throw new Exception("allready exist");
+       
         o.ID = DataSource.Config.NextOrderNbumber;
         ds.ListOrderItem.Add(o);    //pushing the order to the list
         return o.ID; //return the id of the order item
@@ -32,21 +34,17 @@ public class DalOrderItem:IOrderItem
         OrderItem? tempRemove = ds.ListOrderItem.Find(i => i?.ID == o.ID); 
         ds.ListOrderItem.Remove(tempRemove); //remove
         ds.ListOrderItem.Add(o); //adds
-
     }
 
 
     public OrderItem GetById(int id) => ds.ListOrderItem.FirstOrDefault() ?? throw new Exception("missing order id");
 
 
-    //public IEnumerable<OrderItem?> GetAll(Func<OrderItem?, bool>? filter) =>
-    //   (filter == null ?
-    //   ds?.ListOrderItem.Select(item => item) :
-    //   ds?.ListOrderItem.Where(filter))
+    public IEnumerable<OrderItem> GetAll()
+    {
+        return (from OrderItem o in ds.ListOrderItem select o).ToList<OrderItem>();
 
-    //   ?? throw new Exception("Missing order");
-
-
+    }
 
 
 }

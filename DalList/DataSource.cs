@@ -43,25 +43,23 @@ namespace Dal;
         {
             Order o = new Order();
             o.ID = Config.NextOrderNbumber; //create an id
-            o.CustomerName = names[i];
-            o.CustomerEmail =o.CustomerName+"@gmail.com";//check if works!!!
-            o.CustomerAdress = cities[i] + "i+z" + "/" + "z+3";//random adress+city
-            o.OrderDate= DateTime.Now-new TimeSpan(rand.NextInt64(10L * 1000L * 3600L * 24L * 10L)); //date before creating the program
+            o.CustomerName = " " + names[i];
+            o.CustomerEmail = " " + o.CustomerName+"@gmail.com";//check if works!!!
+            o.CustomerAdress = " "+cities[i]+" " + i+z + "/" + z+3;//random adress+city
+            o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
+            o.ShipDate = o.DeliveryDate - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 7L));
+            o.OrderDate = o.ShipDate - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 7L));
 
-            if (i <= 16) //80% from the ShipOrders after the creation of the OrderDate
-                o.ShipDate = o.OrderDate - new TimeSpan(rand.NextInt64(10L * 1000L * 3600L * 24L * 10L));
-            else
+
+
+            if (i >= 12) //60% from the shipDate has a Delivery Date
+                o.DeliveryDate = DateTime.MinValue;
+
+            if (i >= 16) //80% from the ShipOrders after the creation of the OrderDate
                 o.ShipDate = DateTime.MinValue; //initilize to min value
-
-            if(i<=12) //60% from the shipDate has a Delivery Date
-                o.DeliveryDate= o.ShipDate - new TimeSpan(rand.NextInt64(10L * 1000L * 3600L * 24L * 10));
-            else
-                o.DeliveryDate = DateTime.MinValue; //לבדוק אם צריך!!!!
 
             ListOrder.Add(o); //adding the new order to the list
         }
-
-
     }
     private void CreateProduct()
     {

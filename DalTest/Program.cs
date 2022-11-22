@@ -27,6 +27,12 @@ class Program
                     int.TryParse(Console.ReadLine(), out id);
                     o.ID = id;
 
+                    Console.WriteLine(@"Enter costumer name:");
+                    string name;
+                    name = Console.ReadLine();
+                    o.CustomerName = name;
+
+
                     Console.WriteLine(@"Enter costumer email:");
                     string email;
                     email = Console.ReadLine();
@@ -45,12 +51,12 @@ class Program
                     Console.WriteLine(order.GetById(getId));
                     break;
 
-                //case "c":
-                //    foreach (Order? item in order.GetAll())
-                //    {
-                //        Console.WriteLine(item);
-                //    }
-                //    break;
+                case "c":
+                    foreach (Order? item in order.GetAll())
+                    {
+                        Console.WriteLine(item);
+                    }
+                    break;
 
 
                 case "d":
@@ -127,12 +133,12 @@ class Program
                     Console.WriteLine(item.GetById(tmpId));
                     break;
 
-                //case "c":
-                //    foreach (OrderItem myOrderItem in item.GetAll())
-                //    {
-                //        Console.WriteLine(myOrderItem);
-                //    }
-                //    break;
+                case "c":
+                    foreach (OrderItem myOrderItem in item.GetAll())
+                    {
+                        Console.WriteLine(myOrderItem);
+                    }
+                    break;
 
 
                 case "d":
@@ -192,7 +198,7 @@ class Program
                     int id;
                     int.TryParse(Console.ReadLine(), out id);
                     tmpProduct.ID = id;
-                    Console.WriteLine("Enter  product name");
+                    Console.WriteLine("Enter product name:");
                     tmpProduct.Name = Console.ReadLine();
                     Console.WriteLine(@"Enter product catgory:
                                         garden-0,
@@ -223,37 +229,37 @@ class Program
                             Console.WriteLine("ERROR");
                             break;
                     }
-                    Console.WriteLine("Enter  product price");
+                    Console.WriteLine("Enter product price:");
                     double myPrice;
                     double.TryParse(Console.ReadLine(), out myPrice);
                     tmpProduct.Price = myPrice;
-                    Console.WriteLine("Enter product amount");
+                    Console.WriteLine("Enter product amount:");
                     int.TryParse(Console.ReadLine(), out id);
                     tmpProduct.InStock = id;
                     product.Add(tmpProduct);
                     break;
 
                 case "b":
-                    Console.WriteLine("Enter product ID");
+                    Console.WriteLine("Enter product ID:");
                     int myId;
                     int.TryParse(Console.ReadLine(), out myId);
                     Console.WriteLine(product.GetById(myId));
                     break;
 
-                //case "c":
-                //    foreach (Product item in product.GetAll())
-                //    {
-                //        Console.WriteLine(item);
-                //    };
-                //    break;
+                case "c":
+                    foreach (Product item in product.GetAll())
+                    {
+                        Console.WriteLine(item);
+                    };
+                    break;
 
                 case "d":
                     Product myProduct = new Product();
-                    Console.WriteLine("Enter product ID");
+                    Console.WriteLine("Enter product ID:");
                     int.TryParse(Console.ReadLine(), out id);
                     myProduct.ID = id;
                     Console.WriteLine(product.GetById(id));
-                    Console.WriteLine("Enter product name");
+                    Console.WriteLine("Enter product name:");
                     myProduct.Name = Console.ReadLine();
                     Console.WriteLine(@"enter the catgory:
                                          garden-0,
