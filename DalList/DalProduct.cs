@@ -9,11 +9,11 @@ public class DalProduct : IProduct
     DataSource ds = DataSource.s_instance;
     public void Update(Product p)
     {
-        if (!ds.ListProduct.Exists(i => i?.ID == p.ID))
-            throw new Exception("cannot update a product that not exsist");
         Product? tempProduct = ds.ListProduct.Find(i => i?.ID == p.ID);
-        ds.ListProduct.Remove(tempProduct); //remove
-        ds.ListProduct.Add(p); //adds
+        if (tempProduct==null)
+            throw new Exception("cannot update a product that not exsist");
+       Delete(p.ID); //remove
+        Add(p); //adds
     }
 
     public int Add(Product p)
@@ -21,8 +21,6 @@ public class DalProduct : IProduct
         Product? temp = ds.ListProduct.Find(i => i?.ID == p.ID);
         if (temp != null) //if the list empty- retruns value. else-return a value
             throw new Exception("allready exist");
-
-        p.ID = DataSource.Config.NextOrderNbumber;
         ds.ListProduct.Add(p);    //pushing the order to the list
         return p.ID; //return the id of the order
     }
@@ -33,20 +31,19 @@ public class DalProduct : IProduct
             throw new Exception("can't delete that does not exist");
     }
 
-    public Product GetById(int id) => ds.ListProduct.FirstOrDefault() ?? throw new Exception("missing product id");
+    public Product GetById(int id) //=> ds.ListProduct.FirstOrDefault() ?? throw new Exception("missing product id");
+    {
+        Product? temp = ds.ListProduct.Find(i => i?.ID == id);
+        if (temp == null)
+            throw new Exception("product does not exist");
+        return(Product)temp;
 
+    }
 
     public IEnumerable<Product> GetAll()
     {
         return(from Product p in ds.ListProduct select p).ToList<Product>();
 
     }
-    //(Func<Product?, bool>? filter) =>
-    //(filter == null ?
-    //ds?.ListProduct.Select(item => item) :
-    //ds?.ListProduct.Where(filter))
-
-    //?? throw new Exception("Missing Product");
-
 }
 
