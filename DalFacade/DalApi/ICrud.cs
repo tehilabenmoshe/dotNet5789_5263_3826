@@ -5,14 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DalApi;
+/// <summary>
+/// Each entity inherits from the ICrud generic interface.
 
-    public interface ICrud<T> where T : struct
+///</summary>
+/// <typeparam name="T"></typeparam>
+public interface ICrud<T> where T : struct
     {
-        int Add(T item);
-        T GetById(int id);
-        void Delete(int id);
-        void Update(T item);
-        IEnumerable<T> GetAll(); //return object of yeshoot
+        int Add(T item);//adding new item 
+        T GetById(int id);//returns the item according to the matching recived id
+        void Delete(int id);//deleting the item with the recieved id
+        void Update(T item);//updating the item that has received
+        IEnumerable<T> GetAll(); //returning all the items
 
     }
 

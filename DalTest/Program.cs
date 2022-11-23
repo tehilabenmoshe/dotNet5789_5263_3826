@@ -1,9 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
+/*
+Program Info:
+The program tests the requirments of stage1.
+it allows to opperate the different methods on the 3 entities.
 
+*/
 namespace Dal;
 using System;
 using DalApi;
 using DO;
+/// <summary>
+/// The method OrderCheck works in a loop that prints the menu, receives the selection and activates the corresponding method 
+/// </summary>
 class Program
 {
     static void OrderCheck(DalOrder order)
@@ -17,8 +25,8 @@ class Program
                 c - GET ALL ORDERS IN THE LIST
                 d - UPDATE THE ORDER
                 e - DELETE EXSIST ORDER");
-            string choice = Console.ReadLine();
-            switch (choice)
+            string choice = Console.ReadLine();//receiving the users choice
+            switch (choice)//operating the chosen submenu according to the users input 
             {
                 case "a":
                     Order o=new Order();
@@ -88,7 +96,10 @@ class Program
             Console.WriteLine(ex);
         }
     }
-
+    /// <summary>
+    /// The method OrderItemCheck works in a loop that prints the menu, receives the selection and activates the corresponding method
+    /// </summary>
+    /// <param name="item"></param>
     static void OrderItemCheck(DalOrderItem item)
     {
         try
@@ -100,8 +111,8 @@ class Program
                 c - GET ALL ORDER-ITEMS IN THE LIST
                 d - UPDATE THE ORDER-ITEM
                 e - DELETE EXSIST ORDER-ITEM");
-            string option = Console.ReadLine();
-            switch (option)
+            string option = Console.ReadLine();//receiving the users choice
+            switch (option)//operating the chosen submenu according to the users input 
             {
                 case "a":
                     OrderItem myItem = new OrderItem();
@@ -177,7 +188,10 @@ class Program
             Console.WriteLine(ex);
         }
     }
-
+    /// <summary>
+    /// The method ProductCheck works in a loop that prints the menu, receives the selection and activates the corresponding method 
+    /// </summary>
+    /// <param name="product"></param>
     static void ProductCheck(DalProduct product)
     {
         try
@@ -189,10 +203,10 @@ class Program
                 c - GET ALL PRODUCT IN THE LIST
                 d - UPDATE THE PRODUCT
                 e - DELETE EXSIST PRODUCT");
-            string option = Console.ReadLine();
-            switch (option)
+            string option = Console.ReadLine();//receiving the users choice
+            switch (option)//operating the chosen submenu according to the users input 
             {
-                case "a":
+                case "a"://
                     Product tmpProduct = new Product();
                     Console.WriteLine("Enter product ID");
                     int id;
@@ -313,9 +327,13 @@ class Program
             Console.WriteLine(ex);
         }
     }
-
+    /// <summary>
+    /// The method "Main" works in a loop that prints the main menu, receives the selection and activates the corresponding submenu
+    /// </summary>
+    /// <param name="args"></param>
     static void Main(string[] args)
     {
+
         DalProduct product = new DalProduct();
         DalOrder order = new DalOrder();
         DalOrderItem item = new DalOrderItem();
@@ -328,14 +346,14 @@ class Program
                 1-check Order
                 2-check OrderItem
                 3-check Product");
-            string choice = Console.ReadLine();
-            bool b = int.TryParse(choice, out num);
-            if (!b)
+            string choice = Console.ReadLine();//receiving the users choice
+            bool b = int.TryParse(choice, out num);//For conversions of numbers and dates from the input
+            if (!b)//if the input was invalid
             {
-                Console.WriteLine("ERROR");
+                Console.WriteLine("ERROR");//print error and break
                 break;
             }
-            switch (num)
+            switch (num)//operating the chosen submenu according to the users input 
             {
                 case 1:
                     OrderCheck(order);

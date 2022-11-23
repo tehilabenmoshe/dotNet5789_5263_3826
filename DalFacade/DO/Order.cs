@@ -1,7 +1,9 @@
 ﻿
 namespace DO;
 
-
+/// <summary>
+/// Structure for the Order entity. Contains the basic product fields
+/// </summary>
 public struct Order
 {
     public override string ToString() => $@"
@@ -15,7 +17,11 @@ public struct Order
     ";
 
     /// <summary>
-    /// Unique ID of ...
+    /// ID property receives and returns the orders ID
+    ///  CustomerName property receives and returns the orders customer Name
+    ///  CustomerEmail property receives and returns the orders CustomerEmail
+    ///  CustomerAdress property receives and returns the orders CustomerAdress
+    ///  OrderDate,ShipDate,DeliveryDate properties receives and returns the orders date,ship date, and delivery date.
     /// </summary>
 
     public int ID { get; set; }

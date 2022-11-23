@@ -1,4 +1,5 @@
-﻿
+﻿///Inherited from Icrud to allow implementation in dalOrder
+
 
 namespace DalApi;
 using DO;

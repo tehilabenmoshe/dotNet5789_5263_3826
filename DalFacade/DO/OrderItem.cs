@@ -1,9 +1,11 @@
 ﻿
 
+using DalApi;
+
 namespace DO;
 
 /// <summary>
-/// Structure for ...
+/// Structure for the OrderItem entity. Contains the basic product fields
 /// </summary>
 public struct OrderItem
 {
@@ -16,7 +18,11 @@ public struct OrderItem
     ";
 
     /// <summary>
-    /// Unique ID of ...
+    ///ID property receives and returns the orderItem ID
+    ///  OrderID property receives and returns the orderItem ID
+    ///  ProductID property receives and returns the products ID in orderItem 
+    ///  Price property receives and returns the orderItem price
+    ///  Amount property receives and returns the orderItems Amount
     /// </summary>
 
     public int ID { get; set; }

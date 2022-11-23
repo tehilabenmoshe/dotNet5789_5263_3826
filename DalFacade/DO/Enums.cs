@@ -2,7 +2,7 @@
 namespace DO;
 
 /// <summary>
-/// Structure for ...
+/// Structure for product Categories
 /// </summary>
 public struct Enums
 {
@@ -15,8 +15,6 @@ public enum Category
     garden, kitchen, livingRoom, bedRoom, diningRoom
 
 }
-/// <summary>
-/// Unique ID of ...
-/// </summary>
+
 
 
