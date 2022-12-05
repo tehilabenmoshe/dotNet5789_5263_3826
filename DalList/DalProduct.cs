@@ -11,7 +11,7 @@ public class DalProduct : IProduct
     {
         Product? tempProduct = ds.ListProduct.Find(i => i?.ID == p.ID);
         if (tempProduct==null)//if product doesnt exists throw
-            throw new Exception("cannot update a product that not exsist");
+            throw new DoesntExistExeption("cannot update a product that not exsist");
        Delete(p.ID); //deletes the old product
         Add(p); //updating the product by creating a new one
     }
@@ -20,7 +20,7 @@ public class DalProduct : IProduct
     {
         Product? temp = ds.ListProduct.Find(i => i?.ID == p.ID);
         if (temp != null) //if the product with the received id exists throw
-            throw new Exception("allready exist");
+            throw new AlreadyExistExeption("allready exist");
         ds.ListProduct.Add(p);//pushing the product to the list
         return p.ID; //return the id of the product
     }
@@ -28,14 +28,14 @@ public class DalProduct : IProduct
     public void Delete(int id)//deleting existing product from the list
     {
         if (ds?.ListProduct.RemoveAll(o => o?.ID == id) == 0)
-            throw new Exception("can't delete that does not exist");
+            throw new DoesntExistExeption("can't delete that does not exist");
     }
 
     public Product GetById(int id)//rturns the product with the id that matches the received one  
     {
         Product? temp = ds.ListProduct.Find(i => i?.ID == id);
         if (temp == null)//if the product wasnt found
-            throw new Exception("product does not exist");
+            throw new DoesntExistExeption("product does not exist");
         return(Product)temp;
 
     }

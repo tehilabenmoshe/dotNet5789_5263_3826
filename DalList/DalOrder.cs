@@ -12,7 +12,7 @@ public class DalOrder: IOrder
     {
         Order? temp = ds.ListOrder.Find(i => i?.ID == o.ID);
         if (temp != null) //if order with the received id exists throw
-            throw new Exception("allready exists");
+            throw new AlreadyExistExeption("allready exists");
         o.OrderDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 100L));
         o.ShipDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 50L));
         o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 20L));
@@ -23,14 +23,14 @@ public class DalOrder: IOrder
     public void Delete(int id)//deleting existing order from the list
     {
         if (ds?.ListOrder.RemoveAll(o => o?.ID == id) == 0)
-            throw new Exception("can't delete that does not exist");
+            throw new DoesntExistExeption("can't delete that does not exist");
     }
 
     public void Update(Order o)//updating an exsisting order
     {
         Order? temp = ds.ListOrder.Find(i => i?.ID == o.ID);
         if (temp == null) //if order doesnt exists throw
-            throw new Exception("cannot update the order that doesnt exists");
+            throw new DoesntExistExeption("cannot update the order that doesnt exists");
        Delete(o.ID); //deletes the old order
         Add(o); //updating the order by creating a new one
 
@@ -40,7 +40,7 @@ public class DalOrder: IOrder
     {
         Order? temp = ds.ListOrder.Find(i => i?.ID ==id);
         if (temp==null)//if the order wasnt found
-            throw new Exception("missing order id");
+            throw new DoesntExistExeption("missing order id");
         return (Order)temp;
     }
 

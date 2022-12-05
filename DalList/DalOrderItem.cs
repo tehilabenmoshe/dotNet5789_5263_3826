@@ -12,7 +12,7 @@ public class DalOrderItem:IOrderItem
     {
         OrderItem? temp = ds.ListOrderItem.Find(i => i?.ID == o.ID);
         if (temp != null) //if orderItem with the received id exists throw
-            throw new Exception("allready exist");
+            throw new AlreadyExistExeption("already exist");
         ds.ListOrderItem.Add(o); //pushing the orderItem to the list
         return o.ID; //return the id of the order item
     }
@@ -20,7 +20,7 @@ public class DalOrderItem:IOrderItem
     public void Delete(int id)//deleting existing orderItem from the list
     {
         if (ds?.ListOrderItem.RemoveAll(o => o?.ID == id) == 0)
-            throw new Exception("can't delete that does not exist");
+            throw new DoesntExistExeption("can't delete that does not exist");
     }
 
 
@@ -28,7 +28,7 @@ public class DalOrderItem:IOrderItem
     {
         OrderItem? tempRemove = ds.ListOrderItem.Find(i => i?.ID == o.ID);
         if (tempRemove==null) //if orderItem doesnt exists throw
-            throw new Exception("cannot update the order item witch not exists");
+            throw new DoesntExistExeption("cannot update the order item witch not exists");
        Delete(o.ID);//deletes the old orderItem
         Add(o);//updating the order by creating a new one
     }
@@ -38,7 +38,7 @@ public class DalOrderItem:IOrderItem
     {
         OrderItem? temp = ds.ListOrderItem.Find(x => x?.ID == id);
         if (temp == null)//if the orderItem wasnt found
-            throw new Exception("order is not exists");
+            throw new DoesntExistExeption("order does not exists");
         return (OrderItem)temp;
     }
 
@@ -46,10 +46,10 @@ public class DalOrderItem:IOrderItem
     {
         OrderItem? temp = ds.ListOrderItem.Find(x => x?.OrderID == orderId);
         if (temp == null)
-            throw new Exception("order not exist");
+            throw new DoesntExistExeption("order not exist");
         if (temp?.ProductID == productId)
             return (OrderItem)temp;
-        else throw new Exception(" product not exist");
+        else throw new DoesntExistExeption(" product not exist");
     }
     public IEnumerable<OrderItem> GetAll()//prints all the orderItems in the list
     {

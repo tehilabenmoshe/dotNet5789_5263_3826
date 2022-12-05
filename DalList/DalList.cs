@@ -3,7 +3,8 @@
 
 namespace Dal;
 
-sealed internal class DalList : IDal
+sealed public class DalList : IDal
+
 {
     //public static IDal Instance { get; } = new DalList();
     //private DalList() { }
