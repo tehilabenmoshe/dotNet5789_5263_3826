@@ -15,6 +15,4 @@ public interface IBoOrder
     public OrderTracking TrackOrder(int ID);
     public Order UpdateOrder(Product product, int amount);
 
-
-
 }
