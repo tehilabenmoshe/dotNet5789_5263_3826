@@ -7,12 +7,26 @@ using BlApi;
 using BO;
 //using BO;
 using DalApi;
+using DO;
 
 namespace BlImplementation;
 
 internal class BoProduct: IBoProduct
 {
     private IDal? Dal = DalApi.Factory.Get();
+
+    internal DO.Product ProductFromBOToDO(BO.Product p)
+    {
+        DO.Product temp=new DO.Product();
+        temp.ID = p.ID;
+        temp.Name = p.Name;
+        temp.Price = p.Price;
+        temp.InStock = p.InStock;
+        temp.Category=(DO.Category)p.Category;
+        return temp;
+    }
+
+
     public BO.Product GetProductbyIdForManager(int ID)
     {
             if((ID<=100000)||(ID>=999999))
@@ -33,15 +47,48 @@ internal class BoProduct: IBoProduct
     {
         if ((ID <= 100000) || (ID >= 999999))
             throw new BO.InvalidInputExeption();
-        BO.ProductItem pi = new BO.ProductItem();
+        BO.ProductItem p = new BO.ProductItem();
         DO.Product temp = Dal?.Product.GetById(ID) ?? throw new BO.DoesntExistException();
-        p.ID = temp.ID;
+        p.ID = temp.ID; //לראות מה עושים עם cart
         p.Name = temp.Name;
         p.Price = temp.Price;
         p.Category = (BO.Category)temp.Category;
-        p.InStock = temp.InStock;
-        // p.path=temp.path;?????
+        if (temp.InStock > 0)
+            p.InStock = true;
+        else
+            p.InStock = false;
         return p;
+        // p.path=temp.path;?????
 
     }
+
+    public void AddProduct(BO.Product product)
+    {
+        if(product.Name=="")
+            throw new BO.InvalidInputExeption();
+        if ((product.ID <= 100000) || (product.ID >= 999999))
+            throw new BO.InvalidInputExeption(); 
+        if(product.Price<0)
+            throw new BO.InvalidInputExeption();
+        if(product.InStock<0)
+            throw new BO.InvalidInputExeption();
+       
+        if(Dal?.Product.GetById(product.ID) != null) //if the product already exsist in DO
+            throw new BO.AlreadyExistExeption();
+
+        DO.Product temp = new DO.Product();
+        temp = ProductFromBOToDO(product);
+        Dal?.Product.Add(temp);
+    }
+
+    public void DeledeProduct(int id) {
+
+
+        Dal?.Product.Delete(id);
+
+    }
+
+
+
+
 }
