@@ -15,6 +15,21 @@ internal class BoProduct: IBoProduct
 {
     private IDal? Dal = DalApi.Factory.Get();
 
+    public IEnumerable<ProductForList> getProductForList()
+    {
+        List<BO.ProductForList?> listOfProducts = new List<BO.ProductForList?>();
+        BO.ProductForList temp = new BO.ProductForList();
+        List<DO.Product> products = Dal.Product.GetAll().ToList();
+        foreach (DO.Product p in products)
+        {
+            temp.ID = p.ID;
+            temp.Name = p.Name; 
+            temp.Price= p.Price;
+            temp.Category = (BO.Category)p.Category;
+            listOfProducts.Add(temp);   
+        }
+        return listOfProducts;  
+    }
     internal DO.Product ProductFromBOToDO(BO.Product p)
     {
         DO.Product temp=new DO.Product();
@@ -66,7 +81,7 @@ internal class BoProduct: IBoProduct
     {
         if(product.Name=="")
             throw new BO.InvalidInputExeption();
-        if ((product.ID <= 100000) || (product.ID >= 999999))
+        if ((product.ID < 100000) || (product.ID > 999999))
             throw new BO.InvalidInputExeption(); 
         if(product.Price<0)
             throw new BO.InvalidInputExeption();
@@ -81,13 +96,24 @@ internal class BoProduct: IBoProduct
         Dal?.Product.Add(temp);
     }
 
-    public void DeledeProduct(int id) {
-
-
+    public void DeledeProduct(int id) 
+    {
         Dal?.Product.Delete(id);
-
     }
-
+    public void UpdateDetailProduct(BO.Product? p)
+    {
+        if (p.Name == "")
+            throw new BO.InvalidInputExeption();
+        if (p.Price < 0)
+            throw new BO.InvalidInputExeption();
+        if (p.InStock < 0)
+            throw new BO.InvalidInputExeption();
+        if(p.ID<100000||p.ID>999999) 
+            throw new BO.InvalidInputExeption();    
+        DO.Product temp = new DO.Product();
+        temp=Dal?.Product.GetById(p.ID)??throw new BO.DoesntExistException();//if the product was found put it in temp
+        temp= ProductFromBOToDO(p);//update temp with the new data of p
+    }
 
 
 

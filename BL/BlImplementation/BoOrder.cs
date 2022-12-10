@@ -4,11 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlApi;
+using BO;
 using DalApi;
 
 namespace BlImplementation;
 
-internal class BoOrder: IBoOrder
+internal class BoOrder : IBoOrder
 {
     private IDal? Dal = DalApi.Factory.Get();
+
+    public IEnumerable<OrderForList> getOrderForList()
+    {
+
+    }
+
+
+
+
+
+
+
 }
