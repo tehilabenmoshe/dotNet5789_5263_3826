@@ -22,7 +22,7 @@ public class Cart
     /// <summary>
     /// Unique Items of Cart class
     /// </summary>
-    public OrderItem? Items { get; set; }
+    public List<OrderItem?> Items { get; set; }
     /// <summary>
     /// Unique CustomerEmail of Cart class
     /// </summary>
