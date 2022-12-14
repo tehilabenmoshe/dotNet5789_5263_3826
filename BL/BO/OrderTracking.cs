@@ -15,7 +15,7 @@ public class OrderTracking
     /// <summary>
     /// order status
     /// </summary>
-    public Status? OrderStatus { get; set; }
+    public OrderStatus? Status { get; set; }
     //public List<DateTime,string>
 
     /// <summary>
@@ -24,7 +24,7 @@ public class OrderTracking
     /// <returns></returns>
     public override string ToString() => $@"
         ID={ID}
-        Order status={OrderStatus}
+        Order status={Status}
 ";
 
 }

@@ -19,7 +19,7 @@ public class OrderForList
     /// <summary>
     /// order status
     /// </summary>
-    public Status? OrderStatus { get; set; }
+    public OrderStatus? Status { get; set; }
     /// <summary>
     /// The amount of items the customer ordered
     /// </summary>

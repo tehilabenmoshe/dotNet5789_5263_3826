@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlApi;
-using BO;
+//using BO;
 //using BO;
 using DalApi;
-using DO;
+//using DO;
 
 namespace BlImplementation;
 
@@ -15,7 +15,7 @@ internal class BoProduct: IBoProduct
 {
     private IDal? Dal = DalApi.Factory.Get();
 
-    public IEnumerable<ProductForList> getProductForList()
+    public IEnumerable<BO.ProductForList> getProductForList()
     {
         List<BO.ProductForList?> listOfProducts = new List<BO.ProductForList?>();
         BO.ProductForList temp = new BO.ProductForList();
@@ -45,7 +45,6 @@ internal class BoProduct: IBoProduct
     public BO.Product GetProductbyIdForManager(int ID)
     {
             if((ID<=100000)||(ID>=999999))
-
                 throw new BO.DoesntExistException();
             BO.Product p = new BO.Product();
             DO.Product temp=Dal?.Product.GetById(ID)?? throw new BO.DoesntExistException();
@@ -58,7 +57,7 @@ internal class BoProduct: IBoProduct
             return p;
 
     }
-    public ProductItem GetProductByIDAndCartForCostumer(int ID, Cart cart)
+    public BO.ProductItem GetProductByIDAndCartForCostumer(int ID, BO.Cart cart)
     {
         if ((ID <= 100000) || (ID >= 999999))
             throw new BO.InvalidInputExeption();

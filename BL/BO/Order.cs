@@ -27,7 +27,7 @@ public class Order
     /// <summary>
     /// order status
     /// </summary>
-    public Status? OrderStatus { get; set; }
+    public OrderStatus? Status { get; set; }
     /// <summary>
     /// the date of making order
     /// </summary>
@@ -47,7 +47,7 @@ public class Order
     /// <summary>
     /// List of ordered items
     /// </summary>
-    public OrderItem? Items { get; set; }
+    public List<OrderItem?> Items { get; set; }
     /// <summary>
     /// total price of order
     /// </summary>
@@ -62,7 +62,7 @@ public class Order
         Customer email: {CustomerEmail}
         Customer address: {CustomerAddress}
         Date of order: {OrderDate}
-        Order status: {OrderStatus}
+        Order status: {Status}
         Date of paymant: {PaymantDate}
         Date of ship:{ShipDate}
         Date of delivery: {DeliveryDate}

@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlApi;
-using BO;
 using DalApi;
-using DO;
+
 
 namespace BlImplementation;
 
@@ -107,7 +106,9 @@ public void MakeCart(BO.Cart? cart)
     order.DeliveryDate = DateTime.MinValue;
     order.OrderDate= DateTime.Now;
 
-    int orderId = Dal?.Order.Add(order);
+    int orderId = 0;
+   
+    Dal?.Order.Add(order);
     DO.OrderItem o = new DO.OrderItem();
     //להמשיך -ליצור אובייקטים של הזמנה לפי הסל ולבקש אישור להוספת הפריטים
 

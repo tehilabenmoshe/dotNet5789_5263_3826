@@ -13,7 +13,7 @@ namespace BO
         /// <summary>
         /// enum for status
         /// </summary>
-        public enum Status
+        public enum OrderStatus
         {
             approved, sent, provided
         }   
