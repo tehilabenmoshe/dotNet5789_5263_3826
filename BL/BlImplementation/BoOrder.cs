@@ -15,9 +15,14 @@ internal class BoOrder : IBoOrder
 
     public IEnumerable<BO.OrderForList> getOrderForList()
     {
-        List<BO.Order> temp = Dal.Order.GetAll().ToList();
+        List<DO.Order> temp = Dal.Order.GetAll().ToList();
         List<BO.OrderForList> orders=new List<BO.OrderForList>();
-
+        DO.Order o=new DO.Order();
+        BO.OrderForList d = new BO.OrderForList();
+       foreach(DO.Order? or in temp)
+        {
+            
+        }
 
 
 
