@@ -45,7 +45,7 @@ namespace Dal;
             o.ID = Config.NextOrderNbumber; //create an id
             o.CustomerName = " " + names[i];
             o.CustomerEmail = " " + o.CustomerName+"@gmail.com";//check if works!!!
-            o.CustomerAdress = " "+cities[i]+" " + i+z + "/" + z+3;//random adress+city
+            o.CustomerAddress = " "+cities[i]+" " + i+z + "/" + z+3;//random adress+city
             o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 100L));
             o.ShipDate = o.DeliveryDate - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 50L));
             o.OrderDate = o.ShipDate - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 20L));

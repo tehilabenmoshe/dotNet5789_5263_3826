@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlApi;
 using DalApi;
+using DO;
 
 
 namespace BlImplementation;
@@ -81,7 +82,7 @@ public BO.Cart UpdateProductInCart(BO.Cart cart, int id, int newAmount)
     if (newAmount == 0)
     {
         cart.TotalPrice -= tmp.Price * tmp.Amount;
-        Dal?.Product.Delete(id);
+        Dal!.Product.Delete(id);
     }
     return cart;
 }
@@ -106,12 +107,20 @@ public void MakeCart(BO.Cart? cart)
     order.DeliveryDate = DateTime.MinValue;
     order.OrderDate= DateTime.Now;
 
-    int orderId = 0;
+    int orderId =Dal!.Order.Add(order);
    
-    Dal?.Order.Add(order);
-    DO.OrderItem o = new DO.OrderItem();
-    //להמשיך -ליצור אובייקטים של הזמנה לפי הסל ולבקש אישור להוספת הפריטים
-
+    foreach(BO.OrderItem? oInBo in cart.Items)
+    {
+        DO.OrderItem o = new DO.OrderItem(); //creating new orderItem in do
+        o.ID = oInBo.ID;
+        o.ProductID = oInBo.ProductID;
+        o.Price = oInBo.Price;
+        o.Amount = oInBo.Amount;
+        o.OrderID = orderId; //מספר ההזמנה הנ"ל
+        Dal?.OrderItem.Add(o);
+    }
+    //להמשיך -להוריד פריטים מהסל
+    //לדחוף לdo לרשימה
 
 
 

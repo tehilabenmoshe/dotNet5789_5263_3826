@@ -1,6 +1,7 @@
 ﻿
 using DalApi;
 using DO;
+using System.Linq;
 
 namespace Dal;
 public class DalOrderItem:IOrderItem
@@ -55,6 +56,20 @@ public class DalOrderItem:IOrderItem
     {
         return (from OrderItem o in ds.ListOrderItem select o).ToList<OrderItem>();
 
+    }
+
+    public IEnumerable<DO.OrderItem> GetListByOrderID(int id)
+    {
+        List<OrderItem> tmp = new List<OrderItem>();
+        foreach (OrderItem o in ds.ListOrderItem)
+        {
+            if (o.OrderID == id)
+            {
+                tmp.Add(o);
+            }
+        }
+         return tmp;
+        // List<OrderItem> tmp = ds.ListOrderItem.FindAll(o=> o.OrderID == id);
     }
 
 
