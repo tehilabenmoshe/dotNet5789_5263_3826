@@ -22,6 +22,9 @@ public class OrderTracking
     /// function- print OrderTracking class
     /// </summary>
     /// <returns></returns>
+
+    public List<Tuple<DateTime, string>>? Tracking { set; get; }
+
     public override string ToString() => $@"
         ID={ID}
         Order status={Status}

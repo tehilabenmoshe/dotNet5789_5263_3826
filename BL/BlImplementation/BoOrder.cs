@@ -69,7 +69,7 @@ internal class BoOrder : IBoOrder
         order.PaymantDate = DateTime.MinValue;
         order.Status = getStatus(order);
 
-        List<DO.OrderItem> doList = Dal!.OrderItem.GetListByOrderID(order.ID);
+        List<DO.OrderItem> doList = Dal?.OrderItem.GetListByOrderID(order.ID);
         List<BO.OrderItem> boList = new List<BO.OrderItem>();
         foreach (DO.OrderItem d in doList) //copy each order item from do to bo
         {

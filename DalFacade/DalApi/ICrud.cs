@@ -16,9 +16,9 @@ public interface ICrud<T> where T : struct
         T GetById(int id);//returns the item according to the matching recived id
         void Delete(int id);//deleting the item with the recieved id
         void Update(T item);//updating the item that has received
-        IEnumerable<T> GetAll(); //returning all the items
+        IEnumerable<T> GetAll(Func<T?, bool>? filter = null); //returning all the items
 
-    }
+}
 
 
   

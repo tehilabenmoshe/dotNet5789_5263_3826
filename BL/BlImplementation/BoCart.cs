@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using BlApi;
 using DalApi;
-using DO;
+//using DO;
+//using BO;
 
 
 namespace BlImplementation;
 
-internal class BoCart: IBoCart
+internal class BoCart:IBoCart
 {
     private IDal? Dal = DalApi.Factory.Get();
 
@@ -82,7 +83,7 @@ public BO.Cart UpdateProductInCart(BO.Cart cart, int id, int newAmount)
     if (newAmount == 0)
     {
         cart.TotalPrice -= tmp.Price * tmp.Amount;
-        Dal!.Product.Delete(id);
+        Dal?.Product.Delete(id);
     }
     return cart;
 }
