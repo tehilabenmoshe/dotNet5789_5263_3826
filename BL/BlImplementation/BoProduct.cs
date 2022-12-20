@@ -66,9 +66,13 @@ internal class BoProduct: IBoProduct
         p.Price = temp.Price;
         p.Category = (BO.Category)temp.Category;
         if (temp.InStock > 0)
+        {
             p.InStock = true;
-        else
+        }
+        else   
             p.InStock = false;
+
+           
         return p;
         // p.path=temp.path;?????
 
@@ -83,13 +87,21 @@ internal class BoProduct: IBoProduct
             throw new BO.InvalidInputExeption();
         if(product.InStock<0)
             throw new BO.InvalidInputExeption();
-       
-        if(Dal?.Product.GetById(product.ID) != null) //if the product already exsist in DO
-            throw new BO.AlreadyExistExeption();
+        try
+        {
+            if (Dal?.Product.GetById(product.ID) != null) //if the product already exsist in DO
+            {
 
-        DO.Product temp = new DO.Product();
-        temp = ProductFromBOToDO(product);
-        Dal?.Product.Add(temp);
+                throw new BO.AlreadyExistExeption();
+            }
+        }
+        catch (DO.DoesntExistExeption ex)// if product doesnt exists
+        {
+            DO.Product temp = new DO.Product();
+            temp = ProductFromBOToDO(product);
+            Dal?.Product.Add(temp);
+        }
+       
     }
     public void DeledeProduct(int id) 
     {

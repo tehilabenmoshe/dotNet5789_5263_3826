@@ -10,7 +10,7 @@ public struct Order
     Order ID:{ID} 
     Customer Name:{CustomerName}
     Customer Email:{CustomerEmail}
-    Customer Adress:{CustomerAdress}
+    Customer Adress:{CustomerAddress}
     Order Date: {OrderDate}
     Ship Date: {ShipDate}
     Delivery Date: {DeliveryDate}

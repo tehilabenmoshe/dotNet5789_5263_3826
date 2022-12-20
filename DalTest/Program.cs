@@ -47,7 +47,7 @@ class Program
                     o.CustomerEmail = email;
 
                     Console.WriteLine(@"Enter costumer adress:");
-                    o.CustomerAdress = Console.ReadLine();
+                    o.CustomerAddress = Console.ReadLine();
 
                     order.Add(o);
                     break;
@@ -78,7 +78,7 @@ class Program
                     Console.WriteLine(@"Enter new costumer email:");
                     orderTemp.CustomerEmail = Console.ReadLine();
                     Console.WriteLine(@"Enter new costumer adress:");
-                    orderTemp.CustomerAdress = Console.ReadLine();
+                    orderTemp.CustomerAddress = Console.ReadLine();
                     order.Update(orderTemp);
                     break;
 

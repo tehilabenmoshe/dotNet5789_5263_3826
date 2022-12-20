@@ -31,6 +31,15 @@ public static class Tools
         str += "\n";
         return str;
     }
+    public static int getAmountOfProduct(List<BO.OrderItem> orderItemsList, int productId)
+    {
+        BO.OrderItem? temp = orderItemsList.Find(x => x?.ProductID == productId);
+        if (temp != null)
+        {
+            return (int)temp?.Amount!;
+        }
+        return 0;
 
+    }
 
 }

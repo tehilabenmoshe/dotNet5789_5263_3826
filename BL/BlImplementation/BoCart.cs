@@ -33,7 +33,7 @@ internal class BoCart : IBoCart
         {
 
             orderToAdd.ProductID = tmp.ID;
-            orderToAdd.Price = tmp.Price;
+            orderToAdd.Price = (double)tmp.Price;
             orderToAdd.Amount = 1;
             cart.Items.Add(orderToAdd);//add the orderitem to the cart
 

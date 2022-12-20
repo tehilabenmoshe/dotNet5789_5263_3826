@@ -8,8 +8,9 @@ namespace BO
 {
         public enum Category
         {
-            kids, teens, cook, kodesh, learn
-        }
+       
+           garden, kitchen, livingRoom, bedRoom, diningRoom
+         }
         /// <summary>
         /// enum for status
         /// </summary>
