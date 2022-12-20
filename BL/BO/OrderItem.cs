@@ -23,11 +23,11 @@ public class OrderItem
     /// <summary>
     /// product price
     /// </summary>
-    public double? Price { get; set; }
+    public double Price { get; set; }
     /// <summary>
     /// the amount of this product in this order
     /// </summary>
-    public int? Amount { get; set; }
+    public int Amount { get; set; }
     /// <summary>
     /// the price of all the item from product type
     /// </summary>

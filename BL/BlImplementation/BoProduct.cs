@@ -30,7 +30,7 @@ internal class BoProduct: IBoProduct
         }
         return listOfProducts;  
     }
-    internal DO.Product ProductFromBOToDO(BO.Product p)
+    public DO.Product ProductFromBOToDO(BO.Product p)
     {
         DO.Product temp=new DO.Product();
         temp.ID = p.ID;
@@ -40,8 +40,6 @@ internal class BoProduct: IBoProduct
         temp.Category=(DO.Category)p.Category;
         return temp;
     }
-
-
     public BO.Product GetProductbyIdForManager(int ID)
     {
             if((ID<=100000)||(ID>=999999))
@@ -75,7 +73,6 @@ internal class BoProduct: IBoProduct
         // p.path=temp.path;?????
 
     }
-
     public void AddProduct(BO.Product product)
     {
         if(product.Name=="")
@@ -94,7 +91,6 @@ internal class BoProduct: IBoProduct
         temp = ProductFromBOToDO(product);
         Dal?.Product.Add(temp);
     }
-
     public void DeledeProduct(int id) 
     {
         Dal?.Product.Delete(id);

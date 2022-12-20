@@ -13,7 +13,7 @@ public interface IBoOrder
     public BO.Order UpdateShipOrder(int ID);//
     public BO.Order UpdateProvisionOrder(int ID);//
     public BO.OrderTracking TrackOrder(int ID);
-    public Order UpdateOrder(Product product, int amount);
-    internal BO.OrderStatus getStatus(BO.Order o);
-    internal BO.Order? DoOrderToBo(DO.Order order);
+    public BO.Order UpdateOrder(BO.Product product, int amount);
+    public BO.OrderStatus getStatus(BO.Order o);
+    public BO.Order? DoOrderToBo(DO.Order order);
 }

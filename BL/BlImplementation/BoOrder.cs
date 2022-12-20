@@ -26,7 +26,7 @@ internal class BoOrder : IBoOrder
         }
         return listOfOrders;
     }
-    internal BO.OrderStatus getStatus(BO.Order o) //create a function that return the current status of the order
+    public BO.OrderStatus getStatus(BO.Order o) //create a function that return the current status of the order
     {
         BO.OrderStatus s = new BO.OrderStatus();
         if (o.ShipDate == null)
@@ -53,7 +53,7 @@ internal class BoOrder : IBoOrder
         temp = DoOrderToBo(o);
         return temp;
     }
-    internal BO.Order? DoOrderToBo(DO.Order temp)
+    public BO.Order? DoOrderToBo(DO.Order temp)
     {
         //if(temp==null)
         //return null;
@@ -136,6 +136,10 @@ internal class BoOrder : IBoOrder
         ot.ID = ID;
         ot.Status = getStatus(order);
         return ot;
+    }
+    public BO.Order UpdateOrder(BO.Product product, int amount)
+    {
+        return new BO.Order();
     }
 
     //אפשר להוסיף מתודה של בונוססססססססס

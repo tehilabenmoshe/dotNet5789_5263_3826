@@ -11,14 +11,15 @@ using DalApi;
 
 namespace BlImplementation;
 
-internal class BoCart:IBoCart
+
+internal class BoCart : IBoCart
 {
     private IDal? Dal = DalApi.Factory.Get();
-
+   
     public BO.Cart AddProductToCart(BO.Cart? cart, int id)
     {
-        if (cart==null) //if cart-null
-            cart=new BO.Cart(); //create new cart
+        if (cart == null) //if cart-null
+            cart = new BO.Cart(); //create new cart
 
         if ((id < 100000) || (id > 999999)) //if the id is wrong
             throw new BO.InvalidInputExeption();
@@ -26,16 +27,16 @@ internal class BoCart:IBoCart
         DO.Product tmp = new DO.Product();
         tmp = Dal!.Product.GetById(id);//get the product from DO
 
-        BO.OrderItem orderToAdd=new BO.OrderItem(); //createan orderitem in order to add him to the cart
+        BO.OrderItem orderToAdd = new BO.OrderItem(); //createan orderitem in order to add him to the cart
 
         if (!(cart.Items!.Exists(crt => crt.ID == id))) //if the cart dosent exsist in DO
         {
-            
-                orderToAdd.ProductID = tmp.ID;
-                orderToAdd.Price=tmp.Price;
-                orderToAdd.Amount = 1;
-                cart.Items.Add(orderToAdd);//add the orderitem to the cart
-            
+
+            orderToAdd.ProductID = tmp.ID;
+            orderToAdd.Price = tmp.Price;
+            orderToAdd.Amount = 1;
+            cart.Items.Add(orderToAdd);//add the orderitem to the cart
+
         }
         else
         {
@@ -50,80 +51,85 @@ internal class BoCart:IBoCart
         }
         return cart; //return the cart
     }
-}
 
-public BO.Cart UpdateProductInCart(BO.Cart cart, int id, int newAmount)
-{
-    BO.OrderItem? tmp = new BO.OrderItem();
-    tmp= cart.Items.FirstOrDefault(o => o.ProductID == id); //find the item in the cart
-   if(tmp==null)
-         throw new BO.DoesntExistException();
-
-   if(cart==null)
-        throw new BO.DoesntExistException();
-
-    if (newAmount > tmp.Amount)
+    public BO.Cart UpdateProductInCart(BO.Cart cart, int id, int newAmount)
     {
-        DO.Product p = new DO.Product();
-        if (p.InStock > 0) //if there is product
+        BO.OrderItem? tmp = new BO.OrderItem();
+        tmp = cart.Items.FirstOrDefault(o => o.ProductID == id); //find the item in the cart
+        if (tmp == null)
+            throw new BO.DoesntExistException();
+
+        if (cart == null)
+            throw new BO.DoesntExistException();
+
+        if (newAmount > tmp.Amount)
         {
-            cart.TotalPrice += tmp.Price*(newAmount - tmp.Amount); //update the total price of the cart-add the extra price from the new amount
+            DO.Product p = new DO.Product();
+            if (p.InStock > 0) //if there is product
+            {
+                cart.TotalPrice += tmp.Price * (newAmount - tmp.Amount); //update the total price of the cart-add the extra price from the new amount
+                tmp.Amount = newAmount;
+            }
+            else
+                throw new BO.DoesntExistException();
+        }
+
+        if (newAmount < tmp.Amount)
+        {
+            cart.TotalPrice -= tmp.Price * (tmp.Amount - newAmount); //update the total price of the cart-add the extra price from the new amount
             tmp.Amount = newAmount;
         }
-        else
-            throw new BO.DoesntExistException();
+
+        if (newAmount == 0)
+        {
+            cart.TotalPrice -= tmp.Price * tmp.Amount;
+            Dal!.Product.Delete(id);
+
+        }
+        return cart;
     }
 
-    if (newAmount < tmp.Amount)
+    public void MakeCart(BO.Cart? cart)
     {
-        cart.TotalPrice -= tmp.Price * ( tmp.Amount- newAmount); //update the total price of the cart-add the extra price from the new amount
-        tmp.Amount = newAmount;
+        //check input:
+        if (cart == null) throw new BO.InvalidInputExeption();
+        if (cart.CustomerName == "") throw new BO.InvalidInputExeption();
+        if (cart.CustomerAddress == "") throw new BO.InvalidInputExeption();
+        if (cart.CustomerEmail == "" || cart.CustomerEmail!.Contains("@"))
+            throw new BO.InvalidInputExeption();
+
+        //copy data:
+        DO.Order order = new DO.Order();
+        order.CustomerName = cart.CustomerName;
+        order.CustomerEmail = cart.CustomerEmail;
+        order.CustomerAddress = cart.CustomerAddress;
+        //set dates:
+        order.ShipDate = DateTime.MinValue;
+        order.DeliveryDate = DateTime.MinValue;
+        order.OrderDate = DateTime.Now;
+
+        int orderId = Dal!.Order.Add(order);
+
+        foreach (BO.OrderItem? oInBo in cart.Items)
+        {
+            DO.OrderItem o = new DO.OrderItem(); //creating new orderItem in do
+            o.ID = oInBo.ID;
+            o.ProductID = oInBo.ProductID;
+            o.Price = oInBo.Price;
+            o.Amount = oInBo.Amount;
+            o.OrderID = orderId; //מספר ההזמנה הנ"ל
+            Dal?.OrderItem.Add(o);
+
+        }
+
+
+        
+        //להמשיך -להוריד פריטים מהסל
+        //לדחוף לdo לרשימה
+
+
+
+
     }
-
-    if (newAmount == 0)
-    {
-        cart.TotalPrice -= tmp.Price * tmp.Amount;
-        Dal?.Product.Delete(id);
-    }
-    return cart;
-}
-
-
-public void MakeCart(BO.Cart? cart)
-{
-    //check input:
-    if(cart==null) throw new BO.InvalidInputExeption();
-    if (cart.CustomerName=="") throw new BO.InvalidInputExeption();
-    if (cart.CustomerAddress == "") throw new BO.InvalidInputExeption();
-    if (cart.CustomerEmail == ""|| cart.CustomerEmail!.Contains("@"))
-        throw new BO.InvalidInputExeption();
-
-    //copy data:
-    DO.Order order = new DO.Order();
-    order.CustomerName = cart.CustomerName;
-    order.CustomerEmail = cart.CustomerEmail;
-    order.CustomerAddress = cart.CustomerAddress;
-    //set dates:
-    order.ShipDate = DateTime.MinValue;
-    order.DeliveryDate = DateTime.MinValue;
-    order.OrderDate= DateTime.Now;
-
-    int orderId =Dal!.Order.Add(order);
-   
-    foreach(BO.OrderItem? oInBo in cart.Items)
-    {
-        DO.OrderItem o = new DO.OrderItem(); //creating new orderItem in do
-        o.ID = oInBo.ID;
-        o.ProductID = oInBo.ProductID;
-        o.Price = oInBo.Price;
-        o.Amount = oInBo.Amount;
-        o.OrderID = orderId; //מספר ההזמנה הנ"ל
-        Dal?.OrderItem.Add(o);
-    }
-    //להמשיך -להוריד פריטים מהסל
-    //לדחוף לdo לרשימה
-
-
-
 
 }
