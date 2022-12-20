@@ -46,19 +46,7 @@ public class DalOrderItem:IOrderItem
 
     }
 
-    public IEnumerable<DO.OrderItem> GetListByOrderID(int id)
-    {
-        List<OrderItem> tmp = new List<OrderItem>();
-        foreach (OrderItem o in ds.ListOrderItem)
-        {
-            if (o.OrderID == id)
-            {
-                tmp.Add(o);
-            }
-        }
-         return tmp;
-        // List<OrderItem> tmp = ds.ListOrderItem.FindAll(o=> o.OrderID == id);
-    }
+
 
     public OrderItem GetProductByOrderAndID(int orderId, int productId)
     {

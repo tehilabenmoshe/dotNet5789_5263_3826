@@ -26,7 +26,7 @@ internal class BoOrder : IBoOrder
         }
         return listOfOrders;
     }
-    public BO.OrderStatus getStatus(BO.Order o) //create a function that return the current status of the order
+    public BO.OrderStatus getStatus(BO.Order o) 
     {
         BO.OrderStatus s = new BO.OrderStatus();
         if (o.ShipDate == null)
@@ -44,6 +44,23 @@ internal class BoOrder : IBoOrder
         }
         return s;
     }
+
+    public IEnumerable<DO.OrderItem> GetListByOrderID(int id)
+    {
+        List<DO.OrderItem> tmp = new List<DO.OrderItem>();
+        List<DO.OrderItem> Loi = Dal!.OrderItem.GetAll().ToList();
+            foreach (DO.OrderItem o in Loi)
+        { 
+            if (o.OrderID == id)
+            {
+                tmp.Add(o);
+            }
+        }
+        return tmp;
+        //List<OrderItem> tmp = ds.ListOrderItem.FindAll(o=> o.OrderID == id);
+    }
+
+
     public BO.Order GetOrder(int ID)
     {
         if ((ID <= 100000) || (ID >= 999999))
@@ -69,7 +86,7 @@ internal class BoOrder : IBoOrder
         order.PaymantDate = DateTime.MinValue;
         order.Status = getStatus(order);
 
-        List<DO.OrderItem> doList = Dal?.OrderItem.GetListByOrderID(order.ID);
+        List<DO.OrderItem> doList = (List<DO.OrderItem>)GetListByOrderID(order.ID);
         List<BO.OrderItem> boList = new List<BO.OrderItem>();
         foreach (DO.OrderItem d in doList) //copy each order item from do to bo
         {
@@ -96,9 +113,6 @@ internal class BoOrder : IBoOrder
         BO.Order order = new BO.Order();
         DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException();
         order=DoOrderToBo(temp); //casting from bo to do  
-
-
-
 
         if(order.Status!=BO.OrderStatus.sent) //of the order isnt sent yet
         {
@@ -137,12 +151,12 @@ internal class BoOrder : IBoOrder
         ot.Status = getStatus(order);
         return ot;
     }
-    public BO.Order UpdateOrder(BO.Product product, int amount)
-    {
-        return new BO.Order();
-    }
+    //public BO.Order UpdateOrder(BO.Product product, int amount)
+    //{
+    //    return new BO.Order();
+    //}
 
-    //אפשר להוסיף מתודה של בונוססססססססס
+    
 
 
 

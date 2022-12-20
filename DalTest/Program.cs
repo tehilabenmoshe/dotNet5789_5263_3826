@@ -29,7 +29,7 @@ class Program
             switch (choice)//operating the chosen submenu according to the users input 
             {
                 case "a":
-                    Order o=new Order();
+                    Order o = new Order();
                     int id;
                     Console.WriteLine(@"Enter Order ID:");
                     int.TryParse(Console.ReadLine(), out id);
@@ -44,10 +44,10 @@ class Program
                     Console.WriteLine(@"Enter costumer email:");
                     string email;
                     email = Console.ReadLine();
-                    o.CustomerEmail= email;
+                    o.CustomerEmail = email;
 
                     Console.WriteLine(@"Enter costumer adress:");
-                   o.CustomerAdress = Console.ReadLine();
+                    o.CustomerAdress = Console.ReadLine();
 
                     order.Add(o);
                     break;

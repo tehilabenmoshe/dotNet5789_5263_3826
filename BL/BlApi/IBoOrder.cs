@@ -13,7 +13,7 @@ public interface IBoOrder
     public BO.Order UpdateShipOrder(int ID);//
     public BO.Order UpdateProvisionOrder(int ID);//
     public BO.OrderTracking TrackOrder(int ID);
-    public BO.Order UpdateOrder(BO.Product product, int amount);
+    //public BO.Order UpdateOrder(BO.Product product, int amount); בונוס
     public BO.OrderStatus getStatus(BO.Order o);
     public BO.Order? DoOrderToBo(DO.Order order);
 }
