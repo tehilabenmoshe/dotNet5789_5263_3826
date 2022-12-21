@@ -12,7 +12,7 @@ namespace Dal;
     
     internal static class Config
     {
-        internal const int startOrderNumber = 1000;
+        internal const int startOrderNumber = 100000;
 
         private static int SnextOrderNumber = startOrderNumber;
         internal static int NextOrderNbumber { get => ++SnextOrderNumber; } 
@@ -44,7 +44,7 @@ namespace Dal;
             Order o = new Order();
             o.ID = Config.NextOrderNbumber; //create an id
             o.CustomerName = " " + names[i];
-            o.CustomerEmail = " " + o.CustomerName+"@gmail.com";//check if works!!!
+            o.CustomerEmail = " " + o.CustomerName+"@gmail.com";
             o.CustomerAddress = " "+cities[i]+" " + i+z + "/" + z+3;//random adress+city
             o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 100L));
             o.ShipDate = o.DeliveryDate - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 50L));

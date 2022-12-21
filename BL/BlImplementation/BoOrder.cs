@@ -9,7 +9,7 @@ using BlApi;
 using DalApi;
 
 namespace BlImplementation;
-
+// לא עובד: בהדפסה לא מדפיס את הרשימה של הפריטים וגם את המחיר הסופי- לבדוקקקקקק
 internal class BoOrder : IBoOrder
 {
     private IDal? Dal = DalApi.Factory.Get();
@@ -17,9 +17,10 @@ internal class BoOrder : IBoOrder
     {
         List<DO.Order> order = Dal.Order.GetAll().ToList();
         List<BO.OrderForList?> listOfOrders = new List<BO.OrderForList>();
-        BO.OrderForList temp = new BO.OrderForList();
+        
         foreach (DO.Order or in order)
         {
+            BO.OrderForList temp = new BO.OrderForList();
             temp.ID = or.ID;
             temp.CustomerName = or.CustomerName;
             listOfOrders.Add(temp);
@@ -28,20 +29,45 @@ internal class BoOrder : IBoOrder
     }
     public BO.OrderStatus getStatus(BO.Order o) 
     {
-        BO.OrderStatus s = new BO.OrderStatus();
-        if (o.ShipDate == null)
+        //if(o.ShipDate> o.DeliveryDate)
+        //{
+        //    o.DeliveryDate = null;
+        //    o.PaymantDate = null;
+        //}
+        //else
+        //{
+        //    if()
+        //}
+            BO.OrderStatus s = new BO.OrderStatus();
+        //if (o.ShipDate > o.DeliveryDate)
+        //{
+        //    s = BO.OrderStatus.approved;
+        //}
+        //else
+        //{
+        //    if (o.DeliveryDate >o.PaymantDate)
+        //    {
+        //        s = BO.OrderStatus.sent;
+        //    }א
+        //    else
+        //        s = BO.OrderStatus.provided;
+        //}
+
+        if(o.ShipDate == o.DeliveryDate)//if the both dates are the same- the order dosent yet-only approved
         {
             s = BO.OrderStatus.approved;
         }
         else
         {
-            if (o.DeliveryDate == null)
+            if (o.ShipDate > o.DeliveryDate) //if the order didnt provided yet
             {
                 s = BO.OrderStatus.sent;
             }
             else
                 s = BO.OrderStatus.provided;
         }
+        
+
         return s;
     }
 
@@ -119,6 +145,7 @@ internal class BoOrder : IBoOrder
             order.Status = BO.OrderStatus.sent; //update the status to sent 
             order.ShipDate = DateTime.Now;//update the ship date in bo
             temp.ShipDate = order.ShipDate;//update the ship date in do
+            order.Status = BO.OrderStatus.sent; //update the status
         }
         return order;
     }
@@ -134,7 +161,8 @@ internal class BoOrder : IBoOrder
         {
             order.Status = BO.OrderStatus.provided; //update the status to provided
             order.DeliveryDate = DateTime.Now;//update the DeliveryDate date in bo
-            temp.DeliveryDate = order.ShipDate;//update the DeliveryDate date in do
+            temp.DeliveryDate = DateTime.Now;//update the DeliveryDate date in do
+            order.Status = BO.OrderStatus.provided; //update the status
         }
         return order;
 

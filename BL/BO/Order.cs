@@ -66,7 +66,7 @@ public class Order
         Date of paymant: {PaymantDate}
         Date of ship:{ShipDate}
         Date of delivery: {DeliveryDate}
-        Items: {Items}
-        Total price {TotalPrice}
-";
+        Items: {Items} 
+        Total price: {TotalPrice}
+         ";
 }
