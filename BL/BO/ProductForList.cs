@@ -31,7 +31,7 @@ public class ProductForList
     /// </summary>
     /// <returns></returns>
     public override string ToString() => $@"
-        ID={ID}
+        ID: {ID}
         Name: {Name}
     	Price: {Price}
     	Category:{Category}

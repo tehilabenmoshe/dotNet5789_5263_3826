@@ -37,9 +37,9 @@ public class OrderItem
     /// </summary>
     /// <returns></returns>
     public override string ToString() => $@"
-        ID={ID}
-        Name={Name}
-        Product ID={ProductID}
+        ID: {ID}
+        Name: {Name}
+        Product ID: {ProductID}
     	Price: {Price}
     	Amount: {Amount}
         Total price: {TotalPrice}

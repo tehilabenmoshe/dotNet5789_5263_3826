@@ -57,7 +57,7 @@ public class Order
     /// </summary>
     /// <returns></returns>
     public override string ToString() => $@"
-        ID={ID}
+        ID: {ID}
         Customer name: {CustomerName}
         Customer email: {CustomerEmail}
         Customer address: {CustomerAddress}

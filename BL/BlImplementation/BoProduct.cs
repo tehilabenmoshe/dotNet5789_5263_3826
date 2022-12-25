@@ -43,9 +43,9 @@ internal class BoProduct: IBoProduct
     public BO.Product GetProductbyIdForManager(int ID)
     {
             if((ID<=100000)||(ID>=999999))
-                throw new BO.DoesntExistException();
+                throw new BO.InvalidInputExeption("ID is out of range"); ;
             BO.Product p = new BO.Product();
-            DO.Product temp=Dal?.Product.GetById(ID)?? throw new BO.DoesntExistException();
+            DO.Product temp=Dal?.Product.GetById(ID)?? throw new BO.DoesntExistException("the product doesnt exists");
             p.ID = temp.ID;
             p.Name = temp.Name;
             p.Price=temp.Price;
@@ -58,9 +58,9 @@ internal class BoProduct: IBoProduct
     public BO.ProductItem GetProductByIDAndCartForCostumer(int ID, BO.Cart cart)
     {
         if ((ID <= 100000) || (ID >= 999999))
-            throw new BO.InvalidInputExeption();
+            throw new BO.InvalidInputExeption("ID is out of range");
         BO.ProductItem p = new BO.ProductItem();
-        DO.Product temp = Dal?.Product.GetById(ID) ?? throw new BO.DoesntExistException();
+        DO.Product temp = Dal?.Product.GetById(ID) ?? throw new BO.DoesntExistException("Product doesnt exists");
         p.ID = temp.ID; //לראות מה עושים עם cart
         p.Name = temp.Name;
         p.Price = temp.Price;
@@ -80,19 +80,19 @@ internal class BoProduct: IBoProduct
     public void AddProduct(BO.Product product)
     {
         if(product.Name=="")
-            throw new BO.InvalidInputExeption();
+            throw new BO.InvalidInputExeption("the Name must contain at least letter");
         if ((product.ID < 100000) || (product.ID > 999999))
-            throw new BO.InvalidInputExeption(); 
+            throw new BO.InvalidInputExeption("ID is out of range"); 
         if(product.Price<0)
-            throw new BO.InvalidInputExeption();
+            throw new BO.InvalidInputExeption("Price is out of range");
         if(product.InStock<0)
-            throw new BO.InvalidInputExeption();
+            throw new BO.InvalidInputExeption("Product is out of stock");
         try
         {
             if (Dal?.Product.GetById(product.ID) != null) //if the product already exsist in DO
             {
 
-                throw new BO.AlreadyExistExeption();
+                throw new BO.AlreadyExistExeption("Product already exists");
             }
         }
         catch (DO.DoesntExistExeption ex)// if product doesnt exists
@@ -103,25 +103,69 @@ internal class BoProduct: IBoProduct
         }
        
     }
-    public void DeledeProduct(int id) 
+    public void DeledeProduct(int IDProduct)
     {
-        Dal?.Product.Delete(id);
-    }
-    public void UpdateDetailProduct(BO.Product? p)
-    {
-        if (p.Name == "")
-            throw new BO.InvalidInputExeption();
-        if (p.Price < 0)
-            throw new BO.InvalidInputExeption();
-        if (p.InStock < 0)
-            throw new BO.InvalidInputExeption();
-        if(p.ID<100000||p.ID>999999) 
-            throw new BO.InvalidInputExeption();    
-        DO.Product temp = new DO.Product();
-        temp=Dal?.Product.GetById(p.ID)??throw new BO.DoesntExistException();//if the product was found put it in temp
-        temp= ProductFromBOToDO(p);//update temp with the new data of p
-    }
+        List<DO.Order?> tempList = (List<DO.Order?>)Dal.Order.GetAll();// create temp list to get all orders from DAL
+        foreach (DO.Order? o in tempList)// go over the list of orders
+        {
+            List<DO.OrderItem?> itemsInO = new List<DO.OrderItem?>();// create orderItem list for testing
+            try
+            {
 
+                itemsInO = (List<DO.OrderItem?>)Dal.OrderItem.GetItemsList((int)(o?.ID!));
+                if (itemsInO.Find((x => x?.ProductID == IDProduct)) != null)// product was found in order
+                    throw new BO.CantDeleteItem("Product exists in an order, cannot be deleted");
+
+            }
+            catch (BO.CantDeleteItem ex)// exeption for product in order case
+            {
+
+                throw new BO.CantDeleteItem(ex.Message, ex);
+
+            }
+        }
+        try
+        {
+
+            Dal.Product.Delete(IDProduct); // deleting from DAL
+        }
+        catch (DO.DoesntExistExeption ex)// if doesnt work catch exeption
+        {
+            throw new BO.DoesntExistException(ex.Message, ex);
+        }
+    }
+    public void UpdateDetailProduct(BO.Product? product)
+    {
+        if (!(product?.ID >= 100000 && product?.ID < 1000000))// id test
+            throw new BO.InvalidInputExeption("ID is out of range");
+
+        if (product?.Name == "")// name test 
+            throw new BO.InvalidInputExeption("Name is not correct");
+
+        if (product?.Price <= 0)// price test
+            throw new BO.InvalidInputExeption("Price is out of range");
+
+        if (product?.InStock < 0)// stock test
+            throw new BO.InvalidInputExeption("Product is out of stock");
+
+        try
+        {
+            DO.Product productTempDO = new DO.Product()// create DO product to update in DAL
+            {
+                ID = product!.ID,
+                Name = product?.Name,
+                Price = product?.Price,
+                Category = (DO.Category)product?.Category,
+                InStock = product?.InStock
+            };
+
+            Dal.Product.Update(productTempDO); // updating
+        }
+        catch (DO.DoesntExistExeption ex)// if doesnt work catch exeption
+        {
+            throw new BO.DoesntExistException(ex.Message, ex);
+        }
+    }
 
 
 }

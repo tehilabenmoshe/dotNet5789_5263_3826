@@ -114,6 +114,49 @@ internal class Program
                         break;
                     case 5:
                         #region case 5
+                        Console.WriteLine("insert product details:");
+                        Console.WriteLine("id:");
+                        int.TryParse(Console.ReadLine(), out id);
+                        temp.ID = id;
+                        Console.WriteLine("name:");
+                        string name2 = Console.ReadLine();
+                        temp.Name = name2;
+                        Console.WriteLine("price:");
+                        double.TryParse(Console.ReadLine(), out price);
+                        temp.Price = price;
+                        Console.WriteLine(@"choose product category: 
+                                        0-Garden, 
+                                        1-Kitchen, 
+                                        2-Living Room, 
+                                        3-Bed Room, 
+                                        4-Dining Room");
+
+                        int.TryParse(Console.ReadLine(), out cat);
+                        switch (cat)
+                        {
+                            case 0:
+                                temp.Category = BO.Category.garden;
+                                break;
+                            case 1:
+                                temp.Category = BO.Category.kitchen;
+                                break;
+                            case 2:
+                                temp.Category = BO.Category.livingRoom;
+                                break;
+                            case 3:
+                                temp.Category = BO.Category.bedRoom;
+                                break;
+                            case 4:
+                                temp.Category = BO.Category.diningRoom;
+                                break;
+                            default:
+                                Console.WriteLine("ERROR- category does not exist");
+                                break;
+                        }
+
+                        Console.WriteLine("product in stock:");
+                        int.TryParse(Console.ReadLine(), out stock);
+                        temp.InStock = stock;
                         //InsertProductDetails(ref temp);
                         bl.Product.UpdateDetailProduct(temp);
                         #endregion

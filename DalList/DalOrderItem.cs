@@ -52,11 +52,23 @@ public class DalOrderItem:IOrderItem
     {
         OrderItem? temp = ds.ListOrderItem.Find(x => x?.OrderID == orderId);
         if (temp == null)
-            throw new DoesntExistExeption("order not exist");
+            throw new DoesntExistExeption("order doesnt exist");
         if (temp?.ProductID == productId)
             return (OrderItem)temp;
-        else throw new DoesntExistExeption(" product not exist");
+        else throw new DoesntExistExeption(" product doesnt exist");
     }
-
+    public IEnumerable<OrderItem?> GetItemsList(int orderId)
+    {
+        Order? order = ds.ListOrder.Find(x => x.GetValueOrDefault().ID == orderId);
+        if (order == null)
+            throw new DoesntExistExeption("the order does not exist");
+        List<OrderItem?> listToReturn = new List<OrderItem?>();
+        foreach (OrderItem? item in ds.ListOrderItem)
+        {
+            if (item != null && item?.OrderID == order?.ID)
+                listToReturn.Add((OrderItem?)item);
+        }
+        return listToReturn;
+    }
 
 }
