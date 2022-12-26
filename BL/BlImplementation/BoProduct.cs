@@ -119,9 +119,7 @@ internal class BoProduct: IBoProduct
             }
             catch (BO.CantDeleteItem ex)// exeption for product in order case
             {
-
                 throw new BO.CantDeleteItem(ex.Message, ex);
-
             }
         }
         try
