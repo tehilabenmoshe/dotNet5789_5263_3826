@@ -17,15 +17,32 @@ internal class BoOrder : IBoOrder
     {
         List<DO.Order> order = Dal.Order.GetAll().ToList();
         List<BO.OrderForList?> listOfOrders = new List<BO.OrderForList>();
-        
-        foreach (DO.Order or in order)
-        {
-            BO.OrderForList temp = new BO.OrderForList();
-            temp.ID = or.ID;
-            temp.CustomerName = or.CustomerName;
-            listOfOrders.Add(temp);
-        }
-        return listOfOrders;
+
+        return
+        (from orderDO in order
+         let orderFromBL = Dal.OrderItem.GetItemsList((int)(orderDO.ID!))
+         select new BO.OrderForList()
+         {
+             ID = (int)(orderDO.ID!),
+             CustomerName = orderDO.CustomerName,
+             Status = Tools.GetStatus((DO.Order)orderDO),
+             AmountOfItems = Tools.GetAmountOfItems(orderFromBL),
+             TotalPrice = Tools.GetTotalPrice(orderFromBL)
+         }).ToList();
+
+
+
+        //foreach (DO.Order or in order)
+        //{
+        //    BO.OrderForList temp = new BO.OrderForList();
+        //    temp.ID = or.ID;
+        //    temp.CustomerName = or.CustomerName;
+        //    temp.Status = Tools.GetStatus(or);
+        //    temp.AmountOfItems=;
+        //    temp.TotalPrice=
+        //    listOfOrders.Add(temp);
+        //}
+        //return listOfOrders;
     }
     public BO.OrderStatus getStatus(BO.Order o) 
     {

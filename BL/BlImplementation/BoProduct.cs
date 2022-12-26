@@ -18,10 +18,10 @@ internal class BoProduct: IBoProduct
     public IEnumerable<BO.ProductForList> getProductForList()
     {
         List<BO.ProductForList?> listOfProducts = new List<BO.ProductForList?>();
-        BO.ProductForList temp = new BO.ProductForList();
         List<DO.Product> products = Dal.Product.GetAll().ToList();
         foreach (DO.Product p in products)
         {
+            BO.ProductForList temp = new BO.ProductForList();
             temp.ID = p.ID;
             temp.Name = p.Name; 
             temp.Price= p.Price;
@@ -29,7 +29,7 @@ internal class BoProduct: IBoProduct
             listOfProducts.Add(temp);   
         }
         return listOfProducts;  
-    }
+    } 
     public DO.Product ProductFromBOToDO(BO.Product p)
     {
         DO.Product temp=new DO.Product();
@@ -105,23 +105,23 @@ internal class BoProduct: IBoProduct
     }
     public void DeledeProduct(int IDProduct)
     {
-        List<DO.Order?> tempList = (List<DO.Order?>)Dal.Order.GetAll();// create temp list to get all orders from DAL
-        foreach (DO.Order? o in tempList)// go over the list of orders
-        {
-            List<DO.OrderItem?> itemsInO = new List<DO.OrderItem?>();// create orderItem list for testing
-            try
-            {
+        //List<DO.Order?> tempList = (List<DO.Order?>)Dal.Order.GetAll();// create temp list to get all orders from DAL
+        //foreach (DO.Order? o in tempList)// go over the list of orders
+        //{
+        //    List<DO.OrderItem?> itemsInO = new List<DO.OrderItem?>();// create orderItem list for testing
+        //    try
+        //    {
 
-                itemsInO = (List<DO.OrderItem?>)Dal.OrderItem.GetItemsList((int)(o?.ID!));
-                if (itemsInO.Find((x => x?.ProductID == IDProduct)) != null)// product was found in order
-                    throw new BO.CantDeleteItem("Product exists in an order, cannot be deleted");
+        //        itemsInO = (List<DO.OrderItem?>)Dal.OrderItem.GetItemsList((int)(o?.ID!));
+        //        if (itemsInO.Find((x => x?.ProductID == IDProduct)) != null)// product was found in order
+        //            throw new BO.CantDeleteItem("Product exists in an order, cannot be deleted");
 
-            }
-            catch (BO.CantDeleteItem ex)// exeption for product in order case
-            {
-                throw new BO.CantDeleteItem(ex.Message, ex);
-            }
-        }
+        //    }
+        //    catch (BO.CantDeleteItem ex)// exeption for product in order case
+        //    {
+        //        throw new BO.CantDeleteItem(ex.Message, ex);
+        //    }
+        //}
         try
         {
 

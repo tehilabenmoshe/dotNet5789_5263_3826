@@ -41,5 +41,35 @@ public static class Tools
         return 0;
 
     }
+    public static OrderStatus GetStatus(DO.Order order)
+    {
+        if (order.DeliveryDate != null && order.DeliveryDate < DateTime.Now)
+            return OrderStatus.provided;
+        else if (order.ShipDate != null && order.ShipDate < DateTime.Now)
+            return OrderStatus.sent;
+        else if (order.OrderDate != null && order.OrderDate < DateTime.Now)
+            return OrderStatus.approved;
+        else
+            return OrderStatus.none;
 
+    }
+    public static int GetAmountOfItems(IEnumerable<DO.OrderItem?> orderFromBL)
+    {
+        int? sum = 0;
+        foreach (DO.OrderItem? o in orderFromBL)
+        {
+            sum = sum + o?.Amount;
+        }
+        return (int)sum;
+    }
+    public static double GetTotalPrice(IEnumerable<DO.OrderItem?> ListItems)
+    {
+        double? total = 0;
+        foreach (DO.OrderItem? o in ListItems)
+        {
+            total = total + o?.Price * o?.Amount;
+        }
+        return (int)total;
+    }
 }
+

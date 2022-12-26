@@ -35,6 +35,8 @@ internal class BoCart : IBoCart
             orderToAdd.ProductID = tmp.ID;
             orderToAdd.Price = (double)tmp.Price;
             orderToAdd.Amount = 1;
+            orderToAdd.TotalPrice = orderToAdd.Price * orderToAdd.Amount;
+            orderToAdd.Name=tmp.Name;
             cart.Items.Add(orderToAdd);//add the orderitem to the cart
 
         }
@@ -54,39 +56,139 @@ internal class BoCart : IBoCart
 
     public BO.Cart UpdateProductInCart(BO.Cart cart, int id, int newAmount)
     {
-        BO.OrderItem? tmp = new BO.OrderItem();
-        tmp = cart.Items.FirstOrDefault(o => o.ProductID == id); //find the item in the cart
-        if (tmp == null)
-            throw new BO.DoesntExistException();
-
-        if (cart == null)
-            throw new BO.DoesntExistException();
-
-        if (newAmount > tmp.Amount)
+        bool productInCart = false;
+        try
         {
-            DO.Product p = new DO.Product();
-            if (p.InStock > 0) //if there is product
+            DO.Product? p = Dal.Product.GetById(id);
+            if (cart?.Items == null)
+                throw new BO.DoesntExistException("cart is empty");
+
+            foreach (BO.OrderItem? item in cart.Items)
             {
-                cart.TotalPrice += tmp.Price * (newAmount - tmp.Amount); //update the total price of the cart-add the extra price from the new amount
-                tmp.Amount = newAmount;
+                if (item != null && item.ProductID == id)
+                {
+                    productInCart = true;
+                    if (newAmount == 0)
+                    {
+                        cart.Items.Remove(item);
+                        cart.TotalPrice = cart.TotalPrice ?? 0 - (item.Price * item.Amount);
+                        cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
+                        return cart;
+                    }
+                    int? difference = newAmount - item.Amount;
+                    if (item.Amount < newAmount)
+                    {
+                        if (!(p?.InStock >= difference))
+                            throw new BO.DoesntExistException("cant add - p out of stock");
+                        item.Amount = newAmount;
+                        cart.TotalPrice = (cart.TotalPrice ?? 0) + (item.Price * difference);
+                        cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
+                        return cart;
+                    }
+                    if (item.Amount > newAmount)
+                    {
+                        item.Amount = newAmount;
+                        cart.TotalPrice = (cart.TotalPrice ?? 0) + (item.Price * difference);
+                        cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
+                        return cart;
+                    }
+                }
+                
             }
-            else
-                throw new BO.DoesntExistException();
-        }
 
-        if (newAmount < tmp.Amount)
+            if(productInCart==false) //if the product is not in the cart
+                throw new BO.DoesntExistException("product is not in cart");
+
+            return cart;
+        }
+        catch (Exception ex)
         {
-            cart.TotalPrice -= tmp.Price * (tmp.Amount - newAmount); //update the total price of the cart-add the extra price from the new amount
-            tmp.Amount = newAmount;
+            throw new Exception(ex.Message);
         }
 
-        if (newAmount == 0)
-        {
-            cart.TotalPrice -= tmp.Price * tmp.Amount;
-            Dal!.Product.Delete(id);
 
-        }
-        return cart;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //BO.OrderItem? tmp = new BO.OrderItem();
+        //tmp = cart.Items.Find(o => o.ProductID == id); //find the item in the cart
+        ////if (tmp == null) //if the product dosent exsist in the cart
+        ////{
+        ////   // BO.OrderItem? tmp2 = new BO.OrderItem();
+        ////    AddProductToCart(cart, id); //insert the product to the cart
+        ////    UpdateProductInCart(cart,id, newAmount); //update the product
+        ////   // cart.TotalPrice +=
+
+        ////}
+        //    // throw new BO.DoesntExistException();
+
+        //if (cart == null)
+        //    throw new BO.DoesntExistException();
+
+        //if (newAmount > tmp.Amount)
+        //{
+        //    DO.Product p = new DO.Product();
+        //    if (p.InStock > 0) //if there is product
+        //    {
+        //        cart.TotalPrice += tmp.Price * (newAmount - tmp.Amount); //update the total price of the cart-add the extra price from the new amount
+        //        tmp.Amount = newAmount;
+        //    }
+        //    else
+        //        throw new BO.DoesntExistException();
+        //}
+
+        //if (newAmount < tmp.Amount)
+        //{
+        //    cart.TotalPrice -= tmp.Price * (tmp.Amount - newAmount); //update the total price of the cart-add the extra price from the new amount
+        //    tmp.Amount = newAmount;
+        //}
+
+        //if (newAmount == 0)
+        //{
+        //    cart.TotalPrice -= tmp.Price * tmp.Amount;
+        //    Dal!.Product.Delete(id);
+
+        //}
+        //return cart;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public void MakeCart(BO.Cart? cart)
@@ -95,7 +197,7 @@ internal class BoCart : IBoCart
         if (cart == null) throw new BO.InvalidInputExeption();
         if (cart.CustomerName == "") throw new BO.InvalidInputExeption();
         if (cart.CustomerAddress == "") throw new BO.InvalidInputExeption();
-        if (cart.CustomerEmail == "" || cart.CustomerEmail!.Contains("@"))
+        if (cart.CustomerEmail == "" ||!( cart.CustomerEmail!.Contains("@")))
             throw new BO.InvalidInputExeption();
 
         //copy data:
@@ -122,13 +224,8 @@ internal class BoCart : IBoCart
 
         }
 
-
-        
         //להמשיך -להוריד פריטים מהסל
         //לדחוף לdo לרשימה
-
-
-
 
     }
 
