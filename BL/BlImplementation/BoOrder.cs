@@ -9,7 +9,7 @@ using BlApi;
 using DalApi;
 
 namespace BlImplementation;
-// לא עובד: בהדפסה לא מדפיס את הרשימה של הפריטים וגם את המחיר הסופי- לבדוקקקקקק
+// ק
 internal class BoOrder : IBoOrder
 {
     private IDal? Dal = DalApi.Factory.Get();
@@ -106,9 +106,9 @@ internal class BoOrder : IBoOrder
 
     public BO.Order GetOrder(int ID)
     {
-        if ((ID <= 100000) || (ID >= 999999))
-            throw new BO.DoesntExistException();
-        DO.Order o = Dal?.Order.GetById(ID) ?? throw new DO.InvalidInputExeption();
+        if ((ID < 100000) || (ID > 999999))
+            throw new BO.InvalidInputExeption("ID is out of range");
+        DO.Order o = Dal?.Order.GetById(ID) ?? throw new DO.DoesntExistExeption("order doesnt exists");
         BO.Order temp=new BO.Order();
         temp = DoOrderToBo(o);
         return temp;
@@ -151,10 +151,10 @@ internal class BoOrder : IBoOrder
     }
     public BO.Order UpdateShipOrder(int ID)
     {
-        if ((ID <= 100000) || (ID >= 999999))//check the id
-            throw new BO.DoesntExistException();
+        if ((ID < 100000) || (ID > 999999))//check the id
+            throw new BO.DoesntExistException("ID is out of range");
         BO.Order order = new BO.Order();
-        DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException();
+        DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("rder doesnt exists");
         order=DoOrderToBo(temp); //casting from bo to do  
 
         if(order.Status!=BO.OrderStatus.sent) //of the order isnt sent yet
@@ -168,10 +168,10 @@ internal class BoOrder : IBoOrder
     }
     public BO.Order UpdateProvisionOrder(int ID)
     {
-        if ((ID <= 100000) || (ID >= 999999))//check the id
-            throw new BO.DoesntExistException();
+        if ((ID < 100000) || (ID > 999999))//check the id
+            throw new BO.DoesntExistException("ID is out of range");
         BO.Order order = new BO.Order();
-        DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException();
+        DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
         order = DoOrderToBo(temp); //casting from bo to do
         
         if(order.Status != BO.OrderStatus.provided)
@@ -186,10 +186,10 @@ internal class BoOrder : IBoOrder
     }
     public BO.OrderTracking TrackOrder(int ID)
     {
-        if ((ID <= 100000) || (ID >= 999999))//check the id
-            throw new BO.DoesntExistException();
+        if ((ID < 100000) || (ID > 999999))//check the id
+            throw new BO.InvalidInputExeption("Id is out of range");
         BO.Order order = new BO.Order();
-        DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException();
+        DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("oder doesnt exists");
         order = DoOrderToBo(temp); //casting from bo to do
         BO.OrderTracking ot=new BO.OrderTracking();
         ot.ID = ID;

@@ -107,31 +107,6 @@ internal class BoCart : IBoCart
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //BO.OrderItem? tmp = new BO.OrderItem();
         //tmp = cart.Items.Find(o => o.ProductID == id); //find the item in the cart
         ////if (tmp == null) //if the product dosent exsist in the cart
@@ -172,20 +147,6 @@ internal class BoCart : IBoCart
 
         //}
         //return cart;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
