@@ -9,7 +9,7 @@ using BlApi;
 using DalApi;
 
 namespace BlImplementation;
-// ק
+
 internal class BoOrder : IBoOrder
 {
     private IDal? Dal = DalApi.Factory.Get();

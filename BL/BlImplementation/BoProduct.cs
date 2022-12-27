@@ -106,6 +106,23 @@ internal class BoProduct: IBoProduct
     }
     public void DeledeProduct(int IDProduct)
     {
+        List<DO.Order> tempList = (List<DO.Order>)Dal.Order.GetAll();// create temp list to get all orders from DAL
+        foreach (DO.Order? o in tempList)// go over the list of orders
+        {
+            List<DO.OrderItem?> itemsInO = new List<DO.OrderItem?>();// create orderItem list for testing
+            try
+            {
+
+                itemsInO = (List<DO.OrderItem?>)Dal.OrderItem.GetItemsList((int)(o?.ID!));
+                if (itemsInO.Find((x => x?.ProductID == IDProduct)) != null)// product was found in order
+                    throw new BO.CantDeleteItem("Product exists in an order, cannot be deleted");
+
+            }
+            catch (BO.CantDeleteItem ex)// exeption for product in order case
+            {
+                throw new BO.CantDeleteItem(ex.Message, ex);
+            }
+        }
         try
         {
 
