@@ -214,16 +214,21 @@ internal class BoCart : IBoCart
 
         foreach (BO.OrderItem? oInBo in cart.Items)
         {
+            DO.Product productInDo = Dal.Product.GetById(oInBo.ProductID); //reciving the product in do
             DO.OrderItem o = new DO.OrderItem(); //creating new orderItem in do
+            
             o.ID = oInBo.ID;
             o.ProductID = oInBo.ProductID;
             o.Price = oInBo.Price;
             o.Amount = oInBo.Amount;
             o.OrderID = orderId; //מספר ההזמנה הנ"ל
             Dal?.OrderItem.Add(o);
+            productInDo.InStock -= oInBo.Amount; //update the amount
+            Dal.Product.Update(productInDo);
 
         }
 
+        
         //להמשיך -להוריד פריטים מהסל
         //לדחוף לdo לרשימה
 

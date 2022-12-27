@@ -72,10 +72,11 @@ internal class BoProduct: IBoProduct
         else   
             p.InStock = false;
 
-           
-        return p;
-        // p.path=temp.path;?????
+        BO.OrderItem orderItem = new BO.OrderItem();
+        orderItem=cart.Items.Find((x => x?.ProductID == ID));
+        p.Amount = orderItem.Amount;
 
+        return p;
     }
     public void AddProduct(BO.Product product)
     {

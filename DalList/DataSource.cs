@@ -162,7 +162,7 @@ namespace Dal;
                   OrderID = rand.Next(Config.startOrderNumber, Config.startOrderNumber + ListOrder.Count),
                   ProductID = product?.ID ?? 0,
                   Price = product?.Price ?? 0,
-                  Amount = rand.Next(5),
+                  Amount = rand.Next(100),
               });
         }
 
