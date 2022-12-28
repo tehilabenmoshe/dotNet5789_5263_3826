@@ -40,7 +40,7 @@ public class DalProduct : IProduct
 
     }
 
-    public IEnumerable<Product> GetAll()
+    public IEnumerable<Product> GetAll(Func<Product?, bool>? filter = null)
     {
         return(from Product p in ds.ListProduct select p).ToList<Product>();//prints all the products in the list
 
