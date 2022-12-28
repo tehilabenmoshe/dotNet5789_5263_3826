@@ -21,10 +21,17 @@ namespace PL
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
 
-        ListView.ItemsSource
+        
         public ProductListDisplay()
         {
             InitializeComponent();
+            ProductListView.ItemsSource=bl.Product.getProductForList();
+            CategorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
+        }
+
+        private void CategorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
