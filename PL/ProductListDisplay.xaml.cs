@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,22 @@ namespace PL
         private void CategorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+            if (CategorySelector.SelectedItem is BO.Category.all)
+                IEnumerableToObservable(bl!.Product.getProductForList());
+            else if (CategorySelector.SelectedItem is BO.Category)
+                IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));
+            else if (CategorySelector.SelectedItem is "")
+                IEnumerableToObservable(bl!.Product.getProductForList());
+
+
+        }
+
+        private void IEnumerableToObservable(IEnumerable<ProductForList> listTOConvert)
+        {
+            ProductForList.Clear();
+            foreach (var station in listTOConvert)
+                productList.Add(station);
         }
     }
+
 }
