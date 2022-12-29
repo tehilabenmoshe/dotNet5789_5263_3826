@@ -40,7 +40,7 @@ namespace PL
             else if (CategorySelector.SelectedItem is "")
                 IEnumerableToObservable(bl!.Product.getProductForList());
 
-
+    
         }
 
         private void IEnumerableToObservable(IEnumerable<ProductForList> listTOConvert)
