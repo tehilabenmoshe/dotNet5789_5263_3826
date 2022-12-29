@@ -39,7 +39,7 @@ namespace PL
                 IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));
             else if (CategorySelector.SelectedItem is "")
                 IEnumerableToObservable(bl!.Product.getProductForList());
-
+            
     
         }
 
