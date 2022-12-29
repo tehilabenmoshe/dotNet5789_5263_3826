@@ -14,4 +14,6 @@ public interface IBoProduct
     public void DeledeProduct(int ID);
     public void UpdateDetailProduct(BO.Product? p);
     internal DO.Product ProductFromBOToDO(BO.Product p); //casting from bo to do
+
+    public IEnumerable<ProductForList> FilterProductList(Predicate<ProductForList> tmp); //filter the list by category
 }

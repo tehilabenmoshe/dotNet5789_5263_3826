@@ -1,6 +1,7 @@
 ﻿using BO;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,33 +23,60 @@ namespace PL
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
 
-        
+        ObservableCollection<ProductForList> productList = new();
+
         public ProductListDisplay()
         {
             InitializeComponent();
-            ProductListView.ItemsSource=bl.Product.getProductForList();
+            ProductListView.ItemsSource = bl.Product.getProductForList();
             CategorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
         }
+
+        //public ProductListDisplay()
+        //{
+        //    InitializeComponent();
+        //    IEnumerableToPL(bl.Product.getProductForList());
+        //    ProductListView.DataContext = productList;
+        //    CategorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
+
+        //}
+
 
         private void CategorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             if (CategorySelector.SelectedItem is BO.Category.all)
-                IEnumerableToObservable(bl!.Product.getProductForList());
+                IEnumerableToPL(bl!.Product.getProductForList());
             else if (CategorySelector.SelectedItem is BO.Category)
-                IEnumerableToObservable(bl!.Product.GetPartOfProduct(p => p.Category == (BO.Category)categorySelector.SelectedItem));
+                IEnumerableToPL(bl!.Product.FilterProductList(p => p.Category == (BO.Category)CategorySelector.SelectedItem));
             else if (CategorySelector.SelectedItem is "")
-                IEnumerableToObservable(bl!.Product.getProductForList());
-            
-    
+                IEnumerableToPL(bl!.Product.getProductForList());
+           
         }
 
-        private void IEnumerableToObservable(IEnumerable<ProductForList> listTOConvert)
+        private void IEnumerableToPL(IEnumerable<ProductForList> list)
         {
-            ProductForList.Clear();
-            foreach (var station in listTOConvert)
-                productList.Add(station);
+            productList.Clear();
+            foreach (var temp in list)
+                productList.Add(temp);
         }
+
+        //private void AddProductButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    EditProduct window = new EditProduct();
+        //    window.Show();
+        //}
+
+        // private void productListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) => new EditProduct((BO.ProductForList)ProductListView.SelectedItem).Show();
+
+
+        //private void ProductListView_MouseDoubleClick(object sender, SelectionChangedEventArgs e)
+        //{
+        //    ProductListDisplay plv = new ProductListDisplay();
+        //    plv.InitializeComponent();
+        //    plv.Show();
+
+        //}
     }
 
 }

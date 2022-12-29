@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlApi;
+using BO;
 //using BO;
 //using BO;
 using DalApi;
@@ -166,5 +167,12 @@ internal class BoProduct: IBoProduct
         }
     }
 
+    public IEnumerable<ProductForList> FilterProductList(Predicate<ProductForList> checkProduct)
+    {
+        var listToReturn = (from p in getProductForList()
+        where checkProduct(p)
+        select p).ToList<ProductForList>();
+        return listToReturn;
+    }
 
 }
