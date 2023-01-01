@@ -19,6 +19,7 @@ namespace PL
     /// </summary>
     public partial class EditProduct : Window
     {
+        BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
         public EditProduct()
         {
             InitializeComponent();

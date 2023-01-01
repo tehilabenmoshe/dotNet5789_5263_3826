@@ -25,25 +25,18 @@ namespace PL
 
         ObservableCollection<ProductForList> productList = new();
 
+
         public ProductListDisplay()
         {
             InitializeComponent();
-            ProductListView.ItemsSource = bl.Product.getProductForList();
+            IEnumerableToPL(bl.Product.getProductForList());
+            ProductListView.DataContext = productList;
             CategorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
         }
 
-        //public ProductListDisplay()
-        //{
-        //    InitializeComponent();
-        //    IEnumerableToPL(bl.Product.getProductForList());
-        //    ProductListView.DataContext = productList;
-        //    CategorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
 
-        //}
-
-
-        private void CategorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+            private void CategorySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+            {
 
             if (CategorySelector.SelectedItem is BO.Category.all)
                 IEnumerableToPL(bl!.Product.getProductForList());
@@ -51,8 +44,8 @@ namespace PL
                 IEnumerableToPL(bl!.Product.FilterProductList(p => p.Category == (BO.Category)CategorySelector.SelectedItem));
             else if (CategorySelector.SelectedItem is "")
                 IEnumerableToPL(bl!.Product.getProductForList());
-           
-        }
+
+            }
 
         private void IEnumerableToPL(IEnumerable<ProductForList> list)
         {
@@ -60,6 +53,18 @@ namespace PL
             foreach (var temp in list)
                 productList.Add(temp);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EditProduct ep=new EditProduct();
+            ep.Show();
+        }
+
+        //private void ProductListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    ProductForList pf = ProductListView.SelectedItem as ProductForList;
+        //    ProductListView.SelectedItem = pf.Category;
+        //}
 
         //private void AddProductButton_Click(object sender, RoutedEventArgs e)
         //{
