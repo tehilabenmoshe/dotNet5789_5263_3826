@@ -19,14 +19,14 @@ namespace PL
     /// <summary>
     /// Interaction logic for ProductListDisplay.xaml
     /// </summary>
-    public partial class ProductListDisplay : Window
+    public partial class ProductListWindow : Window
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
 
         ObservableCollection<ProductForList> productList = new();
 
 
-        public ProductListDisplay()
+        public ProductListWindow()
         {
             InitializeComponent();
             IEnumerableToPL(bl.Product.getProductForList());
@@ -56,7 +56,7 @@ namespace PL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EditProduct ep=new EditProduct();
+            ProductWindow ep=new ProductWindow();
             ep.Show();
         }
 

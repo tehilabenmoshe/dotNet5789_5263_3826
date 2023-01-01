@@ -17,10 +17,10 @@ namespace PL
     /// <summary>
     /// Interaction logic for EditProduct.xaml
     /// </summary>
-    public partial class EditProduct : Window
+    public partial class ProductWindow : Window
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
-        public EditProduct()
+        public ProductWindow()
         {
             InitializeComponent();
         }

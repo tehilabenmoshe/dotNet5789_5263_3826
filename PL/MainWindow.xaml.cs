@@ -31,7 +31,7 @@ namespace PL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-          ProductListDisplay pld =new ProductListDisplay();
+            ProductListWindow pld =new ProductListWindow();
             pld.Show();
 
         }
