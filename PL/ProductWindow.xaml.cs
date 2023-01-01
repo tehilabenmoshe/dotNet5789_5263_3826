@@ -23,6 +23,26 @@ namespace PL
         public ProductWindow()
         {
             InitializeComponent();
+            CategoryBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
+        }
+
+        private void CategoryBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            //if (CategoryBox.SelectedItem is BO.Category.all)
+            //    IEnumerableToPL(bl!.Product.getProductForList());
+            //else if (CategoryBox.SelectedItem is BO.Category)
+            //    IEnumerableToPL(bl!.Product.FilterProductList(p => p.Category == (BO.Category)CategoryBox.SelectedItem));
+            //else if (CategoryBox.SelectedItem is "")
+            //    IEnumerableToPL(bl!.Product.getProductForList());
+
+        }
+
+        
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

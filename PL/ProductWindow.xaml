@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="ProductWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label x:Name="___ID_" Content="ID:" HorizontalAlignment="Left" Margin="218,65,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Width="79" FontSize="20" FontWeight="Bold" Height="37" RenderTransformOrigin="0.509,0.531"/>
+        <Grid x:Name="___Labels_" Margin="203,42,443,45">
+            <Label Content="Category:" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" Height="45"/>
+            <Label x:Name="___Name_" Content="Name:" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" Height="46"/>
+            <Label x:Name="___Price_" Content="Price:" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Ploni 1.1 AAA Medium" Height="38"/>
+        </Grid>
+        <Label x:Name="___Instock_" Content="In-Stock:" HorizontalAlignment="Left" Margin="214,258,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" Height="42"/>
+        <ComboBox x:Name= "CategoryBox" Width="120" Margin="362,120,318,295" SelectionChanged="CategoryBox_SelectionChanged"/>
+        <TextBox HorizontalAlignment="Left" Margin="362,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="362,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="362,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="362,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="362,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+
     </Grid>
 </Window>
