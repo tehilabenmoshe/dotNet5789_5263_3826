@@ -8,7 +8,7 @@
         Title="ProductListWindow" Height="640" Width="800">
     <Grid Name="MainGrid">
 
-        <Button Content="Add new Product" HorizontalAlignment="Left" Margin="104,538,0,30" Padding="5" Width="164" FontFamily="Ploni 1.1 AAA D-Bold" BorderThickness="0,0,0,0" Click="Button_Click"/>
+        <Button  Content="Add new Product" HorizontalAlignment="Left" Margin="104,538,0,30" Padding="5" Width="164" FontFamily="Ploni 1.1 AAA D-Bold" BorderThickness="0,0,0,0" Click="Button_Click"/>
 
 
         <ListView Name="ProductListView" Margin="104,145,131,142" 

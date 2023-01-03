@@ -25,13 +25,24 @@ namespace PL
         {
             InitializeComponent();
             CategoryBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
-
+            UpdateButton.Visibility = Visibility.Hidden;
         }
 
-        public ProductWindow(int ID)
+        public ProductWindow(int ID) //reciving the id of the product
         {
+            
+            InitializeComponent();
             BO.Product temp = new BO.Product();
             temp = bl.Product.GetProductbyIdForManager(ID); //temp=product
+            
+            CategoryBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
+            CategoryBox.SelectedItem=temp!.Category; 
+            NameBox.Text = temp!.Name.ToString();
+            IDBox.Text = temp!.ID.ToString();
+            PriceBox.Text = temp!.Price.ToString();
+            InStockBox.Text = temp!.InStock.ToString();
+
+            AddBox.Visibility = Visibility.Hidden;
 
         }
 
@@ -54,6 +65,7 @@ namespace PL
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
 
         }
 
@@ -83,6 +95,29 @@ namespace PL
                 MessageBox.Show(x.Message);
             }
 
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+               
+                BO.Product temp = new BO.Product();
+                //copy the reciving data to the product in bo
+                temp.ID = int.Parse(IDBox.Text);
+                temp.Name = NameBox.Text;
+                temp.Price = double.Parse(PriceBox.Text);
+                temp.InStock = int.Parse(InStockBox.Text);
+                temp.Category = (BO.Category)CategoryBox.SelectedItem;
+                //add the product to bo 
+                bl!.Product.UpdateDetailProduct(temp);
+                MessageBox.Show("The product successfully update");
+                Close();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
         }
     }
 }

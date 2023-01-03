@@ -17,10 +17,11 @@
         <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="362,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="PriceBox" HorizontalAlignment="Left" Margin="362,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="InStockBox" HorizontalAlignment="Left" Margin="362,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox x:Name="IDBox" HorizontalAlignment="Left" Margin="362,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="IDBox" HorizontalAlignment="Left" Margin="362,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" IsReadOnly="True"/>
         <Grid>
             <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="362,118,0,0" VerticalAlignment="Top" Width="120"  SelectionChanged="CategoryBox_SelectionChanged_1"  Text="None" IsEditable="true" IsReadOnly="true" FontFamily="Ploni 1.1 AAA U-Light"  />
-            <Button x:Name="AddBox"  Content="ADD" HorizontalAlignment="Left" Margin="214,329,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA D-Bold" Width="85" BorderThickness="0,0,0,0" Click="AddBox_Click"/>
+            <Button x:Name="AddBox"  Content="ADD" HorizontalAlignment="Left" Margin="214,329,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Width="85" BorderThickness="0,0,0,0" Click="AddBox_Click"/>
+            <Button x:Name="UpdateButton" Content="UPDATE" HorizontalAlignment="Left" Margin="310,329,0,0" VerticalAlignment="Top" Width="80" FontFamily="Ploni 1.1 AAA Medium" Padding="1,1,1,1" BorderThickness="0,0,0,0" Click="UpdateButton_Click"/>
 
         </Grid>
     </Grid>
