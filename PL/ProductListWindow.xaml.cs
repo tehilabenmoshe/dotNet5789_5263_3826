@@ -72,16 +72,17 @@ namespace PL
         //    window.Show();
         //}
 
-        // private void productListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) => new EditProduct((BO.ProductForList)ProductListView.SelectedItem).Show();
+        // private void productListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) => new ProductWindow((BO.ProductForList)ProductListView.SelectedItem).Show();
 
 
-        //private void ProductListView_MouseDoubleClick(object sender, SelectionChangedEventArgs e)
-        //{
-        //    ProductListDisplay plv = new ProductListDisplay();
-        //    plv.InitializeComponent();
-        //    plv.Show();
+     
 
-        //}
+        private void ProductListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ProductWindow plv = new ProductWindow(((BO.ProductForList)ProductListView.SelectedItem).ID);
+            plv.InitializeComponent();
+            plv.Show();
+        }
     }
 
 }

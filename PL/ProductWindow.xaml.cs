@@ -25,6 +25,14 @@ namespace PL
         {
             InitializeComponent();
             CategoryBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
+
+        }
+
+        public ProductWindow(int ID)
+        {
+            BO.Product temp = new BO.Product();
+            temp = bl.Product.GetProductbyIdForManager(ID); //temp=product
+
         }
 
         private void CategoryBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,15 +62,27 @@ namespace PL
 
         }
 
-        private void AddBox_Click(object sender, RoutedEventArgs e)//אמור לעבוד
+        private void AddBox_Click(object sender, RoutedEventArgs e)
         {
-            BO.Product temp = new BO.Product();
-            temp.Name = NameBox.Text;
-            temp.ID = IDBox.;
-            temp.Price = (double)PriceBox.Text;
-            temp.InStock = InStockBox.;
-            temp.Category = (BO.Category)CategoryBox.SelectedItem;
-            bl!.Product.AddProduct(temp);
+            try
+            {
+                BO.Product temp = new BO.Product();
+                //copy the reciving data to the product in bo
+                temp.ID = int.Parse(IDBox.Text);
+                temp.Name = NameBox.Text;
+                temp.Price = double.Parse(PriceBox.Text);
+                temp.InStock = int.Parse(InStockBox.Text);
+                temp.Category = (BO.Category)CategoryBox.SelectedItem;
+                //add the product to bo 
+                bl!.Product.AddProduct(temp);
+                MessageBox.Show("The product successfully added");
+                Close();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+
         }
     }
 }

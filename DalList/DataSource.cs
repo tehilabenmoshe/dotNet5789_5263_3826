@@ -12,7 +12,7 @@ namespace Dal;
     
     internal static class Config
     {
-        internal const int startOrderNumber = 100000;
+        internal const int startOrderNumber = 1000;
 
         private static int SnextOrderNumber = startOrderNumber;
         internal static int NextOrderNbumber { get => ++SnextOrderNumber; } 

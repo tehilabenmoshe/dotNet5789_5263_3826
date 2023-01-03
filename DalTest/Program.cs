@@ -196,7 +196,7 @@ class Program
     {
         try
         {
-            Console.WriteLine(@"checking order-Item:
+            Console.WriteLine(@"checking product:
                 Type your choice:
                 a - ADD A NEW PRODUCT
                 b - GET BY ID
