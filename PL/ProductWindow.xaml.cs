@@ -48,10 +48,7 @@ namespace PL
 
         private void CategoryBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //
-            //if (CategoryBox.SelectedItem is "")
-            //    CategoryBox.SelectedItem = BO.Category.none;
-
+          
             //if (CategoryBox.SelectedItem is BO.Category.all)
             //    IEnumerableToPL(bl!.Product.getProductForList());
             //else if (CategoryBox.SelectedItem is BO.Category)
