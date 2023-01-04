@@ -84,6 +84,8 @@ namespace PL
                 temp.Name = NameBox.Text;
                 temp.Price = double.Parse(PriceBox.Text);
                 temp.InStock = int.Parse(InStockBox.Text);
+                if ((BO.Category)CategoryBox.SelectedItem == BO.Category.None|| (BO.Category)CategoryBox.SelectedItem == BO.Category.all)
+                    throw new Exception("Please Select Category");
                 temp.Category = (BO.Category)CategoryBox.SelectedItem;
                 //add the product to bo 
                 bl!.Product.AddProduct(temp);

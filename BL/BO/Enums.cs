@@ -8,7 +8,7 @@ namespace BO
 {
         public enum Category
         {
-           garden, kitchen, livingRoom, bedRoom, diningRoom, all
+           garden, kitchen, livingRoom, bedRoom, diningRoom, all,None
         }
         /// <summary>
         /// enum for status

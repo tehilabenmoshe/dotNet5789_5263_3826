@@ -35,5 +35,10 @@ namespace PL
             pld.Show();
 
         }
+
+        private void NewOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

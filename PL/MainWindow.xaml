@@ -7,6 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="adminButton" Content="ADMIN" HorizontalAlignment="Left" Margin="318,203,0,0" VerticalAlignment="Top" Height="50" Width="167" Click="Button_Click" FontFamily="Ploni 1.1 AAA U-Bold" FontSize="24"/>
+        <Image Margin="0,-58,0,0" Source="/Image1.png" RenderTransformOrigin="0.5,0.5" Height="558" VerticalAlignment="Top" HorizontalAlignment="Center" Width="826">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="adminButton" Content="ADMIN" HorizontalAlignment="Left" Margin="36,292,0,0" VerticalAlignment="Top" Height="35" Width="130" Click="Button_Click" FontFamily="Ploni 1.1 AAA U-Bold" FontSize="20" BorderThickness="1,1,1,1" RenderTransformOrigin="1,1" Foreground="#FFEDE4D9" Background="{x:Null}" BorderBrush="#FFEDE4D9">
+            
+        </Button>
+        <Label Content="Perfect&#xA;Dream House &#xA;For You!"
+               HorizontalAlignment="Left" Margin="36,66,0,0" VerticalAlignment="Top" Height="226" Width="364" FontFamily="Ploni U-Bold AAA U-Bold" FontSize="48" Cursor="ScrollE" Foreground="#FFEDE4D9"/>
+        <Rectangle HorizontalAlignment="Left" Height="47" Margin="-32,-14,0,0" Stroke="Black" VerticalAlignment="Top" Width="844" Fill="#FF573E32" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="1" StrokeThickness="0">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-180.155"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="22" Margin="-20,445,0,0" Stroke="Black" VerticalAlignment="Top" Width="822" Fill="#FF563E35"/>
+        <Button x:Name="NewOrderButton" Content="NEW ORDER" HorizontalAlignment="Left" Margin="185,290,0,0" VerticalAlignment="Top" Height="37" Width="150" Click="NewOrderButton_Click" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FF573E32" Foreground="#FFEDE4D9"/>
     </Grid>
 </Window>

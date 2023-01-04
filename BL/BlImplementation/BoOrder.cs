@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.SymbolStore;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using BlApi;
@@ -29,20 +30,6 @@ internal class BoOrder : IBoOrder
              AmountOfItems = Tools.GetAmountOfItems(orderFromBL),
              TotalPrice = Tools.GetTotalPrice(orderFromBL)
          }).ToList();
-
-
-
-        //foreach (DO.Order or in order)
-        //{
-        //    BO.OrderForList temp = new BO.OrderForList();
-        //    temp.ID = or.ID;
-        //    temp.CustomerName = or.CustomerName;
-        //    temp.Status = Tools.GetStatus(or);
-        //    temp.AmountOfItems=;
-        //    temp.TotalPrice=
-        //    listOfOrders.Add(temp);
-        //}
-        //return listOfOrders;
     }
     public BO.OrderStatus getStatus(BO.Order o) 
     {
@@ -55,21 +42,10 @@ internal class BoOrder : IBoOrder
         //{
         //    if()
         //}
-            BO.OrderStatus s = new BO.OrderStatus();
-        //if (o.ShipDate > o.DeliveryDate)
-        //{
-        //    s = BO.OrderStatus.approved;
-        //}
-        //else
-        //{
-        //    if (o.DeliveryDate >o.PaymantDate)
-        //    {
-        //        s = BO.OrderStatus.sent;
-        //    }א
-        //    else
-        //        s = BO.OrderStatus.provided;
-        //}
 
+
+         BO.OrderStatus s = new BO.OrderStatus();
+        
         if(o.ShipDate == o.DeliveryDate)//if the both dates are the same- the order dosent yet-only approved
         {
             s = BO.OrderStatus.approved;
@@ -92,15 +68,25 @@ internal class BoOrder : IBoOrder
     {
         List<DO.OrderItem> tmp = new List<DO.OrderItem>();
         List<DO.OrderItem> Loi = Dal!.OrderItem.GetAll().ToList();
-            foreach (DO.OrderItem o in Loi)
-        { 
+        foreach (DO.OrderItem o in Loi)
+        {
             if (o.OrderID == id)
             {
                 tmp.Add(o);
             }
         }
         return tmp;
-        //List<OrderItem> tmp = ds.ListOrderItem.FindAll(o=> o.OrderID == id);
+        /* List<OrderItem>*/
+
+        //tmp = Loi.FindAll(o => o.OrderID == id);
+        //return tmp;
+
+
+        //List<DO.OrderItem> tmp = from var item in Loi
+        //where item.OrderID == id
+        //select item;
+
+        //return tmp;
     }
 
 
@@ -115,9 +101,7 @@ internal class BoOrder : IBoOrder
     }
     public BO.Order? DoOrderToBo(DO.Order temp)
     {
-        //if(temp==null)
-        //return null;
-       // DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException();
+        
         BO.Order order = new BO.Order();
         order.ID = temp.ID;
         order.CustomerName = temp.CustomerName;
@@ -131,6 +115,8 @@ internal class BoOrder : IBoOrder
 
         List<DO.OrderItem> doList = (List<DO.OrderItem>)GetListByOrderID(order.ID);
         List<BO.OrderItem> boList = new List<BO.OrderItem>();
+
+
         foreach (DO.OrderItem d in doList) //copy each order item from do to bo
         {
             BO.OrderItem item = new BO.OrderItem();
@@ -196,10 +182,7 @@ internal class BoOrder : IBoOrder
         ot.Status = getStatus(order);
         return ot;
     }
-    //public BO.Order UpdateOrder(BO.Product product, int amount)
-    //{
-    //    return new BO.Order();
-    //}
+   
 
     
 

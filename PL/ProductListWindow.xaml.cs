@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,6 +58,9 @@ namespace PL
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ProductWindow ep=new ProductWindow();
+
+            //ep.CategoryBox.SelectedItem = BO.Category.None;
+           // ep.CategoryBox.SelectedItem.all.Visibilty = false;
             ep.IDBox.IsReadOnly = false;
             ep.Show();
         }
