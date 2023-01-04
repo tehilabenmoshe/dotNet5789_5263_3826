@@ -18,7 +18,7 @@
             </Image.RenderTransform>
         </Image>
         <Button x:Name="adminButton" Content="ADMIN" HorizontalAlignment="Left" Margin="36,292,0,0" VerticalAlignment="Top" Height="35" Width="130" Click="Button_Click" FontFamily="Ploni 1.1 AAA U-Bold" FontSize="20" BorderThickness="1,1,1,1" RenderTransformOrigin="1,1" Foreground="#FFEDE4D9" Background="{x:Null}" BorderBrush="#FFEDE4D9">
-            
+
         </Button>
         <Label Content="Perfect&#xA;Dream House &#xA;For You!"
                HorizontalAlignment="Left" Margin="36,66,0,0" VerticalAlignment="Top" Height="226" Width="364" FontFamily="Ploni U-Bold AAA U-Bold" FontSize="48" Cursor="ScrollE" Foreground="#FFEDE4D9"/>
@@ -34,5 +34,6 @@
         </Rectangle>
         <Rectangle HorizontalAlignment="Left" Height="22" Margin="-20,445,0,0" Stroke="Black" VerticalAlignment="Top" Width="822" Fill="#FF563E35"/>
         <Button x:Name="NewOrderButton" Content="NEW ORDER" HorizontalAlignment="Left" Margin="185,290,0,0" VerticalAlignment="Top" Height="37" Width="150" Click="NewOrderButton_Click" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FF573E32" Foreground="#FFEDE4D9"/>
+        <Button Content=">>>Track Your Order" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Top" Height="59" Width="288" FontFamily="Yellowtail" FontSize="24" Foreground="#FFEDE4D9" Background="{x:Null}" BorderThickness="0,0,0,0"/>
     </Grid>
 </Window>

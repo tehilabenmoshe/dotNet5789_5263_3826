@@ -59,7 +59,7 @@ namespace PL
         {
             ProductWindow ep=new ProductWindow();
 
-            //ep.CategoryBox.SelectedItem = BO.Category.None;
+            ep.CategoryBox.SelectedItem = BO.Category.None;
            // ep.CategoryBox.SelectedItem.all.Visibilty = false;
             ep.IDBox.IsReadOnly = false;
             ep.Show();
