@@ -22,11 +22,13 @@ namespace PL
     public partial class MainWindow : Window
     {
 
+        enum ManagerOptions { Orders, Products }
         BlApi.IBL? bl = BlApi.Factory.Get()??throw new NullReferenceException("Missing id");
         public MainWindow()
         {
             InitializeComponent();
-           
+            //string sh = "order";
+            AdminTry.ItemsSource = Enum.GetValues(typeof(ManagerOptions));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,6 +41,19 @@ namespace PL
         private void NewOrderButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void AdminTry_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (AdminTry.SelectedItem is ManagerOptions.Products)
+            {
+                ProductListWindow pld = new ProductListWindow();
+                pld.Show();
+            }
+            if (AdminTry.SelectedItem is ManagerOptions.Orders)
+            {
+                ///
+            }
         }
     }
 }

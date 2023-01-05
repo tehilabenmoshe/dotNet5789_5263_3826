@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace PL
     public partial class ProductWindow : Window
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
+        
         public ProductWindow()
         {
             InitializeComponent();
