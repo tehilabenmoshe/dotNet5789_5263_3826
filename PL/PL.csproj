@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Costumer\" />
     <Folder Include="Photos\" />
   </ItemGroup>
 

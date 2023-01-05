@@ -17,7 +17,6 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button x:Name="adminButton" Content="ADMIN" HorizontalAlignment="Left" Margin="36,292,0,0" VerticalAlignment="Top" Height="35" Width="130" Click="Button_Click" FontFamily="Ploni 1.1 AAA U-Bold" FontSize="20" BorderThickness="1,1,1,1" RenderTransformOrigin="1,1" Background="#FF11444E" Foreground="#FFEDE4D9"/>
         <Label Content="Perfect&#xA;Dream House &#xA;For You!" Margin="36,65,0,0" Height="200" Width="363" FontFamily="Ploni U-Bold AAA U-Bold" FontSize="48"   Cursor="ScrollE" Foreground="#FF11444E" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.IsSharedSizeScope="True" Padding="0,0,0,0" UseLayoutRounding="False" AutomationProperties.IsRowHeader="True" ScrollViewer.CanContentScroll="True" Grid.Row="1" MinHeight="5" MinWidth="5" Panel.ZIndex="3"/>
         <Rectangle HorizontalAlignment="Left" Height="47" Margin="-32,-14,0,0" VerticalAlignment="Top" Width="844" Fill="#FF0A262B" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="1" StrokeThickness="0">
             <Rectangle.RenderTransform>
@@ -31,6 +30,6 @@
         </Rectangle>
         <Rectangle HorizontalAlignment="Left" Height="22" Margin="-20,445,0,0" Stroke="Black" VerticalAlignment="Top" Width="822" Fill="#FF563E35"/>
         <Button x:Name="NewOrderButton" Content="COSTUMER" HorizontalAlignment="Left" Margin="185,292,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="NewOrderButton_Click" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FFA7BF86" Foreground="#FFE3E3E3" BorderThickness="0,0,0,0"/>
-        <ComboBox x:Name="AdminTry" Text="ADMIN" IsEditable="true" HorizontalAlignment="Left" Margin="36,347,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="AdminTry_SelectionChanged"/>
+        <ComboBox x:Name="AdminTry" Text="ADMIN" HorizontalAlignment="Left" Margin="36,292,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="AdminTry_SelectionChanged" BorderBrush="#FF38727E" Foreground="#FF38727E" IsEditable="True" BorderThickness="1,1,1,1" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" SelectedIndex="5" Background="#FF38727E" OpacityMask="#FF38727E"/>
     </Grid>
 </Window>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PL
+namespace PL.Costumer
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for ProductItemPage.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class ProductItemPage : Page
     {
-        public Page1()
+        public ProductItemPage()
         {
             InitializeComponent();
         }

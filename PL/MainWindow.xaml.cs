@@ -1,4 +1,5 @@
 ﻿using BlApi;
+//using PL.Costumer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace PL
 {
@@ -40,7 +42,13 @@ namespace PL
 
         private void NewOrderButton_Click(object sender, RoutedEventArgs e)
         {
+            CostumerMainPage c = new CostumerMainPage();
+            this.Content=c;
+           // this.Close();
 
+
+         
+           // new CostumerMainPage() c.ShowDialog();
         }
 
         private void AdminTry_SelectionChanged(object sender, SelectionChangedEventArgs e)
