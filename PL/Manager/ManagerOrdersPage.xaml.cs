@@ -27,7 +27,10 @@ namespace PL.Manager
 
 
 
-            
+             void mediaElement_OnMediaEnded(object sender, RoutedEventArgs e)
+            {
+                
+            }
         }
     }
 }
