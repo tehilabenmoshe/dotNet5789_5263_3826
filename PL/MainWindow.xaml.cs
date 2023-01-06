@@ -1,4 +1,5 @@
 ﻿using BlApi;
+using PL.Manager;
 //using PL.Costumer;
 using System;
 using System.Collections.Generic;
@@ -29,8 +30,7 @@ namespace PL
         public MainWindow()
         {
             InitializeComponent();
-            //string sh = "order";
-            AdminTry.ItemsSource = Enum.GetValues(typeof(ManagerOptions));
+            ManagerButton.ItemsSource = Enum.GetValues(typeof(ManagerOptions));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,7 +40,7 @@ namespace PL
 
         }
 
-        private void NewOrderButton_Click(object sender, RoutedEventArgs e)
+        private void CostumerButton_Click(object sender, RoutedEventArgs e)
         {
             CostumerMainPage c = new CostumerMainPage();
             this.Content=c;
@@ -51,16 +51,17 @@ namespace PL
            // new CostumerMainPage() c.ShowDialog();
         }
 
-        private void AdminTry_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ManagerButton_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (AdminTry.SelectedItem is ManagerOptions.Products)
+            if (ManagerButton.SelectedItem is ManagerOptions.Products)
             {
                 ProductListWindow pld = new ProductListWindow();
                 pld.Show();
             }
-            if (AdminTry.SelectedItem is ManagerOptions.Orders)
+            if (ManagerButton.SelectedItem is ManagerOptions.Orders)
             {
-                ///
+                ManagerOrdersPage m = new ManagerOrdersPage();
+                this.Content = m;
             }
         }
     }
