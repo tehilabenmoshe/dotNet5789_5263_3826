@@ -10,27 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PL.Manager
 {
     /// <summary>
-    /// Interaction logic for ManagerOrdersPage.xaml
+    /// Interaction logic for OrderWindow.xaml
     /// </summary>
-    public partial class ManagerOrdersPage : Page
+    public partial class OrderWindow : Window
     {
-        public ManagerOrdersPage()
+        BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
+        BO.Order o=new BO.Order();
+        public OrderWindow(BO.OrderForList orderList)
         {
             InitializeComponent();
+            o = bl.Order.GetOrder(orderList.ID);
+           
+        }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
-
-
-             void mediaElement_OnMediaEnded(object sender, RoutedEventArgs e)
-            {
-                
-            }
         }
     }
 }

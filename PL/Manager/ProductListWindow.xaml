@@ -13,23 +13,13 @@
 
         <ListView Name="ProductListView" Margin="104,145,131,142" 
                   ItemsSource="{Binding}" FontFamily="Ploni 1.1 AAA" IsSynchronizedWithCurrentItem="False" BorderThickness="2,2,2,2" MouseDoubleClick="ProductListView_MouseDoubleClick" >
-            <!--MouseDoubleClick="ProductListView_MouseDoubleClick"-->
-
-
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=ID}" Header="ID" Width="120"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=Name}" Header="Name" Width="200"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=Category}" Header="Category" Width="120"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=Price}" Header="Price" Width="120"></GridViewColumn>
-
-
-
-
-
                 </GridView>
-
-
             </ListView.View>
         </ListView>
 

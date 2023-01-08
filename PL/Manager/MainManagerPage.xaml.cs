@@ -23,13 +23,30 @@ namespace PL.Manager
         public MainManagerPage()
         {
             InitializeComponent();
+          //  MainManagerFrame.Content = new MainManagerPage();
 
         }
 
      
-        private void ProductButton_Click(object sender, RoutedEventArgs e)
-        {
+        //private void ProductButton_Click(object sender, RoutedEventArgs e)
+        //{
 
+        //}
+
+        private void ProductButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            //ProductListWindow pld = new ProductListWindow();
+            //pld.Show();
+
+            MainManagerFrame.Navigate(new tempPagexaml());
+
+           // MainManagerFrame.Content = new tempPagexaml();
+        }
+
+        private void OrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            ManagerOrderWindow m = new ManagerOrderWindow();
+            m.Show();
         }
     }
 }

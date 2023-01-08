@@ -1,0 +1,23 @@
+﻿<Window x:Class="PL.Manager.ManagerOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.Manager"
+        mc:Ignorable="d"
+        Title="ManagerOrderWindow" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="OrdersCatalog" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="112,110,112,38" SelectionChanged="OrdersCatalog_SelectionChanged"  ItemsSource="{Binding}" >
+            <ListView.View>
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
+                    <GridViewColumn DisplayMemberBinding ="{Binding Path=ID}" Header="ID" Width="120"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Path=CostumerName}" Header="Costumer Name" Width="200"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Path=Status}" Header="Status" Width="120"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Path=AmountOfItems}" Header="Amount Of Items" Width="120"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Path=TotalPrice}" Header="Total Price" Width="120"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

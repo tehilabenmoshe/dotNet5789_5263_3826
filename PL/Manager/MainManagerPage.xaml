@@ -7,15 +7,28 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainManagerPage">
-    <Button Content="Products" HorizontalAlignment="Left" Margin="108,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Click="ProductButton_Click" Height="111" Width="189">
+    
+    <Grid>
+        <Frame x:Name="MainManagerFrame" Width="855" Height="550"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,37,0,0" NavigationUIVisibility="Hidden" />
 
-        <Button.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Button.RenderTransform>
-    </Button>
+        <Button x:Name="ProductButton" Content="PRODUCT" HorizontalAlignment="Left" Margin="137,268,0,0" VerticalAlignment="Top" Height="43" Width="154" Click="ProductButton_Click_1" FontSize="18" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0"/>
+        <Button x:Name="OrdersButton"  Content="ORDERS" HorizontalAlignment="Left" Margin="477,267,0,0" VerticalAlignment="Top" Height="43" Width="154" FontSize="18" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Click="OrdersButton_Click"/>
+        <Label Content="Update and add products&#xD;&#xA;     to the Catalog" HorizontalAlignment="Left" Margin="63,173,0,0" VerticalAlignment="Top" Height="90" Width="302" FontFamily="Kalam Light" FontWeight="Bold" FontSize="24" HorizontalContentAlignment="Center"/>
+        <Label Content="Manage the&#xD;&#xA;Orders List" HorizontalAlignment="Left" Margin="495,173,0,0" VerticalAlignment="Top" Height="97" Width="164" FontFamily="Kalam Light" FontWeight="Bold" FontSize="24"/>
+        <Rectangle HorizontalAlignment="Center" Height="39" VerticalAlignment="Top" Width="800" RenderTransformOrigin="0.5,0.5" Fill="#FF51473D">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <TextBlock HorizontalAlignment="Left" Margin="24,10,0,0" TextWrapping="Wrap" Text="About Us | Contact" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFDFDCD7" Height="29" Width="355"/>
+
+       
+
+    </Grid>
 
 </Page>

@@ -30,7 +30,7 @@ namespace PL
         public MainWindow()
         {
             InitializeComponent();
-            ManagerButton.ItemsSource = Enum.GetValues(typeof(ManagerOptions));
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -53,16 +53,24 @@ namespace PL
 
         private void ManagerButton_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ManagerButton.SelectedItem is ManagerOptions.Products)
-            {
-                ProductListWindow pld = new ProductListWindow();
-                pld.Show();
-            }
-            if (ManagerButton.SelectedItem is ManagerOptions.Orders)
-            {
-                ManagerOrdersPage m = new ManagerOrdersPage();
-                this.Content = m;
-            }
+            //if (ManagerButton.SelectedItem is ManagerOptions.Products)
+            //{
+            //    ProductListWindow pld = new ProductListWindow();
+            //    pld.Show();
+            //}
+            //if (ManagerButton.SelectedItem is ManagerOptions.Orders)
+            //{
+            //    ManagerOrdersPage m = new ManagerOrdersPage();
+            //    this.Content = m;
+            //}
         }
+
+        private void ManagerButton2_Click(object sender, RoutedEventArgs e)
+        {
+           // MainFrame.Content = new MainManagerPage();
+            MainManagerPage m = new MainManagerPage();
+            this.Content = m;
+        }
+      
     }
 }

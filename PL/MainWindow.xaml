@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+       
         <Image Source="/Image2.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -30,8 +31,7 @@
         </Rectangle>
         <Rectangle HorizontalAlignment="Left" Height="22" Margin="-20,445,0,0" Stroke="Black" VerticalAlignment="Top" Width="822" Fill="#FF563E35"/>
         <Button x:Name="CostumerButton" Content="COSTUMER" HorizontalAlignment="Left" Margin="185,292,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="CostumerButton_Click" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FFA7BF86" Foreground="#FFE3E3E3" BorderThickness="0,0,0,0"/>
-        <ComboBox x:Name="ManagerButton" Text="MANAGER" HorizontalAlignment="Left" Margin="36,292,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ManagerButton_SelectionChanged" BorderBrush="#FF38727E" Foreground="#FF38727E" IsEditable="True" BorderThickness="1,1,1,1" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" SelectedIndex="5" Background="#FF38727E" OpacityMask="#FF38727E">
-            
-        </ComboBox>
+        <Button x:Name="ManagerButton2" Content="MANAGER" HorizontalAlignment="Left" Margin="36,292,0,0" VerticalAlignment="Top" Click="ManagerButton2_Click" Height="35" Width="124" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FF11444E" Foreground="Gainsboro" BorderThickness="0,0,0,0"/>
+        
     </Grid>
 </Window>
