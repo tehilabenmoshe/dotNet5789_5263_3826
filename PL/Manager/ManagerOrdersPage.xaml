@@ -10,7 +10,7 @@
 
     <Grid>
         <Separator HorizontalAlignment="Center" Height="450" VerticalAlignment="Top" Width="800" Margin="0,0,0,0"/>
-        <MediaElement x:Name="video1"             Margin="10" Source="C:\Users\User\source\repos\tehilabenmoshe\dotNet5789_5263_3826\PL\Manager\videos\FURNITURE ANIMATION FOR TV ADS..mp4" Volume="1" IsMuted="False" UnloadedBehavior="Manual" 
+        <MediaElement x:Name="video1"  Margin="10" Source="C:\Users\User\source\repos\tehilabenmoshe\dotNet5789_5263_3826\PL\Manager\videos\FURNITURE ANIMATION FOR TV ADS..mp4" Volume="1" IsMuted="True" UnloadedBehavior="Manual" 
 >
            
         </MediaElement>

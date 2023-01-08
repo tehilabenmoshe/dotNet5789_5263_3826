@@ -21,10 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Photos\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Image1.png" />
   </ItemGroup>
 
