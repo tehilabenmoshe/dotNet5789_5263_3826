@@ -34,10 +34,6 @@ namespace PL.Manager
         //private void OrdersCatalog_SelectionChanged(object sender, SelectionChangedEventArgs e){}
 
         
-
-      
-
-
         private void IEnumerableToPL(IEnumerable<OrderForList> list)
         {
             orderList.Clear();
@@ -54,9 +50,10 @@ namespace PL.Manager
 
         private void OrdersCatalog_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            
-            OrderWindow o = new OrderWindow((BO.OrderForList)OrdersCatalog.SelectedItem);
-            InitializeComponent();
+
+            OrderWindow o = new OrderWindow((BO.OrderForList)OrdersCatalog.SelectedItem).ID);
+
+            o.InitializeComponent();
             o.Show();
         }
 

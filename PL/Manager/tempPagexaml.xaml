@@ -6,9 +6,10 @@
       xmlns:local="clr-namespace:PL.Manager"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      Background="#FFF1E8E8"
       Title="tempPagexaml">
 
-    <Grid Background="White">
+    <Grid Background="#FFF1E8E8" Margin="111,109,0,0">
         <Label Content="Blaaaaaaaaaaa" HorizontalAlignment="Left" Margin="333,0,0,0" VerticalAlignment="Center" />
 
     </Grid>

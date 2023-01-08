@@ -36,17 +36,26 @@ namespace PL.Manager
         private void ProductButton_Click_1(object sender, RoutedEventArgs e)
         {
             //ProductListWindow pld = new ProductListWindow();
-            //pld.Show();
+           // pld.Show();
 
-            MainManagerFrame.Navigate(new tempPagexaml());
+           // MainManagerFrame.Navigate(new tempPagexaml());
 
-           // MainManagerFrame.Content = new tempPagexaml();
+           MainManagerFrame.Content = new tempPagexaml();
+
+            tempPagexaml t=new tempPagexaml();
+            this.Content = t;
+
         }
 
         private void OrdersButton_Click(object sender, RoutedEventArgs e)
         {
             ManagerOrderWindow m = new ManagerOrderWindow();
             m.Show();
+        }
+
+        private void MainManagerFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
     }
 }

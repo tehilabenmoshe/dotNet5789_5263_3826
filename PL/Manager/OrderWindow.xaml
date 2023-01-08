@@ -11,39 +11,40 @@
             <RowDefinition Height="25*"/>
             <RowDefinition Height="192*"/>
         </Grid.RowDefinitions>
-        <Label Content="ID" HorizontalAlignment="Left" Margin="26,6,0,0" VerticalAlignment="Top" Height="26" Width="22" Grid.Row="1" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-        <Label Content="Costumer Name" HorizontalAlignment="Left" Margin="24,47,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="96" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-        <Label Content="Customer Email" HorizontalAlignment="Left" Margin="220,6,0,0" VerticalAlignment="Top" Height="26" Width="93" Grid.Row="1"  FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-        <Label Content="Customer Adress" HorizontalAlignment="Left" Margin="223,47,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="100" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-        <Label Content="Order Date" HorizontalAlignment="Left" Margin="25,161,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="69" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-        <Label Content="Status" HorizontalAlignment="Left" Margin="25,85,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="41" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-        <Label Content="Paiment Date" HorizontalAlignment="Left" Margin="220,85,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="82" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-        <Label Content="Ship Date" HorizontalAlignment="Left" Margin="24,122,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="61" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-        <Label Content="Delivery Date" HorizontalAlignment="Left" Margin="222,123,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="81" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-        <Label Content="Items" HorizontalAlignment="Left" Margin="81,206,0,0" VerticalAlignment="Top" Height="35" Width="39" Grid.Row="1" FontFamily="Ploni 1.1 AAA Medium"/>
-        <Label Content="Total Price" HorizontalAlignment="Left" Margin="222,150,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="64" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-       
-        
-        <Grid Margin="94,37,203,95" Grid.RowSpan="2">
-            <TextBox x:Name="IdBox" Text="{Binding ID}" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="82" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-            <TextBox x:Name="NameBox" Text="{Binding CustomerName}" HorizontalAlignment="Center" Margin="0,49,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="82" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-            <TextBox x:Name="StatusBox" Text="{Binding Status}" HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="82" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-            <TextBox x:Name="ShipDateBox" Text="{Binding ShipDate}" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="82" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-            <TextBox x:Name="OrderDateBox" Text="{Binding OrderDate}" HorizontalAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Width="82" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" Margin="0,165,0,0" FontSize="11"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="38,21,0,0" VerticalAlignment="Top" Height="26" Width="22" Grid.Row="1" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+        <Label Content="Costumer Name" HorizontalAlignment="Left" Margin="36,57,0,0" VerticalAlignment="Top" Grid.Row="1" Height="41" Width="96" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+        <Label Content="Customer Email" HorizontalAlignment="Left" Margin="210,21,0,0" VerticalAlignment="Top" Height="26" Width="93" Grid.Row="1"  FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+        <Label Content="Customer Adress" HorizontalAlignment="Left" Margin="210,62,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="100" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+        <Label Content="Order Date" HorizontalAlignment="Left" Margin="37,176,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="69" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+        <Label Content="Status" HorizontalAlignment="Left" Margin="37,100,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="41" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+        <Label Content="Paiment Date" HorizontalAlignment="Left" Margin="210,100,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="82" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+        <Label Content="Ship Date" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Center" Grid.Row="1" Height="26" Width="61" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+        <Label Content="Delivery Date" HorizontalAlignment="Left" Margin="212,0,0,0" VerticalAlignment="Center" Grid.Row="1" Height="26" Width="81" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+        <Label Content="Items" HorizontalAlignment="Left" Margin="132,217,0,0" VerticalAlignment="Top" Height="35" Width="40" Grid.Row="1" FontFamily="Ploni 1.1 AAA Medium" RenderTransformOrigin="0.235,0.49"/>
+        <Label Content="Total Price" HorizontalAlignment="Left" Margin="212,176,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="64" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+
+
+        <Grid Margin="105,15,220,79" Grid.Row="1">
+            <TextBox x:Name="IdBox" Text="{Binding ID}" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="59" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"   IsReadOnly="True"  />
+            <TextBox x:Name="NameBox" Text="{Binding CustomerName}" HorizontalAlignment="Center" Margin="0,49,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="59" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+            <TextBox x:Name="StatusBox" Text="{Binding Status}" HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="59" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+            <TextBox x:Name="ShipDateBox" Text="{Binding ShipDate}" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="59" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+            <TextBox x:Name="OrderDateBox" Text="{Binding OrderDate}" HorizontalAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Width="59" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" Margin="0,165,0,0" FontSize="11"/>
         </Grid>
-        
-        <Grid Margin="289,38,8,93" Grid.RowSpan="2">
-            <TextBox  x:Name="CustomerEmailBox" Text="{Binding CustomerEmail}" IsReadOnly="False" IsEnabled="True"   HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="82" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-            <TextBox  x:Name="CustomerAdressBox" Text="{Binding CustomerAdress}" HorizontalAlignment="Center" Margin="0,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-            <TextBox  x:Name="PaimentDateBox" Text="{Binding PaimentDate}" HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="82" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-            <TextBox  x:Name="DeliveryDateBox" Text="{Binding DeliveryDate}"  HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="82" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
-            <TextBox  x:Name="TotalPriceBox"  Text="{Binding TotalPrice}" HorizontalAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Width="82" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" Margin="0,165,0,0" FontSize="11"/>
+
+        <Grid Margin="279,15,18,78" Grid.Row="1">
+            <TextBox  x:Name="CustomerEmailBox" Text="{Binding CustomerEmail}" IsReadOnly="False" IsEnabled="True"   HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="63" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+            <TextBox  x:Name="CustomerAdressBox" Text="{Binding CustomerAdress}" HorizontalAlignment="Center" Margin="0,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+            <TextBox  x:Name="PaimentDateBox" Text="{Binding PaimentDate}" HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="63" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+            <TextBox  x:Name="DeliveryDateBox" Text="{Binding DeliveryDate}"  HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="63" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+            <TextBox  x:Name="TotalPriceBox"  Text="{Binding TotalPrice}" HorizontalAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Width="63" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" Margin="0,165,0,0" FontSize="11"/>
         </Grid>
-    
-    
-    
+        <ComboBox HorizontalAlignment="Left" Margin="173,223,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158"/>
+
+
+
     </Grid>
-   
-      
-        
+
+
+
 </Window>

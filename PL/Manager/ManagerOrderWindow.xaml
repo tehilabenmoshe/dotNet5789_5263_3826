@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ManagerOrderWindow" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="OrdersCatalog" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="112,110,112,38" SelectionChanged="OrdersCatalog_SelectionChanged"  ItemsSource="{Binding}" >
+        <ListView x:Name="OrdersCatalog" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="112,110,112,38" SelectionChanged="OrdersCatalog_SelectionChanged"  ItemsSource="{Binding}" MouseDoubleClick="OrdersCatalog_MouseDoubleClick" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=ID}" Header="ID" Width="120"></GridViewColumn>
