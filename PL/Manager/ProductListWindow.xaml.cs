@@ -88,6 +88,11 @@ namespace PL
             plv.InitializeComponent();
             plv.Show();
         }
+
+        private void ProductListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
 }

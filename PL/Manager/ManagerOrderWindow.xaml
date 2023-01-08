@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="ManagerOrderWindow" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="OrdersCatalog" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="112,110,112,38" SelectionChanged="OrdersCatalog_SelectionChanged"  ItemsSource="{Binding}" MouseDoubleClick="OrdersCatalog_MouseDoubleClick" >
+        <ListView x:Name="OrdersCatalog" Margin="61,95,61,53"  ItemsSource="{Binding}" MouseDoubleClick="OrdersCatalog_MouseDoubleClick" SelectionChanged="OrdersCatalog_SelectionChanged" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=ID}" Header="ID" Width="120"></GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Path=CostumerName}" Header="Costumer Name" Width="200"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Path=CustomerName}" Header="Customer Name" Width="200"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=Status}" Header="Status" Width="120"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=AmountOfItems}" Header="Amount Of Items" Width="120"></GridViewColumn>
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=TotalPrice}" Header="Total Price" Width="120"></GridViewColumn>

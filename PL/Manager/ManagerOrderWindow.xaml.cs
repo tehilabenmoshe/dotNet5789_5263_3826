@@ -28,11 +28,8 @@ namespace PL.Manager
             InitializeComponent();
             IEnumerableToPL(bl.Order.getOrderForList());
             OrdersCatalog.DataContext = orderList;
-            //CategorySelector.ItemsSource = Enum.GetValues(typeof(BO.Category));
+           
         }
-
-        //private void OrdersCatalog_SelectionChanged(object sender, SelectionChangedEventArgs e){}
-
         
         private void IEnumerableToPL(IEnumerable<OrderForList> list)
         {
@@ -41,21 +38,25 @@ namespace PL.Manager
                 orderList.Add(temp);
         }
 
-        private void OrdersCatalog_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            IEnumerableToPL(bl!.Order.getOrderForList());
-        }
+        //private void OrdersCatalog_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    IEnumerableToPL(bl!.Order.getOrderForList());
+        //}
 
 
 
         private void OrdersCatalog_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
-            OrderWindow o = new OrderWindow((BO.OrderForList)OrdersCatalog.SelectedItem).ID);
+            OrderWindow o = new OrderWindow((BO.OrderForList)OrdersCatalog.SelectedItem);
 
             o.InitializeComponent();
             o.Show();
         }
 
+        private void OrdersCatalog_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

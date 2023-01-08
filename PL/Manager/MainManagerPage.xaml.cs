@@ -35,15 +35,15 @@ namespace PL.Manager
 
         private void ProductButton_Click_1(object sender, RoutedEventArgs e)
         {
-            //ProductListWindow pld = new ProductListWindow();
-           // pld.Show();
+            ProductListWindow pld = new ProductListWindow();
+           pld.Show();
 
            // MainManagerFrame.Navigate(new tempPagexaml());
 
-           MainManagerFrame.Content = new tempPagexaml();
+          // MainManagerFrame.Content = new tempPagexaml();
 
-            tempPagexaml t=new tempPagexaml();
-            this.Content = t;
+            //tempPagexaml t=new tempPagexaml();
+            //this.Content = t;
 
         }
 

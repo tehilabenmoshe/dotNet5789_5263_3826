@@ -34,14 +34,11 @@ namespace PL.Manager
             InitializeComponent();
             //o = bl.Order.GetOrder(orderList.ID);
 
-           BO.Order ?temp = new BO.Order();
-           temp = bl?.Order.GetOrder(orderList.ID);
-
+           BO.Order temp = new BO.Order();
+           temp = bl.Order.GetOrder(orderList.ID);
+           DataContext=temp;
             
-            //NameBox.Text = temp!.Name.ToString();
-            IdBox.Text = temp!.ID.ToString();
-            //PriceBox.Text = temp!.Price.ToString();
-            //InStockBox.Text = temp!.InStock.ToString();
+           
 
 
         }

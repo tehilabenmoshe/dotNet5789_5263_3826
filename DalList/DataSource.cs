@@ -42,7 +42,7 @@ namespace Dal;
         for (int i = 0,z=1; i < 20; i++,z++)
         {
             Order o = new Order();
-            o.ID = Config.NextOrderNbumber; //create an id
+            o.ID = Config.NextOrderNbumber*100; //create an id
             o.CustomerName = " " + names[i];
             o.CustomerEmail = " " + o.CustomerName+"@gmail.com";
             o.CustomerAddress = " "+cities[i]+" " + i+z + "/" + z+3;//random adress+city
@@ -152,6 +152,7 @@ namespace Dal;
     }
 
     private void CreateOrderItem() { //  לבדוק שוב-את הקוד הזה העתקנו מהמצגת של נורית
+        
         for (int i = 0; i < 10; i++)
         {
             Product? product = ListProduct[rand.Next(ListProduct.Count)];
