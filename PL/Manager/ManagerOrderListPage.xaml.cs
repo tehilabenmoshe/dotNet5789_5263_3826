@@ -12,25 +12,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PL.Manager
 {
     /// <summary>
-    /// Interaction logic for ManagerOrderWindow.xaml
+    /// Interaction logic for ManagerOrderListPage.xaml
     /// </summary>
-    public partial class ManagerOrderWindow : Window
+    public partial class ManagerOrderListPage : Page
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
         ObservableCollection<OrderForList> orderList = new();
-        public ManagerOrderWindow()
+        public ManagerOrderListPage()
         {
             InitializeComponent();
             IEnumerableToPL(bl.Order.getOrderForList());
             OrdersCatalog.DataContext = orderList;
-           
         }
-        
+
         private void IEnumerableToPL(IEnumerable<OrderForList> list)
         {
             orderList.Clear();
@@ -38,12 +38,10 @@ namespace PL.Manager
                 orderList.Add(temp);
         }
 
-        //private void OrdersCatalog_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    IEnumerableToPL(bl!.Order.getOrderForList());
-        //}
+        private void OrdersCatalog_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
-
+        }
 
         private void OrdersCatalog_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -54,9 +52,7 @@ namespace PL.Manager
             o.Show();
         }
 
-        private void OrdersCatalog_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
+
     }
 }

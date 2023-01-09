@@ -5,18 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.Manager"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="800"
        Background="#FFA49090"
       Title="MainManagerPage">
 
     <Grid Background="#FFF1E8E8">
 
-        <Frame x:Name="MainManagerFrame" Width="800" Height="411"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,39,0,0" NavigationUIVisibility="Hidden" Navigated="MainManagerFrame_Navigated" Background="White" />
-
-        <Button x:Name="ProductButton" Content="PRODUCT" HorizontalAlignment="Left" Margin="137,268,0,0" VerticalAlignment="Top" Height="43" Width="154" Click="ProductButton_Click_1" FontSize="18" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0"/>
-        <Button x:Name="OrdersButton"  Content="ORDERS" HorizontalAlignment="Left" Margin="477,267,0,0" VerticalAlignment="Top" Height="43" Width="154" FontSize="18" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Click="OrdersButton_Click"/>
-        <Label Content="Update and add products&#xD;&#xA;     to the Catalog" HorizontalAlignment="Left" Margin="63,173,0,0" VerticalAlignment="Top" Height="90" Width="302" FontFamily="Kalam Light" FontWeight="Bold" FontSize="24" HorizontalContentAlignment="Center"/>
-        <Label Content="Manage the&#xD;&#xA;Orders List" HorizontalAlignment="Left" Margin="495,173,0,0" VerticalAlignment="Top" Height="97" Width="164" FontFamily="Kalam Light" FontWeight="Bold" FontSize="24"/>
+        <Frame x:Name="MainManagerFrame" Width="800" Height="550"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,39,0,0" NavigationUIVisibility="Hidden" Navigated="MainManagerFrame_Navigated" Background="White" />
         <Rectangle HorizontalAlignment="Center" Height="39" VerticalAlignment="Top" Width="800" RenderTransformOrigin="0.5,0.5" Fill="#FF51473D">
             <Rectangle.RenderTransform>
                 <TransformGroup>

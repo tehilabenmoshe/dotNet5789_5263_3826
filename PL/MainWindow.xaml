@@ -5,20 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="800">
     <Grid>
-       
-        <Image Source="/Image2.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Label Content="Perfect&#xA;Dream House &#xA;For You!" Margin="36,65,0,0" Height="200" Width="363" FontFamily="Ploni U-Bold AAA U-Bold" FontSize="48"   Cursor="ScrollE" Foreground="#FF11444E" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.IsSharedSizeScope="True" Padding="0,0,0,0" UseLayoutRounding="False" AutomationProperties.IsRowHeader="True" ScrollViewer.CanContentScroll="True" Grid.Row="1" MinHeight="5" MinWidth="5" Panel.ZIndex="3"/>
+        <Label Content="Perfect Dream House &#xA;For You!" Margin="65,122,0,0" Height="200" Width="529" FontFamily="Ploni U-Bold AAA U-Bold" FontSize="48"   Cursor="ScrollE" Foreground="#FF5F4A3F" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.IsSharedSizeScope="True" Padding="0,0,0,0" UseLayoutRounding="False" AutomationProperties.IsRowHeader="True" ScrollViewer.CanContentScroll="True" MinHeight="5" MinWidth="5" Panel.ZIndex="3"/>
         <Rectangle HorizontalAlignment="Left" Height="47" Margin="-32,-14,0,0" VerticalAlignment="Top" Width="844" Fill="#FF0A262B" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="1" StrokeThickness="0">
             <Rectangle.RenderTransform>
                 <TransformGroup>
@@ -29,9 +18,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="22" Margin="-20,445,0,0" Stroke="Black" VerticalAlignment="Top" Width="822" Fill="#FF563E35"/>
-        <Button x:Name="CostumerButton" Content="COSTUMER" HorizontalAlignment="Left" Margin="185,292,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="CostumerButton_Click" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FFA7BF86" Foreground="#FFE3E3E3" BorderThickness="0,0,0,0"/>
-        <Button x:Name="ManagerButton2" Content="MANAGER" HorizontalAlignment="Left" Margin="36,292,0,0" VerticalAlignment="Top" Click="ManagerButton2_Click" Height="35" Width="124" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FF11444E" Foreground="Gainsboro" BorderThickness="0,0,0,0"/>
-        
+        <Button x:Name="CostumerButton" Content="COSTUMER" HorizontalAlignment="Left" Margin="214,347,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="CostumerButton_Click" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FFAE9283" Foreground="#FFE3E3E3" BorderThickness="0,0,0,0"/>
+        <Button x:Name="ManagerButton2" Content="MANAGER" HorizontalAlignment="Left" Margin="65,347,0,0" VerticalAlignment="Top" Click="ManagerButton2_Click" Height="35" Width="124" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FF5F4A3F" Foreground="Gainsboro" BorderThickness="0,0,0,0"/>
+
     </Grid>
 </Window>

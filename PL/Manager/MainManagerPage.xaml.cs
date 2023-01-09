@@ -23,7 +23,7 @@ namespace PL.Manager
         public MainManagerPage()
         {
             InitializeComponent();
-          //  MainManagerFrame.Content = new MainManagerPage();
+            MainManagerFrame.Content = new MainManagerPage2(this);
 
         }
 
@@ -35,8 +35,8 @@ namespace PL.Manager
 
         private void ProductButton_Click_1(object sender, RoutedEventArgs e)
         {
-            ProductListWindow pld = new ProductListWindow();
-           pld.Show();
+         //   ProductListWindow pld = new ProductListWindow();
+         //  pld.Show();
 
            // MainManagerFrame.Navigate(new tempPagexaml());
 
@@ -49,8 +49,8 @@ namespace PL.Manager
 
         private void OrdersButton_Click(object sender, RoutedEventArgs e)
         {
-            ManagerOrderWindow m = new ManagerOrderWindow();
-            m.Show();
+            //ManagerOrderWindow m = new ManagerOrderWindow();
+           // m.Show();
         }
 
         private void MainManagerFrame_Navigated(object sender, NavigationEventArgs e)

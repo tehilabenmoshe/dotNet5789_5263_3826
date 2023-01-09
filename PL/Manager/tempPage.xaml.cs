@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PL.Manager
 {
     /// <summary>
-    /// Interaction logic for tempPagexaml.xaml
+    /// Interaction logic for tempPage.xaml
     /// </summary>
-    public partial class tempPagexaml : Page
+    public partial class tempPage : Page
     {
-        public tempPagexaml()
+        public tempPage()
         {
             InitializeComponent();
         }
