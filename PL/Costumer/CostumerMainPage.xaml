@@ -14,20 +14,8 @@
         <Label Content="Let's start decorating... " HorizontalAlignment="Left" Margin="73,86,0,0" VerticalAlignment="Top" Height="75" Width="483" FontFamily="Ploni 1.1 AAA U-Bold" FontWeight="Bold" FontSize="48" Foreground="#FF51473D"/>
         <Button x:Name="NewOrderButton" Content="NEW ORDER" HorizontalAlignment="Left" Margin="73,261,0,0" VerticalAlignment="Top" Height="35" Width="118" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" Background="#FF7E6D60" BorderBrush="{x:Null}" Foreground="#FFF1F0EE" Click="NewOrderButton_Click"/>
         <Label Content="" HorizontalAlignment="Left" Margin="73,152,0,0" VerticalAlignment="Top" Height="108" Width="635" FontSize="16" FontFamily="Kalam Light"/>
-        <Rectangle HorizontalAlignment="Center" Height="39" VerticalAlignment="Top" Width="800" RenderTransformOrigin="0.5,0.5" Fill="#FF51473D">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
         <TextBlock HorizontalAlignment="Left" Margin="73,160,0,0" TextWrapping="Wrap" Text="Here you will find all the furniture that will make your home perfect. &#xD;&#xA;Everything from the quality of the materials to the design itself. &#xD;&#xA;Because with us it is the quality that determines." VerticalAlignment="Top" Height="113" Width="483" FontFamily="Kalam Light" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="24,10,0,0" TextWrapping="Wrap" Text="About Us | Contact" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFDFDCD7" Height="29" Width="355"/>
         <Button x:Name="TrackOrderBottun" Content="Track Your Order" HorizontalAlignment="Left" Margin="218,261,0,0" VerticalAlignment="Top" Foreground="#FF51473D" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Background="#FFD7CEC4" Height="35" Width="161" Click="Button_Click" FontSize="16"/>
-        <Button  x:Name="BackBotton" Content="Back" HorizontalAlignment="Left" Margin="718,10,0,0" VerticalAlignment="Top" Height="17" Width="60" Click="BackBotton_Click" BorderBrush="{x:Null}" Foreground="#FFD7CEC4" FontFamily="Ploni 1.1 AAA Medium" Background="{x:Null}"/>
 
 
 

@@ -175,4 +175,38 @@ internal class BoProduct: IBoProduct
         return listToReturn;
     }
 
+    public IEnumerable<ProductItem> FilterProducItemtList(Predicate<ProductItem> checkProductItem)
+    {
+        var listToReturn = (from p in GetProductItemListForCustomer()
+                            where checkProductItem(p)
+                            select p).ToList<ProductItem>();
+        return listToReturn;
+    }
+
+    public IEnumerable<ProductItem> GetProductItemListForCustomer()
+    {
+        List<DO.Product> products = Dal.Product.GetAll().ToList(); //בקשת מוצרים משכבת הנתונים
+        List<BO.ProductItem?> listProductItem = new List<BO.ProductItem?>();//רשימה ריקה של פריטי  מוצר
+
+        foreach (DO.Product p in products)
+        {
+            OrderItem o = new OrderItem();
+            
+            BO.ProductItem temp = new BO.ProductItem();
+            temp.ID = p.ID;
+            temp.Name = p.Name;
+            temp.Price = p.Price;
+            temp.Category = (BO.Category)p.Category;
+            if (p.InStock > 0)
+                temp.InStock = true;
+            else
+                temp.InStock = false;
+            temp.Amount = 0; 
+
+            listProductItem.Add(temp);
+        }
+        return listProductItem;
+
+    }
+
 }

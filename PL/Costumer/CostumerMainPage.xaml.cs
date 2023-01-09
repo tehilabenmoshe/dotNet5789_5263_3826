@@ -1,4 +1,5 @@
 ﻿using PL.Costumer;
+using PL.Manager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,11 @@ namespace PL
     /// </summary>
     public partial class CostumerMainPage : Page
     {
-        public CostumerMainPage()
+        CustomerMainFrame temp;
+        public CostumerMainPage(CustomerMainFrame c)
         {
             InitializeComponent();
+            temp = c;
         }
 
         //private void TrackOrderBottun_Click(object sender, RoutedEventArgs e)
@@ -34,11 +37,11 @@ namespace PL
 
         private void NewOrderButton_Click(object sender, RoutedEventArgs e)
         {
-           InitializeComponent();
-            ProductItemPage p = new ProductItemPage();
+            // InitializeComponent();
+            //this.Content =new ProductItemCatalogPage();
             // p.ShowDialog();
             //this.NavigationService.Navigate(p);
-
+            temp.CustomerFrame.Content = new ProductItemCatalogPage();
 
         }
 

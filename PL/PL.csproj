@@ -13,7 +13,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Costumer\add-to-basket.png" />
     <None Remove="Image1.png" />
+    <None Remove="Manager\11.png" />
+    <None Remove="Manager\Image2.png" />
+    <None Remove="Manager\Image3.png" />
+    <None Remove="Manager\Image4.png" />
+    <None Remove="Manager\stylish-interior-dining-room-cozy-home-with-white-frame-design-chairs-family-table-teapot-cups-decoration-elegant-personal-accessories-modern-home-decor_431307-2477.png" />
+    <None Remove="modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378 %282%29.png" />
+    <None Remove="modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378.png" />
+    <None Remove="Photos\11.png" />
+    <None Remove="Photos\Image3.png" />
+    <None Remove="Photos\Image4.png" />
+    <None Remove="Photos\modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378 %282%29.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +33,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image1.png" />
+    <Resource Include="Costumer\add-to-basket.png" />
+    <Resource Include="Manager\11.png" />
+    <Resource Include="Manager\stylish-interior-dining-room-cozy-home-with-white-frame-design-chairs-family-table-teapot-cups-decoration-elegant-personal-accessories-modern-home-decor_431307-2477.png" />
+    <Resource Include="modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378.png" />
+    <Resource Include="Photos\11.png" />
+    <Resource Include="Photos\Image3.png" />
+    <Resource Include="Photos\modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378 (2).png" />
   </ItemGroup>
 
 </Project>

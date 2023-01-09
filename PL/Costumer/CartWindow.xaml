@@ -1,0 +1,20 @@
+﻿<Window x:Class="PL.Costumer.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.Costumer"
+        mc:Ignorable="d"
+        Title="CartWindow" Height="350" Width="350">
+    <Grid>
+        <Label Content="My Shopping Bag" HorizontalAlignment="Left" Margin="108,20,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Height="38" Width="156" FontSize="14"/>
+        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="49,48,49,133">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

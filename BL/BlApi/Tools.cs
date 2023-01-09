@@ -62,6 +62,11 @@ public static class Tools
         }
         return (int)sum;
     }
+
+    //public static int GetAmountOfProductItemInCart(int id)
+    //{
+
+    //}
     public static double GetTotalPrice(IEnumerable<DO.OrderItem?> ListItems)
     {
         double? total = 0;

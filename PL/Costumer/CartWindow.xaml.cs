@@ -10,19 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PL.Costumer
 {
     /// <summary>
-    /// Interaction logic for ProductItemPage.xaml
+    /// Interaction logic for CartWindow.xaml
     /// </summary>
-    public partial class ProductItemPage : Page
+    public partial class CartWindow : Window
     {
-        public ProductItemPage()
+        BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
+        BO.Cart myCart = new BO.Cart();
+        public CartWindow()
         {
             InitializeComponent();
+            bl!.cart.MakeCart(myCart);
+        }
+
+
+        public CartWindow(BO.ProductItem p)
+        {
+          //  InitializeComponent();
+          //  bl!.cart.MakeCart(myCart);
+           // bl!.cart.AddProductToCart(p);
         }
     }
 }

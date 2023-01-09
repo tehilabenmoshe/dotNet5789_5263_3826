@@ -1,4 +1,5 @@
 ﻿using BlApi;
+using PL.Costumer;
 using PL.Manager;
 //using PL.Costumer;
 using System;
@@ -42,7 +43,7 @@ namespace PL
 
         private void CostumerButton_Click(object sender, RoutedEventArgs e)
         {
-            CostumerMainPage c = new CostumerMainPage();
+            CustomerMainFrame c = new CustomerMainFrame();
             this.Content=c;
            // this.Close();
 

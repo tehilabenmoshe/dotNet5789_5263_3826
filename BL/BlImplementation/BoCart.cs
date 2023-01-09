@@ -158,7 +158,7 @@ internal class BoCart : IBoCart
         if (cart == null) throw new BO.InvalidInputExeption();
         if (cart.CustomerName == "") throw new BO.InvalidInputExeption();
         if (cart.CustomerAddress == "") throw new BO.InvalidInputExeption();
-        if (cart.CustomerEmail == "" ||!( cart.CustomerEmail!.Contains("@")))
+        if (cart.CustomerEmail == "" || !(cart.CustomerEmail!.Contains("@")))
             throw new BO.InvalidInputExeption();
 
         //copy data:
