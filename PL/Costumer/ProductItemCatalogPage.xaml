@@ -9,13 +9,13 @@
       Title="ProductItemCatalogPage">
 
     <Grid>
-        <ListView x:Name="ProductItemListView"  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="77,130,75,95" SelectionChanged="ProductItemListView_SelectionChanged"  ItemsSource="{Binding}" >
+        <ListView x:Name="ProductItemListView"  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="77,130,75,95" SelectionChanged="ProductItemListView_SelectionChanged"  ItemsSource="{Binding}" MouseDoubleClick="ProductItemListView_MouseDoubleClick" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="100"/>
                     <GridViewColumn DisplayMemberBinding ="{Binding Name}" Header="Name" Width="150"/>
                     <GridViewColumn DisplayMemberBinding ="{Binding Price}" Header="Price" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Amount}" Header="Amount" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Amount}" Header="Amount In Cart" Width="100"/>
                     <GridViewColumn DisplayMemberBinding ="{Binding InStock}" Header="In Stock" Width="100"/>
                     <GridViewColumn DisplayMemberBinding ="{Binding Category}" Header="Category" Width="100"/>
 

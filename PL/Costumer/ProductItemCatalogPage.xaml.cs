@@ -23,15 +23,17 @@ namespace PL.Costumer
     /// </summary>
     public partial class ProductItemCatalogPage : Page
     {
+        CustomerMainFrame temp;
 
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
         ObservableCollection<ProductItem> productItem = new();
-        public ProductItemCatalogPage()
+        public ProductItemCatalogPage(CustomerMainFrame f )
         {
             InitializeComponent();
             IEnumerableToPL(bl.Product.GetProductItemListForCustomer()); //returns the productItem List from bo
             ProductItemListView.DataContext = productItem;
             CategoryBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
+            temp = f;
         }
 
 
@@ -69,14 +71,22 @@ namespace PL.Costumer
 
         private void ProductItemListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            CartWindow cw = new CartWindow((BO.ProductItem)ProductItemListView.SelectedItem);
-                 //ProductWindow plv = new ProductWindow(((BO.ProductForList)ProductListView.SelectedItem).ID);
-                 // plv.InitializeComponent();
-                 //  plv.Show();
-                 //OrderWindow o = new OrderWindow((BO.OrderForList)ProductItemListView.SelectedItem);
+            InitializeComponent();
+            // CartWindow cw = new CartWindow((BO.ProductItem)ProductItemListView.SelectedItem);
+            //ProductWindow plv = new ProductWindow(((BO.ProductForList)ProductListView.SelectedItem).ID);
+            // plv.InitializeComponent();
+            //  plv.Show();
+            //OrderWindow o = new OrderWindow((BO.OrderForList)ProductItemListView.SelectedItem);
 
             //o.InitializeComponent();
             //o.Show();
+
+            
+            //  ProductToCartPage p = new ProductToCartPage((BO.ProductItem)ProductItemListView.SelectedItem);
+            // p.Show();
+            //this.Content= new ProductToCartPage((BO.ProductItem)ProductItemListView.SelectedItem);
+
+            temp.CustomerFrame.Content= new ProductToCartPage((BO.ProductItem)ProductItemListView.SelectedItem);
         }
 
 

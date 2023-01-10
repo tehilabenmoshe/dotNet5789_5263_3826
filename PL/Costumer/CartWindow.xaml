@@ -7,11 +7,17 @@
         mc:Ignorable="d"
         Title="CartWindow" Height="350" Width="350">
     <Grid>
-        <Label Content="My Shopping Bag" HorizontalAlignment="Left" Margin="108,20,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Height="38" Width="156" FontSize="14"/>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="49,48,49,133">
+        <Label Content="My Shopping Bag" HorizontalAlignment="Left" Margin="108,20,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Height="38" Width="156" FontSize="14"  />
+        <ListView  x:Name="CartListView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="49,48,49,133"  ItemsSource="{Binding}" >
             <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
+                    <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Name}" Header="Name" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Price}" Header="Price" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Amount}" Header="Amount In Cart" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding TotalPrice}" Header="TotalPrice" Width="100"/>
+                 
+
                 </GridView>
             </ListView.View>
         </ListView>

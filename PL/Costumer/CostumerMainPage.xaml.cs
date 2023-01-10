@@ -41,7 +41,7 @@ namespace PL
             //this.Content =new ProductItemCatalogPage();
             // p.ShowDialog();
             //this.NavigationService.Navigate(p);
-            temp.CustomerFrame.Content = new ProductItemCatalogPage();
+            temp.CustomerFrame.Content = new ProductItemCatalogPage(temp);
 
         }
 
