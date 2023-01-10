@@ -5,17 +5,41 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="850"
       Title="CostumerMainPage">
 
     <Grid>
-        <Image Source="/Image3.png" Stretch="Fill" Margin="-516,123,821,18"/>
 
-        <Label Content="Let's start decorating... " HorizontalAlignment="Left" Margin="73,86,0,0" VerticalAlignment="Top" Height="75" Width="483" FontFamily="Ploni 1.1 AAA U-Bold" FontWeight="Bold" FontSize="48" Foreground="#FF51473D"/>
-        <Button x:Name="NewOrderButton" Content="NEW ORDER" HorizontalAlignment="Left" Margin="73,261,0,0" VerticalAlignment="Top" Height="35" Width="118" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" Background="#FF7E6D60" BorderBrush="{x:Null}" Foreground="#FFF1F0EE" Click="NewOrderButton_Click"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="73,152,0,0" VerticalAlignment="Top" Height="108" Width="635" FontSize="16" FontFamily="Kalam Light"/>
-        <TextBlock HorizontalAlignment="Left" Margin="73,160,0,0" TextWrapping="Wrap" Text="Here you will find all the furniture that will make your home perfect. &#xD;&#xA;Everything from the quality of the materials to the design itself. &#xD;&#xA;Because with us it is the quality that determines." VerticalAlignment="Top" Height="113" Width="483" FontFamily="Kalam Light" FontSize="16"/>
-        <Button x:Name="TrackOrderBottun" Content="Track Your Order" HorizontalAlignment="Left" Margin="218,261,0,0" VerticalAlignment="Top" Foreground="#FF51473D" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Background="#FFD7CEC4" Height="35" Width="161" Click="Button_Click" FontSize="16"/>
+        <Image HorizontalAlignment="Center" Height="450" VerticalAlignment="Center" Width="951" Source="/Costumer/vintage-wallpaper-background.jpg" Stretch="Fill"/>
+
+
+
+
+        <Label Content="Let's start decorating... " HorizontalAlignment="Left" Margin="67,46,0,0" VerticalAlignment="Top" Height="75" Width="483" FontFamily="Ploni 1.1 AAA U-Bold" FontWeight="Bold" FontSize="48" Foreground="#FF51473D"/>
+        <Button x:Name="NewOrderButton" Content="NEW ORDER" HorizontalAlignment="Left" Margin="73,210,0,0" VerticalAlignment="Top" Height="34" Width="118" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" Background="#FF7E6D60" BorderBrush="{x:Null}" Foreground="#FFF1F0EE" Click="NewOrderButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,118,0,0" TextWrapping="Wrap" Text="Here you will find all the furniture that will make your home perfect. &#xA;Everything from the quality of the materials to the design itself. &#xA;Because with us it is the quality that determines." VerticalAlignment="Top" Height="113" Width="483" FontFamily="Kalam Light" FontSize="16"/>
+        <Button x:Name="TrackOrderBottun" Content="Track Your Order" HorizontalAlignment="Left" Margin="218,210,0,0" VerticalAlignment="Top" Foreground="#FF51473D" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Background="#FFD7CEC4" Height="34" Width="161" Click="Button_Click" FontSize="16"/>
+        <Image HorizontalAlignment="Left" Height="194" Margin="-28,262,0,0" VerticalAlignment="Top" Width="998" Source="/Costumer/Asset 1תמונה לחלון המשתמש.png" Stretch="UniformToFill"/>
+        <Ellipse HorizontalAlignment="Left" Height="40" Stroke="White" VerticalAlignment="Top" Width="40" Fill="#FFD2C7B1" StrokeThickness="2" Margin="635,240,0,0" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Label Content="&gt;" HorizontalAlignment="Left" Margin="641,238,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="24" RenderTransformOrigin="0.5,0.5" Height="46" Width="28">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.27"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
 
 
 
