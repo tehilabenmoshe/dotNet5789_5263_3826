@@ -48,10 +48,12 @@ internal class BoCart : IBoCart
                 o!.Amount++; //update the amount
                 o.TotalPrice += o.Price;
                 cart.TotalPrice += o.Price; //update the total price of the cart
+
+                
              
             }
             else
-                throw new BO.DoesntExistException();
+                throw new BO.DoesntExistException("Product out of stock");
         }
         return cart; //return the cart
     }

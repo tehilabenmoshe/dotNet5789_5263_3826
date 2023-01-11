@@ -1,4 +1,5 @@
 ﻿using BO;
+using DalApi;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -40,5 +41,17 @@ namespace PL.Costumer
             bl!.cart.AddProductToCart(myCart, p.ID);
             CartListView.DataContext = myCart.Items;
         }
+
+        public CartWindow(BO.ProductItem p, int num)
+        {
+            InitializeComponent();
+            BO.OrderItem o = new OrderItem();
+            // o= bl!.OrderItem.GetById(p.ID);
+            o=myCart.Items!.Find(crt => crt.ProductID == p.ID);
+            int NewAmount =(int)( o.Amount - 1);
+            bl!.cart.UpdateProductInCart(myCart,p.ID, NewAmount);
+            CartListView.DataContext = myCart.Items;
+        }
+
     }
 }
