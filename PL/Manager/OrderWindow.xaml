@@ -40,7 +40,6 @@
             <TextBox  x:Name="TotalPriceBox"  Text="{Binding TotalPrice}" HorizontalAlignment="Center" Margin="0,165,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="63" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium"  FontSize="11" IsReadOnly="True"/>
         </Grid>
         <ComboBox HorizontalAlignment="Left" Margin="173,223,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158"/>
-        <TextBox x:Name="maayan"  HorizontalAlignment="Left" Margin="32,217,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding TotalPrice}" VerticalAlignment="Top" Width="120"/>
 
 
 
