@@ -11,7 +11,7 @@
         <ListView  x:Name="CartListView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="49,48,49,133"  ItemsSource="{Binding}" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
-                    <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding ProductID}" Header="ID" Width="100"/>
                     <GridViewColumn DisplayMemberBinding ="{Binding Name}" Header="Name" Width="150"/>
                     <GridViewColumn DisplayMemberBinding ="{Binding Price}" Header="Price" Width="100"/>
                     <GridViewColumn DisplayMemberBinding ="{Binding Amount}" Header="Amount In Cart" Width="100"/>

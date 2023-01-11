@@ -29,9 +29,9 @@ internal class BoCart : IBoCart
 
         BO.OrderItem orderToAdd = new BO.OrderItem(); //createan orderitem in order to add him to the cart
 
-        if (!(cart.Items!.Exists(crt => crt.ID == id))) //if the cart dosent exsist in DO
+        if (!(cart.Items!.Exists(crt => crt.ProductID == id))) //if the cart dosent exsist in DO
         {
-
+            //if(!(cart.Items!.Exists(crt =>crt.ProductID==P))
             orderToAdd.ProductID = tmp.ID;
             orderToAdd.Price = (double)tmp.Price;
             orderToAdd.Amount = 1;
@@ -46,7 +46,9 @@ internal class BoCart : IBoCart
             {
                 BO.OrderItem? o = cart.Items.FirstOrDefault(o => o.ProductID == id);
                 o!.Amount++; //update the amount
+                o.TotalPrice += o.Price;
                 cart.TotalPrice += o.Price; //update the total price of the cart
+             
             }
             else
                 throw new BO.DoesntExistException();
