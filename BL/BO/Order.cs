@@ -68,5 +68,6 @@ public class Order
         Date of delivery: {DeliveryDate}
         Items: {Items} 
         Total price: {TotalPrice}
+
          ";
 }

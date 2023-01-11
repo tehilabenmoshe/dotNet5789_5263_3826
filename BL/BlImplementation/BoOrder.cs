@@ -116,7 +116,7 @@ internal class BoOrder : IBoOrder
         List<DO.OrderItem> doList = (List<DO.OrderItem>)GetListByOrderID(order.ID);
         List<BO.OrderItem> boList = new List<BO.OrderItem>();
 
-
+        int cartTotalPrice = 0;
         foreach (DO.OrderItem d in doList) //copy each order item from do to bo
         {
             BO.OrderItem item = new BO.OrderItem();
@@ -126,13 +126,14 @@ internal class BoOrder : IBoOrder
             item.Amount = d.Amount;
             item.TotalPrice = item.Price * item.Amount;
             boList.Add(item);
+            cartTotalPrice = (int)(cartTotalPrice + item.TotalPrice);
         }
         order.Items = boList; //adds thr nes list of order items that copied from do to order
-
-        foreach (BO.OrderItem or in order.Items) //summing the total-price of each order item in order
-        {
-            order.TotalPrice += or.TotalPrice;
-        }
+        order.TotalPrice = cartTotalPrice;
+        //foreach (BO.OrderItem or in order.Items) //summing the total-price of each order item in order
+        //{
+        //    order.TotalPrice += or.TotalPrice;
+        //}
         return order;
     }
     public BO.Order UpdateShipOrder(int ID)
