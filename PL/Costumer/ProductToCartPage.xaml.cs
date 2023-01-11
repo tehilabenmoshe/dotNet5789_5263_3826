@@ -23,7 +23,8 @@ namespace PL.Costumer
         BO.ProductItem temp=new BO.ProductItem();
         public ProductToCartPage()
         {
-            InitializeComponent();
+            InitializeComponent();   
+
         }
 
         public ProductToCartPage(BO.ProductItem p)
