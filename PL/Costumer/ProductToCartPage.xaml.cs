@@ -49,15 +49,20 @@ namespace PL.Costumer
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+     
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             CartWindow c = new CartWindow(temp);
             c.Show();   
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //int NewAmount = (int)(temp.Amount)-1;
+            int num = 1;
+            CartWindow c = new CartWindow(temp, num);
+            c.Show();
         }
     }
 }
