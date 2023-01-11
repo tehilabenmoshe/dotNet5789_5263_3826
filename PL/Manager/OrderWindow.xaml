@@ -21,7 +21,7 @@
         <Label Content="Ship Date" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Center" Grid.Row="1" Height="26" Width="61" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
         <Label Content="Delivery Date" HorizontalAlignment="Left" Margin="212,0,0,0" VerticalAlignment="Center" Grid.Row="1" Height="26" Width="81" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
         <Label Content="Items" HorizontalAlignment="Left" Margin="132,217,0,0" VerticalAlignment="Top" Height="35" Width="40" Grid.Row="1" FontFamily="Ploni 1.1 AAA Medium" RenderTransformOrigin="0.235,0.49"/>
-        <Label Content="Total Price" HorizontalAlignment="Left" Margin="212,176,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="64" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
+        <Label Content="Total price" HorizontalAlignment="Left" Margin="212,176,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="64" FontFamily="Ploni 1.1 AAA Medium" FontSize="11"/>
 
 
         <Grid Margin="105,15,220,79" Grid.Row="1">
@@ -40,6 +40,7 @@
             <TextBox  x:Name="TotalPriceBox"  Text="{Binding TotalPrice}" HorizontalAlignment="Center" Margin="0,165,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="63" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium"  FontSize="11" IsReadOnly="True"/>
         </Grid>
         <ComboBox HorizontalAlignment="Left" Margin="173,223,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="maayan"  HorizontalAlignment="Left" Margin="32,217,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding TotalPrice}" VerticalAlignment="Top" Width="120"/>
 
 
 
