@@ -47,7 +47,7 @@ namespace PL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            temp.CustomerFrame.Content = new OrderTrackingPage();
+
         }
 
         private void BackBotton_Click(object sender, RoutedEventArgs e)
