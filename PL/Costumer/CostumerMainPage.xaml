@@ -9,12 +9,7 @@
       Title="CostumerMainPage">
 
     <Grid>
-
         <Image HorizontalAlignment="Center" Height="450" VerticalAlignment="Center" Width="951" Source="/Costumer/vintage-wallpaper-background.jpg" Stretch="Fill"/>
-
-
-
-
         <Label Content="Let's start decorating... " HorizontalAlignment="Left" Margin="67,46,0,0" VerticalAlignment="Top" Height="75" Width="483" FontFamily="Ploni 1.1 AAA U-Bold" FontWeight="Bold" FontSize="48" Foreground="#FF51473D"/>
         <Button x:Name="NewOrderButton" Content="NEW ORDER" HorizontalAlignment="Left" Margin="73,210,0,0" VerticalAlignment="Top" Height="34" Width="118" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" Background="#FF7E6D60" BorderBrush="{x:Null}" Foreground="#FFF1F0EE" Click="NewOrderButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="73,118,0,0" TextWrapping="Wrap" Text="Here you will find all the furniture that will make your home perfect. &#xA;Everything from the quality of the materials to the design itself. &#xA;Because with us it is the quality that determines." VerticalAlignment="Top" Height="113" Width="483" FontFamily="Kalam Light" FontSize="16"/>
@@ -40,9 +35,14 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <Label Content="" HorizontalAlignment="Left" Margin="182,262,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="226,254,0,0" Text="{Binding MyValue}" VerticalAlignment="Top" Width="144" Height="32" FontFamily="Ploni 1.1 AAA" BorderBrush="{x:Null}" Background="#FFB5ABA3" TextAlignment="Center" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
+        <Button x:Name="CheckButton" Content="Check" Click="CheckButton_Click" HorizontalAlignment="Left" Margin="266,286,0,0" VerticalAlignment="Top" Width="64" Height="28" Background="{x:Null}" FontFamily="Ploni 1.1 AAA" FontSize="14" BorderBrush="{x:Null}" Foreground="#FFF4F1F1"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="66" Margin="218,248,0,0" VerticalAlignment="Top" Width="161" Fill="#FF7E6D60"/>
 
 
 
-
+        
     </Grid>
 </Page>

@@ -53,5 +53,14 @@ namespace PL.Costumer
             CartListView.DataContext = myCart.Items;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // ProductToCartPage p = new ProductToCartPage(
+
+       //     OrderConfirmPage o = new OrderConfirmPage(ProductToCartPage);
+
+
+
+        }
     }
 }

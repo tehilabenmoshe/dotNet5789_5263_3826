@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Resources;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -22,18 +23,13 @@ namespace PL
     /// </summary>
     public partial class CostumerMainPage : Page
     {
+        public System.Windows.TriggerCollection Triggers { get; }
         CustomerMainFrame temp;
         public CostumerMainPage(CustomerMainFrame c)
         {
             InitializeComponent();
             temp = c;
         }
-
-        //private void TrackOrderBottun_Click(object sender, RoutedEventArgs e)
-        //{
-           
-        //   // this.Close();
-        //}
 
         private void NewOrderButton_Click(object sender, RoutedEventArgs e)
         {
@@ -47,30 +43,26 @@ namespace PL
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            temp.CustomerFrame.Content = new OrderTrackingPage();
 
         }
 
         private void BackBotton_Click(object sender, RoutedEventArgs e)
         {
-            //NavigationWindow window = new NavigationWindow();
-            //window.Source = new Uri("ProductItemPage.xaml", UriKind.Relative);
-            //window.Show();
-
-
-
+            
             MainWindow m=new MainWindow();
-            ////this.Content = m;
-          //  this.Hide();
             m.ShowDialog();
-            //NavigationService.Navigate(m);
-            //this.Visibility = Visibility.Hidden;
-         //  this.Close();
-
-            // var m=new MainWindow(this);
-            //NavigationService.Navigate(mTemp);
         }
 
-        
+        public int MyValue { get; set; }
+        private void CheckButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(MyValue.ToString());
+        }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
