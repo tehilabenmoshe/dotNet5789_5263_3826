@@ -18,24 +18,26 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-
-
-        <Rectangle HorizontalAlignment="Left" Height="57" Margin="-32,-10,0,0" VerticalAlignment="Top" Width="889" Fill="#FF51473D" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="1" StrokeThickness="0">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-180.155"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
         <Button x:Name="CostumerButton" Content="COSTUMER" HorizontalAlignment="Left" Margin="234,373,0,0" VerticalAlignment="Top" Height="41" Width="138" Click="CostumerButton_Click" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FFAE9283" Foreground="#FFE3E3E3" BorderThickness="0,0,0,0"/>
         <Button x:Name="ManagerButton2" Content="MANAGER" HorizontalAlignment="Left" Margin="85,373,0,0" VerticalAlignment="Top" Click="ManagerButton2_Click" Height="41" Width="124" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FF5F4A3F" Foreground="Gainsboro" BorderThickness="0,0,0,0"/>
         <Label Content="Perfect" Margin="83,104,0,0" Height="83" Width="375" FontFamily="Ploni 1.1 AAA" FontSize="60"   Cursor="ScrollE" Foreground="#FF5F4A3F" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.IsSharedSizeScope="True" Padding="0,0,0,0" UseLayoutRounding="False" AutomationProperties.IsRowHeader="True" ScrollViewer.CanContentScroll="True" MinHeight="5" MinWidth="5" Panel.ZIndex="3" FontWeight="Bold"/>
         <Label Content="Dream House &#xA;" Margin="83,162,0,0" Height="83" Width="375" FontFamily="Ploni 1.1 AAA" FontSize="60"   Cursor="ScrollE" Foreground="#FF5F4A3F" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.IsSharedSizeScope="True" Padding="0,0,0,0" UseLayoutRounding="False" AutomationProperties.IsRowHeader="True" ScrollViewer.CanContentScroll="True" MinHeight="5" MinWidth="5" Panel.ZIndex="3" FontWeight="Bold"/>
         <Label Content=" For You!" Margin="68,0,0,0" Height="83" Width="375" FontFamily="Ploni 1.1 AAA" FontSize="60"   Cursor="ScrollE" Foreground="#FF5F4A3F" HorizontalAlignment="Left" VerticalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.IsSharedSizeScope="True" Padding="0,0,0,0" UseLayoutRounding="False" AutomationProperties.IsRowHeader="True" ScrollViewer.CanContentScroll="True" MinHeight="5" MinWidth="5" Panel.ZIndex="3" FontWeight="Bold"/>
         <Label Content="&quot;The only thing a house needs is furniture&quot;" HorizontalAlignment="Left" Margin="79,305,0,0" VerticalAlignment="Top" FontFamily="Kalam Light" FontSize="20"/>
+        <Rectangle HorizontalAlignment="Center" Height="52" VerticalAlignment="Top" Width="884" RenderTransformOrigin="0.5,0.5" Fill="#FF51473D">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <TextBlock HorizontalAlignment="Left" Margin="726,18,0,0" TextWrapping="Wrap" Text="About Us | Contact" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFDFDCD7" Height="29" Width="355"/>
+        <Image HorizontalAlignment="Left" Height="51" Margin="27,12,0,0" VerticalAlignment="Top" Width="29" Source="/Asset 1לוגו רהיטים.png"/>
+        <Label Content="M&amp;T FURNITURE" HorizontalAlignment="Left" Margin="55,4,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Height="39" Width="153"/>
+        <Label Content="Design your dream home" HorizontalAlignment="Left" Margin="71,23,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni Regular AAA" FontSize="9" Height="25" Width="118"/>
 
 
     </Grid>

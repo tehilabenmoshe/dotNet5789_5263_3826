@@ -5,14 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.Manager"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="850"
+      d:DesignHeight="450" d:DesignWidth="850"
       Title="MainManagerPage2">
 
     <Grid Background="#FFE8E6E2">
-        <Image HorizontalAlignment="Left" Height="618" VerticalAlignment="Top" Width="519" Source="/Manager/11.png" Margin="0,-32,0,0"/>
+        <Image HorizontalAlignment="Left" Height="618" VerticalAlignment="Top" Width="519" Source="/Manager/11.png" Margin="0,-46,0,0"/>
 
-        <Button x:Name="ProductButton" Content="PRODUCT" HorizontalAlignment="Left" Margin="523,410,0,0" VerticalAlignment="Top" Height="43" Width="154" Click="ProductButton_Click_1" FontSize="24" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Background="#FFD2C7B1" Foreground="#FF403F3F"/>
-        <Button x:Name="OrdersButton"  Content="ORDERS" HorizontalAlignment="Left" Margin="523,216,0,0" VerticalAlignment="Top" Height="42" Width="154" FontSize="24" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Click="OrdersButton_Click" Background="#FFD2C7B1" Foreground="#FF403F3F" RenderTransformOrigin="1,0">
+        <Button x:Name="ProductButton" Content="PRODUCT" HorizontalAlignment="Left" Margin="523,344,0,0" VerticalAlignment="Top" Height="43" Width="154" Click="ProductButton_Click_1" FontSize="24" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Background="#FFD2C7B1" Foreground="#FF403F3F"/>
+        <Button x:Name="OrdersButton"  Content="ORDERS" HorizontalAlignment="Left" Margin="523,170,0,0" VerticalAlignment="Top" Height="42" Width="154" FontSize="24" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Click="OrdersButton_Click" Background="#FFD2C7B1" Foreground="#FF403F3F" RenderTransformOrigin="1,0">
             <Button.Style>
                 <Style/>
             </Button.Style>
@@ -25,9 +25,9 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Label Content="Update and add products&#xA;     to the Catalog" HorizontalAlignment="Left" Margin="449,320,0,0" VerticalAlignment="Top" Height="90" Width="302" FontFamily="Kalam Light" FontWeight="Bold" FontSize="24" HorizontalContentAlignment="Center"/>
-        <Label Content="Manage the&#xA;Orders List" HorizontalAlignment="Left" Margin="541,121,0,0" VerticalAlignment="Top" Height="97" Width="164" FontFamily="Kalam Light" FontWeight="Bold" FontSize="24"/>
-        <Ellipse HorizontalAlignment="Left" Height="40" Stroke="White" VerticalAlignment="Top" Width="40" Fill="#FFD2C7B1" StrokeThickness="2" Margin="392,257,0,0" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Update and add products&#xA;     to the Catalog" HorizontalAlignment="Left" Margin="449,254,0,0" VerticalAlignment="Top" Height="90" Width="302" FontFamily="Kalam Light" FontWeight="Bold" FontSize="24" HorizontalContentAlignment="Center"/>
+        <Label Content="Manage the&#xA;Orders List" HorizontalAlignment="Left" Margin="541,75,0,0" VerticalAlignment="Top" Height="97" Width="164" FontFamily="Kalam Light" FontWeight="Bold" FontSize="24"/>
+        <Ellipse HorizontalAlignment="Left" Height="40" Stroke="White" VerticalAlignment="Top" Width="40" Fill="#FFD2C7B1" StrokeThickness="2" Margin="392,214,0,0" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -37,7 +37,7 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Label Content="&gt;" HorizontalAlignment="Left" Margin="400,252,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        <Label Content="&gt;" HorizontalAlignment="Left" Margin="400,209,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1" ScaleY="1"/>

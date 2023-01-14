@@ -23,8 +23,9 @@ namespace PL
     /// </summary>
     public partial class CostumerMainPage : Page
     {
-        public System.Windows.TriggerCollection Triggers { get; }
+       // public System.Windows.TriggerCollection Triggers { get; }
         CustomerMainFrame temp;
+        static string s;
         public CostumerMainPage(CustomerMainFrame c)
         {
             InitializeComponent();
@@ -41,15 +42,10 @@ namespace PL
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            temp.CustomerFrame.Content = new OrderTrackingPage();
-
-        }
+       
 
         private void BackBotton_Click(object sender, RoutedEventArgs e)
         {
-            
             MainWindow m=new MainWindow();
             m.ShowDialog();
         }
@@ -57,11 +53,20 @@ namespace PL
         public int MyValue { get; set; }
         private void CheckButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(MyValue.ToString());
+            //MessageBox.Show(MyValue.ToString());
+            temp.CustomerFrame.Content = new OrderTrackingPage(OrderIdBox.Text, temp);  //send the string of the id to the page of tracking order
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
+        }
+
+        private void OrderIdBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           // string s;
+           // s = OrderIdBox.Text;
+          // s= Int32.Parse(OrderIdBox.Text);
 
         }
     }

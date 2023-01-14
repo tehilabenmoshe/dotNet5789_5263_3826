@@ -1,4 +1,5 @@
 ﻿using BO;
+using PL.Manager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -23,22 +25,35 @@ namespace PL.Costumer
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
         BO.OrderTracking orderTracking=new OrderTracking();
-        public int MyValue { get; set; }
+       // BO.Order order = new Order();
+        CustomerMainFrame tempFrame;
 
-        public OrderTrackingPage()
+        //public int MyValue { get; set; }
+
+        public OrderTrackingPage(string s, CustomerMainFrame c)
         {
             InitializeComponent();
+            int idNum= Int32.Parse(s);
+            orderTracking = bl.Order.TrackOrder(idNum);
+
+            StatusBox.Text= orderTracking.Status.ToString();
+            IdBox.Text = s;
+            tempFrame=c;
+
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void OrderDetails_Click(object sender, RoutedEventArgs e)
         {
-            //int id = TextBox.Hori ;
+            //tempFrame.CustomerFrame.Content = new OrderWindow(orderTracking);
 
+            OrderWindow o = new OrderWindow(orderTracking);
+            o.InitializeComponent();
+            o.Show();   
         }
 
-        private void CheckButton_Click(object sender, RoutedEventArgs e)
+        private void StatusBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            MessageBox.Show(MyValue.ToString());
+
         }
     }
 }

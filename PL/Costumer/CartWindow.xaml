@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="CartWindow" Height="350" Width="350">
     <Grid>
-        <Label Content="My Shopping Bag" HorizontalAlignment="Left" Margin="108,20,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Height="38" Width="156" FontSize="14"  />
         <ListView  x:Name="CartListView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,61,0,0"  ItemsSource="{Binding}" BorderBrush="{x:Null}" FontFamily="Ploni 1.1 AAA" Background="#FFF0F0F0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="295" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
@@ -21,7 +20,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Order Confirmation" HorizontalAlignment="Left" Margin="126,266,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Width="120" Click="Button_Click"/>
+        <Button Content="Order Confirmation" HorizontalAlignment="Center" Margin="0,276,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="#FFA29F9F" Width="294" Click="Button_Click" Height="35" Background="{x:Null}" BorderThickness="2,2,2,2"/>
+        <Rectangle HorizontalAlignment="Center" Height="39" VerticalAlignment="Top" Width="350" Fill="#FFEBEBEB"/>
+        <Label Content="My Shopping Bag" HorizontalAlignment="Left" Margin="114,5,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Height="38" Width="156" FontSize="14"  />
+        <Button Content="Track Your Order" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Width="294" Click="Button_Click" Height="35" Background="#FFEBEBEB"/>
 
     </Grid>
 </Window>

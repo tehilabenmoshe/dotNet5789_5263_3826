@@ -9,11 +9,10 @@
       Title="CostumerMainPage">
 
     <Grid>
-        <Image HorizontalAlignment="Center" Height="450" VerticalAlignment="Center" Width="951" Source="/Costumer/vintage-wallpaper-background.jpg" Stretch="Fill"/>
+        <Image HorizontalAlignment="Center" Height="524" VerticalAlignment="Center" Width="950" Source="/Costumer/vintage-wallpaper-background.jpg" Stretch="Fill"/>
         <Label Content="Let's start decorating... " HorizontalAlignment="Left" Margin="67,46,0,0" VerticalAlignment="Top" Height="75" Width="483" FontFamily="Ploni 1.1 AAA U-Bold" FontWeight="Bold" FontSize="48" Foreground="#FF51473D"/>
         <Button x:Name="NewOrderButton" Content="NEW ORDER" HorizontalAlignment="Left" Margin="73,210,0,0" VerticalAlignment="Top" Height="34" Width="118" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" Background="#FF7E6D60" BorderBrush="{x:Null}" Foreground="#FFF1F0EE" Click="NewOrderButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="73,118,0,0" TextWrapping="Wrap" Text="Here you will find all the furniture that will make your home perfect. &#xA;Everything from the quality of the materials to the design itself. &#xA;Because with us it is the quality that determines." VerticalAlignment="Top" Height="113" Width="483" FontFamily="Kalam Light" FontSize="16"/>
-        <Button x:Name="TrackOrderBottun" Content="Track Your Order" HorizontalAlignment="Left" Margin="218,210,0,0" VerticalAlignment="Top" Foreground="#FF51473D" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Background="#FFD7CEC4" Height="34" Width="161" Click="Button_Click" FontSize="16"/>
         <Image HorizontalAlignment="Left" Height="194" Margin="-28,262,0,0" VerticalAlignment="Top" Width="998" Source="/Costumer/Asset 1תמונה לחלון המשתמש.png" Stretch="UniformToFill"/>
         <Ellipse HorizontalAlignment="Left" Height="40" Stroke="White" VerticalAlignment="Top" Width="40" Fill="#FFD2C7B1" StrokeThickness="2" Margin="635,240,0,0" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
@@ -36,13 +35,40 @@
             </Label.RenderTransform>
         </Label>
         <Label Content="" HorizontalAlignment="Left" Margin="182,262,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Margin="226,254,0,0" Text="{Binding MyValue}" VerticalAlignment="Top" Width="144" Height="32" FontFamily="Ploni 1.1 AAA" BorderBrush="{x:Null}" Background="#FFB5ABA3" TextAlignment="Center" TextWrapping="Wrap" TextChanged="TextBox_TextChanged"/>
-        <Button x:Name="CheckButton" Content="Check" Click="CheckButton_Click" HorizontalAlignment="Left" Margin="266,286,0,0" VerticalAlignment="Top" Width="64" Height="28" Background="{x:Null}" FontFamily="Ploni 1.1 AAA" FontSize="14" BorderBrush="{x:Null}" Foreground="#FFF4F1F1"/>
 
-        <Rectangle HorizontalAlignment="Left" Height="66" Margin="218,248,0,0" VerticalAlignment="Top" Width="161" Fill="#FF7E6D60"/>
+        <Rectangle HorizontalAlignment="Left" Height="33" Margin="219,211,0,0" VerticalAlignment="Top" Width="190" Fill="#FFD7CEC4" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Expander Margin="229,213,441,79" Header=" Track Your Order" Background="{x:Null}" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Foreground="#FF655C40" Cursor="Hand" TabIndex="2147483">
+
+            <StackPanel Background="#FF7E6D60" Width="183" Height="107" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="144*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="11*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="27*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="OrderIdBox" Text="{Binding MyValue}" Height="32" FontFamily="Ploni 1.1 AAA" BorderBrush="{x:Null}" Background="#FFB5ABA3"  Margin="4,25,4,-3" TextChanged="OrderIdBox_TextChanged" Grid.Row="1" Foreground="White" />
+                    <Label Margin="0,0,0,29" Grid.RowSpan="2" Content="Enter your order ID" Foreground="#FFEBEBEB" FontSize="11" VerticalContentAlignment="Center" HorizontalAlignment="Left" FontFamily="Ploni 1.1 AAA U-Light" />
+                    <Button Margin="50,53,46,-35" Grid.Row="1" Content="CHECK" Click="CheckButton_Click" Background="{x:Null}" FontFamily="Ploni 1.1 AAA" FontSize="14" BorderBrush="{x:Null}" Foreground="White" />
+                </Grid>
+            </StackPanel>
 
 
+        </Expander>
 
-        
+
     </Grid>
 </Page>

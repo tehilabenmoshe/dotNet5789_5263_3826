@@ -5,14 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.Manager"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="850"
+      d:DesignHeight="600" d:DesignWidth="850"
        Background="#FFA49090"
       Title="MainManagerPage">
 
     <Grid Background="#FFF1E8E8">
 
-        <Frame x:Name="MainManagerFrame" Width="850" Height="550"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,39,0,0" NavigationUIVisibility="Hidden" Navigated="MainManagerFrame_Navigated" Background="White" />
-        <Rectangle HorizontalAlignment="Center" Height="39" VerticalAlignment="Top" Width="884" RenderTransformOrigin="0.5,0.5" Fill="#FF51473D">
+        <Frame x:Name="MainManagerFrame" Width="850" Height="550"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,51,0,0" NavigationUIVisibility="Hidden" Navigated="MainManagerFrame_Navigated" Background="White" />
+        <Rectangle HorizontalAlignment="Center" Height="52" VerticalAlignment="Top" Width="884" RenderTransformOrigin="0.5,0.5" Fill="#FF51473D">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -22,9 +22,12 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <TextBlock HorizontalAlignment="Left" Margin="24,10,0,0" TextWrapping="Wrap" Text="About Us | Contact" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFDFDCD7" Height="29" Width="355"/>
+        <TextBlock HorizontalAlignment="Left" Margin="726,18,0,0" TextWrapping="Wrap" Text="About Us | Contact" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFDFDCD7" Height="29" Width="355"/>
+        <Image HorizontalAlignment="Left" Height="51" Margin="27,12,0,0" VerticalAlignment="Top" Width="29" Source="/Asset 1לוגו רהיטים.png"/>
+        <Label Content="M&amp;T FURNITURE" HorizontalAlignment="Left" Margin="55,4,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Height="39" Width="153"/>
+        <Label Content="Design your dream home" HorizontalAlignment="Left" Margin="71,23,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni Regular AAA" FontSize="9" Height="25" Width="118"/>
 
-          
+
 
     </Grid>
 

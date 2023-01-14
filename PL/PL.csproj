@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Asset 1לוגו רהיטים.png" />
     <None Remove="Costumer\2vintage-wallpaper-background.jpg" />
     <None Remove="Costumer\add-to-basket.png" />
     <None Remove="Costumer\Asset 1תמונה לחלון המשתמש.png" />
@@ -36,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Asset 1לוגו רהיטים.png" />
     <Resource Include="Costumer\2vintage-wallpaper-background.jpg" />
     <Resource Include="Costumer\add-to-basket.png" />
     <Resource Include="Costumer\Asset 1תמונה לחלון המשתמש.png" />

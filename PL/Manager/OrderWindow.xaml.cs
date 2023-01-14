@@ -43,6 +43,22 @@ namespace PL.Manager
 
         }
 
+        public OrderWindow(BO.OrderTracking orderTracking)
+        {
+            InitializeComponent();
+            
+            BO.Order temp = new BO.Order();
+            temp = bl.Order.GetOrder(orderTracking.ID);
+            DataContext = temp;
+
+            ShipDateBox.IsReadOnly = true;
+            DeliveryDateBox.IsReadOnly = true;
+
+
+
+        }
+
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
