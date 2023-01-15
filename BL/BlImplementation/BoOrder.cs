@@ -132,7 +132,7 @@ internal class BoOrder : IBoOrder
         order.TotalPrice = cartTotalPrice;
         //foreach (BO.OrderItem or in order.Items) //summing the total-price of each order item in order
         //{
-        //    order.TotalPrice += or.TotalPrice;
+        //    order.TotalPrice +=or.TotalPrice;
         //}
         return order;
     }
