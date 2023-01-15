@@ -8,19 +8,20 @@
         Title="CartWindow" Height="350" Width="350">
     <Grid>
         <Label Content="My Shopping Bag" HorizontalAlignment="Left" Margin="108,20,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Height="38" Width="156" FontSize="14"  />
-        <ListView  x:Name="CartListView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="49,48,49,133"  ItemsSource="{Binding}" >
+        <ListView  x:Name="CartListView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,61,0,0"  ItemsSource="{Binding}" BorderBrush="{x:Null}" FontFamily="Ploni 1.1 AAA" Background="#FFF0F0F0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="295" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
-                    <GridViewColumn DisplayMemberBinding ="{Binding ProductID}" Header="ID" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Name}" Header="Name" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Price}" Header="Price" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Amount}" Header="Amount In Cart" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding TotalPrice}" Header="TotalPrice" Width="100"/>
-                 
+                    <GridViewColumn DisplayMemberBinding ="{Binding ProductID}" Header="ID" Width="80"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Name}" Header="Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Price}" Header="Price" Width="80"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Amount}" Header="Amount In Cart" Width="50"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding TotalPrice}" Header="TotalPrice" Width="50"/>
+
 
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Content="Order Confirmation" HorizontalAlignment="Left" Margin="126,266,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Width="120" Click="Button_Click"/>
 
     </Grid>
 </Window>

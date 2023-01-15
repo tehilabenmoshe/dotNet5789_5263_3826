@@ -85,15 +85,20 @@ internal class BoCart : IBoCart
                         if (!(p?.InStock >= difference))
                             throw new BO.DoesntExistException("cant add - p out of stock");
                         item.Amount = newAmount;
-                        cart.TotalPrice = (cart.TotalPrice ?? 0) + (item.Price * difference);
-                        cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
+                       // cart.TotalPrice = (cart.TotalPrice ?? 0) + (item.Price * difference);
+                       // cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
+                        
                         return cart;
                     }
                     if (item.Amount > newAmount)
                     {
+
                         item.Amount = newAmount;
-                        cart.TotalPrice = (cart.TotalPrice ?? 0) + (item.Price * difference);
-                        cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
+                        item.TotalPrice= newAmount * item.Price;
+                        //  cart.TotalPrice = (cart.TotalPrice ?? 0) + (item.Price * difference);
+                        //cart.TotalPrice = Math.Round(cart.TotalPrice ?? 0, 2);
+                        // cart.TotalPrice = newAmount * item.Price;
+                        cart.TotalPrice += difference*item.Price;
                         return cart;
                     }
                 }
