@@ -30,6 +30,7 @@
         <Label Content="M&amp;T FURNITURE" HorizontalAlignment="Left" Margin="55,4,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Height="39" Width="153"/>
         <Label Content="Design your dream home" HorizontalAlignment="Left" Margin="71,22,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni Regular AAA" FontSize="9" Height="25" Width="118"/>
         <TextBlock HorizontalAlignment="Left" Margin="698,19,0,0" TextWrapping="Wrap" Text="About Us | Contact" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFDFDCD7" Height="29" Width="355"/>
+        <Button Content="HOME" HorizontalAlignment="Left" Margin="539,26,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
     </Grid>
 

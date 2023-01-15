@@ -27,50 +27,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="218,127,0,0" VerticalAlignment="Top" Width="477" Height="22" SelectionChanged="CategoryBox_SelectionChanged" BorderBrush="{x:Null}" FontFamily="Ploni Regular AAA" Background="#FFC9C9C8" IsReadOnly="True">
-
-            <ControlTemplate >
-                
-                <Grid>
-                    
-                    <Border Name="Border" BorderThickness="1,1,1,1"/>
-
-                    <Border Name="SmallBorder" BorderThickness="0,0,1,0" />
-
-                    <Path Name="Arrow"  Width="10"   Data="M0,0 L0,2 L4,6 L8,2 L8,0 L4,4 z"  />
-                    
-                </Grid>
-                
-            </ControlTemplate>
-
-
-
-            <Style TargetType="{x:Type ComboBoxItem}">
-                
-                <Setter Property="FrameworkElement.OverridesDefaultStyle" Value="True" />
-                
-                <Setter Property="Control.Template">
-                    
-                    <Setter.Value>
-                        
-                        <ControlTemplate TargetType="{x:Type ComboBoxItem}">
-                            
-                            <Border>
-                                
-                                <ContentPresenter />
-                                
-                            </Border>
-                            
-                        </ControlTemplate>
-                        
-                    </Setter.Value>
-                    
-                </Setter>
-                
-            </Style>
-
-
-        </ComboBox>
+        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="218,127,0,0" VerticalAlignment="Top" Width="477" Height="22" SelectionChanged="CategoryBox_SelectionChanged" BorderBrush="{x:Null}" FontFamily="Ploni Regular AAA" Background="#FFC9C9C8" IsReadOnly="True"/>
         <Label Content="Item Catalog" HorizontalAlignment="Left" Margin="280,52,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA D-Bold" FontSize="36" FontWeight="Bold" Height="56" Width="252"/>
         <Button x:Name="CartButton" Click="OnClick"  Margin="36,31,703,370" Background="{x:Null}" BorderThickness="0,0,0,0">
             <Image Source="/Costumer/add-to-basket.png" Height="52" Width="30" />

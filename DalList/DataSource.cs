@@ -42,7 +42,7 @@ namespace Dal;
         for (int i = 0,z=1; i < 20; i++,z++)
         {
             Order o = new Order();
-            o.ID = Config.NextOrderNbumber*100; //create an id
+            o.ID = Config.NextOrderNbumber; //create an id
             o.CustomerName = " " + names[i];
             o.CustomerEmail = " " + o.CustomerName+"@gmail.com";
             o.CustomerAddress = " "+cities[i]+" " + i+z + "/" + z+3;//random adress+city
@@ -159,7 +159,8 @@ namespace Dal;
             ListOrderItem.Add(
               new OrderItem
               {
-                  ID= Config.NextOrderNbumber * 100,
+                 ID= Config.NextOrderNbumber * 100,
+                //  ID = (Config.startOrderNumber * 100)+3,
                   OrderID = rand.Next(Config.startOrderNumber, Config.startOrderNumber + ListOrder.Count),
                   ProductID = product?.ID ?? 0,
                   Price = product?.Price ?? 0,

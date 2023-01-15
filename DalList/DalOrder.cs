@@ -8,7 +8,7 @@ public class DalOrder: IOrder
     DataSource ds = DataSource.s_instance;
     public readonly Random rand = new Random();
 
-    public int Add(Order o)//adding a new order to the list
+    public int Add(Order o)//adding a new order to the list (id=orderid in orderitem)
     {
         Order? temp = ds.ListOrder.Find(i => i?.ID == o.ID);
         if (temp != null) //if order with the received id exists throw
@@ -16,6 +16,8 @@ public class DalOrder: IOrder
         o.OrderDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 100L));
         o.ShipDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 50L));
         o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 20L));
+
+        o.ID = DataSource.Config.NextOrderNbumber;
         ds.ListOrder.Add(o);    //pushing the order to the list
         return o.ID; //return the id of the order
     }

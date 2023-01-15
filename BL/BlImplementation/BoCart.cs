@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlApi;
 using DalApi;
+
 //using DO;
 //using BO;
 
@@ -15,7 +16,8 @@ namespace BlImplementation;
 internal class BoCart : IBoCart
 {
     private IDal? Dal = DalApi.Factory.Get();
-   
+
+    public readonly Random rand = new Random();
     public BO.Cart AddProductToCart(BO.Cart? cart, int id)
     {
         if (cart == null) //if cart-null
@@ -180,7 +182,9 @@ internal class BoCart : IBoCart
         order.DeliveryDate = DateTime.MinValue;
         order.OrderDate = DateTime.Now;
 
-        int orderId = Dal!.Order.Add(order);
+        //order.ID = rand.Next(100) * 10;
+
+        int orderId =Dal!.Order.Add(order);
 
         foreach (BO.OrderItem? oInBo in cart.Items)
         {
@@ -192,15 +196,14 @@ internal class BoCart : IBoCart
             o.Price = oInBo.Price;
             o.Amount = oInBo.Amount;
             o.OrderID = orderId; //מספר ההזמנה הנ"ל
-            Dal?.OrderItem.Add(o);
+            o.ID=(int) (Dal?.OrderItem.Add(o));
             productInDo.InStock -= oInBo.Amount; //update the amount
             Dal.Product.Update(productInDo);
 
         }
 
         
-        //להמשיך -להוריד פריטים מהסל
-        //לדחוף לdo לרשימה
+        
 
     }
 

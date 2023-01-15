@@ -27,6 +27,7 @@ namespace PL.Costumer
 
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
         ObservableCollection<ProductItem> productItem = new();
+       // BO.Order o = new BO.Order();
         public ProductItemCatalogPage(Frame f )
         {
             InitializeComponent();
@@ -41,8 +42,8 @@ namespace PL.Costumer
         private void IEnumerableToPL(IEnumerable<ProductItem> list)
         {
             productItem.Clear();
-            foreach (var temp in list)
-                productItem.Add(temp);
+            foreach (var t in list)
+                productItem.Add(t);
         }
 
         private void ProductItemListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -20,10 +20,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Order Confirmation" HorizontalAlignment="Center" Margin="0,276,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="#FFA29F9F" Width="294" Click="Button_Click" Height="35" Background="{x:Null}" BorderThickness="2,2,2,2"/>
+        <Button Content="Order Confirmation" HorizontalAlignment="Center" Margin="0,256,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="#FFA29F9F" Width="294" Click="Button_Click" Height="35" Background="{x:Null}" BorderThickness="2,2,2,2"/>
         <Rectangle HorizontalAlignment="Center" Height="39" VerticalAlignment="Top" Width="350" Fill="#FFEBEBEB"/>
         <Label Content="My Shopping Bag" HorizontalAlignment="Left" Margin="114,5,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Height="38" Width="156" FontSize="14"  />
-        <Button Content="Track Your Order" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Width="294" Click="Button_Click" Height="35" Background="#FFEBEBEB"/>
 
     </Grid>
 </Window>

@@ -23,7 +23,6 @@ namespace PL.Costumer
     public partial class CartWindow : Window
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
-        //BO.Cart myCart = new BO.Cart();
         static Cart? myCart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
        // ObservableCollection<OrderItem> orderItemList = new();
         public CartWindow()
@@ -55,10 +54,10 @@ namespace PL.Costumer
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // ProductToCartPage p = new ProductToCartPage(
+            CustomerDetailsCart c = new CustomerDetailsCart(myCart);
+            c.Show();
 
-       //     OrderConfirmPage o = new OrderConfirmPage(ProductToCartPage);
-
+           
 
 
         }

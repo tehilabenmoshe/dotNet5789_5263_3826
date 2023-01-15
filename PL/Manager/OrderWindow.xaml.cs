@@ -25,7 +25,7 @@ namespace PL.Manager
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
         // BO.Order o=new BO.Order();
-        ObservableCollection<BO.OrderItem> items = new();
+     //   ObservableCollection<BO.OrderItem> items = new();
         public OrderWindow()
         {
             InitializeComponent();
@@ -37,22 +37,12 @@ namespace PL.Manager
         
         public OrderWindow(BO.OrderForList orderList)
         {
-            InitializeComponent();
-            //o = bl.Order.GetOrder(orderList.ID);
-
+           InitializeComponent();
            BO.Order temp = new BO.Order();
            temp = bl.Order.GetOrder(orderList.ID);
-            DataContext=temp;
-            //ItemsBox.Items.Clear();
-            //foreach (var item in listMaterial)
-            //{
-            //comboBox1.Items.Add(new ComboBoxItem(Convert.ToString(item.code), Convert.ToString(item.value)));
-            //
-           
-
-
-
-
+           DataContext=temp;
+          // ItemsBox.ItemsSource = temp.Items.);
+          
         }
 
         public OrderWindow(BO.OrderTracking orderTracking)
@@ -66,10 +56,17 @@ namespace PL.Manager
             ShipDateBox.IsReadOnly = true;
             DeliveryDateBox.IsReadOnly = true;
 
-
+            ItemsBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
 
         }
 
+
+        private void GetItemList(IEnumerable<BO.OrderItem> item)
+        {
+            
+            //foreach (var temp in item)
+                //items.Add(temp);
+        }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

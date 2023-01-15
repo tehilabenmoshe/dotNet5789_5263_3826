@@ -14,6 +14,8 @@ public class DalOrderItem:IOrderItem
         OrderItem? temp = ds.ListOrderItem.Find(i => i?.ID == o.ID);
         if (temp != null) //if orderItem with the received id exists throw
             throw new AlreadyExistExeption("already exist");
+        o.ID = DataSource.Config.NextOrderNbumber*100;
+
         ds.ListOrderItem.Add(o); //pushing the orderItem to the list
         return o.ID; //return the id of the order item
     }

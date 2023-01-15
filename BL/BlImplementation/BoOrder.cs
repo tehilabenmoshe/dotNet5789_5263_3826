@@ -92,7 +92,7 @@ internal class BoOrder : IBoOrder
 
     public BO.Order GetOrder(int ID)
     {
-        if ((ID < 100000) || (ID > 999999))
+        if ((ID < 1000) || (ID > 9999))
             throw new BO.InvalidInputExeption("ID is out of range");
         DO.Order o = Dal?.Order.GetById(ID) ?? throw new DO.DoesntExistExeption("order doesnt exists");
         BO.Order temp=new BO.Order();
@@ -138,7 +138,7 @@ internal class BoOrder : IBoOrder
     }
     public BO.Order UpdateShipOrder(int ID)
     {
-        if ((ID < 100000) || (ID > 999999))//check the id
+        if ((ID < 1000) || (ID > 9999))//check the id
             throw new BO.DoesntExistException("ID is out of range");
         BO.Order order = new BO.Order();
         DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("rder doesnt exists");
@@ -155,7 +155,7 @@ internal class BoOrder : IBoOrder
     }
     public BO.Order UpdateProvisionOrder(int ID)
     {
-        if ((ID < 100000) || (ID > 999999))//check the id
+        if ((ID < 10000) || (ID > 9999))//check the id
             throw new BO.DoesntExistException("ID is out of range");
         BO.Order order = new BO.Order();
         DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
@@ -173,7 +173,7 @@ internal class BoOrder : IBoOrder
     }
     public BO.OrderTracking TrackOrder(int ID)
     {
-        if ((ID < 100000) || (ID > 999999))//check the id
+        if ((ID < 1000) || (ID > 9999))//check the id
             throw new BO.InvalidInputExeption("Id is out of range");
         BO.Order order = new BO.Order();
         DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("oder doesnt exists");
@@ -183,10 +183,6 @@ internal class BoOrder : IBoOrder
         ot.Status = getStatus(order);
         return ot;
     }
-   
-
-    
-
 
 
 }
