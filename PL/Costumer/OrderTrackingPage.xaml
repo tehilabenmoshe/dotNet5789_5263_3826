@@ -9,21 +9,39 @@
       Title="OrderTrackingPage">
 
     <Grid Background="White">
-        <Label Content="Your Order Statuse" HorizontalAlignment="Left" Margin="400,96,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="36"/>
-        <Rectangle HorizontalAlignment="Left" Height="219" Margin="400,164,0,0" VerticalAlignment="Top" Width="302" Fill="#FFEEEAEA"/>
-        <TextBox x:Name="IdBox" HorizontalAlignment="Left" Margin="517,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFDDDDDD" BorderBrush="{x:Null}" Height="27"/>
-        <Button x:Name="OrderDetails"  Content="Go To Order Details" HorizontalAlignment="Left" Margin="125,350,0,0" VerticalAlignment="Top" Height="33" Width="185" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" BorderBrush="{x:Null}" Click="OrderDetails_Click">
+
+        <Image HorizontalAlignment="Left" Height="467" Margin="-8,2,0,0" VerticalAlignment="Top" Width="853" Source="/Costumer/red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Image Margin="828,8,-850,-19" Source="/Image3.png" Stretch="Fill"/>
+
+        <Label Content="Track Your Order" HorizontalAlignment="Left" Margin="108,60,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA U-Bold" FontSize="36" FontWeight="Bold" Foreground="#FFBE3A27"/>
+        <Rectangle HorizontalAlignment="Left" Height="283" Margin="484,91,0,0" VerticalAlignment="Top" Width="226">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFFFF6E6" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox x:Name="IdBox" HorizontalAlignment="Left" Margin="535,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF0E8DD" BorderBrush="{x:Null}" Height="27" FontFamily="Ploni 1.1 AAA"/>
+        <Button x:Name="OrderDetails"  Content="Go To Order Details" HorizontalAlignment="Left" Margin="509,317,0,0" VerticalAlignment="Top" Height="33" Width="186" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" BorderBrush="{x:Null}" Click="OrderDetails_Click" Background="#FFC7492D" Foreground="#FFFEF8EF">
             <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"></Setter>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
 
 
         </Button>
-        <Label Content="ID Order:" HorizontalAlignment="Left" Margin="421,189,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="18"/>
-        <Label Content="Status:" HorizontalAlignment="Left" Margin="421,225,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="18"/>
-        <TextBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="517,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFDDDDDD" BorderBrush="{x:Null}" Height="27" TextChanged="StatusBox_TextChanged"/>
+        <Label Content="ID Order:" HorizontalAlignment="Left" Margin="546,124,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Foreground="#FFC23A27"/>
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="565,216,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Foreground="#FFC23A27"/>
+        <TextBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="539,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF0E8DD" BorderBrush="{x:Null}" Height="27" TextChanged="StatusBox_TextChanged" FontFamily="Ploni 1.1 AAA"/>
 
     </Grid>
 </Page>
