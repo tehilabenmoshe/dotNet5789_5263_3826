@@ -81,12 +81,12 @@ namespace PL.Costumer
             //o.InitializeComponent();
             //o.Show();
 
-            
+
             //  ProductToCartPage p = new ProductToCartPage((BO.ProductItem)ProductItemListView.SelectedItem);
             // p.Show();
             //this.Content= new ProductToCartPage((BO.ProductItem)ProductItemListView.SelectedItem);
-
             temp.CustomerFrame.Content= new ProductToCartPage((BO.ProductItem)ProductItemListView.SelectedItem);
+            
         }
 
 
