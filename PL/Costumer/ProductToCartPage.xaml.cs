@@ -35,7 +35,7 @@ namespace PL.Costumer
             PriceBox.Text = p!.Price.ToString();
             //InStockBox.Text = p!.InStock.ToString();
 
-            if (p.InStock)
+            if (p.InStock==true)
                 InStockBox.Text = "Product In-Stock";
             else
                 InStockBox.Text = "Product Out Of Stock";

@@ -36,14 +36,12 @@ namespace PL
             InitializeComponent();
             BO.Product temp = new BO.Product();
             temp = bl.Product.GetProductbyIdForManager(ID); //temp=product
-            
             CategoryBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
             CategoryBox.SelectedItem=temp!.Category; 
             NameBox.Text = temp!.Name.ToString();
             IDBox.Text = temp!.ID.ToString();
             PriceBox.Text = temp!.Price.ToString();
             InStockBox.Text = temp!.InStock.ToString();
-
             AddBox.Visibility = Visibility.Hidden;
 
         }

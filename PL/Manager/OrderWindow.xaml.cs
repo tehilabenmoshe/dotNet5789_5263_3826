@@ -1,5 +1,9 @@
-﻿using System;
+﻿using BO;
+using DalApi;
+using DO;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +24,15 @@ namespace PL.Manager
     public partial class OrderWindow : Window
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
-       // BO.Order o=new BO.Order();
-
+        // BO.Order o=new BO.Order();
+        ObservableCollection<BO.OrderItem> items = new();
         public OrderWindow()
         {
             InitializeComponent();
-           // CategoryBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
+            // CategoryBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
+          
             //UpdateButton.Visibility = Visibility.Hidden;
+            
         }
         
         public OrderWindow(BO.OrderForList orderList)
@@ -36,9 +42,15 @@ namespace PL.Manager
 
            BO.Order temp = new BO.Order();
            temp = bl.Order.GetOrder(orderList.ID);
-           DataContext=temp;
-            
+            DataContext=temp;
+            //ItemsBox.Items.Clear();
+            //foreach (var item in listMaterial)
+            //{
+            //comboBox1.Items.Add(new ComboBoxItem(Convert.ToString(item.code), Convert.ToString(item.value)));
+            //
            
+
+
 
 
         }
@@ -46,6 +58,22 @@ namespace PL.Manager
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+
         }
+
+        private void ItemsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+           
+        }
+
+        //private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        ////{
+        ////    BO.Order order=new BO.Order();  
+        //  ObservableCollection<Items> ItemsList = new();
+        //var orderitems = (from o in order.Items
+        //                  select o).ToList();
+        //DataContext = orderitems;
+        //}
     }
 }

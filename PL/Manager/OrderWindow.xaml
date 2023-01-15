@@ -39,7 +39,7 @@
             <TextBox  x:Name="DeliveryDateBox" Text="{Binding DeliveryDate}"  HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="63" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium" FontSize="11" IsReadOnly="False"/>
             <TextBox  x:Name="TotalPriceBox"  Text="{Binding TotalPrice}" HorizontalAlignment="Center" Margin="0,165,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="63" TextChanged="TextBox_TextChanged" FontFamily="Ploni 1.1 AAA Medium"  FontSize="11" IsReadOnly="True"/>
         </Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="173,223,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158"/>
+        <ComboBox x:Name="ItemsBox" HorizontalAlignment="Left" Margin="173,223,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158" SelectionChanged="ItemsBox_SelectionChanged" IsReadOnly="true" IsTextSearchCaseSensitive="True"/>
 
 
 
