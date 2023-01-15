@@ -26,52 +26,15 @@ namespace PL
     public partial class MainWindow : Window
     {
 
-        enum ManagerOptions { Orders, Products }
+    //  enum ManagerOptions { Orders, Products }
         BlApi.IBL? bl = BlApi.Factory.Get()??throw new NullReferenceException("Missing id");
         public MainWindow()
         {
-            InitializeComponent();
-           
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //ProductListWindow pld =new ProductListWindow();
-           // pld.Show();
+          InitializeComponent();
+          mainFrame.Content = new MainPage(mainFrame);
 
         }
 
-        private void CostumerButton_Click(object sender, RoutedEventArgs e)
-        {
-            CustomerMainFrame c = new CustomerMainFrame();
-            this.Content=c;
-           // this.Close();
 
-
-         
-           // new CostumerMainPage() c.ShowDialog();
-        }
-
-        private void ManagerButton_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //if (ManagerButton.SelectedItem is ManagerOptions.Products)
-            //{
-            //    ProductListWindow pld = new ProductListWindow();
-            //    pld.Show();
-            //}
-            //if (ManagerButton.SelectedItem is ManagerOptions.Orders)
-            //{
-            //    ManagerOrdersPage m = new ManagerOrdersPage();
-            //    this.Content = m;
-            //}
-        }
-
-        private void ManagerButton2_Click(object sender, RoutedEventArgs e)
-        {
-           // MainFrame.Content = new MainManagerPage();
-            MainManagerPage m = new MainManagerPage();
-            this.Content = m;
-        }
-      
     }
 }

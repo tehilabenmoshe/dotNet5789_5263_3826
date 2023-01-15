@@ -9,6 +9,7 @@
       Title="MainManagerPage2">
 
     <Grid Background="#FFE8E6E2">
+
         <Image HorizontalAlignment="Left" Height="618" VerticalAlignment="Top" Width="519" Source="/Manager/11.png" Margin="0,-46,0,0"/>
 
         <Button x:Name="ProductButton" Content="PRODUCT" HorizontalAlignment="Left" Margin="523,344,0,0" VerticalAlignment="Top" Height="43" Width="154" Click="ProductButton_Click_1" FontSize="24" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Background="#FFD2C7B1" Foreground="#FF403F3F"/>

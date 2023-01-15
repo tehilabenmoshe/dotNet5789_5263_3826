@@ -23,11 +23,11 @@ namespace PL.Costumer
     /// </summary>
     public partial class ProductItemCatalogPage : Page
     {
-        CustomerMainFrame temp;
+        Frame temp;
 
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
         ObservableCollection<ProductItem> productItem = new();
-        public ProductItemCatalogPage(CustomerMainFrame f )
+        public ProductItemCatalogPage(Frame f )
         {
             InitializeComponent();
             IEnumerableToPL(bl.Product.GetProductItemListForCustomer()); //returns the productItem List from bo
@@ -85,7 +85,7 @@ namespace PL.Costumer
             //  ProductToCartPage p = new ProductToCartPage((BO.ProductItem)ProductItemListView.SelectedItem);
             // p.Show();
             //this.Content= new ProductToCartPage((BO.ProductItem)ProductItemListView.SelectedItem);
-            temp.CustomerFrame.Content= new ProductToCartPage((BO.ProductItem)ProductItemListView.SelectedItem);
+            temp.Content= new ProductToCartPage((BO.ProductItem)ProductItemListView.SelectedItem);
             
         }
 

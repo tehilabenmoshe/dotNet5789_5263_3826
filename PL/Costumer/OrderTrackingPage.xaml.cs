@@ -26,11 +26,11 @@ namespace PL.Costumer
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
         BO.OrderTracking orderTracking=new OrderTracking();
        // BO.Order order = new Order();
-        CustomerMainFrame tempFrame;
+        Frame tempFrame;
 
         //public int MyValue { get; set; }
 
-        public OrderTrackingPage(string s, CustomerMainFrame c)
+        public OrderTrackingPage(string s,Frame c)
         {
             InitializeComponent();
             int idNum= Int32.Parse(s);

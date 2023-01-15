@@ -20,8 +20,8 @@ namespace PL.Manager
     /// </summary>
     public partial class MainManagerPage2 : Page
     {
-        MainManagerPage temp;
-        public MainManagerPage2(MainManagerPage m)
+        Frame temp;
+        public MainManagerPage2(Frame m)
         {
             InitializeComponent();
             temp = m;
@@ -32,7 +32,7 @@ namespace PL.Manager
         private void ProductButton_Click_1(object sender, RoutedEventArgs e)
         {
             
-            temp.MainManagerFrame.Content= new ProductListPage();
+            temp.Content= new ProductListPage();
         }
 
         private void OrdersButton_Click(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace PL.Manager
            // m.Show();
 
 
-            temp.MainManagerFrame.Content = new ManagerOrderListPage();
+            temp.Content = new ManagerOrderListPage();
         }
     }
 }

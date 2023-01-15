@@ -10,22 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PL.Costumer
+namespace PL
 {
     /// <summary>
-    /// Interaction logic for CustomerMainFrame.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class CustomerMainFrame : Page
+    public partial class Window1 : Window
     {
-
-        
-        public CustomerMainFrame()
+        public Window1()
         {
             InitializeComponent();
-            CustomerFrame.Content= new CostumerMainPage(this);
         }
     }
 }
