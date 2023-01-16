@@ -21,9 +21,11 @@
     <None Remove="Costumer\red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" />
     <None Remove="Costumer\vintage-wallpaper-background.jpg" />
     <None Remove="Manager\11.png" />
+    <None Remove="Manager\Image10.png" />
     <None Remove="Manager\Image2.png" />
     <None Remove="Manager\Image3.png" />
     <None Remove="Manager\Image4.png" />
+    <None Remove="Manager\Image6.png" />
     <None Remove="Manager\stylish-interior-dining-room-cozy-home-with-white-frame-design-chairs-family-table-teapot-cups-decoration-elegant-personal-accessories-modern-home-decor_431307-2477.png" />
     <None Remove="Manager\textured-background-white-tone %281%29.jpg" />
     <None Remove="Manager\white-painted-wall-texture-background.jpg" />
@@ -48,6 +50,8 @@
     <Resource Include="Costumer\red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" />
     <Resource Include="Costumer\vintage-wallpaper-background.jpg" />
     <Resource Include="Manager\11.png" />
+    <Resource Include="Manager\Image10.png" />
+    <Resource Include="Manager\Image6.png" />
     <Resource Include="Manager\stylish-interior-dining-room-cozy-home-with-white-frame-design-chairs-family-table-teapot-cups-decoration-elegant-personal-accessories-modern-home-decor_431307-2477.png" />
     <Resource Include="Manager\textured-background-white-tone (1).jpg" />
     <Resource Include="Manager\white-painted-wall-texture-background.jpg" />

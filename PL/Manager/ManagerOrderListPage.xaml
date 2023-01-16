@@ -5,11 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.Manager"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="850"
       Title="ManagerOrderListPage">
 
     <Grid Background="White">
-        <ListView x:Name="OrdersCatalog" Margin="122,134,122,134"  ItemsSource="{Binding}" MouseDoubleClick="OrdersCatalog_MouseDoubleClick" SelectionChanged="OrdersCatalog_SelectionChanged" >
+
+        <Image HorizontalAlignment="Left" Height="657" VerticalAlignment="Top" Width="972" Source="/Manager/Image6.png" Stretch="UniformToFill" Margin="0,-107,0,0"/>
+
+        <ListView x:Name="OrdersCatalog" Margin="159,148,129,51"  ItemsSource="{Binding}" MouseDoubleClick="OrdersCatalog_MouseDoubleClick" SelectionChanged="OrdersCatalog_SelectionChanged" BorderBrush="#FFD0C2B7" Padding="4,0,0,0" FontFamily="Ploni 1.1 AAA" BorderThickness="4,4,4,4" IsSynchronizedWithCurrentItem="False" Foreground="#FF64565E" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="100"/>
@@ -20,7 +23,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Track An Order..." HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontWeight="Bold" FontSize="24"/>
+        <Label Content="Order Catalog" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="48" FontWeight="Bold" Foreground="#FF5C4642" Height="71"/>
+        <Label Content="Follow and get details on the entire order list" HorizontalAlignment="Left" Margin="264,107,0,0" VerticalAlignment="Top" FontFamily="Kalam Light" Foreground="#FF5C4642" FontSize="16"/>
 
     </Grid>
 </Page>
