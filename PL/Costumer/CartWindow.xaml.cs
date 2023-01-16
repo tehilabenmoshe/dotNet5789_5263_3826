@@ -41,7 +41,7 @@ namespace PL.Costumer
             CartListView.DataContext = myCart.Items;
         }
 
-        public CartWindow(BO.ProductItem p, int num)
+        public CartWindow(BO.ProductItem p, int num) //for remove
         {
             InitializeComponent();
             BO.OrderItem o = new OrderItem();

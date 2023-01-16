@@ -41,7 +41,11 @@ internal class BoCart : IBoCart
             orderToAdd.Name=tmp.Name;
             cart.Items.Add(orderToAdd);//add the orderitem to the cart
 
+
+            UpdateProductInCart(cart, id, orderToAdd.Amount);
         }
+
+
         else
         {
             if (tmp.InStock > 0)
@@ -51,12 +55,14 @@ internal class BoCart : IBoCart
                 o.TotalPrice += o.Price;
                 cart.TotalPrice += o.Price; //update the total price of the cart
 
-                
-             
+                UpdateProductInCart(cart, id, o.Amount);
+
             }
             else
                 throw new BO.DoesntExistException("Product out of stock");
         }
+        
+
         return cart; //return the cart
     }
 

@@ -37,7 +37,7 @@
         </ListView>
 
 
-        <ComboBox  x:Name="CategorySelector"  Margin="114,111,0,0" SelectionChanged="CategorySelector_SelectionChanged" BorderThickness="0,0,0,0" Background="#FFDFDADA" BorderBrush="{x:Null}" OpacityMask="#FFE6D8D8" SelectedIndex="0" FontFamily="Ploni 1.1 AAA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="548" />
+        <ComboBox  x:Name="CategorySelector"  Margin="114,111,0,0" SelectionChanged="CategorySelector_SelectionChanged" BorderThickness="0,0,0,0" Background="#FFDFDADA" BorderBrush="{x:Null}" OpacityMask="#FFE6D8D8" SelectedIndex="5" FontFamily="Ploni 1.1 AAA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="548" />
 
         <Label Content="Product Catalog" HorizontalAlignment="Left" Margin="241,12,0,0" VerticalAlignment="Top" Height="79" Width="371" FontFamily="Ploni 1.1 AAA" FontSize="40" FontWeight="Bold" Foreground="#FF5C4642"/>
         <Label Content="" HorizontalAlignment="Left" Margin="126,110,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="14" Foreground="#FFBBB8B8"/>

@@ -5,24 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="ProductWindow" Height="450" Width="800">
+        Title="ProductWindow" Height="450" Width="500">
     <Grid>
-        <Label x:Name="___ID_" Content="ID:" HorizontalAlignment="Left" Margin="218,65,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Width="79" FontSize="20" FontWeight="Bold" Height="37" RenderTransformOrigin="0.509,0.531"/>
-        <Grid x:Name="___Labels_" Margin="203,42,443,45">
-            <Label Content="Category:" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" Height="45"/>
-            <Label x:Name="___Name_" Content="Name:" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" Height="46"/>
-            <Label x:Name="___Price_" Content="Price:" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Ploni 1.1 AAA Medium" Height="38"/>
-        </Grid>
-        <Label x:Name="___Instock_" Content="In-Stock:" HorizontalAlignment="Left" Margin="214,258,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" Height="42"/>
-        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="362,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="PriceBox" HorizontalAlignment="Left" Margin="362,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="InStockBox" HorizontalAlignment="Left" Margin="362,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox x:Name="IDBox" HorizontalAlignment="Left" Margin="362,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" IsReadOnly="True"/>
-        <Grid>
-            <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="362,118,0,0" VerticalAlignment="Top" Width="120"  SelectionChanged="CategoryBox_SelectionChanged_1"   IsEditable="true" IsReadOnly="true" FontFamily="Ploni 1.1 AAA U-Light"  />
-            <Button x:Name="AddBox"  Content="ADD" HorizontalAlignment="Left" Margin="214,329,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Width="85" BorderThickness="0,0,0,0" Click="AddBox_Click"/>
-            <Button x:Name="UpdateButton" Content="UPDATE" HorizontalAlignment="Left" Margin="310,329,0,0" VerticalAlignment="Top" Width="80" FontFamily="Ploni 1.1 AAA Medium" Padding="1,1,1,1" BorderThickness="0,0,0,0" Click="UpdateButton_Click"/>
+        <Label x:Name="___ID_" Content="ID:" HorizontalAlignment="Left" Margin="110,89,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Width="80" FontSize="20" FontWeight="Bold" Height="37" RenderTransformOrigin="0.509,0.531"/>
+        <Label Content="Category:" HorizontalAlignment="Left" Margin="109,133,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" Height="45"/>
+        <Label x:Name="___Name_" Content="Name:" HorizontalAlignment="Left" Margin="108,183,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" Height="46"/>
+        <Label x:Name="___Price_" Content="Price:" HorizontalAlignment="Left" Margin="108,234,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Ploni 1.1 AAA Medium" Height="38"/>
+        <Label x:Name="___Instock_" Content="In-Stock:" HorizontalAlignment="Left" Margin="105,282,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" Height="42"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="252,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="PriceBox" HorizontalAlignment="Left" Margin="252,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="InStockBox" HorizontalAlignment="Left" Margin="252,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="IDBox" HorizontalAlignment="Left" Margin="252,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" IsReadOnly="True"/>
+        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="252,142,0,0" VerticalAlignment="Top" Width="120"  SelectionChanged="CategoryBox_SelectionChanged_1"   IsEditable="true" IsReadOnly="true" FontFamily="Ploni 1.1 AAA U-Light"  />
+        <Button x:Name="AddBox"  Content="ADD" HorizontalAlignment="Left" Margin="106,353,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Width="84" BorderThickness="0,0,0,0" Click="AddBox_Click"/>
+        <Button x:Name="UpdateButton" Content="UPDATE" HorizontalAlignment="Left" Margin="200,353,0,0" VerticalAlignment="Top" Width="80" FontFamily="Ploni 1.1 AAA Medium" Padding="1,1,1,1" BorderThickness="0,0,0,0" Click="UpdateButton_Click"/>
 
-        </Grid>
+
+
     </Grid>
 </Window>

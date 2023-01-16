@@ -119,10 +119,13 @@ internal class BoOrder : IBoOrder
         int cartTotalPrice = 0;
         foreach (DO.OrderItem d in doList) //copy each order item from do to bo
         {
+            DO.Product product = new DO.Product();
+            product = Dal!.Product.GetById(d.ProductID);
             BO.OrderItem item = new BO.OrderItem();
             item.ID = d.ID;
             item.ProductID = d.ProductID;
             item.Price = d.Price;
+            item.Name = product.Name;
             item.Amount = d.Amount;
             item.TotalPrice = item.Price * item.Amount;
             boList.Add(item);
