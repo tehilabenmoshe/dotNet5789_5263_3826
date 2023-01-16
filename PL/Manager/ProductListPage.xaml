@@ -5,18 +5,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.Manager"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="850"
+      d:DesignHeight="500" d:DesignWidth="850"
       Title="ProductListPage">
 
     <Grid Background="White" >
 
-        <Image HorizontalAlignment="Left" Height="723" VerticalAlignment="Top" Width="1017" Source="/Manager/Image10.png" Stretch="UniformToFill" Margin="-32,-123,0,0"/>
+        <Image HorizontalAlignment="Left" Height="708" Margin="-16,-212,0,0" VerticalAlignment="Top" Width="1038" Source="/Manager/pink-sofa-white-living-room-with-copy-space.jpg" Stretch="UniformToFill" IsEnabled="False"/>
 
-        <Button  Content="Add new Product" HorizontalAlignment="Left" Margin="321,497,0,67" Padding="5" Width="142" FontFamily="Ploni 1.1 AAA D-Bold" BorderThickness="0,0,0,0" Click="Button_Click" Background="#FFDFC5C0" FontSize="16" Foreground="#FF684F45"/>
+        <Button  Content="Add new Product" HorizontalAlignment="Left" Margin="317,423,0,0" Padding="5" Width="142" FontFamily="Ploni 1.1 AAA D-Bold" BorderThickness="0,0,0,0" Click="Button_Click" Background="#FFDFC5C0" FontSize="16" Foreground="#FF684F45" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Height="35">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
 
 
-        <ListView x:Name="ProductListView" Margin="116,199,188,135" 
-            ItemsSource="{Binding}" FontFamily="Ploni 1.1 AAA" IsSynchronizedWithCurrentItem="False" BorderThickness="4,4,4,4" MouseDoubleClick="ProductListView_MouseDoubleClick" SelectionChanged="ProductListView_SelectionChanged" Background="#FFF0E9E9" BorderBrush="#FFDFC5C0" Foreground="#FF684F45" >
+        <ListView x:Name="ProductListView" Margin="116,157,188,118" 
+            ItemsSource="{Binding}" FontFamily="Ploni 1.1 AAA" IsSynchronizedWithCurrentItem="False" BorderThickness="4,4,4,4" MouseDoubleClick="ProductListView_MouseDoubleClick" SelectionChanged="ProductListView_SelectionChanged" Background="#FFF0E9E9" BorderBrush="#FF5C4642" Foreground="#FF684F45" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="120"/>
@@ -28,11 +37,11 @@
         </ListView>
 
 
-        <ComboBox  x:Name="CategorySelector" Margin="114,153,188,417" SelectionChanged="CategorySelector_SelectionChanged" BorderThickness="0,0,0,0" Background="#FFDFDADA" BorderBrush="{x:Null}" OpacityMask="#FFE6D8D8" />
+        <ComboBox  x:Name="CategorySelector"  Margin="114,111,0,0" SelectionChanged="CategorySelector_SelectionChanged" BorderThickness="0,0,0,0" Background="#FFDFDADA" BorderBrush="{x:Null}" OpacityMask="#FFE6D8D8" SelectedIndex="0" FontFamily="Ploni 1.1 AAA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="548" />
 
-        <Label Content="Product Catalog" HorizontalAlignment="Left" Margin="241,54,0,0" VerticalAlignment="Top" Height="79" Width="371" FontFamily="Ploni 1.1 AAA" FontSize="40" FontWeight="Bold" Foreground="#FF5C4642"/>
-        <Label Content="sort by category:" HorizontalAlignment="Left" Margin="126,152,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="14" Foreground="#FFBBB8B8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="188,113,0,0" TextWrapping="Wrap" Text="Track the products in the system, add and update a product as needed" VerticalAlignment="Top" FontFamily="Kalam Light" FontSize="14" Foreground="#FF5C4642"/>
+        <Label Content="Product Catalog" HorizontalAlignment="Left" Margin="241,12,0,0" VerticalAlignment="Top" Height="79" Width="371" FontFamily="Ploni 1.1 AAA" FontSize="40" FontWeight="Bold" Foreground="#FF5C4642"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="126,110,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="14" Foreground="#FFBBB8B8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="188,71,0,0" TextWrapping="Wrap" Text="Track the products in the system, add and update a product as needed" VerticalAlignment="Top" FontFamily="Kalam Light" FontSize="14" Foreground="#FF5C4642"/>
 
     </Grid>
 </Page>

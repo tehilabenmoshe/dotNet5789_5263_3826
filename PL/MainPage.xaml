@@ -9,7 +9,7 @@
       Title="MainPage">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="584" Margin="-331,-30,0,0" VerticalAlignment="Top" Width="1139" Source="/modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill">
+        <Image HorizontalAlignment="Left" Height="580" Margin="-331,-29,0,0" VerticalAlignment="Top" Width="1226" Source="/modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>

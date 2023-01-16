@@ -23,26 +23,36 @@ namespace PL.Manager
     /// </summary>
     public partial class OrderWindow : Window
     {
-        BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
-        // BO.Order o=new BO.Order();
-     //   ObservableCollection<BO.OrderItem> items = new();
+       BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
+       BO.Order order=new BO.Order();
+       ObservableCollection<BO.OrderItem> items = new();
+
         public OrderWindow()
         {
             InitializeComponent();
-            // CategoryBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
-          
+             BO.Order temp = new BO.Order();
+            AddOrderItemList(temp);
+            OrderItems.DataContext = items;
             //UpdateButton.Visibility = Visibility.Hidden;
-            
+
         }
         
         public OrderWindow(BO.OrderForList orderList)
         {
            InitializeComponent();
+           // IEnumerableToPL(bl!.Product.getProductForList());
            BO.Order temp = new BO.Order();
            temp = bl.Order.GetOrder(orderList.ID);
            DataContext=temp;
-          // ItemsBox.ItemsSource = temp.Items.);
-          
+
+           //OrderItems.DataContext = items;
+            // ItemsBox.ItemsSource = temp.Items.);
+
+
+            AddOrderItemList(temp);
+            OrderItems.DataContext = items;
+            if(orderList.AmountOfItems== 0)
+            MessageBox.Show("there is no items in the order");
         }
 
         public OrderWindow(BO.OrderTracking orderTracking)
@@ -56,9 +66,22 @@ namespace PL.Manager
             ShipDateBox.IsReadOnly = true;
             DeliveryDateBox.IsReadOnly = true;
 
-            ItemsBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
+
+            //fill the list view:
+            AddOrderItemList(temp);
+            OrderItems.DataContext = items;
+
+            //ItemsBox.ItemsSource = Enum.GetValues(typeof(BO.Category));
 
         }
+
+        private void AddOrderItemList(BO.Order o) //copy the items list from order to the items list above
+        {
+            items.Clear();
+            foreach (var temp in o.Items)
+                items.Add(temp);
+        }
+
 
 
         private void GetItemList(IEnumerable<BO.OrderItem> item)
@@ -80,6 +103,11 @@ namespace PL.Manager
            
         }
 
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
         //private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         ////{
         ////    BO.Order order=new BO.Order();  
@@ -88,5 +116,11 @@ namespace PL.Manager
         //                  select o).ToList();
         //DataContext = orderitems;
         //}
+
+
+
+       
+
+
     }
 }

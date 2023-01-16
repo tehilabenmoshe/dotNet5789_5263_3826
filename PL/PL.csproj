@@ -26,6 +26,7 @@
     <None Remove="Manager\Image3.png" />
     <None Remove="Manager\Image4.png" />
     <None Remove="Manager\Image6.png" />
+    <None Remove="Manager\pink-sofa-white-living-room-with-copy-space.jpg" />
     <None Remove="Manager\stylish-interior-dining-room-cozy-home-with-white-frame-design-chairs-family-table-teapot-cups-decoration-elegant-personal-accessories-modern-home-decor_431307-2477.png" />
     <None Remove="Manager\textured-background-white-tone %281%29.jpg" />
     <None Remove="Manager\white-painted-wall-texture-background.jpg" />
@@ -52,6 +53,7 @@
     <Resource Include="Manager\11.png" />
     <Resource Include="Manager\Image10.png" />
     <Resource Include="Manager\Image6.png" />
+    <Resource Include="Manager\pink-sofa-white-living-room-with-copy-space.jpg" />
     <Resource Include="Manager\stylish-interior-dining-room-cozy-home-with-white-frame-design-chairs-family-table-teapot-cups-decoration-elegant-personal-accessories-modern-home-decor_431307-2477.png" />
     <Resource Include="Manager\textured-background-white-tone (1).jpg" />
     <Resource Include="Manager\white-painted-wall-texture-background.jpg" />

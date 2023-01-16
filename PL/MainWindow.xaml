@@ -5,18 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="850">
+        Title="MainWindow" Height="617" Width="850">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="68*"/>
-        </Grid.RowDefinitions>
-        <Frame x:Name="mainFrame" Content="Frame" Margin="0,0,0,-4" Grid.Row="1"/>
+        
+        <Frame x:Name="mainFrame" Content="Frame" Height="550" Width="850" Margin="0,53,0,-2" Grid.RowSpan="2"/>
 
 
 
-        <Rectangle HorizontalAlignment="Center" Height="67" VerticalAlignment="Top" Width="884" RenderTransformOrigin="0,0" Fill="#FF51473D" Margin="0,3,0,0" Grid.Row="1">
+        <Rectangle HorizontalAlignment="Center" Height="67" VerticalAlignment="Top" Width="884" RenderTransformOrigin="0,0" Fill="#FF51473D" Margin="0,55,0,0">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -29,8 +26,7 @@
         <Image HorizontalAlignment="Left" Height="51" Margin="27,12,0,0" VerticalAlignment="Top" Width="29" Source="/Asset 1לוגו רהיטים.png" Grid.RowSpan="2"/>
         <Label Content="M&amp;T FURNITURE" HorizontalAlignment="Left" Margin="55,4,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Height="39" Width="153"/>
         <Label Content="Design your dream home" HorizontalAlignment="Left" Margin="71,22,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni Regular AAA" FontSize="9" Height="25" Width="118"/>
-        <TextBlock HorizontalAlignment="Left" Margin="698,19,0,0" TextWrapping="Wrap" Text="About Us | Contact" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFDFDCD7" Height="29" Width="355"/>
-        <Button Content="HOME" HorizontalAlignment="Left" Margin="539,26,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="HOME" HorizontalAlignment="Left" Margin="779,16,0,0" VerticalAlignment="Top" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFD8D7D5"/>
 
     </Grid>
 

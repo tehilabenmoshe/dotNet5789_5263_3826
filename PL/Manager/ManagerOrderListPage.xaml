@@ -26,5 +26,10 @@
         <Label Content="Order Catalog" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="48" FontWeight="Bold" Foreground="#FF5C4642" Height="71"/>
         <Label Content="Follow and get details on the entire order list" HorizontalAlignment="Left" Margin="264,107,0,0" VerticalAlignment="Top" FontFamily="Kalam Light" Foreground="#FF5C4642" FontSize="16"/>
 
+        
+        
+        
+        
+        
     </Grid>
 </Page>
