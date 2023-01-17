@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PL.Costumer"
         mc:Ignorable="d"
         Title="CustomerDetailsCart" Height="450" Width="500">
-    <Grid Background="#FFEBE0E0">
+    <Grid Background="#FFEBE1DC">
 
         <Rectangle HorizontalAlignment="Left" Height="220" Margin="61,105,0,0" VerticalAlignment="Top" Width="383" Fill="#FFF4ECEC">
             <Rectangle.Resources>
@@ -22,9 +22,9 @@
         <Label Content="Email:" HorizontalAlignment="Left" Margin="118,196,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="14" Foreground="#FF685342"/>
         <Label Content="Address:" HorizontalAlignment="Left" Margin="118,260,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="14" Foreground="#FF685342"/>
 
-        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="257,137,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="142" BorderBrush="{x:Null}" Background="#FFEBE0E0" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
-        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="186,196,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" BorderBrush="{x:Null}" Background="#FFEBE0E0" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
-        <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Margin="186,263,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" BorderBrush="{x:Null}" Background="#FFEBE0E0" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="257,137,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="142" BorderBrush="{x:Null}" Background="#FFEBE1DC" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
+        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="186,196,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" BorderBrush="{x:Null}" Background="#FFEBE1DC" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
+        <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Margin="186,263,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" BorderBrush="{x:Null}" Background="#FFEBE1DC" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
         <Button Content="Confirm Order" HorizontalAlignment="Left" Margin="171,349,0,0" VerticalAlignment="Top" Height="33" Width="143" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" Click="Button_Click" BorderBrush="{x:Null}" Background="#FF7B614D" Foreground="#FFFCEDED">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
