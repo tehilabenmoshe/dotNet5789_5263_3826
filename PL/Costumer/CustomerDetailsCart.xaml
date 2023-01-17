@@ -5,18 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Costumer"
         mc:Ignorable="d"
-        Title="CustomerDetailsCart" Height="450" Width="800">
-    <Grid>
+        Title="CustomerDetailsCart" Height="450" Width="500">
+    <Grid Background="#FFEBE0E0">
 
-        <Label Content="Enter Your Personal Details:" HorizontalAlignment="Left" Margin="174,72,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20"/>
-        <Label Content="Customer Name:" HorizontalAlignment="Left" Margin="204,135,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="14"/>
-        <Label Content="Email:" HorizontalAlignment="Left" Margin="204,196,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="14"/>
-        <Label Content="Address:" HorizontalAlignment="Left" Margin="204,260,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="14"/>
-      
-        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="343,137,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="142" BorderBrush="{x:Null}" Background="Gainsboro" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
-        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="272,196,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" BorderBrush="{x:Null}" Background="Gainsboro" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
-        <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Margin="272,263,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" BorderBrush="{x:Null}" Background="Gainsboro" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
-        <Button Content="Confirm Order" HorizontalAlignment="Left" Margin="235,349,0,0" VerticalAlignment="Top" Height="33" Width="143" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" Click="Button_Click"/>
+        <Rectangle HorizontalAlignment="Left" Height="220" Margin="61,105,0,0" VerticalAlignment="Top" Width="383" Fill="#FFF4ECEC">
+            <Rectangle.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="1000"/>
+                </Style>
+            </Rectangle.Resources>
+
+        </Rectangle>
+
+        <Label Content="Enter Your Personal Details:" HorizontalAlignment="Left" Margin="117,62,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="20" Foreground="#FF685342"/>
+        <Label Content="Customer Name:" HorizontalAlignment="Left" Margin="117,135,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="14" Foreground="#FF685342"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="118,196,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="14" Foreground="#FF685342"/>
+        <Label Content="Address:" HorizontalAlignment="Left" Margin="118,260,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="14" Foreground="#FF685342"/>
+
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="257,137,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="142" BorderBrush="{x:Null}" Background="#FFEBE0E0" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
+        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="186,196,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" BorderBrush="{x:Null}" Background="#FFEBE0E0" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
+        <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Margin="186,263,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" BorderBrush="{x:Null}" Background="#FFEBE0E0" Height="24" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
+        <Button Content="Confirm Order" HorizontalAlignment="Left" Margin="171,349,0,0" VerticalAlignment="Top" Height="33" Width="143" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" Click="Button_Click" BorderBrush="{x:Null}" Background="#FF7B614D" Foreground="#FFFCEDED">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+
+
+        </Button>
+        <Rectangle HorizontalAlignment="Center" Height="44" Margin="0,-4,0,0" VerticalAlignment="Top" Width="500" RenderTransformOrigin="0.5,0.5" Fill="#FF7B614D">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
 
     </Grid>
 </Window>

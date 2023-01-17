@@ -27,7 +27,7 @@
                 <SolidColorBrush Color="#FFFFF6E6" Opacity="0.5"/>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBox x:Name="IdBox" HorizontalAlignment="Left" Margin="535,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF0E8DD" BorderBrush="{x:Null}" Height="27" FontFamily="Ploni 1.1 AAA"/>
+        <TextBox x:Name="IdBox" HorizontalAlignment="Left" Margin="535,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF0E8DD" BorderBrush="{x:Null}" Height="27" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
         <Button x:Name="OrderDetails"  Content="Go To Order Details" HorizontalAlignment="Left" Margin="509,317,0,0" VerticalAlignment="Top" Height="33" Width="186" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" BorderBrush="{x:Null}" Click="OrderDetails_Click" Background="#FFC7492D" Foreground="#FFFEF8EF">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -39,7 +39,7 @@
         </Button>
         <Label Content="ID Order:" HorizontalAlignment="Left" Margin="546,124,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Foreground="#FFC23A27"/>
         <Label Content="Status:" HorizontalAlignment="Left" Margin="565,216,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Foreground="#FFC23A27"/>
-        <TextBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="539,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF0E8DD" BorderBrush="{x:Null}" Height="27" TextChanged="StatusBox_TextChanged" FontFamily="Ploni 1.1 AAA"/>
+        <TextBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="539,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF0E8DD" BorderBrush="{x:Null}" Height="27" TextChanged="StatusBox_TextChanged" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
 
     </Grid>
 </Page>

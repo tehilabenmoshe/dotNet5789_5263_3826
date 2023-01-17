@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:PL.Costumer"
         mc:Ignorable="d"
         Title="CartWindow" Height="350" Width="350">
-    <Grid>
-        <ListView  x:Name="CartListView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,61,0,0"  ItemsSource="{Binding}" BorderBrush="{x:Null}" FontFamily="Ploni 1.1 AAA" Background="#FFF0F0F0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="295" >
+    <Grid Background="#FFEBE9E5">
+        <ListView  x:Name="CartListView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,72,0,0"  ItemsSource="{Binding}" BorderBrush="#FF653939" FontFamily="Ploni 1.1 AAA" Background="#FFF0F0F0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="294" Foreground="#FF653939" BorderThickness="2,2,2,2" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding ProductID}" Header="ID" Width="80"/>
@@ -20,9 +20,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Order Confirmation" HorizontalAlignment="Center" Margin="0,256,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="#FFA29F9F" Width="294" Click="Button_Click" Height="35" Background="{x:Null}" BorderThickness="2,2,2,2"/>
-        <Rectangle HorizontalAlignment="Center" Height="39" VerticalAlignment="Top" Width="350" Fill="#FFEBEBEB"/>
-        <Label Content="My Shopping Bag" HorizontalAlignment="Left" Margin="114,5,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" Height="38" Width="156" FontSize="14"  />
+        <Button Content="Order Confirmation" HorizontalAlignment="Center" Margin="0,256,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="#FF653939" Width="294" Click="Button_Click" Height="35" Background="{x:Null}" BorderThickness="2,2,2,2" Foreground="#FF653939"/>
+        <Rectangle HorizontalAlignment="Center" Height="39" VerticalAlignment="Top" Width="350" Fill="#FF653939"/>
+        <Label Content="My Shopping Bag" HorizontalAlignment="Center" Margin="0,3,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" Height="38" Width="156" FontSize="18" Foreground="#FFEBE9E5" FontWeight="Bold"  />
 
     </Grid>
 </Window>

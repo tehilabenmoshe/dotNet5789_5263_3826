@@ -12,7 +12,7 @@
 
         <Image HorizontalAlignment="Left" Height="806" Margin="-343,-249,0,0" VerticalAlignment="Top" Width="1180" Source="/Costumer/green-plant-white-living-room-with-free-space (1).jpg" Stretch="UniformToFill"/>
 
-        <ListView x:Name="ProductItemListView"  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,176,0,0" SelectionChanged="ProductItemListView_SelectionChanged"  ItemsSource="{Binding}" MouseDoubleClick="ProductItemListView_MouseDoubleClick" Background="#FFF6E1E1" BorderBrush="#FF675151" FontFamily="Ploni Regular AAA" HorizontalAlignment="Center" VerticalAlignment="Top" Height="237" BorderThickness="4,4,4,4" Foreground="#FF675151" >
+        <ListView x:Name="ProductItemListView"  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,176,0,0" SelectionChanged="ProductItemListView_SelectionChanged"  ItemsSource="{Binding}" MouseDoubleClick="ProductItemListView_MouseDoubleClick" Background="#FFF7F4EF" BorderBrush="#FF675151" FontFamily="Ploni Regular AAA" HorizontalAlignment="Center" VerticalAlignment="Top" Height="237" BorderThickness="4,4,4,4" Foreground="#FF675151" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="80"/>
