@@ -5,12 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.Costumer"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="800"
       Title="OrderTrackingPage">
 
     <Grid Background="White">
 
-        <Image HorizontalAlignment="Left" Height="467" Margin="-8,2,0,0" VerticalAlignment="Top" Width="853" Source="/Costumer/red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" RenderTransformOrigin="0.5,0.5">
+        <Image HorizontalAlignment="Center" Height="510" VerticalAlignment="Top" Width="888" Source="/Costumer/red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" RenderTransformOrigin="0.5,0.5" Margin="0,2,0,0">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -20,8 +20,6 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-
-        <Image Margin="828,8,-850,-19" Source="/Image3.png" Stretch="Fill"/>
 
         <Label Content="Track Your Order" HorizontalAlignment="Left" Margin="108,60,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA U-Bold" FontSize="36" FontWeight="Bold" Foreground="#FFBE3A27"/>
         <Rectangle HorizontalAlignment="Left" Height="283" Margin="484,91,0,0" VerticalAlignment="Top" Width="226">

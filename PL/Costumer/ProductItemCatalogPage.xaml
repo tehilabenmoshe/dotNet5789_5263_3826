@@ -5,16 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.Costumer"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProductItemCatalogPage">
-    <Page.Background>
-        <ImageBrush/>
-    </Page.Background>
+      d:DesignHeight="530" d:DesignWidth="800"
+      Title="ProductItemCatalogPage" Background="Black">
 
-    <Grid>
-        <Image HorizontalAlignment="Center" Height="584" VerticalAlignment="Top" Width="800" Source="/Costumer/2vintage-wallpaper-background.jpg"/>
+    <Grid Background="White">
 
-        <ListView x:Name="ProductItemListView"  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,168,0,0" SelectionChanged="ProductItemListView_SelectionChanged"  ItemsSource="{Binding}" MouseDoubleClick="ProductItemListView_MouseDoubleClick" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Ploni Regular AAA" HorizontalAlignment="Center" VerticalAlignment="Top" Height="237" >
+        <Image HorizontalAlignment="Left" Height="806" Margin="-343,-249,0,0" VerticalAlignment="Top" Width="1180" Source="/Costumer/green-plant-white-living-room-with-free-space (1).jpg" Stretch="UniformToFill"/>
+
+        <ListView x:Name="ProductItemListView"  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,176,0,0" SelectionChanged="ProductItemListView_SelectionChanged"  ItemsSource="{Binding}" MouseDoubleClick="ProductItemListView_MouseDoubleClick" Background="#FFF6E1E1" BorderBrush="#FF675151" FontFamily="Ploni Regular AAA" HorizontalAlignment="Center" VerticalAlignment="Top" Height="237" BorderThickness="4,4,4,4" Foreground="#FF675151" >
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="80"/>
@@ -27,12 +25,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="218,127,0,0" VerticalAlignment="Top" Width="477" Height="22" SelectionChanged="CategoryBox_SelectionChanged" BorderBrush="{x:Null}" FontFamily="Ploni Regular AAA" Background="#FFC9C9C8" IsReadOnly="True"/>
-        <Label Content="Item Catalog" HorizontalAlignment="Left" Margin="280,52,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA D-Bold" FontSize="36" FontWeight="Bold" Height="56" Width="252"/>
-        <Button x:Name="CartButton" Click="OnClick"  Margin="36,31,703,370" Background="{x:Null}" BorderThickness="0,0,0,0">
-            <Image Source="/Costumer/add-to-basket.png" Height="52" Width="30" />
+        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="590" Height="22" SelectionChanged="CategoryBox_SelectionChanged" BorderBrush="{x:Null}" FontFamily="Ploni Regular AAA" Background="#FFFAFAFA" IsReadOnly="True"/>
+        <Label Content="Item Catalog" HorizontalAlignment="Left" Margin="280,58,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA D-Bold" FontSize="36" FontWeight="Bold" Height="56" Width="252" Foreground="#FF675151"/>
+        <Button x:Name="CartButton" Click="OnClick"  Margin="14,13,725,444" Background="{x:Null}" BorderThickness="0,0,0,0">
+            <Image Source="/Costumer/add-to-basket.png" Height="64" Width="51" />
         </Button>
-        <Label Content="sort by category" HorizontalAlignment="Left" Margin="115,123,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA"/>
+        <Label Content="sort by category" HorizontalAlignment="Left" Margin="109,99,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" Foreground="#FF675151"/>
 
     </Grid>
 </Page>

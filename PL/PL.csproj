@@ -17,6 +17,7 @@
     <None Remove="Costumer\2vintage-wallpaper-background.jpg" />
     <None Remove="Costumer\add-to-basket.png" />
     <None Remove="Costumer\Asset 1תמונה לחלון המשתמש.png" />
+    <None Remove="Costumer\green-plant-white-living-room-with-free-space %281%29.jpg" />
     <None Remove="Costumer\picture-frame-wall-with-scandinavian-home-interior.jpg" />
     <None Remove="Costumer\red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" />
     <None Remove="Costumer\vintage-wallpaper-background.jpg" />
@@ -47,6 +48,7 @@
     <Resource Include="Costumer\2vintage-wallpaper-background.jpg" />
     <Resource Include="Costumer\add-to-basket.png" />
     <Resource Include="Costumer\Asset 1תמונה לחלון המשתמש.png" />
+    <Resource Include="Costumer\green-plant-white-living-room-with-free-space (1).jpg" />
     <Resource Include="Costumer\picture-frame-wall-with-scandinavian-home-interior.jpg" />
     <Resource Include="Costumer\red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" />
     <Resource Include="Costumer\vintage-wallpaper-background.jpg" />
