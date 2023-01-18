@@ -1,1 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
+<products>
+	<Product>
+		<ID>16</ID>
+		<Name>80</Name>
+		<Price>10000028</Price>
+		<Category>1111</Category>
+		<InStock>1111</InStock>
+	</Product>
+</products>

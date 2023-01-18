@@ -1,1 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
+
+internal const int startOrderNumber = 1000;
+
+private static int SnextOrderNumber = startOrderNumber;
+internal static int NextOrderNbumber { get => ++SnextOrderNumber; }

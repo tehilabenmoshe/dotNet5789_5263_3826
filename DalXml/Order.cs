@@ -13,23 +13,13 @@ internal class Order : IOrder
 {
     const string s_orders = "orders"; //XML Serializer
 
-    public IEnumerable<DO.Order?> getAll(Func<DO.Order?, bool>? filter = null)
+    public IEnumerable<DO.Order?> GetAll(Func<DO.Order?, bool>? filter = null)
     {
         var listOfOrders = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders)!;
         return (filter == null ? listOfOrders.OrderBy(o => ((DO.Order)o!).ID)
                               : listOfOrders.Where(filter).OrderBy(o => ((DO.Order)o!).ID));
     }
    
-    
-    //public Order? getByFilter(Func<Order?, bool>? filter)
-    //{
-    //    var listOfOrders = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders)!;
-    //    listOfOrders.Where(filter).OrderBy(o => ((DO.Order)o!).ID);
-    //    return listOfOrders.FirstOrDefault();
-    //}
-
-    
-
     public DO.Order GetByID(int id) =>
         XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders).FirstOrDefault(o => o?.ID == id)
         //DalMissingIdException(id, "Lecturer");
@@ -40,7 +30,7 @@ internal class Order : IOrder
         var listOfOrders = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders);
         if (order.ID < 1000 || order.ID > 9999)
             order.ID = ConfigOrder.getNumOrder();
-        {
+        
             //IEnumerable<ImportentNumbers> list = (IEnumerable<ImportentNumbers>)XMLTools.LoadListFromXMLSerializer<ImportentNumbers>("config");
 
             //ImportentNumbers runningNum = (from number in list
@@ -50,9 +40,9 @@ internal class Order : IOrder
 
             //runningNum.numberSaved++;
             //droneToCreate.ID = (int)runningNum.numberSaved;
-        }
+        
 
-        if (listOfOrders.Exists(lec => lec?.ID == order.ID))
+        if (listOfOrders.Exists(o => o?.ID == order.ID))
             throw new Exception("id already exist");//DalAlreadyExistIdException(lecturer.ID, "Lecturer");
 
         listOfOrders.Add(order);

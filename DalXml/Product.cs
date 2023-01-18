@@ -24,7 +24,7 @@ internal class Product : IProduct
             InStock = (int?)p.Element("InStock")
         };
 
-    static IEnumerable<XElement> createStudentElement(DO.Product product)
+    static IEnumerable<XElement> createProductsElement(DO.Product product)
     {
         yield return new XElement("ID", product.ID);
         if (product.Name is not null)
@@ -37,15 +37,22 @@ internal class Product : IProduct
             yield return new XElement("InStock", product.InStock);
     }
 
-    public IEnumerable<DO.Product?> getAll(Func<DO.Product?, bool>? filter = null)
+    ///**********************************************/
+  
+    public IEnumerable<DO.Product?> GetAll(Func<DO.Product?, bool>? filter = null)
     {
-        //  filter is null
-        //? XMLTools.LoadListFromXMLElement(s_products).Elements().Select(p => getProduct(p))
-        //: XMLTools.LoadListFromXMLElement(s_products).Elements().Select(p => getProduct(p)).Where(filter);
         if (filter == null)
             return XMLTools.LoadListFromXMLElement(s_products).Elements().Select(x => getProduct(x));
         else
             return XMLTools.LoadListFromXMLElement(s_products).Elements().Select(x => getProduct(x)).Where(filter);
+
+
+        //var listOfProducts = XMLTools.LoadListFromXMLSerializer<DO.Product>(s_products)!;
+        //return (filter == null ? listOfProducts.OrderBy(p => ((DO.Product)p!).ID)
+        //                      : listOfProducts.Where(filter).OrderBy(p=> ((DO.Product)p!).ID));
+
+
+
 
 
         //    XElement root = XMLTools.LoadListFromXMLElement(s_products);
@@ -64,12 +71,10 @@ internal class Product : IProduct
 
     }
 
-
-
     public DO.Product GetByID(int id) =>
             (DO.Product)getProduct(XMLTools.LoadListFromXMLElement(s_products)?.Elements()
             .FirstOrDefault(st => st.ToIntNullable("ID") == id)
-            // fix to: throw new DalMissingIdException(id);
+            //לבדוק את החריגות
             ?? throw new Exception("missing id"))!;
 
     public int Add(DO.Product p)
@@ -105,9 +110,5 @@ internal class Product : IProduct
         Add(product);
     }
 
-    public DO.Product? getByFilter(Func<DO.Product?, bool>? filter)
-    {
-        var p = XMLTools.LoadListFromXMLElement(s_products).Elements().Select(p => getProduct(p)).Where(filter);
-        return p.FirstOrDefault();
-    }
+
 }

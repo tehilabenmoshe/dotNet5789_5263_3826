@@ -8,35 +8,22 @@ namespace Dal;
 using DalApi;
 using DO;
 using System.Security.Principal;
+using System.Xml.Linq;
 
 internal class OrderItem : IOrderItem
 {
-
     const string s_orderItems = "orderItems"; //XML Serializer
     const string s_orders = "orders";
-
-
-    //public IEnumerable<DO.OrderItem?> getAll(Func<DO.OrderItem?, bool>? filter = null)
-    //{
-    //    var orderItems = XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
-    //    return (List<OrderItem?>)(filter == null ? orderItems.OrderBy(o => ((DO.OrderItem)o!).ID)
-    //                          : orderItems.Where(filter).OrderBy(o => ((DO.OrderItem)o!).ID));
-    //}
-
-
     public IEnumerable<DO.OrderItem?> GetAll(Func<DO.OrderItem?, bool>? filter = null)
     {
         var listOrderItem =XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
         return (filter == null ? listOrderItem.OrderBy(o => ((DO.OrderItem)o!).ID):
             listOrderItem.Where(filter).
         OrderBy(o => ((DO.OrderItem)o!).ID));
-
-
     }
 
     public DO.OrderItem GetByID(int id) =>
         XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems).FirstOrDefault(o => o?.ID == id)
-        //DalMissingIdException(id, "Lecturer");
         ?? throw new Exception("missing id");
 
     public int Add(DO.OrderItem orderItem)
@@ -44,7 +31,7 @@ internal class OrderItem : IOrderItem
         var orderItems = XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems);
         if (orderItem.ID < 1000 || orderItem.ID > 9999)
             orderItem.ID = ConfigOrderItem.getNumOrder();
-        if (orderItems.Exists(lec => lec?.ID == orderItem.ID))
+        if (orderItems.Exists(o => o?.ID == orderItem.ID))
             throw new Exception("id already exist");//DalAlreadyExistIdException(lecturer.ID, "Lecturer");
 
         orderItems.Add(orderItem);
@@ -70,49 +57,47 @@ internal class OrderItem : IOrderItem
         Add(orderItem);
     }
 
-
-
-
-    //  עד כאן בדקתי // לא בטוח שצריך אותם כי אין אותם בdalorder 
-    public IEnumerable<OrderItem?> GetItemsList(int orderId)
+    public IEnumerable<DO.OrderItem?> GetItemsList(int orderId)
     {
         var orders = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders);
         var orderItems = XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems);
-        Order? order = orders.Find(x => x.GetValueOrDefault().ID == orderId);
+        DO.Order? order = orders.Find(x => x.GetValueOrDefault().ID == orderId);
 
         if (order == null)
 
-            throw new DoesntExistException("ההזמנה אינה קיימת");
+            throw new Exception("ההזמנה אינה קיימת");
 
-        List<OrderItem?> listToReturn = new List<OrderItem?>();
+        List<DO.OrderItem?> listToReturn = new List<DO.OrderItem?>();
 
-        foreach (OrderItem? item in orderItems)
+        foreach (DO.OrderItem? item in orderItems)
         {
             if (item != null && item?.OrderID == order?.ID)
-                listToReturn.Add((OrderItem?)item);
+                listToReturn.Add((DO.OrderItem?)item);
         }
         return listToReturn;
 
     }
 
-    public OrderItem GetProductByOrderAndID(int orderId, int productId)
+    public DO.OrderItem GetProductByOrderAndID(int orderId, int productId)
     {
-        var orderItems = XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems);
-        OrderItem? temp = orderItems.Find(x => x?.OrderID == orderId);
-
+        var orderItems = XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems); //load orderItem list from xelment
+        DO.OrderItem? temp = orderItems.Find(o => (o?.OrderID) == orderId);
+      
         if (temp == null)
-            throw new DoesntExistException("ההזמנה אינה קיימת");
+           throw new Exception("The Order Dosen`t Exsist in sistem");
 
         if (temp?.ProductID == productId)
-            return (OrderItem)temp;
+            return (DO.OrderItem)temp;
+        else
+            throw new Exception("product doesnt exist");
 
-        else throw new DoesntExistException("הפריט אינו נמצא בהזמנה");
+        //if (XMLTools.LoadListFromXMLElement(s_orderItems)?.Elements()
+        //.FirstOrDefault(oi => oi.ToIntNullable("OrderID") == orderId) is not null)
+        //    throw new DoesntExistExeption("order doesnt exist");
+
+
+
+
     }
 
-    public OrderItem? getByFilter(Func<OrderItem?, bool>? filter)
-    {
-        var listOfOrderItems = XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
-        listOfOrderItems.Where(filter).OrderBy(o => ((DO.OrderItem)o!).ID);
-        return listOfOrderItems.FirstOrDefault();
-    }
 }
