@@ -19,22 +19,24 @@ internal class Order : IOrder
         return (filter == null ? listOfOrders.OrderBy(o => ((DO.Order)o!).ID)
                               : listOfOrders.Where(filter).OrderBy(o => ((DO.Order)o!).ID));
     }
-    public Order? getByFilter(Func<Order?, bool>? filter)
-    {
-        var listOfOrders = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders)!;
-        listOfOrders.Where(filter).OrderBy(o => ((DO.Order)o!).ID);
-        return listOfOrders.FirstOrDefault();
-    }
+   
+    
+    //public Order? getByFilter(Func<Order?, bool>? filter)
+    //{
+    //    var listOfOrders = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders)!;
+    //    listOfOrders.Where(filter).OrderBy(o => ((DO.Order)o!).ID);
+    //    return listOfOrders.FirstOrDefault();
+    //}
 
     public DO.Order GetByID(int id) =>
         XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders).FirstOrDefault(o => o?.ID == id)
         //DalMissingIdException(id, "Lecturer");
-        ?? throw new Exception("הזמנה לא קיימת במערכת");
+        ?? throw new Exception("The Order Dosent Exsist In Sistem");
 
     public int Add(DO.Order order)
     {
         var listOfOrders = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders);
-        if (order.ID < 1000 || order.ID > 10000)
+        if (order.ID < 1000 || order.ID > 9999)
             order.ID = ConfigOrder.getNumOrder();
         {
             //IEnumerable<ImportentNumbers> list = (IEnumerable<ImportentNumbers>)XMLTools.LoadListFromXMLSerializer<ImportentNumbers>("config");

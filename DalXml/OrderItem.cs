@@ -16,11 +16,22 @@ internal class OrderItem : IOrderItem
     const string s_orders = "orders";
 
 
-    public IEnumerable<DO.OrderItem?> getAll(Func<DO.OrderItem?, bool>? filter = null)
+    //public IEnumerable<DO.OrderItem?> getAll(Func<DO.OrderItem?, bool>? filter = null)
+    //{
+    //    var orderItems = XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
+    //    return (List<OrderItem?>)(filter == null ? orderItems.OrderBy(o => ((DO.OrderItem)o!).ID)
+    //                          : orderItems.Where(filter).OrderBy(o => ((DO.OrderItem)o!).ID));
+    //}
+
+
+    public IEnumerable<DO.OrderItem?> GetAll(Func<DO.OrderItem?, bool>? filter = null)
     {
-        var orderItems = XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
-        return (List<OrderItem?>)(filter == null ? orderItems.OrderBy(o => ((DO.OrderItem)o!).ID)
-                              : orderItems.Where(filter).OrderBy(o => ((DO.OrderItem)o!).ID));
+        var listOrderItem =XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
+        return (filter == null ? listOrderItem.OrderBy(o => ((DO.OrderItem)o!).ID):
+            listOrderItem.Where(filter).
+        OrderBy(o => ((DO.OrderItem)o!).ID));
+
+
     }
 
     public DO.OrderItem GetByID(int id) =>
@@ -31,7 +42,7 @@ internal class OrderItem : IOrderItem
     public int Add(DO.OrderItem orderItem)
     {
         var orderItems = XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems);
-        if (orderItem.ID < 1000 || orderItem.ID > 10000)
+        if (orderItem.ID < 1000 || orderItem.ID > 9999)
             orderItem.ID = ConfigOrderItem.getNumOrder();
         if (orderItems.Exists(lec => lec?.ID == orderItem.ID))
             throw new Exception("id already exist");//DalAlreadyExistIdException(lecturer.ID, "Lecturer");
@@ -58,6 +69,11 @@ internal class OrderItem : IOrderItem
         Delete(orderItem.ID);
         Add(orderItem);
     }
+
+
+
+
+    //  עד כאן בדקתי // לא בטוח שצריך אותם כי אין אותם בdalorder 
     public IEnumerable<OrderItem?> GetItemsList(int orderId)
     {
         var orders = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders);

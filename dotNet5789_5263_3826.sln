@@ -22,15 +22,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlTest", "BlTest\BlTest.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{15683D45-E734-40CE-B39C-DD798EEB9276}"
 	ProjectSection(SolutionItems) = preProject
+		xml\config.xml = xml\config.xml
 		xml\dal-config.xml = xml\dal-config.xml
-		orderItems.xml = orderItems.xml
-		orders.xml = orders.xml
-		products.xml = products.xml
+		xml\products.xml = xml\products.xml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PL", "PL\PL.csproj", "{9B1F7363-19CF-4F3B-80E5-6B4BC1597986}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalXml", "DalXml\DalXml.csproj", "{C21027BA-DDE2-4BB5-A3DF-12778056AC20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalXml", "DalXml\DalXml.csproj", "{C21027BA-DDE2-4BB5-A3DF-12778056AC20}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2972A4A7-AD86-4D31-A47E-3D0E7781C8F2} = {2972A4A7-AD86-4D31-A47E-3D0E7781C8F2}
 		{F7867138-3BBB-464F-8F43-358BB2169B35} = {F7867138-3BBB-464F-8F43-358BB2169B35}
