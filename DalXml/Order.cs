@@ -5,25 +5,39 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-using DalApi;
+//using DalApi;
 using DO;
 using System.Security.Principal;
 namespace Dal;
-internal class Order : IOrder
+internal class Order : DalApi.IOrder
 {
     const string s_orders = "orders"; //XML Serializer
 
     public IEnumerable<DO.Order?> GetAll(Func<DO.Order?, bool>? filter = null)
     {
-        var listOfOrders = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders)!;
-        return (filter == null ? listOfOrders.OrderBy(o => ((DO.Order)o!).ID)
-                              : listOfOrders.Where(filter).OrderBy(o => ((DO.Order)o!).ID));
+        var listOrder = (List<DO.Order?>)XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders)!;
+
+        if (filter == null)
+            return listOrder.Select(p => p).OrderBy(o => ((DO.Order)o!).ID);
+        else
+            return listOrder.Where(filter).OrderBy(o => ((DO.Order)o!).ID);
     }
-   
-    public DO.Order GetByID(int id) =>
-        XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders).FirstOrDefault(o => o?.ID == id)
-        //DalMissingIdException(id, "Lecturer");
-        ?? throw new Exception("The Order Dosent Exsist In Sistem");
+
+    //public DO.Order GetByID(int id) =>
+    //    XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders).FirstOrDefault(o => o?.ID == id)
+    //    //DalMissingIdException(id, "Lecturer");
+    //    ?? throw new Exception("The Order Dosent Exsist In Sistem");
+
+
+    public DO.Order GetById(int id)
+    {
+        var listOrder = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders);
+
+        if (listOrder.Exists(o => o?.ID == id))
+            return (DO.Order)(listOrder.FirstOrDefault(o => o?.ID == id));
+        else
+            throw new Exception("missing id");//DalMissingIdException(id, "Lecturer");
+    }
 
     public int Add(DO.Order order)
     {

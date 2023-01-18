@@ -30,9 +30,9 @@ internal class OrderItem : DalApi.IOrderItem
         var listOrderItem = (List<DO.OrderItem?>)XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
 
         if (filter == null)
-            return listOrderItem.Select(p => p).OrderBy(lec => ((DO.OrderItem)lec!).ID);
+            return listOrderItem.Select(p => p).OrderBy(o => ((DO.OrderItem)o!).ID);
         else
-            return listOrderItem.Where(filter).OrderBy(lec => ((DO.OrderItem)lec!).ID);
+            return listOrderItem.Where(filter).OrderBy(o => ((DO.OrderItem)o!).ID);
 
 
     }

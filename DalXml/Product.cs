@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Dal;
-using DalApi;
+//using DalApi;
 //using DO;
 using System.Xml.Linq;
 
-internal class Product : IProduct
+internal class Product : DalApi.IProduct
 {
     const string s_products = "products"; //Linq to XML
     static DO.Product? getProduct(XElement p) =>
