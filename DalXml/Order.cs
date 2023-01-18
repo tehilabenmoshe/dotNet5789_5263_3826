@@ -28,6 +28,8 @@ internal class Order : IOrder
     //    return listOfOrders.FirstOrDefault();
     //}
 
+    
+
     public DO.Order GetByID(int id) =>
         XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders).FirstOrDefault(o => o?.ID == id)
         //DalMissingIdException(id, "Lecturer");
