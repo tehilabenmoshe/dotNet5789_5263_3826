@@ -5,26 +5,52 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Dal;
-using DalApi;
+//using DalApi;
 using DO;
 using System.Security.Principal;
 using System.Xml.Linq;
 
-internal class OrderItem : IOrderItem
+internal class OrderItem : DalApi.IOrderItem
 {
     const string s_orderItems = "orderItems"; //XML Serializer
     const string s_orders = "orders";
+
+
+    //שיטת XML Serializer
+
+
     public IEnumerable<DO.OrderItem?> GetAll(Func<DO.OrderItem?, bool>? filter = null)
     {
-        var listOrderItem =XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
-        return (filter == null ? listOrderItem.OrderBy(o => ((DO.OrderItem)o!).ID):
-            listOrderItem.Where(filter).
-        OrderBy(o => ((DO.OrderItem)o!).ID));
+        //var listOrderItem =XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
+        //return (filter == null ? listOrderItem.OrderBy(o => ((DO.OrderItem)o!).ID):
+        //    listOrderItem.Where(filter).
+        //OrderBy(o => ((DO.OrderItem)o!).ID));
+
+
+        var listOrderItem = (List<DO.OrderItem?>)XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
+
+        if (filter == null)
+            return listOrderItem.Select(p => p).OrderBy(lec => ((DO.OrderItem)lec!).ID);
+        else
+            return listOrderItem.Where(filter).OrderBy(lec => ((DO.OrderItem)lec!).ID);
+
+
     }
 
-    public DO.OrderItem GetByID(int id) =>
-        XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems).FirstOrDefault(o => o?.ID == id)
-        ?? throw new Exception("missing id");
+    //public DO.OrderItem GetByID(int id) =>
+    //    XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems).FirstOrDefault(o => o?.ID == id)
+    //    ?? throw new Exception("missing id");
+
+
+    public DO.OrderItem GetById(int id)
+    {
+        var listOrderItem = XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems);
+
+        if (listOrderItem.Exists(o => o?.ID == id))
+            return (DO.OrderItem)(listOrderItem.FirstOrDefault(o => o?.ID == id));
+        else
+            throw new Exception("missing id");//DalMissingIdException(id, "Lecturer");
+    }
 
     public int Add(DO.OrderItem orderItem)
     {
@@ -65,7 +91,7 @@ internal class OrderItem : IOrderItem
 
         if (order == null)
 
-            throw new Exception("ההזמנה אינה קיימת");
+            throw new Exception("Order Dosent Exsist");
 
         List<DO.OrderItem?> listToReturn = new List<DO.OrderItem?>();
 

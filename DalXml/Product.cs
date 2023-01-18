@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace Dal;
 using DalApi;
-using DO;
+//using DO;
 using System.Xml.Linq;
 
 internal class Product : IProduct
 {
     const string s_products = "products"; //Linq to XML
-
     static DO.Product? getProduct(XElement p) =>
         p.ToIntNullable("ID") is null ? null : new DO.Product()
         {
             ID = (int)p.Element("ID")!,
             Name = (string?)p.Element("Name"),
             Price = (double?)p.Element("Price"),
-            Category = p.ToEnumNullable<DO.Category>("Category"),
+            Category = (Category)p.ToEnumNullable<DO.Category>("Category"),
             InStock = (int?)p.Element("InStock")
         };
+
 
     static IEnumerable<XElement> createProductsElement(DO.Product product)
     {
@@ -36,9 +36,6 @@ internal class Product : IProduct
         if (product.InStock is not null)
             yield return new XElement("InStock", product.InStock);
     }
-
-    ///**********************************************/
-  
     public IEnumerable<DO.Product?> GetAll(Func<DO.Product?, bool>? filter = null)
     {
         if (filter == null)
@@ -86,7 +83,7 @@ internal class Product : IProduct
             // fix to: throw new DalMissingIdException(id);;
             throw new Exception("id already exist");
 
-        ProductRootElem.Add(new XElement("Product", createStudentElement(p)));
+        ProductRootElem.Add(new XElement("Product", createProductsElement(p)));
         XMLTools.SaveListToXMLElement(ProductRootElem, s_products);
 
         return p.ID; ;

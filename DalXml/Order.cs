@@ -30,17 +30,6 @@ internal class Order : IOrder
         var listOfOrders = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders);
         if (order.ID < 1000 || order.ID > 9999)
             order.ID = ConfigOrder.getNumOrder();
-        
-            //IEnumerable<ImportentNumbers> list = (IEnumerable<ImportentNumbers>)XMLTools.LoadListFromXMLSerializer<ImportentNumbers>("config");
-
-            //ImportentNumbers runningNum = (from number in list
-            //                               where (number.typeOfnumber == "Order Num")
-            //                               select number).FirstOrDefault();
-            //list.Remove(runningNum);
-
-            //runningNum.numberSaved++;
-            //droneToCreate.ID = (int)runningNum.numberSaved;
-        
 
         if (listOfOrders.Exists(o => o?.ID == order.ID))
             throw new Exception("id already exist");//DalAlreadyExistIdException(lecturer.ID, "Lecturer");
