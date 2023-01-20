@@ -5,20 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Dal;
-//using DalApi;
 using DO;
 using System.Security.Principal;
-using System.Xml.Linq;
+
 
 internal class OrderItem : DalApi.IOrderItem
 {
     const string s_orderItems = "orderItems"; //XML Serializer
     const string s_orders = "orders";
-
-
-    //שיטת XML Serializer
-
-
     public IEnumerable<DO.OrderItem?> GetAll(Func<DO.OrderItem?, bool>? filter = null)
     {
         //var listOrderItem =XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
@@ -40,7 +34,6 @@ internal class OrderItem : DalApi.IOrderItem
     //public DO.OrderItem GetByID(int id) =>
     //    XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems).FirstOrDefault(o => o?.ID == id)
     //    ?? throw new Exception("missing id");
-
 
     public DO.OrderItem GetById(int id)
     {

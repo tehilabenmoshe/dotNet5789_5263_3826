@@ -4,11 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-//using DalApi;
-using DO;
-using System.Security.Principal;
 namespace Dal;
+using DO;
 internal class Order : DalApi.IOrder
 {
     const string s_orders = "orders"; //XML Serializer
@@ -22,11 +19,6 @@ internal class Order : DalApi.IOrder
         else
             return listOrder.Where(filter).OrderBy(o => ((DO.Order)o!).ID);
     }
-
-    //public DO.Order GetByID(int id) =>
-    //    XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders).FirstOrDefault(o => o?.ID == id)
-    //    //DalMissingIdException(id, "Lecturer");
-    //    ?? throw new Exception("The Order Dosent Exsist In Sistem");
 
 
     public DO.Order GetById(int id)
