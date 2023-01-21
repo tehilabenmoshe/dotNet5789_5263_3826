@@ -114,6 +114,7 @@
         <inStock>45</inStock>
     </Product>
     <Product>
+		
         <Category>kitchen</Category>
         <Name>TV Couch</Name>
         <Price>rand.Next(50, 150)</Price>
@@ -141,56 +142,6 @@
         <ID>Config.NextOrderNbumber*100</ID>
         <inStock>30</inStock>
     </Product>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
