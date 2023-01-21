@@ -42,9 +42,9 @@ public class DalOrderItem:IOrderItem
         return (OrderItem)temp;
     }
 
-    public IEnumerable<OrderItem> GetAll(Func<OrderItem?, bool>? filter = null)//prints all the orderItems in the list
+    public IEnumerable<OrderItem?> GetAll(Func<OrderItem?, bool>? filter = null)//prints all the orderItems in the list
     {
-        return (from OrderItem o in ds.ListOrderItem select o).ToList<OrderItem>();
+        return (from OrderItem? o in ds.ListOrderItem select o).ToList<OrderItem?>();
 
     }
 

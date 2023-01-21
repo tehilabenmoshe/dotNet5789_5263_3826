@@ -26,7 +26,7 @@ internal class Product : IProduct
             yield return new XElement("Name", product.Name);
         if (product.Price is not null)
             yield return new XElement("Price", product.Price);
-        if (product.Category is not null)
+        if (product.Category != null)
             yield return new XElement("Category", product.Category);
         if (product.InStock is not null)
             yield return new XElement("InStock", product.InStock);
@@ -36,7 +36,7 @@ internal class Product : IProduct
         if (filter == null)
             return XMLTools.LoadListFromXMLElement(s_products).Elements().Select(x => getProduct(x));
         else
-            return XMLTools.LoadListFromXMLElement(s_products).Elements().Select(x => getProduct(x)).Where(filter)
+            return XMLTools.LoadListFromXMLElement(s_products).Elements().Select(x => getProduct(x)).Where(filter);
 
 
 
@@ -74,8 +74,6 @@ internal class Product : IProduct
         else
             throw new Exception("missing id");//DalMissingIdException(id, "Lecturer");
     }
-
-
     public int Add(DO.Product p)
     {
         XElement ProductRootElem = XMLTools.LoadListFromXMLElement(s_products);

@@ -19,7 +19,7 @@ internal class BoProduct: IBoProduct
     public IEnumerable<BO.ProductForList> getProductForList()
     {
         List<BO.ProductForList?> listOfProducts = new List<BO.ProductForList?>();
-        List<DO.Product> products = Dal.Product.GetAll().ToList();
+        List<DO.Product?> products = Dal.Product.GetAll().ToList();
         foreach (DO.Product p in products)
         {
             BO.ProductForList temp = new BO.ProductForList();
@@ -185,7 +185,7 @@ internal class BoProduct: IBoProduct
 
     public IEnumerable<ProductItem> GetProductItemListForCustomer()
     {
-        List<DO.Product> products = Dal.Product.GetAll().ToList(); //בקשת מוצרים משכבת הנתונים
+        List<DO.Product?> products = Dal.Product.GetAll().ToList(); //בקשת מוצרים משכבת הנתונים
         List<BO.ProductItem?> listProductItem = new List<BO.ProductItem?>();//רשימה ריקה של פריטי  מוצר
 
         foreach (DO.Product p in products)

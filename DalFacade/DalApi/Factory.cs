@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DalApi;
-
+using System.Xml;
 using DO;
 using System.Reflection;
-using static DalApi.DalConfig;
+using static DalConfig;
 
 public static class Factory
 {

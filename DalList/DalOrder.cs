@@ -46,9 +46,9 @@ public class DalOrder: IOrder
         return (Order)temp;
     }
 
-    public IEnumerable<Order> GetAll(Func<Order?, bool>? filter = null)//prints all the orders in the list
+    public IEnumerable<Order?> GetAll(Func<Order?, bool>? filter = null)//prints all the orders in the list
     {
-        return (from Order o in ds.ListOrder select o).ToList<Order>();
+        return (from Order? o in ds.ListOrder select o).ToList<Order?>();
     }
 
 }

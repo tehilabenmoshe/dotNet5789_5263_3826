@@ -16,16 +16,16 @@ internal class BoOrder : IBoOrder
     private IDal? Dal = DalApi.Factory.Get();
     public IEnumerable<BO.OrderForList> getOrderForList()
     {
-        List<DO.Order> order = Dal.Order.GetAll().ToList();
+        List<DO.Order?> order = Dal.Order.GetAll().ToList();
         List<BO.OrderForList?> listOfOrders = new List<BO.OrderForList>();
 
         return
         (from orderDO in order
-         let orderFromBL = Dal.OrderItem.GetItemsList((int)(orderDO.ID!))
+         let orderFromBL = Dal.OrderItem.GetItemsList((int)(orderDO?.ID!))
          select new BO.OrderForList()
          {
-             ID = (int)(orderDO.ID!),
-             CustomerName = orderDO.CustomerName,
+             ID = (int)(orderDO?.ID!),
+             CustomerName = orderDO?.CustomerName,
              Status = Tools.GetStatus((DO.Order)orderDO),
              AmountOfItems = Tools.GetAmountOfItems(orderFromBL),
              TotalPrice = Tools.GetTotalPrice(orderFromBL)
@@ -67,7 +67,7 @@ internal class BoOrder : IBoOrder
     public IEnumerable<DO.OrderItem> GetListByOrderID(int id)
     {
         List<DO.OrderItem> tmp = new List<DO.OrderItem>();
-        List<DO.OrderItem> Loi = Dal!.OrderItem.GetAll().ToList();
+        List<DO.OrderItem?> Loi = Dal!.OrderItem.GetAll().ToList();
         foreach (DO.OrderItem o in Loi)
         {
             if (o.OrderID == id)
