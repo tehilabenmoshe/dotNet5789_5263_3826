@@ -6,14 +6,14 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using BlApi;
-//using BO;
-using DalApi;
+using BO;
+//using DalApi;
 
 namespace BlImplementation;
 
 internal class BoOrder : IBoOrder
 {
-    private IDal? Dal = DalApi.Factory.Get();
+    DalApi.IDal? Dal = DalApi.Factory.Get();
     public IEnumerable<BO.OrderForList> getOrderForList()
     {
         List<DO.Order?> order = Dal.Order.GetAll().ToList();

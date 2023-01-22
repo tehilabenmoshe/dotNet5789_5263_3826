@@ -1,7 +1,6 @@
 ﻿using BlApi;
 using PL.Costumer;
 using PL.Manager;
-//using PL.Costumer;
 using System;
 using System.Collections.Generic;
 using System.Linq;

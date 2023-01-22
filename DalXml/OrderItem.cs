@@ -21,7 +21,7 @@ internal class OrderItem : DalApi.IOrderItem
         //OrderBy(o => ((DO.OrderItem)o!).ID));
 
 
-        var listOrderItem = (List<DO.OrderItem?>)XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
+        var listOrderItem= (List<DO.OrderItem?>)XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
 
         if (filter == null)
             return listOrderItem.Select(p => p).OrderBy(o => ((DO.OrderItem)o!).ID);

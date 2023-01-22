@@ -10,13 +10,14 @@ internal class Product : IProduct
     const string s_products = "products"; //Linq to XML
 
     static DO.Product? getProduct(XElement p) =>
-        p.ToIntNullable("ID") is null ? null : new DO.Product()
+        p?.ToIntNullable("ID") is null ? null : new DO.Product()
         {
             ID = (int)p.Element("ID")!,
             Name = (string?)p.Element("Name"),
-            Price = (int?)p.Element("Price"),
+            Price = (double?)p.Element("Price"),
             Category = (DO.Category)p.ToEnumNullable<DO.Category>("Category"),
             InStock = (int?)p.Element("InStock"),
+           
 
         };//Linq 
     static IEnumerable<XElement> createProductsElement(DO.Product product)
