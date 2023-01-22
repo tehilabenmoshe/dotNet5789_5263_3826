@@ -19,14 +19,14 @@ internal class BoProduct: IBoProduct
     public IEnumerable<BO.ProductForList> getProductForList()
     {
         List<BO.ProductForList?> listOfProducts = new List<BO.ProductForList?>();
-        List<DO.Product?> products = Dal.Product.GetAll().ToList();
+        List<DO.Product?> products = Dal?.Product.GetAll().ToList();
         foreach (DO.Product p in products)
         {
             BO.ProductForList temp = new BO.ProductForList();
             temp.ID = p.ID;
             temp.Name = p.Name; 
             temp.Price= p.Price;
-            temp.Category = (BO.Category)p.Category;
+            temp.Category = (BO.Category?)p.Category;
             listOfProducts.Add(temp);   
         }
         return listOfProducts;  
