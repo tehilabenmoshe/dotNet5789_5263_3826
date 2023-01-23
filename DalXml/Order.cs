@@ -28,7 +28,7 @@ internal class Order : DalApi.IOrder
         if (listOrder.Exists(o => o?.ID == id))
             return (DO.Order)(listOrder.FirstOrDefault(o => o?.ID == id));
         else
-            throw new Exception("missing id");//DalMissingIdException(id, "Lecturer");
+            throw new DoesntExistExeption("missing id");//DalMissingIdException(id, "Lecturer");
     }
 
     public int Add(DO.Order order)

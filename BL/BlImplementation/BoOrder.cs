@@ -178,13 +178,23 @@ internal class BoOrder : IBoOrder
     {
         if ((ID < 1000) || (ID > 9999))//check the id
             throw new BO.InvalidInputExeption("Id is out of range");
-        BO.Order order = new BO.Order();
-        DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("oder doesnt exists");
-        order = DoOrderToBo(temp); //casting from bo to do
-        BO.OrderTracking ot=new BO.OrderTracking();
-        ot.ID = ID;
-        ot.Status = getStatus(order);
-        return ot;
+        try 
+        { 
+            BO.Order order = new BO.Order();
+            DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
+            order = DoOrderToBo(temp); //casting from bo to do
+            BO.OrderTracking ot = new BO.OrderTracking();
+            ot.ID = ID;
+            ot.Status = getStatus(order);
+            return ot;
+        }
+        catch (DO.DoesntExistExeption exp)
+        {
+            throw new BO.DoesntExistException(exp.Message, exp); 
+        }
+
+
+       
     }
 
 

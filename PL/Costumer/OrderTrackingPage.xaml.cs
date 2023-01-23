@@ -32,9 +32,17 @@ namespace PL.Costumer
 
         public OrderTrackingPage(string s,Frame c)
         {
+            
             InitializeComponent();
             int idNum= Int32.Parse(s);
-            orderTracking = bl.Order.TrackOrder(idNum);
+            try
+            {
+                orderTracking = bl.Order.TrackOrder(idNum);
+            }
+            catch (DoesntExistException exs)
+            {
+                throw exs;
+            }
 
             StatusBox.Text= orderTracking.Status.ToString();
             IdBox.Text = s;

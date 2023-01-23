@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BO;
 
 namespace PL
 {
@@ -53,8 +54,15 @@ namespace PL
         public int MyValue { get; set; }
         private void CheckButton_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show(MyValue.ToString());
-            temp.Content = new OrderTrackingPage(OrderIdBox.Text, temp);  //send the string of the id to the page of tracking order
+            try
+            {
+                //MessageBox.Show(MyValue.ToString());
+                temp.Content = new OrderTrackingPage(OrderIdBox.Text, temp);  //send the string of the id to the page of tracking order
+            }
+            catch(DoesntExistException exp)
+            {
+               MessageBox.Show("Order ID doesnt exsist, please try again");
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

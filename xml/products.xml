@@ -24,7 +24,7 @@
   <Product>
     <ID>100001</ID>
     <Name>Double oak bed</Name>
-    <Price>3200</Price>
+    <Price>5600</Price>
     <Category>bedRoom</Category>
     <InStock>14</InStock>
   </Product>
