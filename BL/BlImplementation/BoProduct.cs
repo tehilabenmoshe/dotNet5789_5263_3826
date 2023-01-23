@@ -89,21 +89,43 @@ internal class BoProduct: IBoProduct
             throw new BO.InvalidInputExeption("Price is out of range");
         if(product.InStock<0)
             throw new BO.InvalidInputExeption("Product is out of stock");
+
         try
         {
-            if (Dal?.Product.GetById(product.ID) != null) //if the product already exsist in DO
+            DO.Product productTempDO = new DO.Product()// create DO product to enter the DAL
             {
-
-                throw new BO.AlreadyExistExeption("Product already exists");
-            }
+                ID = product!.ID,
+                Name = product?.Name,
+                Price = product?.Price,
+                Category = (DO.Category?)product?.Category,
+                InStock = product?.InStock,
+            };
+            Dal!.Product.Add(productTempDO); // add to DAL
+            //int id = Dal!.Product.Add(productTempDO); // adding to DAL
+            //return id;
         }
-        catch (DO.DoesntExistExeption ex)// if product doesnt exists
+        catch (DO.AlreadyExistExeption ex)// if doesnt work catch exeption
         {
-            DO.Product temp = new DO.Product();
-            temp = ProductFromBOToDO(product);
-            Dal?.Product.Add(temp);
+            throw new BO.AlreadyExistExeption(ex.Message, ex);
         }
-       
+
+
+
+        //try
+        //{
+        //    if (Dal?.Product.GetById(product.ID) != null) //if the product already exsist in DO
+        //    {
+
+        //        throw new BO.AlreadyExistExeption("Product already exists");
+        //    }
+        //}
+        //catch (DO.DoesntExistExeption ex)// if product doesnt exists
+        //{
+        //    DO.Product temp = new DO.Product();
+        //    temp = ProductFromBOToDO(product);
+        //    Dal?.Product.Add(temp);
+        //}
+
     }
     public void DeledeProduct(int IDProduct)
     {
@@ -196,7 +218,7 @@ internal class BoProduct: IBoProduct
             temp.ID = p.ID;
             temp.Name = p.Name;
             temp.Price = p.Price;
-            temp.Category = (BO.Category)p.Category;
+            temp.Category = (BO.Category?)p.Category;
             if (p.InStock > 0)
                 temp.InStock = true;
             else

@@ -212,7 +212,6 @@ internal class BoCart : IBoCart
             o.ID=(int) (Dal?.OrderItem.Add(o));
             productInDo.InStock -= oInBo.Amount; //update the amount
             Dal.Product.Update(productInDo);
-
         }
 
     }
@@ -220,49 +219,3 @@ internal class BoCart : IBoCart
 }
 
 
-
-
-
-
-
-
-//BO.OrderItem? tmp = new BO.OrderItem();
-//tmp = cart.Items.Find(o => o.ProductID == id); //find the item in the cart
-////if (tmp == null) //if the product dosent exsist in the cart
-////{
-////   // BO.OrderItem? tmp2 = new BO.OrderItem();
-////    AddProductToCart(cart, id); //insert the product to the cart
-////    UpdateProductInCart(cart,id, newAmount); //update the product
-////   // cart.TotalPrice +=
-
-////}
-//    // throw new BO.DoesntExistException();
-
-//if (cart == null)
-//    throw new BO.DoesntExistException();
-
-//if (newAmount > tmp.Amount)
-//{
-//    DO.Product p = new DO.Product();
-//    if (p.InStock > 0) //if there is product
-//    {
-//        cart.TotalPrice += tmp.Price * (newAmount - tmp.Amount); //update the total price of the cart-add the extra price from the new amount
-//        tmp.Amount = newAmount;
-//    }
-//    else
-//        throw new BO.DoesntExistException();
-//}
-
-//if (newAmount < tmp.Amount)
-//{
-//    cart.TotalPrice -= tmp.Price * (tmp.Amount - newAmount); //update the total price of the cart-add the extra price from the new amount
-//    tmp.Amount = newAmount;
-//}
-
-//if (newAmount == 0)
-//{
-//    cart.TotalPrice -= tmp.Price * tmp.Amount;
-//    Dal!.Product.Delete(id);
-
-//}
-//return cart;

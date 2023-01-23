@@ -1,43 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <products>
   <product>
-    <category>garden</category>
-    <name>Oak rocking chair</name>
-    <price>10</price>
     <ID>100000</ID>
-    <inStock>20</inStock>
+    <Name>Oak rocking chair</Name>
+    <Category>garden</Category>
+    <Price>10</Price>
+    <InStock>20</InStock>
   </product>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <product>
+    <Category>livingRoom</Category>
+    <Name>Leather sofa</Name>
+    <Price>4500</Price>
+    <ID>100002</ID>
+    <InStock>12</InStock>
+  </product>
+  <Product>
+    <ID>100003</ID>
+    <Name>White wood table</Name>
+    <Price>5768</Price>
+    <Category>kitchen</Category>
+    <InStock>7</InStock>
+  </Product>
+  <Product>
+    <ID>100001</ID>
+    <Name>Double oak bed</Name>
+    <Price>3200</Price>
+    <Category>bedRoom</Category>
+    <InStock>14</InStock>
+  </Product>
 </products>
