@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,15 @@ namespace PL.Manager
     /// </summary>
     public partial class Simulator : Window
     {
+        BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
+        BO.OrderTracking orderTrack=new BO.OrderTracking();
+        ObservableCollection<BO.Order> order = new();
         public Simulator()
         {
             InitializeComponent();
+            orderTrack = bl.Order.TrackOrder((int)order.);
+            
+            OrderlistView.DataContext = orders;
         }
     }
 }
