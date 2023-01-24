@@ -15,17 +15,17 @@
     <InStock>12</InStock>
   </product>
   <Product>
-    <ID>100003</ID>
-    <Name>White wood table</Name>
-    <Price>5768</Price>
-    <Category>kitchen</Category>
-    <InStock>7</InStock>
-  </Product>
-  <Product>
     <ID>100001</ID>
     <Name>Double oak bed</Name>
     <Price>5600</Price>
     <Category>bedRoom</Category>
     <InStock>14</InStock>
+  </Product>
+  <Product>
+    <ID>100003</ID>
+    <Name>White wood table</Name>
+    <Price>5768</Price>
+    <Category>kitchen</Category>
+    <InStock>7</InStock>
   </Product>
 </products>

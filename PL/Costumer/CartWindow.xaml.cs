@@ -47,9 +47,15 @@ namespace PL.Costumer
             BO.OrderItem o = new OrderItem();
             // o= bl!.OrderItem.GetById(p.ID);
             o=myCart.Items!.Find(crt => crt.ProductID == p.ID);
-            int NewAmount =(int)( o.Amount - 1);
-            bl!.cart.UpdateProductInCart(myCart,p.ID, NewAmount);
-            CartListView.DataContext = myCart.Items;
+            if (o == null)
+                MessageBox.Show("The product doesnt exsist in cart");
+            else
+            {
+                int NewAmount = (int)(o.Amount - 1);
+                bl!.cart.UpdateProductInCart(myCart, p.ID, NewAmount);
+                CartListView.DataContext = myCart.Items;
+            }
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

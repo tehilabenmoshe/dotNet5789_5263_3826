@@ -8,9 +8,9 @@
       d:DesignHeight="550" d:DesignWidth="800"
       Title="OrderTrackingPage">
 
-    <Grid Background="White">
+    <Grid Background="#FFFEFDFA">
 
-        <Image HorizontalAlignment="Center" Height="510" VerticalAlignment="Top" Width="888" Source="/Costumer/red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" RenderTransformOrigin="0.5,0.5" Margin="0,2,0,0">
+        <Image HorizontalAlignment="Left" Height="658" VerticalAlignment="Top" Width="824" Source="/Costumer/red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" RenderTransformOrigin="0.5,0.5" Margin="-24,-3,0,0">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -37,7 +37,7 @@
 
 
         </Button>
-        <Label Content="ID Order:" HorizontalAlignment="Left" Margin="546,124,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Foreground="#FFC23A27"/>
+        <Label Content="ID Order:" HorizontalAlignment="Left" Margin="556,124,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Foreground="#FFC23A27"/>
         <Label Content="Status:" HorizontalAlignment="Left" Margin="565,216,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Foreground="#FFC23A27"/>
         <TextBox x:Name="StatusBox" HorizontalAlignment="Left" Margin="539,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF0E8DD" BorderBrush="{x:Null}" Height="27" TextChanged="StatusBox_TextChanged" FontFamily="Ploni 1.1 AAA" TextAlignment="Center"/>
 

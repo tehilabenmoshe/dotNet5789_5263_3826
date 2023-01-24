@@ -63,11 +63,11 @@ namespace PL.Costumer
 
       
 
-        private void OnClick(object sender, RoutedEventArgs e)
-        {
-            CartWindow c =new CartWindow();
-            c.Show();
-        }
+        //private void OnClick(object sender, RoutedEventArgs e)
+        //{
+        //    CartWindow c =new CartWindow();
+        //    c.Show();
+        //}
 
 
         private void ProductItemListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -90,7 +90,10 @@ namespace PL.Costumer
             
         }
 
-
-
+        private void DeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
+            CartWindow c = new CartWindow();
+            c.Show();
+        }
     }
 }

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.Costumer"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="800"
       Title="ProductToCartPage"
       x:Name="productWithPhoto"
       DataContext="{Binding RelativeSource={RelativeSource self}}">
@@ -13,38 +13,38 @@
 
     <Grid Background="#FFF0ECE8">
 
-        <TextBox x:Name="ProductItemName" HorizontalAlignment="Left" Margin="329,63,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="387" FontFamily="Ploni 1.1 AAA" FontSize="48" Background="{x:Null}" BorderBrush="{x:Null}" TextAlignment="Center" Foreground="#FF866756" FontWeight="Bold"/>
-        <TextBox x:Name="ProductItemCategory" HorizontalAlignment="Left" Margin="412,116,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="221" TextChanged="ProductItemCategory_TextChanged" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Ploni 1.1 AAA Light" FontSize="30" TextAlignment="Center" Foreground="#FF866756"/>
+        <TextBox x:Name="ProductItemName" HorizontalAlignment="Left" Margin="329,103,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="387" FontFamily="Ploni 1.1 AAA" FontSize="48" Background="{x:Null}" BorderBrush="{x:Null}" TextAlignment="Center" Foreground="#FF866756" FontWeight="Bold"/>
+        <TextBox x:Name="ProductItemCategory" HorizontalAlignment="Left" Margin="412,156,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="221" TextChanged="ProductItemCategory_TextChanged" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Ploni 1.1 AAA Light" FontSize="30" TextAlignment="Center" Foreground="#FF866756"/>
 
-        <Rectangle HorizontalAlignment="Left" Height="229" Margin="350,174,0,0" Stroke="Black" VerticalAlignment="Top" Width="336"   >
+        <Rectangle HorizontalAlignment="Left" Height="229" Margin="350,214,0,0" Stroke="Black" VerticalAlignment="Top" Width="336"   >
             <Rectangle.Fill>
                 <ImageBrush ImageSource="{Binding}"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Button x:Name="AddButton" Content="ADD TO CART" HorizontalAlignment="Left" Margin="129,294,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" BorderBrush="{x:Null}" Height="34" Width="131" Click="AddButton_Click" Background="#FF866756" Foreground="#FFF0ECE8">
+        <Button x:Name="AddButton" Content="ADD TO CART" HorizontalAlignment="Left" Margin="129,334,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" BorderBrush="{x:Null}" Height="34" Width="131" Click="AddButton_Click" Background="#FF866756" Foreground="#FFF0ECE8">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="RemoveButton" Content="REMOVE FROM CART" HorizontalAlignment="Left" Margin="128,351,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Height="34" Width="131" Click="Button_Click" Background="#FF866756" Foreground="#FFF0ECE8">
+        <Button x:Name="RemoveButton" Content="REMOVE FROM CART" HorizontalAlignment="Left" Margin="128,391,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Height="34" Width="131" Click="Button_Click" Background="#FF866756" Foreground="#FFF0ECE8">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="In-Stock:" HorizontalAlignment="Left" Margin="154,96,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FF866756"/>
-        <Label Content="Price:" HorizontalAlignment="Left" Margin="169,175,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FF866756"/>
-        <TextBox x:Name="PriceBox"  HorizontalAlignment="Left" Margin="125,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="146" Height="33" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" TextAlignment="Center" BorderBrush="{x:Null}" Foreground="#FF866756">
+        <Label Content="In-Stock:" HorizontalAlignment="Left" Margin="158,136,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FF866756"/>
+        <Label Content="Price:" HorizontalAlignment="Left" Margin="169,215,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FF866756"/>
+        <TextBox x:Name="PriceBox"  HorizontalAlignment="Left" Margin="123,248,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="146" Height="34" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" TextAlignment="Center" BorderBrush="{x:Null}" Foreground="#FF866756">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <TextBox x:Name="InStockBox"  HorizontalAlignment="Left" Margin="121,130,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150" Height="32" FontFamily="Ploni 1.1 AAA Medium" FontSize="14" TextAlignment="Center" BorderBrush="{x:Null}" Foreground="#FF866756">
+        <TextBox x:Name="InStockBox"  HorizontalAlignment="Left" Margin="121,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="150" Height="32" FontFamily="Ploni 1.1 AAA Medium" FontSize="14" TextAlignment="Center" BorderBrush="{x:Null}" Foreground="#FF866756">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>

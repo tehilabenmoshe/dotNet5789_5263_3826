@@ -33,17 +33,10 @@
         <TextBox x:Name="PriceBox" HorizontalAlignment="Left" Margin="252,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFD9D9D9"/>
         <TextBox x:Name="InStockBox" HorizontalAlignment="Left" Margin="252,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFD9D9D9" />
         <TextBox x:Name="IDBox" HorizontalAlignment="Left" Margin="252,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" IsReadOnly="True" Background="#FFD9D9D9" SelectionTextBrush="#FF050000" BorderBrush="{x:Null}" SelectionBrush="#FFD74E00"/>
-        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="252,142,0,0" VerticalAlignment="Top" Width="120"  SelectionChanged="CategoryBox_SelectionChanged_1"   IsEditable="true" IsReadOnly="true" FontFamily="Ploni 1.1 AAA U-Light" BorderBrush="{x:Null}"  >
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#FFF0F0F0"/>
-                    <GradientStop Color="#FF391212" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
-        </ComboBox>
+        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Left" Margin="252,142,0,0" VerticalAlignment="Top" Width="120"  SelectionChanged="CategoryBox_SelectionChanged_1"   IsEditable="true" IsReadOnly="true" FontFamily="Ploni 1.1 AAA U-Light" BorderBrush="{x:Null}" Background="#FFD9D9D9"  />
         <Button x:Name="AddBox"  Content="ADD" HorizontalAlignment="Left" Margin="106,353,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" Width="89" BorderThickness="0,0,0,0" Click="AddBox_Click" Foreground="#FF412222" Background="#FFE6A4AB" Height="29" FontSize="16" FontWeight="Bold"/>
         <Button x:Name="UpdateButton" Content="UPDATE" HorizontalAlignment="Left" Margin="205,353,0,0" VerticalAlignment="Top" Width="85" FontFamily="Ploni 1.1 AAA" Padding="1,1,1,1" BorderThickness="0,0,0,0" Click="UpdateButton_Click" Foreground="#FF412222" Background="#FFE6A4AB" Height="29" FontSize="16" FontWeight="Bold"/>
-        <Label Content="Product Details" HorizontalAlignment="Left" Margin="170,4,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontWeight="Bold" FontSize="24" Foreground="#FF412222"/>
+        <Label Content="Product Details" HorizontalAlignment="Left" Margin="170,8,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontWeight="Bold" FontSize="24" Foreground="#FF412222"/>
 
 
 

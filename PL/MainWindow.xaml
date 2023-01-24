@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PL"
+        xmlns:local="clr-namespace:PL" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
@@ -12,11 +12,11 @@
          TextOptions.TextRenderingMode="Auto"
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}"
-         Title="MainWindow" Height="617" Width="850">
+         Title="MainWindow" Height="617" Width="800">
 
     <Grid>
-        
-        <Frame x:Name="mainFrame" Content="Frame" Height="550" Width="850" Margin="0,53,0,-2" Grid.RowSpan="2"/>
+
+        <Frame x:Name="mainFrame" Content="Frame" Height="550" Width="800" Margin="0,53,0,-2" Grid.RowSpan="2"/>
 
 
 
@@ -33,7 +33,13 @@
         <Image HorizontalAlignment="Left" Height="51" Margin="27,12,0,0" VerticalAlignment="Top" Width="29" Source="/Asset 1לוגו רהיטים.png" Grid.RowSpan="2"/>
         <Label Content="M&amp;T FURNITURE" HorizontalAlignment="Left" Margin="55,4,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Height="39" Width="153"/>
         <Label Content="Design your dream home" HorizontalAlignment="Left" Margin="71,22,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni Regular AAA" FontSize="9" Height="25" Width="118"/>
-        <Button Content="HOME" HorizontalAlignment="Left" Margin="779,16,0,0" VerticalAlignment="Top" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFD8D7D5"/>
+        <Button Content="HOME" HorizontalAlignment="Left" Margin="505,4,0,0" VerticalAlignment="Top" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFD8D7D5" Width="122"/>
+        <Button x:Name="AddCart" Style="{StaticResource MaterialDesignFlatLightBgButton}" Width="59"  HorizontalAlignment="Center"  Click="DeleteProduct_Click" Margin="741,2,0,567" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,1" VerticalAlignment="Center">
+            <materialDesign:PackIcon Kind="Home" Foreground="White" Height="20" Width="20"/>
+        </Button>
+
+
+
 
     </Grid>
 

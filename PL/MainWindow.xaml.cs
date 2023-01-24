@@ -38,5 +38,10 @@ namespace PL
         {
             mainFrame.Content = new MainPage(mainFrame);
         }
+
+        private void DeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new MainPage(mainFrame);
+        }
     }
 }

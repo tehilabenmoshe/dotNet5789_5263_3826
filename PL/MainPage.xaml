@@ -9,7 +9,7 @@
       Title="MainPage">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="580" Margin="-331,-29,0,0" VerticalAlignment="Top" Width="1226" Source="/modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill">
+        <Image HorizontalAlignment="Left" Height="606" Margin="-388,0,0,0" VerticalAlignment="Center" Width="1105" Source="/modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378.png" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -19,6 +19,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+
         <Button x:Name="CostumerButton" Content="COSTUMER" HorizontalAlignment="Left" Margin="210,348,0,0" VerticalAlignment="Top" Height="41" Width="138" Click="CostumerButton_Click" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FFAE9283" Foreground="#FFE3E3E3" BorderThickness="0,0,0,0"/>
 
         <Button x:Name="ManagerButton2"  Content="MANAGER" HorizontalAlignment="Left" Margin="61,348,0,0" VerticalAlignment="Top" Click="ManagerButton2_Click" Height="41" Width="124" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FF5F4A3F" Foreground="Gainsboro" BorderThickness="0,0,0,0"/>

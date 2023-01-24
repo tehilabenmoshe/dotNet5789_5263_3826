@@ -3,14 +3,15 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:PL.Costumer"
+      xmlns:local="clr-namespace:PL.Costumer" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="530" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="800"
       Title="ProductItemCatalogPage" Background="Black">
 
     <Grid Background="White">
 
-        <Image HorizontalAlignment="Left" Height="806" Margin="-343,-249,0,0" VerticalAlignment="Top" Width="1180" Source="/Costumer/green-plant-white-living-room-with-free-space (1).jpg" Stretch="UniformToFill"/>
+
+        <Image HorizontalAlignment="Left" Height="777" Margin="-333,-219,0,0" VerticalAlignment="Top" Width="1169" Source="/Costumer/green-plant-white-living-room-with-free-space (1).jpg" Stretch="UniformToFill"/>
 
         <ListView x:Name="ProductItemListView"  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,176,0,0" SelectionChanged="ProductItemListView_SelectionChanged"  ItemsSource="{Binding}" MouseDoubleClick="ProductItemListView_MouseDoubleClick" Background="#FFF7F4EF" BorderBrush="#FF675151" FontFamily="Ploni Regular AAA" HorizontalAlignment="Center" VerticalAlignment="Top" Height="237" BorderThickness="4,4,4,4" Foreground="#FF675151" >
             <ListView.View>
@@ -27,10 +28,10 @@
         </ListView>
         <ComboBox x:Name="CategoryBox" HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="590" Height="22" SelectionChanged="CategoryBox_SelectionChanged" BorderBrush="{x:Null}" FontFamily="Ploni Regular AAA" Background="#FFFAFAFA" IsReadOnly="True"/>
         <Label Content="Item Catalog" HorizontalAlignment="Left" Margin="280,58,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA D-Bold" FontSize="36" FontWeight="Bold" Height="56" Width="252" Foreground="#FF675151"/>
-        <Button x:Name="CartButton" Click="OnClick"  Margin="14,13,725,444" Background="{x:Null}" BorderThickness="0,0,0,0">
-            <Image Source="/Costumer/add-to-basket.png" Height="64" Width="51" />
-        </Button>
         <Label Content="sort by category" HorizontalAlignment="Left" Margin="109,99,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" Foreground="#FF675151"/>
+        <Button x:Name="AddCart" Style="{StaticResource MaterialDesignFloatingActionSecondaryDarkButton}" Width="43"  HorizontalAlignment="Left"  Click="DeleteProduct_Click" Margin="41,0,0,473" Background="#FFEDEDED" BorderBrush="{x:Null}" BorderThickness="2,2,2,2" Height="43" VerticalAlignment="Bottom" >
+            <materialDesign:PackIcon Kind="CartAdd" Foreground="#FF695151" Height="24" Width="23" HorizontalAlignment="Center"/>
+        </Button>
 
     </Grid>
 </Page>

@@ -43,5 +43,12 @@ namespace PL.Manager
 
             temp.Content = new ManagerOrderListPage();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Simulator s=new Simulator();
+            s.Show();
+
+        }
     }
 }
