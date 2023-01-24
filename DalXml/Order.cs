@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DalApi;
 
 namespace Dal;
 using DO;
-internal class Order : DalApi.IOrder
+internal class Order : IOrder
 {
     const string s_orders = "orders"; //XML Serializer
 
     public IEnumerable<DO.Order?> GetAll(Func<DO.Order?, bool>? filter = null)
     {
-        var listOrder = (List<DO.Order?>)XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders)!;
+        var listOrder = XMLTools.LoadListFromXMLSerializer<DO.Order>(s_orders)!;
 
-        if (filter == null)
-            return listOrder.Select(p => p).OrderBy(o => ((DO.Order)o!).ID);
-        else
-            return listOrder.Where(filter).OrderBy(o => ((DO.Order)o!).ID);
+        return (filter == null ? listOrder.OrderBy(o => ((DO.Order)o!).ID)
+                                  : listOrder.Where(filter).OrderBy(o => ((DO.Order)o!).ID));
+
+
+        //if (filter == null)
+        //    return listOrder.Select(p => p).OrderBy(o => ((DO.Order)o!).ID);
+        //else
+        //    return listOrder.Where(filter).OrderBy(o => ((DO.Order)o!).ID);
     }
 
 

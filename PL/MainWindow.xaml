@@ -33,9 +33,9 @@
         <Image HorizontalAlignment="Left" Height="51" Margin="27,12,0,0" VerticalAlignment="Top" Width="29" Source="/Asset 1לוגו רהיטים.png" Grid.RowSpan="2"/>
         <Label Content="M&amp;T FURNITURE" HorizontalAlignment="Left" Margin="55,4,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Height="39" Width="153"/>
         <Label Content="Design your dream home" HorizontalAlignment="Left" Margin="71,22,0,0" VerticalAlignment="Top" Foreground="#FFDFDCD7" FontFamily="Ploni Regular AAA" FontSize="9" Height="25" Width="118"/>
-        <Button Content="HOME" HorizontalAlignment="Left" Margin="505,4,0,0" VerticalAlignment="Top" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFD8D7D5" Width="122"/>
-        <Button x:Name="AddCart" Style="{StaticResource MaterialDesignFlatLightBgButton}" Width="59"  HorizontalAlignment="Center"  Click="DeleteProduct_Click" Margin="741,2,0,567" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,1" VerticalAlignment="Center">
-            <materialDesign:PackIcon Kind="Home" Foreground="White" Height="20" Width="20"/>
+        <Button Content="HOME" HorizontalAlignment="Left" Margin="544,-44,0,0" VerticalAlignment="Top" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FFD8D7D5" Width="122"/>
+        <Button x:Name="AddCart" Style="{StaticResource MaterialDesignFlatLightBgButton}" Width="68"  HorizontalAlignment="Left"  Click="DeleteProduct_Click" Margin="710,4,0,0" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,1" VerticalAlignment="Top" Height="34">
+            <materialDesign:PackIcon Kind="Home" Foreground="White" Height="42" Width="32" VerticalAlignment="Center" RenderTransformOrigin="0.235,0.562" HorizontalAlignment="Center"/>
         </Button>
 
 

@@ -22,13 +22,6 @@
     <InStock>71</InStock>
   </Product>
   <Product>
-    <ID>100009</ID>
-    <Name>Transparent Plastic Bar Stool</Name>
-    <Price>230</Price>
-    <Category>kitchen</Category>
-    <InStock>56</InStock>
-  </Product>
-  <Product>
     <ID>100010</ID>
     <Name>Round cherry Wood Dining Table</Name>
     <Price>3900</Price>
@@ -312,7 +305,7 @@
     <ID>100048</ID>
     <Name>Dining Room Hutch</Name>
     <Price>550</Price>
-	<Category>diningRoom</Category>
+    <Category>diningRoom</Category>
     <InStock>-1</InStock>
   </Product>
   <Product>
@@ -363,5 +356,12 @@
     <Price>2100</Price>
     <Category>bedRoom</Category>
     <InStock>61</InStock>
+  </Product>
+  <Product>
+    <ID>100009</ID>
+    <Name>Transparent Plastic Bar Stool</Name>
+    <Price>230</Price>
+    <Category>kitchen</Category>
+    <InStock>53</InStock>
   </Product>
 </products>

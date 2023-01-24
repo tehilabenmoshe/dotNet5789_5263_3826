@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using BlApi;
 using BO;
 using DalApi;
+using DO;
 //using DalApi;
 
 namespace BlImplementation;
@@ -153,13 +154,13 @@ internal class BoOrder : IBoOrder
             order.Status = BO.OrderStatus.shipped; //update the status to sent 
             order.ShipDate = DateTime.Now;//update the ship date in bo
             temp.ShipDate = order.ShipDate;//update the ship date in do
-            order.Status = BO.OrderStatus.shipped; //update the status
         }
+        Dal?.Order.Update(temp);
         return order;
     }
     public BO.Order UpdateProvisionOrder(int ID)
     {
-        if ((ID < 10000) || (ID > 9999))//check the id
+        if ((ID < 1000) || (ID > 9999))//check the id
             throw new BO.DoesntExistException("ID is out of range");
         BO.Order order = new BO.Order();
         DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
@@ -169,9 +170,30 @@ internal class BoOrder : IBoOrder
         {
             order.Status = BO.OrderStatus.delivered; //update the status to provided
             order.DeliveryDate = DateTime.Now;//update the DeliveryDate date in bo
-            temp.DeliveryDate = DateTime.Now;//update the DeliveryDate date in do
-            order.Status = BO.OrderStatus.delivered; //update the status
+            temp.DeliveryDate = order.DeliveryDate;//update the DeliveryDate date in do
+            //order.Status = BO.OrderStatus.delivered; //update the status
         }
+        Dal?.Order.Update(temp);
+
+        //BO.Order orderToReturn = new BO.Order()
+        //{
+        //    ID = temp.ID,
+        //    CustomerName = temp.CustomerName,
+        //    CustomerEmail = temp.CustomerEmail,
+        //    CustomerAddress = temp.CustomerAddress,
+        //    Status = BO.OrderStatus.delivered,
+        //    OrderDate = temp.OrderDate,
+        //    ShipDate = temp.ShipDate,
+        //    DeliveryDate = DateTime.Now,
+        //    Items = v, //(List<BO.OrderItem?>)Tools.getBOList(dal.OrderItem.GetItemsList(orderDO.ID)),
+        //    TotalPrice = Tools.GetTotalPrice(itemsListDO!)
+
+        //};
+
+        //DO.Order orderToUpdate = (DO.Order)Tools.CopyPropToStruct(orderToReturn, typeof(DO.Order));// convert BO to DO
+        //dal.Order.Update(orderToUpdate);// update in DAL
+       // return orderToReturn;
+
         return order;
 
     }

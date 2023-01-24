@@ -32,6 +32,7 @@ namespace PL.Manager
         DateTime time = DateTime.Now;
         BackgroundWorker? worker;
         bool flag = true; //true=not end
+        
         public Simulator()
         {
             InitializeComponent();
@@ -63,8 +64,8 @@ namespace PL.Manager
                 {
                     if (worker!.WorkerReportsProgress! == true)
                     {
-                        time =time.AddHours(8);
-                        Thread.Sleep(2000);
+                        time =time.AddSeconds(5);
+                        Thread.Sleep(500);
                         worker.ReportProgress(4);
                     }
 
@@ -75,32 +76,37 @@ namespace PL.Manager
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e) //event while there is a change
         {
             AddOrderItemList(bl!.Order.getOrderForList());
-
+            bool IsDelivered = true;
             foreach (OrderForList order in orderForList)
             {
                 if (order.Status == BO.OrderStatus.ordered)
                 {
+                    IsDelivered=false;
                     DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).OrderDate!;
-                    orderDateTime = orderDateTime.AddDays(3);
+                    orderDateTime = orderDateTime.AddHours(1);
                     if (orderDateTime <= time)
                     {
                         order.Status = BO.OrderStatus.shipped;
                         bl.Order.UpdateShipOrder((int)order.ID);
-                        break;
+                        //break;
                     }
                 }
                 else if (order.Status == BO.OrderStatus.shipped)
                 {
+                    IsDelivered = false;
                     // BO.Order o = bl.Order.GetOrder((int)order.ID);
                     DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).ShipDate!;
-                    orderDateTime = orderDateTime.AddDays(4);
+                    orderDateTime = orderDateTime.AddMinutes(1);
                     if (orderDateTime <= time)
                     {
                         order.Status = BO.OrderStatus.delivered;
                         bl.Order.UpdateProvisionOrder((int)order.ID);
-                        break;
+                        //break;
                     }
                 }
+
+                if (IsDelivered)
+                    flag = false;
             }
         }
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) //event while do-work end
