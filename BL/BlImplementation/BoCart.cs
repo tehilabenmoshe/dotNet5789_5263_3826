@@ -191,9 +191,10 @@ internal class BoCart : IBoCart
         order.CustomerEmail = cart.CustomerEmail;
         order.CustomerAddress = cart.CustomerAddress;
         //set dates:
-        order.ShipDate = DateTime.MinValue;
-        order.DeliveryDate = DateTime.MinValue;
         order.OrderDate = DateTime.Now;
+        order.ShipDate = null; //נשלח
+        order.DeliveryDate = null; //סופק
+       
 
         //order.ID = rand.Next(100) * 10;
 

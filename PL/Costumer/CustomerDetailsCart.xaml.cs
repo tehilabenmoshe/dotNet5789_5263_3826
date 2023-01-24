@@ -38,6 +38,7 @@ namespace PL.Costumer
             try{
                 bl!.cart.MakeCart(tempCart); //insert the cart to the order
                 MessageBox.Show("The order was successfully placed!");
+
             }
             catch (Exception ex) {
                 MessageBox.Show("ERROR");

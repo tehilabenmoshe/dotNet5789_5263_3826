@@ -1,7 +1,5 @@
-﻿using MaterialDesignThemes.Wpf;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +9,15 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.ComponentModel;
+using System.Threading;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using Microsoft.VisualBasic;
+using BO;
+using DO;
+
 
 namespace PL.Manager
 {
@@ -22,14 +27,112 @@ namespace PL.Manager
     public partial class Simulator : Window
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
-        BO.OrderTracking orderTrack=new BO.OrderTracking();
-        ObservableCollection<BO.Order> order = new();
+      //  BO.OrderTracking orderTrack=new BO.OrderTracking();
+        ObservableCollection<OrderForList> orderForList = new();
+        DateTime time = DateTime.Now;
+        BackgroundWorker? worker;
+
         public Simulator()
         {
             InitializeComponent();
-            orderTrack = bl.Order.TrackOrder((int)order.);
+            AddOrderItemList(bl.Order.getOrderForList());
+            OrderlistView.DataContext = orderForList;
+
+            worker = new BackgroundWorker();
+            worker.DoWork += Worker_DoWork;
+            worker.ProgressChanged += Worker_ProgressChanged;
+            worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+
+            worker.WorkerReportsProgress = true;
+            worker.WorkerSupportsCancellation = true;//suppot cancellation
+        }
+
+        private void Worker_DoWork(object? sender, DoWorkEventArgs e)
+        {
+
+            while (true)
+            {
+
             
-            OrderlistView.DataContext = orders;
+                if(worker?.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                else
+                {
+                    if (worker!.WorkerReportsProgress! == true)
+                    {
+                        time =time.AddHours(8);
+                        Thread.Sleep(3000);
+                        worker.ReportProgress(4);
+                    }
+
+                }
+            }
+        }
+
+        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e) //event while there is a change
+        {
+            AddOrderItemList(bl!.Order.getOrderForList());
+
+            foreach (OrderForList order in orderForList)
+            {
+                if (order.Status == BO.OrderStatus.approved)
+                {
+                    DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).OrderDate!;
+                    orderDateTime = orderDateTime.AddDays(3);
+                    if (orderDateTime <= time)
+                    {
+                        order.Status = BO.OrderStatus.sent;
+                        bl.Order.UpdateShipOrder((int)order.ID);
+                        break;
+                    }
+                }
+                else if (order.Status == BO.OrderStatus.sent)
+                {
+                    // BO.Order o = bl.Order.GetOrder((int)order.ID);
+                    DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).ShipDate!;
+                    orderDateTime = orderDateTime.AddDays(4);
+                    if (orderDateTime <= time)
+                    {
+                        order.Status = BO.OrderStatus.provided;
+                        bl.Order.UpdateProvisionOrder((int)order.ID);
+                        break;
+                    }
+                }
+            }
+        }
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) //event while do-work end
+        {
+            MessageBox.Show("Delayed simulator");
+        }
+
+        private void AddOrderItemList(IEnumerable<BO.OrderForList> orderToCopy) //copy the items list from order to the items list above
+        {
+            var list = (from o in orderToCopy
+                                select new OrderForList
+                                {
+                                    ID = o.ID,
+                                    CustomerName = o.CustomerName,
+                                    Status = o.Status,
+                                    AmountOfItems = o.AmountOfItems,
+                                    TotalPrice = o.TotalPrice,
+                                }).ToList();
+
+            orderForList.Clear();
+            foreach (var temp in list)
+                orderForList.Add(temp);
+        }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            worker!.RunWorkerAsync();//start running the simulator
+        }
+
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+            worker?.CancelAsync();
         }
     }
 }

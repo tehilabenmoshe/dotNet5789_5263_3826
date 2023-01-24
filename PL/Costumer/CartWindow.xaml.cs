@@ -60,7 +60,9 @@ namespace PL.Costumer
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CustomerDetailsCart c = new CustomerDetailsCart(myCart);
+            BO.Cart temp = myCart;
+            myCart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
+            CustomerDetailsCart c = new CustomerDetailsCart(temp);
             c.Show();
 
            

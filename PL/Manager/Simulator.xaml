@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="Simulator" Height="550" Width="800">
     <Grid>
-        <Label Content="LIVE ORDER TRACKING" HorizontalAlignment="Left" Margin="199,35,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontWeight="Bold" FontSize="36"/>
+        <Label Content="LIVE ORDER TRACKING" HorizontalAlignment="Left" Margin="199,49,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontWeight="Bold" FontSize="36"/>
 
         <ListView x:Name="OrderlistView" d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding}" Margin="0,115,0,0" BorderBrush="#FF090909" FontFamily="Ploni 1.1 AAA" Background="#FFF9DBDB" VerticalAlignment="Top" HorizontalAlignment="Center" Width="672">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Order Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=ID}" Header="ID" Width="80"/>
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=CustomerName}" Header="Customer Name" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Path=OrderStatus}" Header="Order Status" Width="110"/>
+                    <GridViewColumn DisplayMemberBinding ="{Binding Path=Status}" Header="Status" Width="110"/>
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=AmountOfItems}" Header="Amount Of Items" Width="160"/>
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=TotalPrice}" Header="Total Price" Width="130"/>
 
@@ -24,10 +24,10 @@
 
 
 
-        <Button x:Name="Stop" Style="{StaticResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="380,374,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" BorderBrush="{x:Null}" Background="#FFCBC2DC" Height="45" Foreground="#FFF45180">
+        <Button x:Name="Stop" Style="{StaticResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="380,374,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" BorderBrush="{x:Null}" Background="#FFCBC2DC" Height="45" Foreground="#FFF45180" Click="Stop_Click">
             <materialDesign:PackIcon Kind="StopCircle" Height="36" Width="46" VerticalAlignment="Center"/>
         </Button>
-        <Button x:Name="Start" Style="{StaticResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="338,373,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" BorderBrush="{x:Null}" Background="#FFCBC2DC" Height="47">
+        <Button x:Name="Start" Style="{StaticResource MaterialDesignToolForegroundButton}" HorizontalAlignment="Left" Margin="338,373,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" BorderBrush="{x:Null}" Background="#FFCBC2DC" Height="47" Click="Start_Click">
             <materialDesign:PackIcon Kind="PlayCircleFilled" Height="37" Width="42" Foreground="#FF43D79C" VerticalAlignment="Center"/>
         </Button>
     </Grid>
