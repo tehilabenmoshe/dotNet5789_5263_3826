@@ -1,31 +1,369 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <products>
-  <product>
-    <ID>100000</ID>
-    <Name>Oak rocking chair</Name>
-    <Category>garden</Category>
-    <Price>10</Price>
-    <InStock>20</InStock>
-  </product>
-  <product>
-    <Category>livingRoom</Category>
-    <Name>Leather sofa</Name>
-    <Price>4500</Price>
-    <ID>100002</ID>
-    <InStock>12</InStock>
-  </product>
-  <Product>
-    <ID>100001</ID>
-    <Name>Double oak bed</Name>
-    <Price>5600</Price>
-    <Category>bedRoom</Category>
-    <InStock>14</InStock>
-  </Product>
-  <Product>
-    <ID>100003</ID>
-    <Name>White wood table</Name>
-    <Price>5768</Price>
-    <Category>kitchen</Category>
-    <InStock>7</InStock>
-  </Product>
-</products>
+	<product>
+		<ID>100000</ID>
+		<Name>Oak Rocking Chair</Name>
+		<Price>10</Price>
+		<Category>garden</Category>
+		<InStock>20</InStock>
+	</product>
+	<product>
+		<ID>100002</ID>
+		<Name>Leather Sofa</Name>
+		<Price>4500</Price>
+		<Category>livingRoom</Category>
+		<InStock>12</InStock>
+	</product>
+	<Product>
+		<ID>100003</ID>
+		<Name>White Wood Table</Name>
+		<Price>5768</Price>
+		<Category>kitchen</Category>
+		<InStock>7</InStock>
+	</Product>
+	<Product>
+		<ID>100001</ID>
+		<Name>Double Oak Bed</Name>
+		<Price>5600</Price>
+		<Category>bedRoom</Category>
+		<InStock>19</InStock>
+	</Product>
+	<Product>
+		<ID>100004</ID>
+		<Name>Marble Bar Table</Name>
+		<Price>4300</Price>
+		<Category>kitchen</Category>
+		<InStock>15</InStock>
+	</Product>
+	<Product>
+		<ID>100005</ID>
+		<Name>Arc Floor Lamp</Name>
+		<Price>1090</Price>
+		<Category>diningRoom</Category>
+		<InStock>78</InStock>
+	</Product>
+	<Product>
+		<ID>100006</ID>
+		<Name>Rectangular Wooden Bench</Name>
+		<Price>300</Price>
+		<Category>garden</Category>
+		<InStock>80</InStock>
+	</Product>
+	<Product>
+		<ID>100007</ID>
+		<Name>Corduroy Sofa</Name>
+		<Price>3690</Price>
+		<Category>livingRoom</Category>
+		<InStock>71</InStock>
+	</Product>
+	<Product>
+		<ID>100008</ID>
+		<Name>Single Oak Bed</Name>
+		<Price>2100</Price>
+		<Category>bedRoom</Category>
+		<InStock>64</InStock>
+	</Product>
+	<Product>
+		<ID>100009</ID>
+		<Name>Transparent Plastic Bar Stool</Name>
+		<Price>230</Price>
+		<Category>kitchen</Category>
+		<InStock>56</InStock>
+	</Product>
+	<Product>
+		<ID>100010</ID>
+		<Name>Round cherry Wood Dining Table</Name>
+		<Price>3900</Price>
+		<Category>diningRoom</Category>
+		<InStock>15</InStock>
+	</Product>
+
+	<Product>
+		<ID>100011</ID>
+		<Name>Garden Bench</Name>
+		<Price>410</Price>
+		<Category>garden</Category>
+		<InStock>9</InStock>
+	</Product>
+	<Product>
+		<ID>100012</ID>
+		<Name>Kitchen Island</Name>
+		<Price>6900</Price>
+		<Category>kitchen</Category>
+		<InStock>24</InStock>
+	</Product>
+	<Product>
+		<ID>100013</ID>
+		<Name>Zamsh Sofa</Name>
+		<Price>4569</Price>
+		<Category>livingRoom</Category>
+		<InStock>18</InStock>
+	</Product>
+	<Product>
+		<ID>100014</ID>
+		<Name>Vintage Closet</Name>
+		<Price>3999</Price>
+		<Category>bedRoom</Category>
+		<InStock>6</InStock>
+	</Product>
+	<Product>
+		<ID>100015</ID>
+		<Name>Mini Round Dining Table</Name>
+		<Price>350</Price>
+		<Category>diningRoom</Category>
+		<InStock>3</InStock>
+	</Product>
+	<Product>
+		<ID>100016</ID>
+		<Name>Outdoor Lounge chair</Name>
+		<Price>200</Price>
+		<Category>garden</Category>
+		<InStock>57</InStock>
+	</Product>
+	<Product>
+		<ID>100017</ID>
+		<Name>TV Couch</Name>
+		<Price>580</Price>
+		<Category>kitchen</Category>
+		<InStock>102</InStock>
+	</Product>
+	<Product>
+		<ID>100018</ID>
+		<Name>Wood Coffee Table </Name>
+		<Price>298</Price>
+		<Category>livingRoom</Category>
+		<InStock>50</InStock>
+	</Product>
+	<Product>
+		<ID>100019</ID>
+		<Name>King Size Bamboo Bed</Name>
+		<Price>300</Price>
+		<Category>bedRoom</Category>
+		<InStock>21</InStock>
+	</Product>
+	<Product>
+		<ID>100020</ID>
+		<Name>Garden Table</Name>
+		<Price>420</Price>
+		<Category>garden</Category>
+		<InStock>7</InStock>
+	</Product>
+
+	<Product>
+		<ID>100021</ID>
+		<Name>Kitchen Cabinet</Name>
+		<Price>800</Price>
+		<Category>kitchen</Category>
+		<InStock>5</InStock>
+	</Product>
+	<Product>
+		<ID>100022</ID>
+		<Name>Armchair</Name>
+		<Price>450</Price>
+		<Category>livingRoom</Category>
+		<InStock>12</InStock>
+	</Product>
+	<Product>
+		<ID>100023</ID>
+		<Name>Bedroom Carpet</Name>
+		<Price>400</Price>
+		<Category>bedRoom</Category>
+		<InStock>8</InStock>
+	</Product>
+	<Product>
+		<ID>100024</ID>
+		<Name>Dining Room Buffet</Name>
+		<Price>650</Price>
+		<Category>diningRoom</Category>
+		<InStock>15</InStock>
+	</Product>
+	<Product>
+		<ID>100025</ID>
+		<Name>Garden Seating Area</Name>
+		<Price>4500</Price>
+		<Category>garden</Category>
+		<InStock>6</InStock>
+	</Product>
+	<Product>
+		<ID>100026</ID>
+		<Name>Utensil Cabinet</Name>
+		<Price>1000</Price>
+		<Category>kitchen</Category>
+		<InStock>9</InStock>
+	</Product>
+	<Product>
+		<ID>100027</ID>
+		<Name>Linen curtain</Name>
+		<Price>150</Price>
+		<Category>livingRoom</Category>
+		<InStock>4</InStock>
+	</Product>
+	<Product>
+		<ID>100028</ID>
+		<Name>Bedroom Dresser</Name>
+		<Price>450</Price>
+		<Category>bedRoom</Category>
+		<InStock>11</InStock>
+	</Product>
+	<Product>
+		<ID>100029</ID>
+		<Name>Dining Room China Cabinet</Name>
+		<Price>650</Price>
+		<Category>diningRoom</Category>
+		<InStock>13</InStock>
+	</Product>
+	<Product>
+		<ID>100030</ID>
+		<Name> Gazebo</Name>
+		<Price>800</Price>
+		<Category>garden</Category>
+		<InStock>10</InStock>
+	</Product>
+	<Product>
+		<ID>100031</ID>
+		<Name>Garden Swing</Name>
+		<Price>250</Price>
+		<Category>garden</Category>
+		<InStock>5</InStock>
+	</Product>
+	<Product>
+		<ID>1000432</ID>
+		<Name>Living Room Ottoman</Name>
+		<Price>120</Price>
+		<Category>livingRoom</Category>
+		<InStock>8</InStock>
+	</Product>
+	<Product>
+		<ID>100033</ID>
+		<Name>Bedroom Comforter</Name>
+		<Price>50</Price>
+		<Category>bedRoom</Category>
+		<InStock>15</InStock>
+	</Product>
+	<Product>
+		<ID>100034</ID>
+		<Name>Dining Room Hutch</Name>
+		<Price>450</Price>
+		<Category>diningRoom</Category>
+		<InStock>3</InStock>
+	</Product>
+
+	<Product>
+		<ID>100035</ID>
+		<Name>Dining Room Table</Name>
+		<Price>550</Price>
+		<Category>dining room</Category>
+		<InStock>4</InStock>
+	</Product>
+	<Product>
+		<ID>100036</ID>
+		<Name>Garden Chair</Name>
+		<Price>120</Price>
+		<Category>garden</Category>
+		<InStock>15</InStock>
+	</Product>
+	<Product>
+		<ID>100037</ID>
+		<Name>Kitchen Stool</Name>
+		<Price>70</Price>
+		<Category>kitchen</Category>
+		<InStock>10</InStock>
+	</Product>
+	<Product>
+		<ID>100038</ID>
+		<Name>Living Room Lamp</Name>
+		<Price>50</Price>
+		<Category>living room</Category>
+		<InStock>20</InStock>
+	</Product>
+	<Product>
+		<ID>100039</ID>
+		<Name>Bedroom Nightstand</Name>
+		<Price>80</Price>
+		<Category>bedroom</Category>
+		<InStock>12</InStock>
+	</Product>
+	<Product>
+		<ID>100040</ID>
+		<Name>Dining Room Buffet</Name>
+		<Price>400</Price>
+		<Category>dining room</Category>
+		<InStock>2</InStock>
+	</Product>
+	<Product>
+		<ID>100041</ID>
+		<Name>Garden Swing</Name>
+		<Price>250</Price>
+		<Category>garden</Category>
+		<InStock>5</InStock>
+	</Product>
+	<Product>
+		<ID>100042</ID>
+		<Name>Kitchen Cabinet</Name>
+		<Price>450</Price>
+		<Category>kitchen</Category>
+		<InStock>7</InStock>
+	</Product>
+	<Product>
+		<ID>100043</ID>
+		<Name>Living Room Rug</Name>
+		<Price>80</Price>
+		<Category>living room</Category>
+		<InStock>15</InStock>
+	</Product>
+	<Product>
+		<ID>100044</ID>
+		<Name>China Hutch</Name>
+		<Price>800</Price>
+		<Category>dining room</Category>
+		<InStock>5</InStock>
+	</Product>
+	<Product>
+		<ID>100045</ID>
+		<Name>Buffet Server</Name>
+		<Price>450</Price>
+		<Category>dining room</Category>
+		<InStock>7</InStock>
+	</Product>
+	<Product>
+		<ID>100046</ID>
+		<Name>Dining Room Credenza</Name>
+		<Price>350</Price>
+		<Category>dining room</Category>
+		<InStock>4</InStock>
+	</Product>
+	<Product>
+		<ID>100047</ID>
+		<Name>Dining Room Sideboard</Name>
+		<Price>450</Price>
+		<Category>dining room</Category>
+		<InStock>2</InStock>
+	</Product>
+	<Product>
+		<ID>100048</ID>
+		<Name>Dining Room Hutch</Name>
+		<Price>550</Price>
+		<Category>dining room</Category>
+		<InStock>1</InStock>
+	</Product>
+	<Product>
+		<ID>100049</ID>
+		<Name>Dining Room Cart</Name>
+		<Price>150</Price>
+		<Category>dining room</Category>
+		<InStock>10</InStock>
+	</Product>
+	<Product>
+		<ID>100050</ID>
+		<Name>Dining Room Bench</Name>
+		<Price>200</Price>
+		<Category>dining room</Category>
+		<InStock>8</InStock>
+	</Product>
+	<Product>
+		<ID>100051</ID>
+		<Name>Dining Room Stools</Name>
+		<Price>100</Price>
+		<Category>dining room</Category>
+		<InStock>15</InStock>
+	</Product>
