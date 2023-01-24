@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="LIVE ORDER TRACKING" HorizontalAlignment="Left" Margin="199,49,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontWeight="Bold" FontSize="36"/>
 
-        <ListView x:Name="OrderlistView" d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding}" Margin="0,115,0,0" BorderBrush="#FF090909" FontFamily="Ploni 1.1 AAA" Background="#FFF9DBDB" VerticalAlignment="Top" HorizontalAlignment="Center" Width="672">
+        <ListView x:Name="OrderlistView" d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding}" Margin="0,115,0,0" BorderBrush="#FF090909" FontFamily="Ploni 1.1 AAA" Background="#FFF9DBDB" VerticalAlignment="Top" HorizontalAlignment="Center" Width="672" SelectionChanged="OrderlistView_SelectionChanged">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Order Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=ID}" Header="ID" Width="80"/>

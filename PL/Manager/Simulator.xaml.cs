@@ -134,5 +134,11 @@ namespace PL.Manager
         {
             worker?.CancelAsync();
         }
+
+        private void OrderlistView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            OrderTrackSimulator o=new OrderTrackSimulator((BO.OrderForList)OrderlistView.SelectedItem);
+            o.ShowDialog(); 
+        }
     }
 }

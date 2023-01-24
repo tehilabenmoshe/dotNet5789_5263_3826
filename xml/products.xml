@@ -15,13 +15,6 @@
     <InStock>15</InStock>
   </Product>
   <Product>
-    <ID>100005</ID>
-    <Name>Arc Floor Lamp</Name>
-    <Price>1090</Price>
-    <Category>diningRoom</Category>
-    <InStock>78</InStock>
-  </Product>
-  <Product>
     <ID>100007</ID>
     <Name>Corduroy Sofa</Name>
     <Price>3690</Price>
@@ -361,5 +354,12 @@
     <Price>300</Price>
     <Category>garden</Category>
     <InStock>78</InStock>
+  </Product>
+  <Product>
+    <ID>100005</ID>
+    <Name>Arc Floor Lamp</Name>
+    <Price>1090</Price>
+    <Category>diningRoom</Category>
+    <InStock>77</InStock>
   </Product>
 </products>

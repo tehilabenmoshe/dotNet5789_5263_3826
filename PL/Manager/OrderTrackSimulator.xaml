@@ -1,0 +1,15 @@
+﻿<Window x:Class="PL.Manager.OrderTrackSimulator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.Manager"
+        mc:Ignorable="d"
+        Title="OrderTrackSimulator" Height="250" Width="250">
+    <Grid>
+        <Label Content="Order Details:" HorizontalAlignment="Left" Margin="19,18,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontWeight="Bold" FontSize="14"/>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="24,64,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="24,84,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA"/>
+
+    </Grid>
+</Window>
