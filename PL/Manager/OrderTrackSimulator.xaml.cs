@@ -19,9 +19,25 @@ namespace PL.Manager
     /// </summary>
     public partial class OrderTrackSimulator : Window
     {
-        public OrderTrackSimulator(BO.OrderForList o)
+        BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
+        BO.OrderTracking orderTrack=new BO.OrderTracking();
+        public OrderTrackSimulator(BO.OrderForList? o=null)
         {
             InitializeComponent();
+
+            if (o != null) {
+                orderTrack = bl.Order.TrackOrder(o.ID);
+                DataContext = o;
+
+                //o.Tracking
+
+
+
+                string s = "";
+                foreach (var or in orderTrack.Tracking!)
+                    s += (or.ToString()) + "\n";
+                DeliveryDateBox.Text = s;
+            } 
         }
     }
 }

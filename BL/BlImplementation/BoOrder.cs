@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlApi;
 using BO;
+using DalApi;
 //using DalApi;
 
 namespace BlImplementation;
@@ -48,16 +49,16 @@ internal class BoOrder : IBoOrder
         
         if(o.ShipDate == o.DeliveryDate)//if the both dates are the same- the order dosent yet-only approved
         {
-            s = BO.OrderStatus.approved;
+            s = BO.OrderStatus.ordered;
         }
         else
         {
             if (o.ShipDate > o.DeliveryDate) //if the order didnt provided yet
             {
-                s = BO.OrderStatus.sent;
+                s = BO.OrderStatus.shipped;
             }
             else
-                s = BO.OrderStatus.provided;
+                s = BO.OrderStatus.delivered;
         }
         
 
@@ -147,12 +148,12 @@ internal class BoOrder : IBoOrder
         DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("rder doesnt exists");
         order=DoOrderToBo(temp); //casting from bo to do  
 
-        if(order.Status!=BO.OrderStatus.sent) //of the order isnt sent yet
+        if(order.Status!=BO.OrderStatus.shipped) //of the order isnt sent yet
         {
-            order.Status = BO.OrderStatus.sent; //update the status to sent 
+            order.Status = BO.OrderStatus.shipped; //update the status to sent 
             order.ShipDate = DateTime.Now;//update the ship date in bo
             temp.ShipDate = order.ShipDate;//update the ship date in do
-            order.Status = BO.OrderStatus.sent; //update the status
+            order.Status = BO.OrderStatus.shipped; //update the status
         }
         return order;
     }
@@ -164,12 +165,12 @@ internal class BoOrder : IBoOrder
         DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
         order = DoOrderToBo(temp); //casting from bo to do
         
-        if(order.Status != BO.OrderStatus.provided)
+        if(order.Status != BO.OrderStatus.delivered)
         {
-            order.Status = BO.OrderStatus.provided; //update the status to provided
+            order.Status = BO.OrderStatus.delivered; //update the status to provided
             order.DeliveryDate = DateTime.Now;//update the DeliveryDate date in bo
             temp.DeliveryDate = DateTime.Now;//update the DeliveryDate date in do
-            order.Status = BO.OrderStatus.provided; //update the status
+            order.Status = BO.OrderStatus.delivered; //update the status
         }
         return order;
 
@@ -178,23 +179,71 @@ internal class BoOrder : IBoOrder
     {
         if ((ID < 1000) || (ID > 9999))//check the id
             throw new BO.InvalidInputExeption("Id is out of range");
-        try 
-        { 
-            BO.Order order = new BO.Order();
-            DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
-            order = DoOrderToBo(temp); //casting from bo to do
-            BO.OrderTracking ot = new BO.OrderTracking();
-            ot.ID = ID;
-            ot.Status = getStatus(order);
-            return ot;
-        }
-        catch (DO.DoesntExistExeption exp)
+
+        try
         {
-            throw new BO.DoesntExistException(exp.Message, exp); 
+            DO.Order order = Dal!.Order.GetById(ID); // order gy id from DO
+            List<Tuple<DateTime?, string>>? TrackList = new List<Tuple<DateTime?, string>>();// create the list
+
+            if (order.OrderDate != null)
+            {
+                TrackList.Add(Tuple.Create(order.OrderDate, "Ordered"));
+                if (order.ShipDate != null)
+                {
+                    TrackList.Add(Tuple.Create(order.ShipDate, " Shipped"));
+                    if (order.DeliveryDate != null)
+                    {
+                        TrackList.Add(Tuple.Create(order.DeliveryDate, "Delivered"));
+                    }
+                }
+            }
+            BO.OrderTracking orderTracking = new BO.OrderTracking()
+            {
+                ID = order.ID,
+                Status = BlApi.Tools.GetStatus(order),
+                Tracking = TrackList
+            };
+            return orderTracking;
+        }
+        catch (DO.DoesntExistExeption ex)
+        {
+            throw new BO.DoesntExistException(ex.Message, ex);
         }
 
 
-       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //try 
+        //{ 
+        //    BO.Order order = new BO.Order();
+        //    DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
+        //    order = DoOrderToBo(temp); //casting from bo to do
+        //    BO.OrderTracking ot = new BO.OrderTracking();
+        //    ot.ID = ID;
+        //    ot.Status = getStatus(order);
+        //    return ot;
+        //}
+        //catch (DO.DoesntExistExeption exp)
+        //{
+        //    throw new BO.DoesntExistException(exp.Message, exp); 
+        //}
+
+
+
     }
 
 

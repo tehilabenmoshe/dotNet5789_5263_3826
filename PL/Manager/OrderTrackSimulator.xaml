@@ -8,8 +8,13 @@
         Title="OrderTrackSimulator" Height="250" Width="250">
     <Grid>
         <Label Content="Order Details:" HorizontalAlignment="Left" Margin="19,18,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontWeight="Bold" FontSize="14"/>
-        <Label Content="ID:" HorizontalAlignment="Left" Margin="24,64,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA"/>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="24,59,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="11"/>
         <Label Content="" HorizontalAlignment="Left" Margin="24,84,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA"/>
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="24,91,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="11"/>
+
+        <TextBox x:Name="IdBox" Text="{Binding ID}" HorizontalAlignment="Left"  Margin="45,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="66" Height="20" FontSize="10" FontFamily="Ploni 1.1 AAA"/>
+        <TextBox x:Name="OrderDateBox"  Text="{Binding Status}" HorizontalAlignment="Left" Margin="71,88,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="66" Height="20" FontSize="10" FontFamily="Ploni 1.1 AAA"/>
+        <TextBox x:Name="DeliveryDateBox" HorizontalAlignment="Left" Margin="19,117,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="195" Height="92" FontSize="10" FontFamily="Ploni 1.1 AAA"/>
 
     </Grid>
 </Window>

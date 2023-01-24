@@ -31,16 +31,16 @@ namespace PL.Manager
         ObservableCollection<OrderForList> orderForList = new();
         DateTime time = DateTime.Now;
         BackgroundWorker? worker;
-
+        bool flag = true; //true=not end
         public Simulator()
         {
             InitializeComponent();
             AddOrderItemList(bl.Order.getOrderForList());
-            OrderlistView.DataContext = orderForList;
+            DataContext = orderForList;
 
             worker = new BackgroundWorker();
             worker.DoWork += Worker_DoWork;
-            worker.ProgressChanged += Worker_ProgressChanged;
+            worker.ProgressChanged += Worker_ProgressChanged!;
             worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
 
             worker.WorkerReportsProgress = true;
@@ -50,21 +50,21 @@ namespace PL.Manager
         private void Worker_DoWork(object? sender, DoWorkEventArgs e)
         {
 
-            while (true)
+            while (flag)
             {
 
             
                 if(worker?.CancellationPending == true)
                 {
                     e.Cancel = true;
-                    return;
+                    break;
                 }
                 else
                 {
                     if (worker!.WorkerReportsProgress! == true)
                     {
                         time =time.AddHours(8);
-                        Thread.Sleep(3000);
+                        Thread.Sleep(2000);
                         worker.ReportProgress(4);
                     }
 
@@ -78,25 +78,25 @@ namespace PL.Manager
 
             foreach (OrderForList order in orderForList)
             {
-                if (order.Status == BO.OrderStatus.approved)
+                if (order.Status == BO.OrderStatus.ordered)
                 {
                     DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).OrderDate!;
                     orderDateTime = orderDateTime.AddDays(3);
                     if (orderDateTime <= time)
                     {
-                        order.Status = BO.OrderStatus.sent;
+                        order.Status = BO.OrderStatus.shipped;
                         bl.Order.UpdateShipOrder((int)order.ID);
                         break;
                     }
                 }
-                else if (order.Status == BO.OrderStatus.sent)
+                else if (order.Status == BO.OrderStatus.shipped)
                 {
                     // BO.Order o = bl.Order.GetOrder((int)order.ID);
                     DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).ShipDate!;
                     orderDateTime = orderDateTime.AddDays(4);
                     if (orderDateTime <= time)
                     {
-                        order.Status = BO.OrderStatus.provided;
+                        order.Status = BO.OrderStatus.delivered;
                         bl.Order.UpdateProvisionOrder((int)order.ID);
                         break;
                     }
@@ -128,11 +128,15 @@ namespace PL.Manager
         private void Start_Click(object sender, RoutedEventArgs e)
         {
             worker!.RunWorkerAsync();//start running the simulator
+            Start.IsEnabled = false;
+            Stop.IsEnabled = true;
         }
 
         private void Stop_Click(object sender, RoutedEventArgs e)
         {
             worker?.CancelAsync();
+            Start.IsEnabled = true;
+            Stop.IsEnabled = false;
         }
 
         private void OrderlistView_SelectionChanged(object sender, SelectionChangedEventArgs e)

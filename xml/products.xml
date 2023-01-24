@@ -309,29 +309,17 @@
     <InStock>18</InStock>
   </Product>
   <Product>
-    <ID>100003</ID>
-    <Name>White Wood Table</Name>
-    <Price>5768</Price>
-    <Category>kitchen</Category>
-    <InStock>6</InStock>
-  </Product>
-  <Product>
-    <ID>100008</ID>
-    <Name>Single Oak Bed</Name>
-    <Price>2100</Price>
-    <Category>bedRoom</Category>
-    <InStock>62</InStock>
-  </Product>
-  <Product>
     <ID>100048</ID>
     <Name>Dining Room Hutch</Name>
     <Price>550</Price>
+	<Category>diningRoom</Category>
     <InStock>-1</InStock>
   </Product>
   <Product>
     <ID>100051</ID>
     <Name>Dining Room Stools</Name>
     <Price>100</Price>
+    <Category>diningRoom</Category>
     <InStock>14</InStock>
   </Product>
   <Product>
@@ -361,5 +349,19 @@
     <Price>1090</Price>
     <Category>diningRoom</Category>
     <InStock>77</InStock>
+  </Product>
+  <Product>
+    <ID>100003</ID>
+    <Name>White Wood Table</Name>
+    <Price>5768</Price>
+    <Category>kitchen</Category>
+    <InStock>5</InStock>
+  </Product>
+  <Product>
+    <ID>100008</ID>
+    <Name>Single Oak Bed</Name>
+    <Price>2100</Price>
+    <Category>bedRoom</Category>
+    <InStock>61</InStock>
   </Product>
 </products>
