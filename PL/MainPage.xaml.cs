@@ -49,5 +49,11 @@ namespace PL
             MainManagerPage2 m = new MainManagerPage2(frame);
             frame.Content = m;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PasswordWindow p = new PasswordWindow();  
+            p.ShowDialog();
+        }
     }
 }

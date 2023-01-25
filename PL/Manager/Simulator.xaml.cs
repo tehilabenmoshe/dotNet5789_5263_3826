@@ -29,18 +29,20 @@ namespace PL.Manager
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
       //  BO.OrderTracking orderTrack=new BO.OrderTracking();
         ObservableCollection<OrderForList> orderForList = new();
+        ObservableCollection<BO.Order> orderForList = new();
         DateTime time = DateTime.Now;
         BackgroundWorker? worker;
-
+        bool flag = true; //true=not end
+        
         public Simulator()
         {
             InitializeComponent();
             AddOrderItemList(bl.Order.getOrderForList());
-            OrderlistView.DataContext = orderForList;
+            DataContext = orderForList;
 
             worker = new BackgroundWorker();
             worker.DoWork += Worker_DoWork;
-            worker.ProgressChanged += Worker_ProgressChanged;
+            worker.ProgressChanged += Worker_ProgressChanged!;
             worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
 
             worker.WorkerReportsProgress = true;
@@ -50,21 +52,22 @@ namespace PL.Manager
         private void Worker_DoWork(object? sender, DoWorkEventArgs e)
         {
 
-            while (true)
+            while (flag)
             {
 
             
                 if(worker?.CancellationPending == true)
                 {
                     e.Cancel = true;
-                    return;
+                    break;
                 }
                 else
                 {
+                    
                     if (worker!.WorkerReportsProgress! == true)
                     {
-                        time =time.AddHours(8);
-                        Thread.Sleep(3000);
+                        time=time.AddSeconds(5);
+                        Thread.Sleep(500);
                         worker.ReportProgress(4);
                     }
 
@@ -74,65 +77,99 @@ namespace PL.Manager
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e) //event while there is a change
         {
-            AddOrderItemList(bl!.Order.getOrderForList());
+            if (orderForList == null) 
+                 AddOrderItemList(bl!.Order.getOrderForList());
 
+            bool IsDelivered = true;
             foreach (OrderForList order in orderForList)
             {
-                if (order.Status == BO.OrderStatus.approved)
+                if (order.Status == BO.OrderStatus.ordered)
                 {
+                    IsDelivered=false;
                     DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).OrderDate!;
-                    orderDateTime = orderDateTime.AddDays(3);
+                    orderDateTime = orderDateTime.AddHours(1);
                     if (orderDateTime <= time)
                     {
-                        order.Status = BO.OrderStatus.sent;
+                        order.Status = BO.OrderStatus.shipped;
                         bl.Order.UpdateShipOrder((int)order.ID);
-                        break;
+                        
                     }
                 }
-                else if (order.Status == BO.OrderStatus.sent)
+                else if (order.Status == BO.OrderStatus.shipped)
                 {
+                    IsDelivered = false;
                     // BO.Order o = bl.Order.GetOrder((int)order.ID);
-                    DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).ShipDate!;
-                    orderDateTime = orderDateTime.AddDays(4);
+                     DateTime orderDateTime = bl.Order.TrackOrder(order.ID!);
+                    //DateTime orderDateTime=orderDateTime.AddMinutes(50);
+                 //   orderDateTime = orderDateTime.AddMinutes(50);
                     if (orderDateTime <= time)
                     {
-                        order.Status = BO.OrderStatus.provided;
+                        order.Status = BO.OrderStatus.delivered;
                         bl.Order.UpdateProvisionOrder((int)order.ID);
-                        break;
+                        
+                        
                     }
                 }
+
+                if (IsDelivered)
+                    flag = false;
             }
+       
+        ///
+        
+        
         }
+
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) //event while do-work end
         {
-            MessageBox.Show("Delayed simulator");
+            //MessageBox.Show("Delayed simulator");
+
+
+            if (e.Cancelled == true)
+                MessageBox.Show("Delayed Simulator");
+            else if (flag == false)
+            {
+                Stop.IsEnabled = false;
+                Start.IsEnabled = true;
+                MessageBox.Show("End Simulator");
+            }
         }
 
         private void AddOrderItemList(IEnumerable<BO.OrderForList> orderToCopy) //copy the items list from order to the items list above
         {
             var list = (from o in orderToCopy
-                                select new OrderForList
-                                {
-                                    ID = o.ID,
-                                    CustomerName = o.CustomerName,
-                                    Status = o.Status,
-                                    AmountOfItems = o.AmountOfItems,
-                                    TotalPrice = o.TotalPrice,
-                                }).ToList();
+                        select new BO.OrderForList
+                        {
+                            ID = o.ID,
+                            CustomerName = o.CustomerName,
+                            Status = o.Status,
+                            AmountOfItems = o.AmountOfItems,
+                            TotalPrice = o.TotalPrice,
+                        }).ToList();
 
             orderForList.Clear();
             foreach (var temp in list)
                 orderForList.Add(temp);
+
+
+            //orderForList.Clear();
+            //foreach (var temp in orderToCopy)
+            // orderForList.Add(temp);
+
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
             worker!.RunWorkerAsync();//start running the simulator
+            Start.IsEnabled = false;
+            Stop.IsEnabled = true;
         }
 
         private void Stop_Click(object sender, RoutedEventArgs e)
         {
             worker?.CancelAsync();
+            Start.IsEnabled = true;
+            Stop.IsEnabled = false;
         }
 
         private void OrderlistView_SelectionChanged(object sender, SelectionChangedEventArgs e)

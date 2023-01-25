@@ -10,23 +10,27 @@
 
     <Grid Background="White">
 
+        <Image HorizontalAlignment="Left" Width="1112" Source="/Costumer/green-plant-white-living-room-with-free-space (1).jpg" Margin="-312,-114,0,-32" Stretch="UniformToFill"/>
 
-        <Image HorizontalAlignment="Left" Height="777" Margin="-333,-219,0,0" VerticalAlignment="Top" Width="1169" Source="/Costumer/green-plant-white-living-room-with-free-space (1).jpg" Stretch="UniformToFill"/>
+        <Grid Margin="109,181,105,69">
+            <Grid.Background>
+                <SolidColorBrush Color="#FFFCEFEF" Opacity="0.9"/>
+            </Grid.Background>
+            <ListView x:Name="ProductItemListView"  d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ProductItemListView_SelectionChanged"  ItemsSource="{Binding}" MouseDoubleClick="ProductItemListView_MouseDoubleClick" Background="#FFF7F4EF" BorderBrush="#FF675151" FontFamily="Ploni Regular AAA" HorizontalAlignment="Center" VerticalAlignment="Top" Height="319" BorderThickness="4,4,4,4" Foreground="#FF675151" Width="586" >
+                <ListView.View>
+                    <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
+                        <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="80"/>
+                        <GridViewColumn DisplayMemberBinding ="{Binding Name}" Header="Name" Width="120"/>
+                        <GridViewColumn DisplayMemberBinding ="{Binding Price}" Header="Price" Width="80"/>
+                        <GridViewColumn DisplayMemberBinding ="{Binding Amount}" Header="Amount In Cart" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding ="{Binding InStock}" Header="In Stock" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding ="{Binding Category}" Header="Category" Width="100"/>
 
-        <ListView x:Name="ProductItemListView"  d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,176,0,0" SelectionChanged="ProductItemListView_SelectionChanged"  ItemsSource="{Binding}" MouseDoubleClick="ProductItemListView_MouseDoubleClick" Background="#FFF7F4EF" BorderBrush="#FF675151" FontFamily="Ploni Regular AAA" HorizontalAlignment="Center" VerticalAlignment="Top" Height="237" BorderThickness="4,4,4,4" Foreground="#FF675151" >
-            <ListView.View>
-                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
-                    <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="80"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Name}" Header="Name" Width="120"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Price}" Header="Price" Width="80"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Amount}" Header="Amount In Cart" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding InStock}" Header="In Stock" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Category}" Header="Category" Width="100"/>
-
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="590" Height="22" SelectionChanged="CategoryBox_SelectionChanged" BorderBrush="{x:Null}" FontFamily="Ploni Regular AAA" Background="#FFFAFAFA" IsReadOnly="True"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <ComboBox x:Name="CategoryBox" HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="590" Height="31" SelectionChanged="CategoryBox_SelectionChanged" BorderBrush="{x:Null}" FontFamily="Ploni Regular AAA" Background="#FFFAFAFA" IsReadOnly="True"/>
         <Label Content="Item Catalog" HorizontalAlignment="Left" Margin="280,58,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA D-Bold" FontSize="36" FontWeight="Bold" Height="56" Width="252" Foreground="#FF675151"/>
         <Label Content="sort by category" HorizontalAlignment="Left" Margin="109,99,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" Foreground="#FF675151"/>
         <Button x:Name="AddCart" Style="{StaticResource MaterialDesignFloatingActionSecondaryDarkButton}" Width="43"  HorizontalAlignment="Left"  Click="DeleteProduct_Click" Margin="41,0,0,473" Background="#FFEDEDED" BorderBrush="{x:Null}" BorderThickness="2,2,2,2" Height="43" VerticalAlignment="Bottom" >

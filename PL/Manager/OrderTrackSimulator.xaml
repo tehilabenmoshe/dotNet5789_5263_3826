@@ -6,10 +6,15 @@
         xmlns:local="clr-namespace:PL.Manager"
         mc:Ignorable="d"
         Title="OrderTrackSimulator" Height="250" Width="250">
-    <Grid>
-        <Label Content="Order Details:" HorizontalAlignment="Left" Margin="19,18,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontWeight="Bold" FontSize="14"/>
-        <Label Content="ID:" HorizontalAlignment="Left" Margin="24,64,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA"/>
+    <Grid Background="#FFDDCFCF">
+        <Label Content="Order Details:" HorizontalAlignment="Left" Margin="19,28,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontWeight="Bold" FontSize="14"/>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="24,59,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="11"/>
         <Label Content="" HorizontalAlignment="Left" Margin="24,84,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA"/>
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="24,91,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="11"/>
+
+        <TextBox x:Name="IdBox" Text="{Binding ID}" HorizontalAlignment="Left"  Margin="45,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="66" Height="20" FontSize="10" FontFamily="Ploni 1.1 AAA"/>
+        <TextBox x:Name="OrderDateBox"  Text="{Binding Status}" HorizontalAlignment="Left" Margin="71,88,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="66" Height="20" FontSize="10" FontFamily="Ploni 1.1 AAA"/>
+        <TextBox x:Name="DeliveryDateBox" HorizontalAlignment="Center" Margin="0,129,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="211" Height="80" FontSize="10" FontFamily="Ploni 1.1 AAA" CaretBrush="{x:Null}" BorderBrush="{x:Null}"/>
 
     </Grid>
 </Window>

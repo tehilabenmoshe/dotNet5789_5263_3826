@@ -13,11 +13,11 @@ public class DalOrder: IOrder
         Order? temp = ds.ListOrder.Find(i => i?.ID == o.ID);
         if (temp != null) //if order with the received id exists throw
             throw new AlreadyExistExeption("allready exists");
-        o.OrderDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 100L));
-        o.ShipDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 50L));
-        o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 20L));
+        //o.OrderDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 100L));
+        //o.ShipDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 50L));
+        //o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 20L));
 
-        o.ID = DataSource.Config.NextOrderNbumber;
+        o.ID = DataSource.ConfigOrder.NextOrderNumber;
         ds.ListOrder.Add(o);    //pushing the order to the list
         return o.ID; //return the id of the order
     }
@@ -48,7 +48,16 @@ public class DalOrder: IOrder
 
     public IEnumerable<Order?> GetAll(Func<Order?, bool>? filter = null)//prints all the orders in the list
     {
-        return (from Order? o in ds.ListOrder select o).ToList<Order?>();
+        // return (from Order? o in ds.ListOrder select o).ToList<Order?>();
+       
+        if (filter == null)
+            return ds.ListOrder?.ToList<Order?>() ?? throw new DO.DoesntExistExeption("רשימת ההזמנות לא חוקית");
+        return (List<Order?>)(ds.ListOrder.Where(x => filter(x)) ?? throw new DO.DoesntExistExeption("רשימת ההזמנות לא חוקית")); ;
     }
 
+
+
+
 }
+
+

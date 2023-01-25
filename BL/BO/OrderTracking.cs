@@ -23,7 +23,7 @@ public class OrderTracking
     /// </summary>
     /// <returns></returns>
 
-    public List<Tuple<DateTime, string>>? Tracking { set; get; }
+    public List<Tuple<DateTime?, string>>? Tracking { set; get; }
 
     public override string ToString() => $@"
         ID:{ID}

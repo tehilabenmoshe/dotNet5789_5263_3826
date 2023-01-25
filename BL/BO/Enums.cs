@@ -15,6 +15,6 @@ namespace BO
         /// </summary>
         public enum OrderStatus
         {
-            approved, sent, provided, none
+            ordered, shipped, delivered, none
         }   
 }

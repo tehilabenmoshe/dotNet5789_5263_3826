@@ -44,11 +44,11 @@ public static class Tools
     public static OrderStatus GetStatus(DO.Order order)
     {
         if (order.DeliveryDate != null && order.DeliveryDate < DateTime.Now)
-            return OrderStatus.provided;
+            return OrderStatus.delivered;
         else if (order.ShipDate != null && order.ShipDate < DateTime.Now)
-            return OrderStatus.sent;
+            return OrderStatus.shipped;
         else if (order.OrderDate != null && order.OrderDate < DateTime.Now)
-            return OrderStatus.approved;
+            return OrderStatus.ordered;
         else
             return OrderStatus.none;
 

@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL.Manager"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="850"
       Title="ManagerOrderListPage">
@@ -11,25 +12,44 @@
     <Grid Background="White">
 
         <Image HorizontalAlignment="Left" Height="657" VerticalAlignment="Top" Width="972" Source="/Manager/Image6.png" Stretch="UniformToFill" Margin="0,-107,0,0"/>
+        <Grid  Margin="149,148,110,61" >
+            <Grid.Background>
+                <SolidColorBrush Color="#FFE5DFD9" Opacity="0.85"/>
+            </Grid.Background>
+            <ListView x:Name="OrdersCatalog"  ItemsSource="{Binding}" MouseDoubleClick="OrdersCatalog_MouseDoubleClick" SelectionChanged="OrdersCatalog_SelectionChanged" BorderBrush="#FFD0C2B7" Padding="4,0,0,0" FontFamily="Ploni 1.1 AAA" BorderThickness="4,4,4,4" IsSynchronizedWithCurrentItem="False" Foreground="#FF64565E" Margin="10,6,0,-6" FontSize="11" >
+                <ListView.Background>
+                    <SolidColorBrush Color="#FFEBE2E2" Opacity="1"/>
+                </ListView.Background>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignGridViewItem}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding FirstName}" Value="Jhon">
+                                <Setter Property="Background" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
 
-        <ListView x:Name="OrdersCatalog" Margin="159,148,129,51"  ItemsSource="{Binding}" MouseDoubleClick="OrdersCatalog_MouseDoubleClick" SelectionChanged="OrdersCatalog_SelectionChanged" BorderBrush="#FFD0C2B7" Padding="4,0,0,0" FontFamily="Ploni 1.1 AAA" BorderThickness="4,4,4,4" IsSynchronizedWithCurrentItem="False" Foreground="#FF64565E" >
-            <ListView.View>
-                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
-                    <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding CustomerName}" Header="Customer Name" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding Status}" Header="Status" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding AmountOfItems}" Header="Amount Of Items" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding ="{Binding TotalPrice}" Header="Total Price" Width="100"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+                <ListView.View>
+
+                    <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
+                        <GridViewColumn DisplayMemberBinding ="{Binding ID}" Header="ID" Width="80"/>
+                        <GridViewColumn DisplayMemberBinding ="{Binding CustomerName}" Header="Customer Name" Width="150"/>
+                        <GridViewColumn DisplayMemberBinding ="{Binding Status}" Header="Status" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding ="{Binding AmountOfItems}" Header="Amount Of Items" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding ="{Binding TotalPrice}" Header="Total Price" Width="120"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
         <Label Content="Order Catalog" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontSize="48" FontWeight="Bold" Foreground="#FF5C4642" Height="71"/>
         <Label Content="Follow and get details on the entire order list" HorizontalAlignment="Left" Margin="264,107,0,0" VerticalAlignment="Top" FontFamily="Kalam Light" Foreground="#FF5C4642" FontSize="16"/>
 
-        
-        
-        
-        
-        
+
+
+
+
+
     </Grid>
 </Page>
