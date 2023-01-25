@@ -161,25 +161,7 @@ internal class BoOrder : IBoOrder
         }
         Dal?.Order.Update(temp);
 
-        //BO.Order orderToReturn = new BO.Order()
-        //{
-        //    ID = temp.ID,
-        //    CustomerName = temp.CustomerName,
-        //    CustomerEmail = temp.CustomerEmail,
-        //    CustomerAddress = temp.CustomerAddress,
-        //    Status = BO.OrderStatus.delivered,
-        //    OrderDate = temp.OrderDate,
-        //    ShipDate = temp.ShipDate,
-        //    DeliveryDate = DateTime.Now,
-        //    Items = v, //(List<BO.OrderItem?>)Tools.getBOList(dal.OrderItem.GetItemsList(orderDO.ID)),
-        //    TotalPrice = Tools.GetTotalPrice(itemsListDO!)
-
-        //};
-
-        //DO.Order orderToUpdate = (DO.Order)Tools.CopyPropToStruct(orderToReturn, typeof(DO.Order));// convert BO to DO
-        //dal.Order.Update(orderToUpdate);// update in DAL
-       // return orderToReturn;
-
+       
         return order;
 
     }

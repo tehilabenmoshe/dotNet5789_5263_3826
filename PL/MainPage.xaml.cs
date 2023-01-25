@@ -46,14 +46,19 @@ namespace PL
 
         private void ManagerButton2_Click(object sender, RoutedEventArgs e)
         {
-            MainManagerPage2 m = new MainManagerPage2(frame);
-            frame.Content = m;
+            PasswordWindow p = new PasswordWindow(frame);
+            p.Show();
+
+
+
+            //MainManagerPage2 m = new MainManagerPage2(frame);
+            //frame.Content = m;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            PasswordWindow p = new PasswordWindow();  
-            p.ShowDialog();
-        }
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    PasswordWindow p = new PasswordWindow();  
+        //    p.ShowDialog();
+        //}
     }
 }
