@@ -108,6 +108,33 @@ namespace PL.Manager
 
         }
 
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+
+        //        BO.Order temp = new BO.Order();
+        //        //copy the reciving data to the product in bo
+        //        temp.ID = int.Parse(IdBox.Text); //get id of order
+        //        temp = bl!.Order.GetOrder(temp.ID); //get the order itself
+                
+                
+        //        temp.DeliveryDate = DeliveryDateBox.Text; //get the update dates
+        //        temp.ShipDate = ShipDateBox.Text;
+               
+  
+        //        //add the product to bo 
+        //        bl!.Order.UpdateShipOrder(temp.ID);
+        //        bl!.Order.UpdateProvisionOrder(temp.ID);
+        //        MessageBox.Show("The product successfully update");
+        //        Close();
+        //    }
+        //    catch (Exception x)
+        //    {
+        //        MessageBox.Show(x.Message);
+        //    }
+        //}
+
         //private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         ////{
         ////    BO.Order order=new BO.Order();  
@@ -119,7 +146,7 @@ namespace PL.Manager
 
 
 
-       
+
 
 
     }

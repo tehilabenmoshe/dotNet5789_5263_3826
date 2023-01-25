@@ -1,20 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <products>
   <Product>
-    <ID>100001</ID>
-    <Name>Double Oak Bed</Name>
-    <Price>5600</Price>
-    <Category>bedRoom</Category>
-    <InStock>19</InStock>
-  </Product>
-  <Product>
-    <ID>100010</ID>
-    <Name>Round cherry Wood Dining Table</Name>
-    <Price>3900</Price>
-    <Category>diningRoom</Category>
-    <InStock>15</InStock>
-  </Product>
-  <Product>
     <ID>100011</ID>
     <Name>Garden Bench</Name>
     <Price>410</Price>
@@ -363,5 +349,26 @@
     <Price>5009</Price>
     <Category>livingRoom</Category>
     <InStock>10</InStock>
+  </Product>
+  <Product>
+    <ID>100010</ID>
+    <Name>Round cherry Wood Dining Table</Name>
+    <Price>3900</Price>
+    <Category>diningRoom</Category>
+    <InStock>14</InStock>
+  </Product>
+  <Product>
+    <ID>100001</ID>
+    <Name>Double Oak Bed</Name>
+    <Price>5600</Price>
+    <Category>garden</Category>
+    <InStock>1</InStock>
+  </Product>
+  <Product>
+    <ID>111111</ID>
+    <Name>black bed</Name>
+    <Price>2000</Price>
+    <Category>garden</Category>
+    <InStock>3</InStock>
   </Product>
 </products>

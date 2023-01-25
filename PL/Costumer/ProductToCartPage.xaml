@@ -13,22 +13,16 @@
 
     <Grid Background="#FFF0ECE8">
 
-        <TextBox x:Name="ProductItemName" HorizontalAlignment="Left" Margin="329,103,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="387" FontFamily="Ploni 1.1 AAA" FontSize="48" Background="{x:Null}" BorderBrush="{x:Null}" TextAlignment="Center" Foreground="#FF866756" FontWeight="Bold"/>
-        <TextBox x:Name="ProductItemCategory" HorizontalAlignment="Left" Margin="412,156,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="221" TextChanged="ProductItemCategory_TextChanged" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Ploni 1.1 AAA Light" FontSize="30" TextAlignment="Center" Foreground="#FF866756"/>
-        <Image HorizontalAlignment="Left"
-               Height="253"
-               Margin="360,215,0,0"
-               VerticalAlignment="Top"
-               Width="373"
-               Source="{Binding Path}"/>
-        <Button x:Name="AddButton" Content="ADD TO CART" HorizontalAlignment="Left" Margin="129,334,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" BorderBrush="{x:Null}" Height="34" Width="131" Click="AddButton_Click" Background="#FF866756" Foreground="#FFF0ECE8">
+        <TextBox x:Name="ProductItemName" HorizontalAlignment="Left" Margin="317,215,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="435" FontFamily="Ploni 1.1 AAA" FontSize="48" Background="{x:Null}" BorderBrush="{x:Null}" TextAlignment="Center" Foreground="#FF866756" FontWeight="Bold" Height="134"/>
+        <TextBox x:Name="ProductItemCategory" HorizontalAlignment="Left" Margin="390,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283" TextChanged="ProductItemCategory_TextChanged" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Ploni 1.1 AAA Light" FontSize="30" TextAlignment="Center" Foreground="#FF866756"/>
+        <Button x:Name="AddButton" Content="ADD TO CART" HorizontalAlignment="Left" Margin="129,334,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" BorderBrush="{x:Null}" Height="34" Width="171" Click="AddButton_Click" Background="#FF866756" Foreground="#FFF0ECE8">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="RemoveButton" Content="REMOVE FROM CART" HorizontalAlignment="Left" Margin="128,391,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Height="34" Width="131" Click="Button_Click" Background="#FF866756" Foreground="#FFF0ECE8">
+        <Button x:Name="RemoveButton" Content="REMOVE FROM CART" HorizontalAlignment="Left" Margin="128,391,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" BorderBrush="{x:Null}" Height="34" Width="172" Click="Button_Click" Background="#FF866756" Foreground="#FFF0ECE8">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>

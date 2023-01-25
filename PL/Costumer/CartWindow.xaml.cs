@@ -24,7 +24,9 @@ namespace PL.Costumer
     {
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
         static Cart? myCart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
-       // ObservableCollection<OrderItem> orderItemList = new();
+        // ObservableCollection<OrderItem> orderItemList = new();
+
+        bool IsEmpty = true;
         public CartWindow()
         {
             InitializeComponent();
@@ -39,6 +41,7 @@ namespace PL.Costumer
            // bl!.cart.MakeCart(myCart);
             bl!.cart.AddProductToCart(myCart, p.ID);
             CartListView.DataContext = myCart.Items;
+            IsEmpty = false;
         }
 
         public CartWindow(BO.ProductItem p, int num) //for remove
@@ -55,17 +58,25 @@ namespace PL.Costumer
                 bl!.cart.UpdateProductInCart(myCart, p.ID, NewAmount);
                 CartListView.DataContext = myCart.Items;
             }
-            
+
+            if (myCart.TotalPrice == 0)
+                IsEmpty = true;
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            BO.Cart temp = myCart;
-            myCart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
-            CustomerDetailsCart c = new CustomerDetailsCart(temp);
-            c.Show();
+            if (IsEmpty)
+                MessageBox.Show("Cart Is Empty");
+            else {
+                BO.Cart temp = myCart;
+                myCart = new Cart() { CustomerAddress = "", CustomerEmail = "", CustomerName = "", Items = new List<BO.OrderItem?>(), TotalPrice = 0 };
+                CustomerDetailsCart c = new CustomerDetailsCart(temp);
+                c.Show();
+            }
 
-           
+
 
 
         }

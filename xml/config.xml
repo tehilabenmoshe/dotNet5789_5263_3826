@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<config>
-
-	<ConfigOrder>
-		<value>1000</value>
-	</ConfigOrder>
-
-	<ConfigProduct>
-		<value>100000</value>
-	</ConfigProduct>
-
-	<ConfigOrderItem>
-		<value>1000</value>
-	</ConfigOrderItem>
-
-</config>
+<ImportentNumbersArray>
+  <orderNum>1011</orderNum>
+  <orderItemNum>1015</orderItemNum>
+</ImportentNumbersArray>
