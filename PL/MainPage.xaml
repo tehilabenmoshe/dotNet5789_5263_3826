@@ -1,16 +1,26 @@
-﻿<Page x:Class="PL.MainPage"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PL"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="PL.MainPage"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="850"
       Title="MainPage">
 
     <Grid>
 
-        <Image HorizontalAlignment="Left" Height="566" Margin="-309,0,0,0" VerticalAlignment="Top" Width="1159" Source="/תמונה רקע.png" Stretch="UniformToFill"/>
+        <Image HorizontalAlignment="Left" Height="604" Margin="-167,-25,0,0" VerticalAlignment="Top" Width="1093" Source="/Image8.png" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
 
         <Button x:Name="CostumerButton" Content="COSTUMER" HorizontalAlignment="Left" Margin="210,348,0,0" VerticalAlignment="Top" Height="41" Width="138" Click="CostumerButton_Click" FontFamily="Ploni 1.1 AAA Medium" FontSize="18" Background="#FFAE9283" Foreground="#FFE3E3E3" BorderThickness="0,0,0,0"/>
 
@@ -19,6 +29,9 @@
         <Label Content="Dream House &#xA;" Margin="59,137,0,0" Height="83" Width="375" FontFamily="Ploni 1.1 AAA" FontSize="60"   Cursor="ScrollE" Foreground="#FF5F4A3F" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.IsSharedSizeScope="True" Padding="0,0,0,0" UseLayoutRounding="False" AutomationProperties.IsRowHeader="True" ScrollViewer.CanContentScroll="True" MinHeight="5" MinWidth="5" Panel.ZIndex="3" FontWeight="Bold"/>
         <Label Content=" For You!" Margin="44,201,0,0" Height="83" Width="375" FontFamily="Ploni 1.1 AAA" FontSize="60"   Cursor="ScrollE" Foreground="#FF5F4A3F" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.IsSharedSizeScope="True" Padding="0,0,0,0" UseLayoutRounding="False" AutomationProperties.IsRowHeader="True" ScrollViewer.CanContentScroll="True" MinHeight="5" MinWidth="5" Panel.ZIndex="3" FontWeight="Bold"/>
         <Label Content="&quot;The only thing a house needs is furniture&quot;" HorizontalAlignment="Left" Margin="55,280,0,0" VerticalAlignment="Top" FontFamily="Kalam Light" FontSize="20"/>
+
+        <materialDesign:PopupBox Content="PopupBox" Margin="596,284,0,0" VerticalAlignment="Top" Height="188" Width="186"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="96,472,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
     </Grid>
 </Page>

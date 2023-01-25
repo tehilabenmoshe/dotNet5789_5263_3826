@@ -19,9 +19,12 @@
     <None Remove="Costumer\add-to-basket.png" />
     <None Remove="Costumer\Asset 1תמונה לחלון המשתמש.png" />
     <None Remove="Costumer\green-plant-white-living-room-with-free-space %281%29.jpg" />
+    <None Remove="Costumer\Image2.png" />
+    <None Remove="Costumer\Image4.png" />
     <None Remove="Costumer\picture-frame-wall-with-scandinavian-home-interior.jpg" />
     <None Remove="Costumer\red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" />
     <None Remove="Costumer\vintage-wallpaper-background.jpg" />
+    <None Remove="Image8.png" />
     <None Remove="Manager\11.png" />
     <None Remove="Manager\Image10.png" />
     <None Remove="Manager\Image2.png" />
@@ -55,17 +58,15 @@
   <ItemGroup>
     <Resource Include="Asset 1לוגו רהיטים.png" />
     <Resource Include="BackgroundPicture\11.png" />
-    <Resource Include="Costumer\2vintage-wallpaper-background.jpg" />
-    <Resource Include="Costumer\add-to-basket.png" />
-    <Resource Include="Costumer\Asset 1תמונה לחלון המשתמש.png" />
     <Resource Include="Costumer\green-plant-white-living-room-with-free-space (1).jpg" />
-    <Resource Include="Costumer\picture-frame-wall-with-scandinavian-home-interior.jpg" />
+    <Resource Include="Costumer\Image2.png" />
+    <Resource Include="Costumer\Image4.png" />
     <Resource Include="Costumer\red-delivery-car-deliver-express-with-cardboard-boxes-cartoon-shipping-transportation-concept-white-website-banner-background-3d-rendering.jpg" />
-    <Resource Include="Costumer\vintage-wallpaper-background.jpg" />
+    <Resource Include="Image8.png" />
     <Resource Include="Manager\11.png" />
     <Resource Include="Manager\Image10.png" />
     <Resource Include="Manager\Image6.png" />
-    <Resource Include="modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378.png" />
+    <Resource Include="Manager\pink-sofa-white-living-room-with-copy-space.jpg" />
     <Resource Include="Photos\Asset 1לוגו רהיטים.png" />
     <Resource Include="Photos\modern-living-room-interior-with-armchair-decorating-ideas-white-wall-background-3d-rendering_41470-4378.png" />
     <Resource Include="Photos\pink-sofa-white-living-room-with-copy-space.jpg" />

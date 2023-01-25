@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignColors;
 
 namespace PL.Manager
 {
@@ -29,6 +30,7 @@ namespace PL.Manager
             InitializeComponent();
             IEnumerableToPL(bl.Order.getOrderForList());
             OrdersCatalog.DataContext = orderList;
+           
         }
 
         private void IEnumerableToPL(IEnumerable<OrderForList> list)

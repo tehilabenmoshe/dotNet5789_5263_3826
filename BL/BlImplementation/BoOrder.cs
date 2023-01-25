@@ -18,12 +18,12 @@ internal class BoOrder : IBoOrder
     DalApi.IDal? Dal = DalApi.Factory.Get();
     public IEnumerable<BO.OrderForList> getOrderForList()
     {
-        List<DO.Order?> order = Dal.Order.GetAll().ToList();
-        List<BO.OrderForList?> listOfOrders = new List<BO.OrderForList>();
+        IEnumerable<DO.Order?> order = Dal!.Order.GetAll().ToList();
+        IEnumerable<BO.OrderForList?> listOfOrders = new List<BO.OrderForList>();
 
         return
         (from orderDO in order
-         let orderFromBL = Dal.OrderItem.GetItemsList((int)(orderDO?.ID!))
+         let orderFromBL = Dal!.OrderItem.GetItemsList((int)(orderDO?.ID!))
          select new BO.OrderForList()
          {
              ID = (int)(orderDO?.ID!),
@@ -31,21 +31,10 @@ internal class BoOrder : IBoOrder
              Status = Tools.GetStatus((DO.Order)orderDO),
              AmountOfItems = Tools.GetAmountOfItems(orderFromBL),
              TotalPrice = Tools.GetTotalPrice(orderFromBL)
-         }).ToList();
+         }).ToList().OrderBy(o=>o.ID);
     }
     public BO.OrderStatus getStatus(BO.Order o) 
     {
-        //if(o.ShipDate> o.DeliveryDate)
-        //{
-        //    o.DeliveryDate = null;
-        //    o.PaymantDate = null;
-        //}
-        //else
-        //{
-        //    if()
-        //}
-
-
          BO.OrderStatus s = new BO.OrderStatus();
         
         if(o.ShipDate == o.DeliveryDate)//if the both dates are the same- the order dosent yet-only approved
@@ -61,11 +50,8 @@ internal class BoOrder : IBoOrder
             else
                 s = BO.OrderStatus.delivered;
         }
-        
-
         return s;
     }
-
     public IEnumerable<DO.OrderItem> GetListByOrderID(int id)
     {
         List<DO.OrderItem> tmp = new List<DO.OrderItem>();
@@ -212,7 +198,7 @@ internal class BoOrder : IBoOrder
                 TrackList.Add(Tuple.Create(order.OrderDate, "Ordered"));
                 if (order.ShipDate != null)
                 {
-                    TrackList.Add(Tuple.Create(order.ShipDate, " Shipped"));
+                    TrackList.Add(Tuple.Create(order.ShipDate, "Shipped"));
                     if (order.DeliveryDate != null)
                     {
                         TrackList.Add(Tuple.Create(order.DeliveryDate, "Delivered"));

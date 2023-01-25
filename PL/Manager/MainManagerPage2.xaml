@@ -8,47 +8,51 @@
       d:DesignHeight="450" d:DesignWidth="850"
       Title="MainManagerPage2">
 
-    <Grid Background="#FFE8E6E2">
+    <Grid Background="#FFF1EFEB">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        <Image HorizontalAlignment="Left" Height="618" VerticalAlignment="Top" Width="519" Source="/Manager/11.png" Margin="-28,-46,0,0"/>
+        <Image HorizontalAlignment="Left" Height="572" VerticalAlignment="Top" Width="519" Source="/Manager/11.png" Margin="-28,0,0,0"/>
 
-        <Button x:Name="ProductButton" Content="PRODUCT" HorizontalAlignment="Left" Margin="523,344,0,0" VerticalAlignment="Top" Height="43" Width="154" Click="ProductButton_Click_1" FontSize="24" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Background="#FFD2C7B1" Foreground="#FF403F3F"/>
-        <Button x:Name="OrdersButton"  Content="ORDERS" HorizontalAlignment="Left" Margin="523,170,0,0" VerticalAlignment="Top" Height="42" Width="154" FontSize="24" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Click="OrdersButton_Click" Background="#FFD2C7B1" Foreground="#FF403F3F" RenderTransformOrigin="1,0">
-            <Button.Style>
-                <Style/>
-            </Button.Style>
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Label Content="Update and add products&#xA;     to the Catalog" HorizontalAlignment="Left" Margin="449,254,0,0" VerticalAlignment="Top" Height="90" Width="302" FontFamily="Kalam Light" FontWeight="Bold" FontSize="24" HorizontalContentAlignment="Center"/>
-        <Label Content="Manage the&#xA;Orders List" HorizontalAlignment="Left" Margin="529,85,0,0" VerticalAlignment="Top" Height="97" Width="164" FontFamily="Kalam Light" FontWeight="Bold" FontSize="24"/>
-        <Ellipse HorizontalAlignment="Left" Height="40" Stroke="White" VerticalAlignment="Top" Width="40" Fill="#FFD2C7B1" StrokeThickness="2" Margin="364,214,0,0" RenderTransformOrigin="0.5,0.5">
-            <Ellipse.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Ellipse.RenderTransform>
-        </Ellipse>
-        <Label Content="&gt;" HorizontalAlignment="Left" Margin="372,209,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="24" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="1" ScaleY="1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Button Content="LIVE ORDER TRACKING" HorizontalAlignment="Left" Margin="492,34,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FF454545" FontFamily="Ploni 1.1 AAA" FontSize="18" Click="Button_Click"/>
+        <Button x:Name="ProductButton" Content="PRODUCT" HorizontalAlignment="Left" Margin="523,286,0,0" VerticalAlignment="Top" Height="43" Width="154" Click="ProductButton_Click_1" FontSize="24" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Background="#FFD2C7B1" Foreground="#FF403F3F"/>
+        <Button x:Name="OrdersButton"  Content="ORDERS" HorizontalAlignment="Left" Margin="523,138,0,0" VerticalAlignment="Top" Height="42" Width="154" FontSize="24" FontFamily="Ploni 1.1 AAA Medium" BorderThickness="0,0,0,0" Click="OrdersButton_Click" Background="#FFD2C7B1" Foreground="#FF403F3F" RenderTransformOrigin="1,0"/>
+
+
+        <Label Content="Update and add products&#xA;     to the Catalog" HorizontalAlignment="Left" Margin="479,216,0,0" VerticalAlignment="Top" Height="67" Width="240" FontFamily="Kalam Light" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+        <Label Content="Manage and update &#xD;&#xA;   the Orders List" HorizontalAlignment="Left" Margin="493,72,0,0" VerticalAlignment="Top" Height="61" Width="214" FontFamily="Kalam Light" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+        <Border HorizontalAlignment="Left" Height="43" Margin="333,211,0,0" VerticalAlignment="Top">
+            <Grid Margin="0,-1,0,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Ellipse HorizontalAlignment="Center" Height="40" Stroke="White" VerticalAlignment="Top" Width="40" Fill="#FFD2C7B1" StrokeThickness="2" Margin="0,3,0,0" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Label Content="&gt;" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="24" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+            </Grid>
+        </Border>
+        <Button Content="LIVE ORDER TRACKING" HorizontalAlignment="Left" Margin="503,376,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFE3708D" FontFamily="Ploni 1.1 AAA" FontSize="18" Click="Button_Click"/>
 
     </Grid>
 </Page>

@@ -62,9 +62,10 @@ namespace PL.Manager
                 }
                 else
                 {
+                    
                     if (worker!.WorkerReportsProgress! == true)
                     {
-                        time =time.AddSeconds(5);
+                        time=time.AddSeconds(5);
                         Thread.Sleep(500);
                         worker.ReportProgress(4);
                     }
@@ -75,7 +76,9 @@ namespace PL.Manager
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e) //event while there is a change
         {
-            AddOrderItemList(bl!.Order.getOrderForList());
+            if (orderForList == null) 
+                 AddOrderItemList(bl!.Order.getOrderForList());
+
             bool IsDelivered = true;
             foreach (OrderForList order in orderForList)
             {
@@ -88,7 +91,7 @@ namespace PL.Manager
                     {
                         order.Status = BO.OrderStatus.shipped;
                         bl.Order.UpdateShipOrder((int)order.ID);
-                        //break;
+                        
                     }
                 }
                 else if (order.Status == BO.OrderStatus.shipped)
@@ -96,39 +99,60 @@ namespace PL.Manager
                     IsDelivered = false;
                     // BO.Order o = bl.Order.GetOrder((int)order.ID);
                     DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).ShipDate!;
-                    orderDateTime = orderDateTime.AddMinutes(1);
+                    orderDateTime = orderDateTime.AddMinutes(50);
                     if (orderDateTime <= time)
                     {
                         order.Status = BO.OrderStatus.delivered;
                         bl.Order.UpdateProvisionOrder((int)order.ID);
-                        //break;
+                        
                     }
                 }
 
                 if (IsDelivered)
                     flag = false;
             }
+       
+        ///
+        
+        
         }
+
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) //event while do-work end
         {
             MessageBox.Show("Delayed simulator");
-        }
+
+           
+                //if (e.Cancelled == true)
+                //    MessageBox.Show("Delayed Simulator");
+                //else if (flag == false)
+                //{
+                //    Stop.IsEnabled = false;
+                //    Start.IsEnabled = true;
+                //    MessageBox.Show("End Simulator");
+                //}
+            }
 
         private void AddOrderItemList(IEnumerable<BO.OrderForList> orderToCopy) //copy the items list from order to the items list above
         {
             var list = (from o in orderToCopy
-                                select new OrderForList
-                                {
-                                    ID = o.ID,
-                                    CustomerName = o.CustomerName,
-                                    Status = o.Status,
-                                    AmountOfItems = o.AmountOfItems,
-                                    TotalPrice = o.TotalPrice,
-                                }).ToList();
+                        select new BO.OrderForList
+                        {
+                            ID = o.ID,
+                            CustomerName = o.CustomerName,
+                            Status = o.Status,
+                            AmountOfItems = o.AmountOfItems,
+                            TotalPrice = o.TotalPrice,
+                        }).ToList();
 
             orderForList.Clear();
             foreach (var temp in list)
                 orderForList.Add(temp);
+
+
+            //orderForList.Clear();
+            //foreach (var temp in orderToCopy)
+            // orderForList.Add(temp);
+
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
