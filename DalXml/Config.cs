@@ -10,7 +10,7 @@ namespace Dal;
 public class ConfigOrder
 {
 
-    public static int getNumOrder()
+    public static int getNumOrder()   
     {
         XElement root = XMLTools.LoadListFromXMLElement("config");
         int nextNum = Convert.ToInt32(root!.Element("orderNum")!.Value);
