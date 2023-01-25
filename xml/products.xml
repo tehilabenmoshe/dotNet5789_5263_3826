@@ -8,13 +8,6 @@
     <InStock>19</InStock>
   </Product>
   <Product>
-    <ID>100004</ID>
-    <Name>Marble Bar Table</Name>
-    <Price>4300</Price>
-    <Category>kitchen</Category>
-    <InStock>15</InStock>
-  </Product>
-  <Product>
     <ID>100007</ID>
     <Name>Corduroy Sofa</Name>
     <Price>3690</Price>
@@ -363,5 +356,12 @@
     <Price>230</Price>
     <Category>kitchen</Category>
     <InStock>53</InStock>
+  </Product>
+  <Product>
+    <ID>100004</ID>
+    <Name>Marble Bar Table</Name>
+    <Price>5000</Price>
+    <Category>bedRoom</Category>
+    <InStock>15</InStock>
   </Product>
 </products>
