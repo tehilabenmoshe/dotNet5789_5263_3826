@@ -18,7 +18,7 @@ public class ConfigOrder
         XMLTools.SaveListToXMLElement(root, "config");
         return nextNum + 1;
     }
-}
+} 
 public class ConfigOrderItem
 {
     public static int getNumOrder()
