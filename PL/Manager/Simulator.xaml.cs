@@ -29,6 +29,7 @@ namespace PL.Manager
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
       //  BO.OrderTracking orderTrack=new BO.OrderTracking();
         ObservableCollection<OrderForList> orderForList = new();
+        ObservableCollection<BO.Order> orderForList = new();
         DateTime time = DateTime.Now;
         BackgroundWorker? worker;
         bool flag = true; //true=not end
@@ -98,12 +99,14 @@ namespace PL.Manager
                 {
                     IsDelivered = false;
                     // BO.Order o = bl.Order.GetOrder((int)order.ID);
-                    DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).ShipDate!;
-                    orderDateTime = orderDateTime.AddMinutes(50);
+                     DateTime orderDateTime = bl.Order.TrackOrder(order.ID!);
+                    //DateTime orderDateTime=orderDateTime.AddMinutes(50);
+                 //   orderDateTime = orderDateTime.AddMinutes(50);
                     if (orderDateTime <= time)
                     {
                         order.Status = BO.OrderStatus.delivered;
                         bl.Order.UpdateProvisionOrder((int)order.ID);
+                        
                         
                     }
                 }
@@ -119,18 +122,18 @@ namespace PL.Manager
 
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) //event while do-work end
         {
-            MessageBox.Show("Delayed simulator");
+            //MessageBox.Show("Delayed simulator");
 
-           
-                //if (e.Cancelled == true)
-                //    MessageBox.Show("Delayed Simulator");
-                //else if (flag == false)
-                //{
-                //    Stop.IsEnabled = false;
-                //    Start.IsEnabled = true;
-                //    MessageBox.Show("End Simulator");
-                //}
+
+            if (e.Cancelled == true)
+                MessageBox.Show("Delayed Simulator");
+            else if (flag == false)
+            {
+                Stop.IsEnabled = false;
+                Start.IsEnabled = true;
+                MessageBox.Show("End Simulator");
             }
+        }
 
         private void AddOrderItemList(IEnumerable<BO.OrderForList> orderToCopy) //copy the items list from order to the items list above
         {
