@@ -8,13 +8,6 @@
     <InStock>19</InStock>
   </Product>
   <Product>
-    <ID>100007</ID>
-    <Name>Corduroy Sofa</Name>
-    <Price>3690</Price>
-    <Category>livingRoom</Category>
-    <InStock>71</InStock>
-  </Product>
-  <Product>
     <ID>100010</ID>
     <Name>Round cherry Wood Dining Table</Name>
     <Price>3900</Price>
@@ -363,5 +356,12 @@
     <Price>5000</Price>
     <Category>bedRoom</Category>
     <InStock>15</InStock>
+  </Product>
+  <Product>
+    <ID>100007</ID>
+    <Name>Corduroy Sofa</Name>
+    <Price>5009</Price>
+    <Category>livingRoom</Category>
+    <InStock>10</InStock>
   </Product>
 </products>
