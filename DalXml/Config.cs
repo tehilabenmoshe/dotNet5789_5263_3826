@@ -9,6 +9,7 @@ using System.Xml.Linq;
 namespace Dal;
 public class ConfigOrder
 {
+
     public static int getNumOrder()
     {
         XElement root = XMLTools.LoadListFromXMLElement("config");
