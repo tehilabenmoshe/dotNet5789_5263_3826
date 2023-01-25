@@ -9,12 +9,14 @@ namespace Dal;
 
  internal class DataSource
  {
-    internal static DataSource s_instance { get; } = new DataSource(); //ניגשים אליו בכל פעם שרוצים לגשת לנתונים כך: DataSource _ds = DataSource.s_instance;
+    internal static DataSource s_instance { get; } = new DataSource(); 
     private DataSource() //defult ctor
     {
         s_Initialize();
     }
     public readonly Random rand = new Random();
+
+    //אתחול של הזמנה, מוצר ופריט בהזמנה
     private void s_Initialize() {
         CreateOrder();
         CreateProduct();
@@ -26,17 +28,9 @@ namespace Dal;
     internal List<Order?> ListOrder { get; } = new List<Order?>() { };
     internal List<OrderItem?> ListOrderItem { get; } = new List<OrderItem?>() { };
 
-    //internal static class Config
-    //{
-    //    internal const int startOrderNumber = 1000;
 
-    //    private static int SnextOrderNumber = startOrderNumber;
-    //    internal static int NextOrderNbumber { get => ++SnextOrderNumber; }
-    //}
-
-    /// <summary>
-    /// /////////
-    /// </summary>
+    
+    //random number for each entity:
     public static class ConfigOrder
     {
         internal const int s_startOrderNumber = 999;
@@ -57,14 +51,14 @@ namespace Dal;
         internal static int NextProductNumber { get => ++s_nextProductNumber; }
     }
 
-   
-
-
-
+    
+    //the name and address - just in order to show them in clear
     string[] names = {"Tehila", "Maayan","Shira","Avi","Dani","Nurit","Miryam","Shirel","Tamar","Avraham","Yitzchak","Ivy","Shulamit","Moriya","Yael","Moshe","Yakov","Bibi","Yossi","Mendi", };
     string[] cities = { "Jerusalem", "BeerSheva", "Lod", "Rehovot", "Eilat", "TelAviv", "Hevron", "Tzfat", "Netivot", "Naharia", "Netanya", "Ashkelon", "Ashdod", "Ramla", "KfarSaba", "Efrat", "Elazar", "BetShemesh", "Hulon", "Gadera" };
 
-    private void CreateOrder()//סיימתי את זה- צריך לבדוק את הזמנים של התאריכים  
+    
+    //initialize order list:
+    private void CreateOrder()  
     {
         for (int i = 0,z=1; i < 20; i++,z++)
         {
@@ -73,17 +67,11 @@ namespace Dal;
             o.CustomerName = " " + names[i];
             o.CustomerEmail = " " + o.CustomerName+"@gmail.com";
             o.CustomerAddress = " "+cities[i]+" " + i+z + "/" + z+3;//random adress+city
-            o.OrderDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
-            o.ShipDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
+            o.OrderDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)); //order befor ship
+            o.ShipDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));//ship befor deliverd
             o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
 
-
-            //o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 100L));
-            //o.ShipDate = o.DeliveryDate - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 50L));
-            //o.OrderDate = o.ShipDate - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 20L));
-
-
-            if(i<=16 && i >= 8)
+            if(i<=16 && i >= 8) //certen amount of order status define different:
             {
                 o.DeliveryDate =null;
                 o.ShipDate = null;
@@ -96,14 +84,15 @@ namespace Dal;
         }
     }
 
-    //אתחול של מוצרים
+
+    //initialize product list: setting 10 defults product 
     private void CreateProduct()
     {
         Product p1 = new Product();
         p1.Category = Category.garden;
         p1.Name = "Oak rocking chair";
-        p1.Price = rand.Next(100, 300);
-        p1.ID = ConfigProduct.NextProductNumber;
+        p1.Price = rand.Next(100, 300); //random number for the price
+        p1.ID = ConfigProduct.NextProductNumber; //random number wirh 6 digit for id
         p1.InStock = 20;
 
         Product p2 = new Product();
@@ -168,6 +157,8 @@ namespace Dal;
         p10.Price = rand.Next(1500, 4329);
         p10.ID = ConfigProduct.NextProductNumber;
         p10.InStock = 0;
+
+        //push the products into the listproduct
         ListProduct.Add(p1);
         ListProduct.Add(p2);
         ListProduct.Add(p3);
@@ -180,14 +171,16 @@ namespace Dal;
         ListProduct.Add(p10);
     }
 
+
+    //initialize orderItem List:
     private void CreateOrderItem()
     { 
         for (int i = 0; i < 20; i++)
         {
             Product? product = ListProduct[rand.Next(10)];// choose randomly product
             int itemsInOrder = rand.Next(1, 5);
-            Order? order = ListOrder[i];
-            for (int j = 0; j < itemsInOrder; j++)
+            Order? order = ListOrder[i]; //creat list order 
+            for (int j = 0; j < itemsInOrder; j++) //for each time- create a new order and fiil it with details
             {
                 OrderItem orderItem = new OrderItem()
                 {
@@ -195,10 +188,10 @@ namespace Dal;
                     ProductID = product?.ID ?? 0,
                     OrderID = order?.ID ?? 0,
                     Price = product?.Price ?? 0,
-                    Amount = rand.Next(2, 5),
+                    Amount = rand.Next(2, 5), //rand num for the amount
 
                 };
-                ListOrderItem.Add(orderItem);
+                ListOrderItem.Add(orderItem); //add to the list
                 product = ListProduct[rand.Next(10)];
             }
 

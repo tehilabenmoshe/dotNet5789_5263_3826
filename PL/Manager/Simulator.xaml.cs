@@ -29,7 +29,7 @@ namespace PL.Manager
         BlApi.IBL? bl = BlApi.Factory.Get() ?? throw new NullReferenceException("missing bl");
       //  BO.OrderTracking orderTrack=new BO.OrderTracking();
         ObservableCollection<OrderForList> orderForList = new();
-        ObservableCollection<BO.Order> orderForList = new();
+        ObservableCollection<BO.Order> order = new();
         DateTime time = DateTime.Now;
         BackgroundWorker? worker;
         bool flag = true; //true=not end
@@ -77,8 +77,11 @@ namespace PL.Manager
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e) //event while there is a change
         {
-            if (orderForList == null) 
-                 AddOrderItemList(bl!.Order.getOrderForList());
+            if (orderForList == null)
+            {
+                AddOrderItemList(bl!.Order.getOrderForList());
+            }
+               // bl!.ListOrder.
 
             bool IsDelivered = true;
             foreach (OrderForList order in orderForList)
@@ -99,9 +102,8 @@ namespace PL.Manager
                 {
                     IsDelivered = false;
                     // BO.Order o = bl.Order.GetOrder((int)order.ID);
-                     DateTime orderDateTime = bl.Order.TrackOrder(order.ID!);
-                    //DateTime orderDateTime=orderDateTime.AddMinutes(50);
-                 //   orderDateTime = orderDateTime.AddMinutes(50);
+                    DateTime orderDateTime = (DateTime)bl!.Order.GetOrder((int)order!.ID!).OrderDate!;
+                    orderDateTime =orderDateTime.AddMinutes(50);
                     if (orderDateTime <= time)
                     {
                         order.Status = BO.OrderStatus.delivered;

@@ -45,9 +45,4 @@ namespace DO
         public DalConfigException(string msg) : base(msg) { }
         public DalConfigException(string msg, Exception ex) : base(msg, ex) { }
     }
-
-
-
-
-
 }

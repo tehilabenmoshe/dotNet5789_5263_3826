@@ -42,27 +42,11 @@ internal class Product : IProduct
         else
             return XMLTools.LoadListFromXMLElement(s_products).Elements().Select(x => getProduct(x)).Where(filter); 
     }
-
-    //לבדוק למה המימוש של המוצר בלינק לא עובד
-    //public DO.Product GetById(int id)
-    //{
-    //    var listProduct = XMLTools.LoadListFromXMLSerializer<DO.Product>(s_products);
-
-    //    if (listProduct.Exists(o => o?.ID == id))
-    //        return (DO.Product)(listProduct.FirstOrDefault(o => o?.ID == id));
-    //    else
-    //        throw new Exception("missing id");//DalMissingIdException(id, "Lecturer");
-    //}
-
     public DO.Product GetById(int id) =>
             (DO.Product)getProduct(XMLTools.LoadListFromXMLElement(s_products)?.Elements()
             .FirstOrDefault(st => st.ToIntNullable("ID") == id)
          //  ?? throw new DalMissingIdException(id);
             ?? throw new Exception("missing id"))!;
-
-
-
-
     public int Add(DO.Product p)
     {
         XElement ProductRootElem = XMLTools.LoadListFromXMLElement(s_products);
@@ -95,23 +79,5 @@ internal class Product : IProduct
     }
 
 
-    //public DO.Product GetById(int id)
-    //{
-    //    var listProduct = XMLTools.LoadListFromXMLSerializer<DO.Product>(s_products);
-
-    //    if (listProduct.Exists(p => p?.ID == id))
-    //        return (DO.Product)(listProduct.FirstOrDefault(p => p?.ID == id));
-    //    else
-    //        throw new Exception("missing id");//DalMissingIdException(id, "Lecturer");
-
-    //}
-
-
 }
 
-
-//public DO.Product GetByID(int id) =>
-//        (DO.Product)getProduct(XMLTools.LoadListFromXMLElement(s_products)?.Elements()
-//        .FirstOrDefault(st => st.ToIntNullable("ID") == id)
-//        // fix to: throw new DalMissingIdException(id);
-//        ?? throw new Exception("missing id"))!;

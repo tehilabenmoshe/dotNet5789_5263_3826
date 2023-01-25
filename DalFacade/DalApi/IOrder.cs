@@ -5,7 +5,7 @@ namespace DalApi;
 using DO;
 public interface IOrder: ICrud<Order>
 {
-  //  public IEnumerable<OrderItem> GetListByOrderID(int id); ///לבדוקקקקקקקקקק
+  //  public IEnumerable<OrderItem> GetListByOrderID(int id); 
 
 
 }

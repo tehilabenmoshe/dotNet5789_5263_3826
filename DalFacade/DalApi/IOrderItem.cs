@@ -4,7 +4,8 @@ namespace DalApi;
 ///Inherited from Icrud to allow implementation in dalOrderItem
 public interface IOrderItem : ICrud<OrderItem>
 {
-  public IEnumerable<OrderItem?> GetItemsList(int orderId);
+    IEnumerable<OrderItem?> GetItemsList(int orderId);
+    OrderItem GetProductByOrderAndID(int orderId, int productId);
 
 
 }

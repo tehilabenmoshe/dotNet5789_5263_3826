@@ -17,12 +17,6 @@ internal class Order : IOrder
 
         return (filter == null ? listOrder.OrderBy(o => ((DO.Order)o!).ID)
                                   : listOrder.Where(filter).OrderBy(o => ((DO.Order)o!).ID));
-
-
-        //if (filter == null)
-        //    return listOrder.Select(p => p).OrderBy(o => ((DO.Order)o!).ID);
-        //else
-        //    return listOrder.Where(filter).OrderBy(o => ((DO.Order)o!).ID);
     }
 
 

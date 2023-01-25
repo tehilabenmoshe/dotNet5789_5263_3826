@@ -29,8 +29,4 @@ public struct Product
     public double? Price { get; set; }  
     public int? InStock { get; set; }
 
-
-    
-
-
 }

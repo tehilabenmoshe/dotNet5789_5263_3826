@@ -35,10 +35,6 @@ namespace PL
 
         private void NewOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            // InitializeComponent();
-            //this.Content =new ProductItemCatalogPage();
-            // p.ShowDialog();
-            //this.NavigationService.Navigate(p);
             temp.Content = new ProductItemCatalogPage(temp);
 
         }

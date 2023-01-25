@@ -4,12 +4,8 @@ namespace DO;
 /// <summary>
 /// Structure for product Categories
 /// </summary>
-public struct Enums
-{
-    
 
-}
-
+//define enum for the categories
 public enum Category
 {
     garden, kitchen, livingRoom, bedRoom, diningRoom

@@ -15,25 +15,13 @@ internal class OrderItem : DalApi.IOrderItem
     const string s_orders = "orders";
     public IEnumerable<DO.OrderItem?> GetAll(Func<DO.OrderItem?, bool>? filter = null)
     {
-        //var listOrderItem =XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
-        //return (filter == null ? listOrderItem.OrderBy(o => ((DO.OrderItem)o!).ID):
-        //    listOrderItem.Where(filter).
-        //OrderBy(o => ((DO.OrderItem)o!).ID));
-
-
         var listOrderItem= (List<DO.OrderItem?>)XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems)!;
 
         if (filter == null)
             return listOrderItem.Select(p => p).OrderBy(o => ((DO.OrderItem)o!).ID);
         else
             return listOrderItem.Where(filter).OrderBy(o => ((DO.OrderItem)o!).ID);
-
-
     }
-
-    //public DO.OrderItem GetByID(int id) =>
-    //    XMLTools.LoadListFromXMLSerializer<DO.OrderItem>(s_orderItems).FirstOrDefault(o => o?.ID == id)
-    //    ?? throw new Exception("missing id");
 
     public DO.OrderItem GetById(int id)
     {
@@ -109,13 +97,6 @@ internal class OrderItem : DalApi.IOrderItem
             return (DO.OrderItem)temp;
         else
             throw new Exception("product doesnt exist");
-
-        //if (XMLTools.LoadListFromXMLElement(s_orderItems)?.Elements()
-        //.FirstOrDefault(oi => oi.ToIntNullable("OrderID") == orderId) is not null)
-        //    throw new DoesntExistExeption("order doesnt exist");
-
-
-
 
     }
 
