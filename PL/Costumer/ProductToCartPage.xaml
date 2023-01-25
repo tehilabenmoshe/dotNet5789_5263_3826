@@ -15,12 +15,12 @@
 
         <TextBox x:Name="ProductItemName" HorizontalAlignment="Left" Margin="329,103,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="387" FontFamily="Ploni 1.1 AAA" FontSize="48" Background="{x:Null}" BorderBrush="{x:Null}" TextAlignment="Center" Foreground="#FF866756" FontWeight="Bold"/>
         <TextBox x:Name="ProductItemCategory" HorizontalAlignment="Left" Margin="412,156,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="221" TextChanged="ProductItemCategory_TextChanged" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Ploni 1.1 AAA Light" FontSize="30" TextAlignment="Center" Foreground="#FF866756"/>
-
-        <Rectangle HorizontalAlignment="Left" Height="229" Margin="350,214,0,0" Stroke="Black" VerticalAlignment="Top" Width="336"   >
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="{Binding}"/>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Image HorizontalAlignment="Left"
+               Height="253"
+               Margin="360,215,0,0"
+               VerticalAlignment="Top"
+               Width="373"
+               Source="{Binding Path}"/>
         <Button x:Name="AddButton" Content="ADD TO CART" HorizontalAlignment="Left" Margin="129,334,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" BorderBrush="{x:Null}" Height="34" Width="131" Click="AddButton_Click" Background="#FF866756" Foreground="#FFF0ECE8">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -38,6 +38,8 @@
         <Label Content="In-Stock:" HorizontalAlignment="Left" Margin="158,136,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FF866756"/>
         <Label Content="Price:" HorizontalAlignment="Left" Margin="169,215,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Ploni 1.1 AAA Medium" Foreground="#FF866756"/>
         <TextBox x:Name="PriceBox"  HorizontalAlignment="Left" Margin="123,248,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="146" Height="34" FontFamily="Ploni 1.1 AAA Medium" FontSize="16" TextAlignment="Center" BorderBrush="{x:Null}" Foreground="#FF866756">
+
+
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
