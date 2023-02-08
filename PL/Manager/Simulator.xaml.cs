@@ -127,14 +127,14 @@ namespace PL.Manager
             //MessageBox.Show("Delayed simulator");
 
 
-            if (e.Cancelled == true)
+            //if (e.Cancelled == true)
                 MessageBox.Show("Delayed Simulator");
-            else if (flag == false)
-            {
-                Stop.IsEnabled = false;
-                Start.IsEnabled = true;
-                MessageBox.Show("End Simulator");
-            }
+            //else if (flag == false)
+            //{
+            //    Stop.IsEnabled = false;
+            //    Start.IsEnabled = true;
+            //    MessageBox.Show("End Simulator");
+            //}
         }
 
         private void AddOrderItemList(IEnumerable<BO.OrderForList> orderToCopy) //copy the items list from order to the items list above
