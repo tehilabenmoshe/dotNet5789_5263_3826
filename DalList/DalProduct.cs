@@ -12,7 +12,7 @@ public class DalProduct : IProduct
         if (tempProduct==null)//if product doesnt exists throw
             throw new DoesntExistExeption("cannot update a product that not exsist");
        Delete(p.ID); //deletes the old product
-        Add(p); //updating the product by creating a new one
+       ds.ListProduct.Add(p); //updating the product by creating a new one
     }
     public int Add(Product p)//adding a new product to the list
     {

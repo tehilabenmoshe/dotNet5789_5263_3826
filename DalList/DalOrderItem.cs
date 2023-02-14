@@ -31,7 +31,7 @@ public class DalOrderItem:IOrderItem
         if (tempRemove==null) //if orderItem doesnt exists throw
             throw new DoesntExistExeption("cannot update the order item wich not exists");
        Delete(o.ID);//deletes the old orderItem
-        Add(o);//updating the order by creating a new one
+        ds.ListOrderItem.Add(o);//updating the order by creating a new one
     }
     public OrderItem GetById(int id)//rturns the orderItem with the id that matches the received one 
     {
