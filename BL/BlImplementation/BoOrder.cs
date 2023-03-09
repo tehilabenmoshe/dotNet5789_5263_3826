@@ -146,23 +146,72 @@ internal class BoOrder : IBoOrder
     }
     public BO.Order UpdateProvisionOrder(int ID)
     {
-        if ((ID < 1000) || (ID > 9999))//check the id
-            throw new BO.DoesntExistException("ID is out of range");
-        BO.Order order = new BO.Order();
-        DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
-        order = DoOrderToBo(temp); //casting from bo to do
-        
-        if(order.Status != BO.OrderStatus.delivered)
-        {
-            order.Status = BO.OrderStatus.delivered; //update the status to provided
-            order.DeliveryDate = DateTime.Now;//update the DeliveryDate date in bo
-            temp.DeliveryDate = order.DeliveryDate;//update the DeliveryDate date in do
-            //order.Status = BO.OrderStatus.delivered; //update the status
-        }
-        Dal?.Order.Update(temp);
 
+        if (ID < 0)
+            throw new BO.InvalidInputExeption("המזהה אינו בתחום");
+        
+        
+            DO.Order orderDO = Dal!.Order.GetById(ID);// get order by id from DO
+            IEnumerable<DO.OrderItem?>? itemsListDO = Dal.OrderItem.GetItemsList(orderDO.ID);
+
+            // copy details
+            var v = (from o in itemsListDO
+                     let name = Dal!.Product.GetById((int)(o?.ProductID!)).Name
+                     select new BO.OrderItem
+                     {
+                         Name = name,
+                         ID = (int)(o?.ID!),
+                         ProductID = (int)(o?.ProductID!),
+
+                         Price =(int)o?.Price,
+                         Amount = (int)o?.Amount,
+                         TotalPrice = o?.Price * o?.Amount
+                     }).ToList();
+
+            if (orderDO.DeliveryDate != null && orderDO.DeliveryDate < DateTime.Now)
+            {
+                orderDO.DeliveryDate = DateTime.Now;
+                Dal.Order.Update(orderDO);
+            }
+            // create order to return
+            BO.Order orderToReturn = new BO.Order()
+            {
+                ID = orderDO.ID,
+                CustomerName = orderDO.CustomerName,
+                CustomerEmail = orderDO.CustomerEmail,
+                CustomerAddress = orderDO.CustomerAddress,
+                Status = BO.OrderStatus.delivered,
+                OrderDate = orderDO.OrderDate,
+                ShipDate = orderDO.ShipDate,
+                DeliveryDate = DateTime.Now,
+                Items = v, //(List<BO.OrderItem?>)Tools.getBOList(dal.OrderItem.GetItemsList(orderDO.ID)),
+                TotalPrice = Tools.GetTotalPrice(itemsListDO!)
+
+            };
+
+        DO.Order orderToUpdate = (DO.Order)Tools.CopyPropToStruct(orderToReturn, typeof(DO.Order));// convert BO to DO
+        Dal.Order.Update(orderToUpdate);// update in DAL
+            return orderToReturn;
+        
        
-        return order;
+
+        //if ((ID < 1000) || (ID > 9999))//check the id
+        //    throw new BO.DoesntExistException("ID is out of range");
+        //BO.Order order = new BO.Order();
+        //DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
+        //order = DoOrderToBo(temp); //casting from bo to do
+
+        //if(order.Status != BO.OrderStatus.delivered)
+        //{
+        //    order.Status = BO.OrderStatus.delivered; //update the status to provided
+        //    order.DeliveryDate = DateTime.Now;//update the DeliveryDate date in bo
+        //    temp.DeliveryDate = order.DeliveryDate;//update the DeliveryDate date in do
+        //    //order.Status = BO.OrderStatus.delivered; //update the status
+        //}
+        //Dal?.Order.Update(temp);
+
+
+        //return order;
 
     }
     public BO.OrderTracking TrackOrder(int ID)

@@ -31,6 +31,39 @@ public static class Tools
         str += "\n";
         return str;
     }
+
+
+    //DO to BO
+    public static Target CopyPropTo<Source, Target>(this Source source, Target target)
+    {
+
+        if (source is not null && target is not null)
+        {
+            Dictionary<string, PropertyInfo> propertiesInfoTarget = target.GetType().GetProperties()
+                .ToDictionary(p => p.Name, p => p);
+
+            IEnumerable<PropertyInfo> propertiesInfoSource = source.GetType().GetProperties();
+
+            foreach (var propertyInfo in propertiesInfoSource)
+            {
+                if (propertiesInfoTarget.ContainsKey(propertyInfo.Name)
+                    && (propertyInfo.PropertyType == typeof(string) || !propertyInfo.PropertyType.IsClass))
+                {
+                    propertiesInfoTarget[propertyInfo.Name].SetValue(target, propertyInfo.GetValue(source));
+                }
+            }
+        }
+        return target;
+    }
+    // BO to DO
+    public static object CopyPropToStruct<S>(this S from, Type type)//get the type we want to copy to 
+    {
+        object copy = Activator.CreateInstance(type); // new object of the Type
+        from.CopyPropTo(copy);//copy הכל value of properties with the same name to the new object
+        return copy!;
+    }
+
+
     public static int getAmountOfProduct(List<BO.OrderItem> orderItemsList, int productId)
     {
         BO.OrderItem? temp = orderItemsList.Find(x => x?.ProductID == productId);

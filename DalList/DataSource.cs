@@ -7,17 +7,15 @@ using System.Reflection.Metadata;
 
 namespace Dal;
 
- internal class DataSource
+ public class DataSource
  {
-    internal static DataSource s_instance { get; } = new DataSource(); 
-    private DataSource() //defult ctor
-    {
-        s_Initialize();
-    }
+    internal static DataSource s_instance { get; } = new DataSource();
+    private DataSource() { s_Initialize(); }
     public readonly Random rand = new Random();
 
     //אתחול של הזמנה, מוצר ופריט בהזמנה
-    private void s_Initialize() {
+    private void s_Initialize()
+    {
         CreateOrder();
         CreateProduct();
         CreateOrderItem();
@@ -65,13 +63,13 @@ namespace Dal;
             Order o = new Order();
             o.ID = ConfigOrder.NextOrderNumber; //create an id
             o.CustomerName = " " + names[i];
-            o.CustomerEmail = " " + o.CustomerName+"@gmail.com";
-            o.CustomerAddress = " "+cities[i]+" " + i+z + "/" + z+3;//random adress+city
+            o.CustomerEmail = " " + o.CustomerName + "@gmail.com";
+            o.CustomerAddress = " " + cities[i] + " " + i + z + "/" + z + 3;//random adress+city
             o.OrderDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)); //order befor ship
             o.ShipDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));//ship befor deliverd
             o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
 
-            if(i<=16 && i >= 8) //certen amount of order status define different:
+            if (i<=16 && i >= 8) //certen amount of order status define different:
             {
                 o.DeliveryDate =null;
                 o.ShipDate = null;
@@ -80,6 +78,7 @@ namespace Dal;
             if (i <= 8)
                 o.DeliveryDate = null;
 
+            ///ListOrder.(o);
             ListOrder.Add(o); //adding the new order to the list
         }
     }

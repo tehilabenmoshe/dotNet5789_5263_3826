@@ -15,7 +15,8 @@
     <Grid Background="#FFF0F0F0">
         <Label Content="LIVE ORDER TRACKING" HorizontalAlignment="Left" Margin="217,49,0,0" VerticalAlignment="Top" FontFamily="Ploni 1.1 AAA" FontWeight="Bold" FontSize="36" Foreground="#DD420E0E"/>
 
-        <ListView x:Name="OrderlistView"   d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding}" BorderBrush="#FF090909" FontFamily="Ploni 1.1 AAA" Background="#FFF9DBDB" VerticalAlignment="Top" HorizontalAlignment="Center" Width="740" SelectionChanged="OrderlistView_SelectionChanged" Margin="0,158,0,0" Height="360">
+        <ListView x:Name="OrderlistView"   d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding}"  BorderBrush="#FF090909"
+                  FontFamily="Ploni 1.1 AAA" Background="#FFF9DBDB" VerticalAlignment="Top" HorizontalAlignment="Center" Width="740" MouseDoubleClick="doubleClickShowOrder" Margin="0,158,0,0" Height="360">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Order Information">
                     <GridViewColumn DisplayMemberBinding ="{Binding Path=ID}" Header="ID" Width="80"/>
