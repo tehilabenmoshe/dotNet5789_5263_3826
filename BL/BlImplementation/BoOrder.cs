@@ -16,6 +16,7 @@ namespace BlImplementation;
 internal class BoOrder : IBoOrder
 {
     DalApi.IDal? Dal = DalApi.Factory.Get();
+    public readonly Random rand = new Random();
     public IEnumerable<BO.OrderForList> getOrderForList()
     {
         IEnumerable<DO.Order?> order = Dal!.Order.GetAll().ToList();
@@ -131,18 +132,63 @@ internal class BoOrder : IBoOrder
     {
         if ((ID < 1000) || (ID > 9999))//check the id
             throw new BO.DoesntExistException("ID is out of range");
-        BO.Order order = new BO.Order();
-        DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("rder doesnt exists");
-        order=DoOrderToBo(temp); //casting from bo to do  
 
-        if(order.Status!=BO.OrderStatus.shipped) //of the order isnt sent yet
+
+        DO.Order orderDO = Dal!.Order.GetById(ID);// get order by id from DAL
+        IEnumerable<DO.OrderItem?> itemsListDO = Dal.OrderItem.GetItemsList(orderDO.ID);  // orderItem list of order (DO)                                          // copy details
+        var v = (from o in itemsListDO
+                 let name = Dal.Product.GetById((int)(o?.ProductID!)).Name
+                 select new BO.OrderItem
+                 {
+                     Name = name,
+                     ID = (int)(o?.ID!),
+                     ProductID = (int)(o?.ProductID!),
+                     Price = (int)o?.Price,
+                     Amount = (int)o?.Amount,
+                     TotalPrice = o?.Price * o?.Amount
+                 }).ToList();
+        if (orderDO.ShipDate != null && orderDO.ShipDate < DateTime.Now)
         {
-            order.Status = BO.OrderStatus.shipped; //update the status to sent 
-            order.ShipDate = DateTime.Now;//update the ship date in bo
-            temp.ShipDate = order.ShipDate;//update the ship date in do
+            //orderDO.ShipDate = DateTime.Now;
+            orderDO.ShipDate = orderDO.OrderDate + new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));//ship befor deliverd     
+            Dal.Order.Update(orderDO);
         }
-        Dal?.Order.Update(temp);
-        return order;
+        BO.Order orderToReturn = new BO.Order()
+        {
+            ID = orderDO.ID,
+            CustomerName = orderDO.CustomerName,
+            CustomerEmail = orderDO.CustomerEmail,
+            CustomerAddress = orderDO.CustomerAddress,
+            Status = BO.OrderStatus.shipped,
+            OrderDate = orderDO.OrderDate,
+            ShipDate = orderDO.OrderDate + new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)),//ship befor deliverd                                                                                                                                 // ShipDate = DateTime.Now,
+            DeliveryDate = orderDO.DeliveryDate,
+            Items = v,
+            //(List<BO.OrderItem?>)Tools.getBOList(dal.OrderItem.GetItemsList(orderDO.ID)),
+            TotalPrice = Tools.GetTotalPrice(itemsListDO!)
+        };
+        DO.Order orderToUpdate = (DO.Order)Tools.CopyPropToStruct(orderToReturn, typeof(DO.Order));
+        Dal.Order.Update(orderToUpdate);
+        return orderToReturn;
+
+
+
+
+
+
+
+        //BO.Order order = new BO.Order();
+        //DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("rder doesnt exists");
+        //order=DoOrderToBo(temp); //casting from bo to do  
+
+        //if(order.Status!=BO.OrderStatus.shipped) //of the order isnt sent yet
+        //{
+        //    order.Status = BO.OrderStatus.shipped; //update the status to sent 
+        //    order.ShipDate = DateTime.Now;//update the ship date in bo
+        //    temp.ShipDate = order.ShipDate;//update the ship date in do
+        //}
+        //Dal?.Order.Update(temp);
+        //return order;
     }
     public BO.Order UpdateProvisionOrder(int ID)
     {
@@ -170,7 +216,9 @@ internal class BoOrder : IBoOrder
 
             if (orderDO.DeliveryDate != null && orderDO.DeliveryDate < DateTime.Now)
             {
-                orderDO.DeliveryDate = DateTime.Now;
+
+              //  orderDO.DeliveryDate = DateTime.Now;
+                orderDO.DeliveryDate = orderDO.ShipDate + new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));//ship befor deliverd   
                 Dal.Order.Update(orderDO);
             }
             // create order to return
@@ -183,7 +231,8 @@ internal class BoOrder : IBoOrder
                 Status = BO.OrderStatus.delivered,
                 OrderDate = orderDO.OrderDate,
                 ShipDate = orderDO.ShipDate,
-                DeliveryDate = DateTime.Now,
+                DeliveryDate = orderDO.ShipDate + new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)),
+                //DeliveryDate = DateTime.Now,
                 Items = v, //(List<BO.OrderItem?>)Tools.getBOList(dal.OrderItem.GetItemsList(orderDO.ID)),
                 TotalPrice = Tools.GetTotalPrice(itemsListDO!)
 

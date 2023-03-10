@@ -13,7 +13,7 @@ namespace Dal;
     private DataSource() { s_Initialize(); }
     public readonly Random rand = new Random();
 
-    //אתחול של הזמנה, מוצר ופריט בהזמנה
+    //initialize:
     private void s_Initialize()
     {
         CreateOrder();
@@ -21,7 +21,7 @@ namespace Dal;
         CreateOrderItem();
     }
 
-    //הרשימות של הישויות:
+    //list of the entities:
     internal List<Product?> ListProduct { get; } = new List<Product?>() { };
     internal List<Order?> ListOrder { get; } = new List<Order?>() { };
     internal List<OrderItem?> ListOrderItem { get; } = new List<OrderItem?>() { };
@@ -65,9 +65,13 @@ namespace Dal;
             o.CustomerName = " " + names[i];
             o.CustomerEmail = " " + o.CustomerName + "@gmail.com";
             o.CustomerAddress = " " + cities[i] + " " + i + z + "/" + z + 3;//random adress+city
-            o.OrderDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)); //order befor ship
-            o.ShipDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));//ship befor deliverd
+            //o.OrderDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)); //order befor ship
+            //o.ShipDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));//ship befor deliverd
+            //o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
+
             o.DeliveryDate = DateTime.Now - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));
+            o.ShipDate = o.DeliveryDate - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L));//ship befor deliverd
+            o.OrderDate = o.ShipDate - new TimeSpan(rand.NextInt64(10L * 1000L * 1000L * 3600L * 24L * 10L)); //order befor ship
 
             if (i<=16 && i >= 8) //certen amount of order status define different:
             {
