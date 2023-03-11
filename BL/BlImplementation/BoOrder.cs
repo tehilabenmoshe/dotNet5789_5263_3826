@@ -65,17 +65,6 @@ internal class BoOrder : IBoOrder
             }
         }
         return tmp;
-        /* List<OrderItem>*/
-
-        //tmp = Loi.FindAll(o => o.OrderID == id);
-        //return tmp;
-
-
-        //List<DO.OrderItem> tmp = from var item in Loi
-        //where item.OrderID == id
-        //select item;
-
-        //return tmp;
     }
 
 
@@ -122,10 +111,6 @@ internal class BoOrder : IBoOrder
         }
         order.Items = boList; //adds thr nes list of order items that copied from do to order
         order.TotalPrice = cartTotalPrice;
-        //foreach (BO.OrderItem or in order.Items) //summing the total-price of each order item in order
-        //{
-        //    order.TotalPrice +=or.TotalPrice;
-        //}
         return order;
     }
     public BO.Order UpdateShipOrder(int ID)
@@ -172,23 +157,6 @@ internal class BoOrder : IBoOrder
         return orderToReturn;
 
 
-
-
-
-
-
-        //BO.Order order = new BO.Order();
-        //DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("rder doesnt exists");
-        //order=DoOrderToBo(temp); //casting from bo to do  
-
-        //if(order.Status!=BO.OrderStatus.shipped) //of the order isnt sent yet
-        //{
-        //    order.Status = BO.OrderStatus.shipped; //update the status to sent 
-        //    order.ShipDate = DateTime.Now;//update the ship date in bo
-        //    temp.ShipDate = order.ShipDate;//update the ship date in do
-        //}
-        //Dal?.Order.Update(temp);
-        //return order;
     }
     public BO.Order UpdateProvisionOrder(int ID)
     {
@@ -241,26 +209,6 @@ internal class BoOrder : IBoOrder
         DO.Order orderToUpdate = (DO.Order)Tools.CopyPropToStruct(orderToReturn, typeof(DO.Order));// convert BO to DO
         Dal.Order.Update(orderToUpdate);// update in DAL
             return orderToReturn;
-        
-       
-
-        //if ((ID < 1000) || (ID > 9999))//check the id
-        //    throw new BO.DoesntExistException("ID is out of range");
-        //BO.Order order = new BO.Order();
-        //DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
-        //order = DoOrderToBo(temp); //casting from bo to do
-
-        //if(order.Status != BO.OrderStatus.delivered)
-        //{
-        //    order.Status = BO.OrderStatus.delivered; //update the status to provided
-        //    order.DeliveryDate = DateTime.Now;//update the DeliveryDate date in bo
-        //    temp.DeliveryDate = order.DeliveryDate;//update the DeliveryDate date in do
-        //    //order.Status = BO.OrderStatus.delivered; //update the status
-        //}
-        //Dal?.Order.Update(temp);
-
-
-        //return order;
 
     }
     public BO.OrderTracking TrackOrder(int ID)
@@ -297,39 +245,6 @@ internal class BoOrder : IBoOrder
         {
             throw new BO.DoesntExistException(ex.Message, ex);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //try 
-        //{ 
-        //    BO.Order order = new BO.Order();
-        //    DO.Order temp = Dal?.Order.GetById(ID) ?? throw new BO.DoesntExistException("order doesnt exists");
-        //    order = DoOrderToBo(temp); //casting from bo to do
-        //    BO.OrderTracking ot = new BO.OrderTracking();
-        //    ot.ID = ID;
-        //    ot.Status = getStatus(order);
-        //    return ot;
-        //}
-        //catch (DO.DoesntExistExeption exp)
-        //{
-        //    throw new BO.DoesntExistException(exp.Message, exp); 
-        //}
-
 
 
     }
